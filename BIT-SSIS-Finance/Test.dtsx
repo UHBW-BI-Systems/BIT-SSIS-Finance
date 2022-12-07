@@ -12,8 +12,8 @@
   DTS:ObjectName="Test"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{07D3BECA-A24A-4850-BF86-38CC3472477F}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{B74A15E2-64C4-43BD-BF8B-561B2B9F8BC3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,13 +31,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
+      DTS:refId="Package\Execute SQL Task Test"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{2B395E07-695E-42A6-B4B1-9419DE42B76C}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
+      DTS:ObjectName="Execute SQL Task Test"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -61,8 +61,8 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Execute SQL Task"
+          Size="186.4,41.6"
+          Id="Package\Execute SQL Task Test"
           TopLeft="5.5,5.5" />
       </GraphLayout>
     </LayoutInfo>
