@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\ChiltonMic"
   DTS:DTSID="{BC8B45E2-77AB-4F87-9023-9675ACA2D5F3}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="Test"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{B74A15E2-64C4-43BD-BF8B-561B2B9F8BC3}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{F15A44B6-09CF-4A7A-89D7-2A58F5D3358A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,6 +24,8 @@
       DTS:ObjectName="BIT_TEST.Finance">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_TEST;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
