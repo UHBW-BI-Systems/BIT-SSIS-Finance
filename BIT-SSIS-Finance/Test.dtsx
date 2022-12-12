@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\ChiltonMic"
   DTS:DTSID="{BC8B45E2-77AB-4F87-9023-9675ACA2D5F3}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="Test"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{B74A15E2-64C4-43BD-BF8B-561B2B9F8BC3}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{62D9ACA3-1430-434D-B0A4-FFB3F1132741}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,6 +24,8 @@
       DTS:ObjectName="BIT_TEST.Finance">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_TEST;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -31,20 +33,20 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task Test"
+      DTS:refId="Package\Execute SQL Task"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{2B395E07-695E-42A6-B4B1-9419DE42B76C}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task Test"
+      DTS:ObjectName="Execute SQL Task"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3B9135CA-22D7-4105-91DF-8E1A874FFB7A}"
-          SQLTask:SqlStatementSource="SELECT COUNT(*) FROM tbl_pharmacy" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="SELECT COUNT(*),'blabla' as field1 FROM tbl_pharmacy" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -61,8 +63,8 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="186.4,41.6"
-          Id="Package\Execute SQL Task Test"
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
           TopLeft="5.5,5.5" />
       </GraphLayout>
     </LayoutInfo>
