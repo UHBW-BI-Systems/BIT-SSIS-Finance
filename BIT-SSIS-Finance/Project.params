@@ -43,7 +43,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="JAC_ConnectionString">
+    SSIS:Name="JAC_ConnectionString_Database">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{739d46ac-b0c6-4b02-b94d-cc1f311d3038}</SSIS:Property>

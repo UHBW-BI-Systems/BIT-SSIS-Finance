@@ -14,8 +14,8 @@
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="787"
-  DTS:VersionGUID="{D8085F0C-9DA6-4A71-93F0-68361B2255BA}">
+  DTS:VersionBuild="789"
+  DTS:VersionGUID="{6E7597EF-F101-4409-A43A-EF5E5EADFFA0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -119,7 +119,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">4/30/2023 1:39:15 PM</DTS:VariableValue>
+        DTS:DataType="7">4/30/2023 4:07:37 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -12426,6 +12426,46 @@ order by stored_date_of_issue_dt</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\freeze table\Success_BIT_DEV"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{e59dc5aa-2722-4adf-9246-7fc1cb67a11e}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Success_BIT_DEV"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{30ABC442-13FC-44CF-85A7-5B540465B841}"
+              SendMailTask:From="BISystemsTeamALL@uhbw.nhs.uk"
+              SendMailTask:To="marianne.jeffries@UHBW.nhs.uk"
+              SendMailTask:Subject="Pharmacy freeze table update on BIT_DEV"
+              SendMailTask:MessageSource="Dear all,&#xA;&#xA;The latest Pharmacy data has been added to the freeze table.&#xA;&#xA;BI Systems Team" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\freeze table\Success_BIT_TEST"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{8dca258e-f04d-49c0-9e98-5f775a4b4fc8}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Success_BIT_TEST"
+          DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{30ABC442-13FC-44CF-85A7-5B540465B841}"
+              SendMailTask:From="BISystemsTeamALL@uhbw.nhs.uk"
+              SendMailTask:To="marianne.jeffries@UHBW.nhs.uk"
+              SendMailTask:Subject="Pharmacy freeze table update on BIT_TEST"
+              SendMailTask:MessageSource="Dear all,&#xA;&#xA;The latest Pharmacy data has been added to the freeze table.&#xA;&#xA;BI Systems Team" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\freeze table\update freeze table flags"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -12456,6 +12496,8 @@ order by stored_date_of_issue_dt</property>
           DTS:refId="Package\freeze table.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
           DTS:DTSID="{3B75314B-1A2B-4745-87CF-480B61009D80}"
+          DTS:EvalOp="3"
+          DTS:Expression="SUBSTRING ( @[$Project::Finance_ConnectionString_Database], FINDSTRING ( @[$Project::Finance_ConnectionString_Database], &quot;=&quot;, 1) + 1,  FINDSTRING( @[$Project::Finance_ConnectionString_Database], &quot;;&quot;, 1 ) - FINDSTRING ( @[$Project::Finance_ConnectionString_Database], &quot;=&quot;, 1) -1 ) == &quot;BIT&quot;"
           DTS:From="Package\freeze table\update freeze table flags"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -12469,6 +12511,26 @@ order by stored_date_of_issue_dt</property>
           DTS:ObjectName="Constraint 2"
           DTS:To="Package\freeze table\Failure"
           DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\freeze table.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{4FDAF546-F2EB-4A6D-97DA-2D407BAE2914}"
+          DTS:EvalOp="3"
+          DTS:Expression="SUBSTRING ( @[$Project::Finance_ConnectionString_Database], FINDSTRING ( @[$Project::Finance_ConnectionString_Database], &quot;=&quot;, 1) + 1,  FINDSTRING( @[$Project::Finance_ConnectionString_Database], &quot;;&quot;, 1 ) - FINDSTRING ( @[$Project::Finance_ConnectionString_Database], &quot;=&quot;, 1) -1 ) == &quot;BIT_DEV&quot;"
+          DTS:From="Package\freeze table\update freeze table flags"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\freeze table\Success_BIT_DEV" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\freeze table.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{3C7754CA-886B-4A65-B58F-A802EE0FD543}"
+          DTS:EvalOp="3"
+          DTS:Expression="SUBSTRING ( @[$Project::Finance_ConnectionString_Database], FINDSTRING ( @[$Project::Finance_ConnectionString_Database], &quot;=&quot;, 1) + 1,  FINDSTRING( @[$Project::Finance_ConnectionString_Database], &quot;;&quot;, 1 ) - FINDSTRING ( @[$Project::Finance_ConnectionString_Database], &quot;=&quot;, 1) -1 ) == &quot;BIT_TEST&quot;"
+          DTS:From="Package\freeze table\update freeze table flags"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\freeze table\Success_BIT_TEST" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -22143,7 +22205,7 @@ FROM Finance.import.tbl_pharmacy_WGH AS puhb
               DTS:LocaleID="-1"
               DTS:ObjectName="add row to string var"
               DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:ObjectData>
                 <ExpressionTask
@@ -22169,7 +22231,7 @@ FROM Finance.import.tbl_pharmacy_WGH AS puhb
           DTS:LocaleID="-1"
           DTS:ObjectName="Send Mail Task"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="4">
           <DTS:Variables />
           <DTS:ObjectData>
             <SendMailTask:SendMailTaskData
@@ -26449,7 +26511,7 @@ ORDER BY ph.patient_trust_number;</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\check run_date"
@@ -26491,7 +26553,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="122.224056093355,60.8247769517102">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,23.5757798211721"
               Start="0,0"
               End="0,16.0757798211721">
@@ -26513,7 +26575,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="124.42971625784,197.470281731667">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,27.4637560937266"
               Start="0,0"
               End="0,19.9637560937266">
@@ -26535,7 +26597,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="121.461043142938,126.000556772882">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,29.869724958785"
               Start="0,0"
               End="0,22.369724958785">
@@ -26562,11 +26624,11 @@ ORDER BY ph.patient_trust_number;</property>
         <NodeLayout
           Size="110.4,41.6"
           Id="Package\freeze table\Failure"
-          TopLeft="162.536272825738,164.117654689868" />
+          TopLeft="245.39341709393,164.882360582946" />
         <NodeLayout
           Size="169.6,41.6"
           Id="Package\freeze table\freeze table update"
-          TopLeft="60.8571434166966,13.1647128212408" />
+          TopLeft="99.4285726449928,16.2235363935513" />
         <NodeLayout
           Size="115.2,41.6"
           Id="Package\freeze table\Success"
@@ -26574,21 +26636,21 @@ ORDER BY ph.patient_trust_number;</property>
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\freeze table\update freeze table flags"
-          TopLeft="48.714286067048,88.870596235929" />
+          TopLeft="88.7142867482439,91.1647139151619" />
         <EdgeLayout
           Id="Package\freeze table.PrecedenceConstraints[Constraint]"
-          TopLeft="145.985714741872,54.7647128212408">
+          TopLeft="185.271429696618,57.8235363935513">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.1058834146882"
+              StartConnector="{x:Null}"
+              EndConnector="0,33.3411775216106"
               Start="0,0"
-              End="0,26.6058834146882">
+              End="0,25.8411775216106">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.6058834146882" />
+                    End="0,25.8411775216106" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -26599,79 +26661,161 @@ ORDER BY ph.patient_trust_number;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\freeze table.PrecedenceConstraints[Constraint 1]"
-          TopLeft="115.114286067048,130.470596235929">
+          TopLeft="130.154286748244,132.764713915162">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-34.2087848431645,34.894117889602"
+              StartConnector="{x:Null}"
+              EndConnector="-49.2487855243604,32.6000002103691"
               Start="0,0"
-              End="-34.2087848431645,27.394117889602">
+              End="-49.2487855243604,25.1000002103691">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.1278623650584" />
+                    End="0,5.71622560930449" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10.1278623650584"
-                    Point2="0,14.1278623650584"
-                    Point3="-4,14.1278623650584" />
+                    Point1="0,5.71622560930449"
+                    Point2="0,9.71622560930449"
+                    Point3="-4,9.71622560930449" />
                   <mssgle:LineSegment
-                    End="-30.2087848431645,14.1278623650584" />
+                    End="-45.2487855243604,9.71622560930449" />
                   <mssgle:CubicBezierSegment
-                    Point1="-30.2087848431645,14.1278623650584"
-                    Point2="-34.2087848431645,14.1278623650584"
-                    Point3="-34.2087848431645,18.1278623650584" />
+                    Point1="-45.2487855243604,9.71622560930449"
+                    Point2="-49.2487855243604,9.71622560930449"
+                    Point3="-49.2487855243604,13.7162256093045" />
                   <mssgle:LineSegment
-                    End="-34.2087848431645,27.394117889602" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\freeze table.PrecedenceConstraints[Constraint 2]"
-          TopLeft="177.514286067048,130.470596235929">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="40.22198675869,33.647058453939"
-              Start="0,0"
-              End="40.22198675869,26.147058453939">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9.62295537403384" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.62295537403384"
-                    Point2="0,13.6229553740338"
-                    Point3="4,13.6229553740338" />
-                  <mssgle:LineSegment
-                    End="36.22198675869,13.6229553740338" />
-                  <mssgle:CubicBezierSegment
-                    Point1="36.22198675869,13.6229553740338"
-                    Point2="40.22198675869,13.6229553740338"
-                    Point3="40.22198675869,17.6229553740338" />
-                  <mssgle:LineSegment
-                    End="40.22198675869,26.147058453939" />
+                    End="-49.2487855243604,25.1000002103691" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="4.869645723095,18.6229553740338,30.4826953125,9.7490234375"
+              BoundingBox="-32.6243927621802,14.7162256093045,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\freeze table.PrecedenceConstraints[Constraint 2]"
+          TopLeft="242.474286748244,132.764713915162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="58.1191303456856,32.1176466677838"
+              Start="0,0"
+              End="58.1191303456856,24.6176466677838">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,5.5724631610541" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,5.5724631610541"
+                    Point2="0,9.5724631610541"
+                    Point3="4,9.5724631610541" />
+                  <mssgle:LineSegment
+                    End="54.1191303456856,9.5724631610541" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.1191303456856,9.5724631610541"
+                    Point2="58.1191303456856,9.5724631610541"
+                    Point3="58.1191303456856,13.5724631610541" />
+                  <mssgle:LineSegment
+                    End="58.1191303456856,24.6176466677838" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="13.8182175165928,14.5724631610541,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\freeze table\Success_BIT_DEV"
+          TopLeft="64.2000086000987,244.188242286629" />
+        <EdgeLayout
+          Id="Package\freeze table.PrecedenceConstraints[Constraint 3]"
+          TopLeft="167.594286748244,132.764713915162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-19.3942781481452,111.423528371467"
+              Start="0,0"
+              End="-19.3942781481452,103.923528371467">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.8021754189786" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.8021754189786"
+                    Point2="0,49.8021754189786"
+                    Point3="-4,49.8021754189786" />
+                  <mssgle:LineSegment
+                    End="-15.3942781481452,49.8021754189786" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.3942781481452,49.8021754189786"
+                    Point2="-19.3942781481452,49.8021754189786"
+                    Point3="-19.3942781481452,53.8021754189786" />
+                  <mssgle:LineSegment
+                    End="-19.3942781481452,103.923528371467" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.6971390740726,54.8021754189786,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\freeze table\Success_BIT_TEST"
+          TopLeft="157.600007493155,299.235299941166" />
+        <EdgeLayout
+          Id="Package\freeze table.PrecedenceConstraints[Constraint 4]"
+          TopLeft="205.034286748244,132.764713915162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="36.5657207449114,166.470586026004"
+              Start="0,0"
+              End="36.5657207449114,158.970586026004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.4061640170624" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70.4061640170624"
+                    Point2="0,74.4061640170624"
+                    Point3="4,74.4061640170624" />
+                  <mssgle:LineSegment
+                    End="32.5657207449114,74.4061640170624" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.5657207449114,74.4061640170624"
+                    Point2="36.5657207449114,74.4061640170624"
+                    Point3="36.5657207449114,78.4061640170624" />
+                  <mssgle:LineSegment
+                    End="36.5657207449114,158.970586026004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="10.2828603724557,79.4061640170624,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="294.4,261.6"
-          Size="294.4,304.8"
+          PanelSize="381.6,358.4"
+          Size="381.6,401.6"
           Id="Package\freeze table"
           TopLeft="586.16112094351,1541.49870644097" />
         <NodeLayout
@@ -26691,7 +26835,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="265.828571282601,31.8316319495209">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-0.577861861903784,63.8271936283109"
               Start="0,0"
               End="6.92213813809622,63.8271936283109">
@@ -26725,7 +26869,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="139.236427142802,116.458825577832">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,25.8588246662308"
               Start="0,0"
               End="0,18.3588246662308">
@@ -26784,7 +26928,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="151.012712520483,253.175169226977">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,31.0130723303721"
               Start="0,0"
               End="0,23.5130723303721">
@@ -26806,7 +26950,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="150.426997778611,51.2705911309661">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,48.3045780960114"
               Start="0,0"
               End="0,40.8045780960114">
@@ -26849,7 +26993,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="85.5015870853345,56.2158227425246">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,28.7736341251285"
               Start="0,0"
               End="0,21.2736341251285">
@@ -26871,7 +27015,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="87.2048515938867,128.989456867653">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,25.6534713180114"
               Start="0,0"
               End="0,18.1534713180114">
@@ -26924,7 +27068,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="112.23129080491,138.184387944357">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,28.4097373011586"
               Start="0,0"
               End="0,20.9097373011586">
@@ -26946,7 +27090,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="113.874151347665,223.394125245516">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,26.2294095071555"
               Start="0,0"
               End="0,18.7294095071555">
@@ -26968,7 +27112,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="114.859437346957,300.023534752671">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,34.0812218778645"
               Start="0,0"
               End="0,26.5812218778645">
@@ -26990,7 +27134,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="115.628571708348,375.704756630536">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,35.059955461425"
               Start="0,0"
               End="0,27.559955461425">
@@ -27012,7 +27156,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="112.649730412605,57.7554203184992">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,24.4289676258582"
               Start="0,0"
               End="0,16.9289676258582">
@@ -27053,7 +27197,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="101.658759876697,54.2347896529498">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,24.132519176195"
               Start="0,0"
               End="0,16.632519176195">
@@ -27075,7 +27219,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="103.85067365982,122.367308829145">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,28.7980021446832"
               Start="0,0"
               End="0,21.2980021446832">
@@ -27128,7 +27272,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="205.028583373829,53.8588283126331">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-65.4571428206503,24.9764719931726"
               Start="0,0"
               End="-65.4571428206503,17.4764719931726">
@@ -27162,7 +27306,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="139.571440553179,120.435300305806">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="65.8285714528998,25.8470602070174"
               Start="0,0"
               End="65.8285714528998,18.3470602070174">
@@ -27196,7 +27340,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="205.400012006079,187.882360512823">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-41.6285713677505,23.1176436805391"
               Start="0,0"
               End="-41.6285713677505,15.6176436805391">
@@ -27253,7 +27397,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="121.757143203823,52.3882410103889">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,23.6117662824146"
               Start="0,0"
               End="0,16.1117662824146">
@@ -27275,7 +27419,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="123.142857519948,117.600007292803">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,23.3764727224528"
               Start="0,0"
               End="0,15.8764727224528">
@@ -27304,7 +27448,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="178.632507705409,127.394118773154">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,27.0764716285322"
               Start="0,0"
               End="0,19.5764716285322">
@@ -27326,7 +27470,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="286.580378209604,240.186794458352">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="114.148193669044,-80.9456227709845"
               Start="0,0"
               End="106.648193669044,-80.9456227709845">
@@ -27360,7 +27504,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="185.521429803055,1503.84119073983">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,31.9882348114991"
               Start="0,0"
               End="0,24.4882348114991">
@@ -27382,7 +27526,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="279.62143018623,1559.31765844848">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="80.2000045129231,0"
               Start="0,0"
               End="72.7000045129231,0">
@@ -27401,37 +27545,37 @@ ORDER BY ph.patient_trust_number;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="511.021434699151,1562.00589134561">
+          TopLeft="511.021434699152,1562.00589134562">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="75.1396862443604,114.692815095354"
+              StartConnector="{x:Null}"
+              EndConnector="75.1396862443581,180.29281509535"
               Start="0,0"
-              End="67.6396862443604,114.692815095354">
+              End="67.6396862443581,180.29281509535">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="33.56984312218,0" />
+                    End="33.569843122179,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="33.56984312218,0"
-                    Point2="37.56984312218,0"
-                    Point3="37.56984312218,4" />
+                    Point1="33.569843122179,0"
+                    Point2="37.569843122179,0"
+                    Point3="37.569843122179,4" />
                   <mssgle:LineSegment
-                    End="37.56984312218,110.692815095354" />
+                    End="37.569843122179,176.29281509535" />
                   <mssgle:CubicBezierSegment
-                    Point1="37.56984312218,110.692815095354"
-                    Point2="37.56984312218,114.692815095354"
-                    Point3="41.56984312218,114.692815095354" />
+                    Point1="37.569843122179,176.29281509535"
+                    Point2="37.569843122179,180.29281509535"
+                    Point3="41.569843122179,180.29281509535" />
                   <mssgle:LineSegment
-                    End="67.6396862443604,114.692815095354" />
+                    End="67.6396862443581,180.29281509535" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="29.56984312218,-22,16,16"
+              BoundingBox="29.569843122179,-22,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -27440,7 +27584,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="640.728571878648,160.138233170625">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="40.7000111545842,0"
               Start="0,0"
               End="33.2000111545842,0">
@@ -27462,7 +27606,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="176.533046667325,196.070590401686">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,23.316204056666"
               Start="0,0"
               End="0,15.816204056666">
@@ -27484,7 +27628,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="1229.75001726406,637.685298528185">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-1063.46192097883,42.7839907481876"
               Start="0,0"
               End="-1063.46192097883,35.2839907481876">
@@ -27518,7 +27662,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="1300.41668393073,637.685298528185">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-11.3595279970568,74.5617638666731"
               Start="0,0"
               End="-11.3595279970568,67.0617638666731">
@@ -27552,7 +27696,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="828.228583033232,283.835294653883">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="401.521434230828,30.6500038743023"
               Start="0,0"
               End="401.521434230828,23.1500038743023">
@@ -27586,7 +27730,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="166.288096285231,782.869289276373">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-9.94761941457043,25.813395150378"
               Start="0,0"
               End="-9.94761941457043,18.313395150378">
@@ -27620,7 +27764,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="272.740476870662,1061.48268442675">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="81.922227581908,-51.8401920146595"
               Start="0,0"
               End="74.422227581908,-51.8401920146595">
@@ -27654,7 +27798,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="599.462704452569,1012.21765580483">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="41.7047666204219,0"
               Start="0,0"
               End="34.2047666204219,0">
@@ -27676,7 +27820,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="839.567471072991,1014.79281919756">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="48.8373058930904,8.55620992667707"
               Start="0,0"
               End="41.3373058930904,8.55620992667707">
@@ -27710,7 +27854,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="975.334338505858,1150.54902912424">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,83.4301172307871"
               Start="0,0"
               End="0,75.9301172307871">
@@ -27732,7 +27876,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="975.863900045635,1275.57914635503">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-790.642470029705,116.630675532223"
               Start="0,0"
               End="-790.642470029705,109.130675532223">
@@ -27766,7 +27910,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="184.521429717906,1433.80982188725">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,28.431368852569"
               Start="0,0"
               End="0,20.931368852569">
@@ -27786,7 +27930,7 @@ ORDER BY ph.patient_trust_number;</property>
         <AnnotationLayout
           Text="Developed by: Marianne Jeffries&#xA;Service desk no.: SD530566&#xA;Purpose: automate load from source JAC database&#xA;Details: see SharePoint Finance Pharmacy Load&#xA;&#xA;Additional requirements:&#xA;03 fields added, extracts updated: Nov-2021&#xA;Extract from JAC amended: Jan-2022&#xA;permissions are not being kept on BIT, filters/Jenkins: Jan-2022&#xA;Extract from JAC amended for duplicate entries to do with the unit of measure: Jan-2022&#xA;Missing demographics: Feb-2022&#xA;Weston patients missing demographic data, script to update: March-2022&#xA;Historical missing values for Bevacizumab, Nivolumab &amp; Venetoclax, script to update: March-2022&#xA;Issue with Finance downstream process to import data, corrected their script: June-2022&#xA;Lloyds outpatients pharmacy data: July-2022&#xA;SD886476 Pharmacy Extract: Dec-2022&#xA;Split PSU drugs for FY: March-2023&#xA;Amend email recipients: March-2023"
           ParentId="Package"
-          FontInfo="{assembly:Null}"
+          FontInfo="{x:Null}"
           Size="545.6,311.2"
           Id="1a841f25-417a-437c-bd72-738b5cd2a551"
           TopLeft="999.412700855002,6.37254819737987" />
