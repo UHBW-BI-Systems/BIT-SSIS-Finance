@@ -13,8 +13,8 @@
   DTS:ObjectName="mds_spell"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{673FCF0D-41F0-4506-B911-2F1DF18E75D6}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{FA0BFF87-FFC9-4311-91EB-A8B242999A62}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -240,6 +240,7 @@
               DTS:Description="Data Flow Task"
               DTS:DTSID="{afafcf0c-0fb3-4ab5-9317-29f418898b63}"
               DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:ForceExecutionResult="1"
               DTS:LocaleID="-1"
               DTS:ObjectName="Data Flow Task"
               DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
@@ -1686,7 +1687,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{1FE45911-2E39-4098-89D3-108427DA8676}"
+              SQLTask:Connection="{2F2B5BFF-3C77-4A3A-A684-8B1DD214E0B6}"
               SQLTask:SqlStatementSource="Truncate table import.mds_apc_spell" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
@@ -1882,7 +1883,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\OLE DB Destination"
-          TopLeft="251.666656666332,141.266667789353" />
+          TopLeft="247.499990165234,142.133334462907" />
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source"
@@ -1893,26 +1894,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="156.666660838657,58.9333341323002"
+              EndConnector="152.499994337558,59.8000008058545"
               Start="0,0"
-              End="156.666660838657,51.4333341323002">
+              End="152.499994337558,52.3000008058545">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.4666670661501" />
+                    End="0,25.9000004029272" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.4666670661501"
-                    Point2="0,29.4666670661501"
-                    Point3="4,29.4666670661501" />
+                    Point1="0,25.9000004029272"
+                    Point2="0,29.9000004029272"
+                    Point3="4,29.9000004029272" />
                   <mssgle:LineSegment
-                    End="152.666660838657,29.4666670661501" />
+                    End="148.499994337558,29.9000004029272" />
                   <mssgle:CubicBezierSegment
-                    Point1="152.666660838657,29.4666670661501"
-                    Point2="156.666660838657,29.4666670661501"
-                    Point3="156.666660838657,33.4666670661501" />
+                    Point1="148.499994337558,29.9000004029272"
+                    Point2="152.499994337558,29.9000004029272"
+                    Point3="152.499994337558,33.9000004029272" />
                   <mssgle:LineSegment
-                    End="156.666660838657,51.4333341323002" />
+                    End="152.499994337558,52.3000008058545" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
