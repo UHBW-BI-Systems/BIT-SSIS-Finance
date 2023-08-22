@@ -8,13 +8,13 @@
   DTS:DelayValidation="True"
   DTS:DTSID="{2995347B-36D7-4173-A4BB-DD01585F87BB}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_sus_spell"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="71"
-  DTS:VersionGUID="{D2A3C48F-8711-4B6A-8B96-74C3B972D56B}">
+  DTS:VersionBuild="76"
+  DTS:VersionGUID="{80A6AA02-DAC8-4069-8F86-CA65751B1C57}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,8 +28,6 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Retain="True"
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -58,7 +56,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Hospital Provider Spell No"
-              DTS:DTSID="{569F07D5-EC17-4A5B-A9F1-3C48EC1415C4}"
+              DTS:DTSID="{AA59212A-7FC1-4EB1-A850-B6D80792D04F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -67,7 +65,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Identifier"
-              DTS:DTSID="{36CEE992-275A-4A1D-BFBB-69DBBBDA4D91}"
+              DTS:DTSID="{6EE3F5E3-7B90-441D-803F-70D0E8E55755}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -76,7 +74,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Local Patient Identifier"
-              DTS:DTSID="{C4ACA7EF-C8B6-41D2-BD4A-00FDE6E9A6AE}"
+              DTS:DTSID="{FC8ACA33-C12F-4EDA-BAF3-5680BDB7D20E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -85,7 +83,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NHS Number"
-              DTS:DTSID="{8E7F5A78-326F-47AD-B249-C745A8AE80B3}"
+              DTS:DTSID="{3CA17B84-5053-450A-BD75-DE6C3575A50A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -94,7 +92,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Start Date (Hospital Provider Spell)"
-              DTS:DTSID="{21BDF5AA-2D6B-478E-9C10-445BD6098BA5}"
+              DTS:DTSID="{88DF772F-585C-48FD-925C-70FBF2DFBAFE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -103,7 +101,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="End Date (Hospital Provider Spell)"
-              DTS:DTSID="{C348E968-8BEE-47D9-9D1A-7A2784AAA965}"
+              DTS:DTSID="{322B1834-9543-48D0-9727-574EE0B0A8A6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -112,7 +110,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Derived Commissioner"
-              DTS:DTSID="{C6909B92-0AF6-4250-AF18-1310AAD7F605}"
+              DTS:DTSID="{67CC5E65-F63F-4E32-A68C-F9830E1B3A76}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -121,7 +119,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Derived Commissioner Type"
-              DTS:DTSID="{977400D6-663C-4578-9475-E4A6BA59A708}"
+              DTS:DTSID="{AB4474F8-EEA7-4B3E-A18F-EEBF161EDD33}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -130,7 +128,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Service Line"
-              DTS:DTSID="{41400DE4-46C2-4A3C-9B2A-EAE046EB63DE}"
+              DTS:DTSID="{C7B82571-E479-46C2-BDDA-DC2C1C9E2D6E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -139,7 +137,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell NPOC"
-              DTS:DTSID="{23757C7C-F893-4CFD-9497-0539118D4EAA}"
+              DTS:DTSID="{15E43F0E-0141-4F1B-A2D7-29C651DAF87D}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -156,7 +154,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="curr_dttm">
       <DTS:VariableValue
-        DTS:DataType="7">7/28/2023 11:35:57 AM</DTS:VariableValue>
+        DTS:DataType="7">8/22/2023 10:35:28 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1007,6 +1005,36 @@
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
+              DTS:refId="Package\Sequence Container Import\Foreach Loop Container\Populate Loads Table"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{253157b5-88d7-447f-9bc7-38551d7aa346}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Populate Loads Table"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{F57F10F7-B2DB-4F59-88DD-92DC90379374}"
+                  SQLTask:SqlStatementSource="DECLARE @count INT&#xA;SET @count = (SELECT COUNT(*) from import.mds_sus_apc_spell)&#xA;&#xA;INSERT INTO import.loads&#xA;(&#xA;    load_date,&#xA;    load_type,&#xA;    number_of_records,&#xA;    filename&#xA;)&#xA;VALUES&#xA;(   ?, -- load_date - datetime&#xA;    'APCSPL',        -- load_type - varchar(6)&#xA;    @count,         -- number_of_records - int&#xA;    ?         -- filename - varchar(255)&#xA;    )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::curr_dttm"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="7"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::filename"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
               DTS:refId="Package\Sequence Container Import\Foreach Loop Container\Reject spells without hosp prov spell no"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
@@ -1040,15 +1068,6 @@
                   VSTAMinorVersion="0"
                   Language="CSharp"
                   ReadOnlyVariables="User::filename,$Project::Dataload_Directory">
-                  <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -1171,6 +1190,35 @@
                   <ProjectItem
                     Name="ST_8bb0c17ba5a94ce0a381e9ce9b9b2f3d.csproj"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProductVersion>8.0.30703</ProductVersion><SchemaVersion>2.0</SchemaVersion><ProjectGuid>{a65d76fc-39ad-4a56-a648-5f99edb8574d}</ProjectGuid><OutputType>Library</OutputType><AppDesignerFolder>Properties</AppDesignerFolder><RootNamespace>ST_4c8d1f291f424f0a8e284f13da57274d</RootNamespace><AssemblyName>ST_8bb0c17ba5a94ce0a381e9ce9b9b2f3d</AssemblyName><TargetFrameworkVersion>v4.7</TargetFrameworkVersion><FileAlignment>512</FileAlignment><ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><Optimize>false</Optimize><OutputPath>.\bin\Debug\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>DEBUG;TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>.\bin\Release\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.ManagedDTS, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /><Reference Include="Microsoft.SqlServer.ScriptTask, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /></ItemGroup><ItemGroup><AppDesigner Include="Properties\" /><Compile Include="Properties\AssemblyInfo.cs"><SubType>Code</SubType></Compile><EmbeddedResource Include="Properties\Resources.resx"><Generator>ResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.cs</LastGenOutput></EmbeddedResource><Compile Include="Properties\Resources.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Resources.resx</DependentUpon></Compile><None Include="Properties\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.cs</LastGenOutput></None><Compile Include="Properties\Settings.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon></Compile><Compile Include="ScriptMain.cs"><SubType>Code</SubType></Compile></ItemGroup><!-- Include the build rules for a C# project.--><Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" /><Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host><ProjectClient><HostIdentifier>SSIS_ST150</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Settings.Designer.cs"
+                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_4c8d1f291f424f0a8e284f13da57274d.Properties.Settings.get_Default():ST_4c8d1f291f424f0a8e284f13da57274d.Properties.Sett" +
+    "ings")]
+
+namespace ST_4c8d1f291f424f0a8e284f13da57274d.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
                   <ProjectItem
                     Name="ScriptMain.cs"
                     Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -1318,35 +1366,6 @@ namespace ST_4c8d1f291f424f0a8e284f13da57274d
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
                   <ProjectItem
-                    Name="Properties\Settings.Designer.cs"
-                    Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_4c8d1f291f424f0a8e284f13da57274d.Properties.Settings.get_Default():ST_4c8d1f291f424f0a8e284f13da57274d.Properties.Sett" +
-    "ings")]
-
-namespace ST_4c8d1f291f424f0a8e284f13da57274d.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
-                  <ProjectItem
                     Name="Properties\AssemblyInfo.cs"
                     Encoding="UTF8"><![CDATA[using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -1376,6 +1395,15 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 
 [assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                  <ProjectItem
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -1578,10 +1606,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\Sequence Container Import\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
               DTS:CreationName=""
-              DTS:DTSID="{0E3D8A02-F4C1-469E-9AF2-7C85A0C665B5}"
+              DTS:DTSID="{872BC5BF-2428-4C1F-A2BD-8B638EFA2F29}"
               DTS:From="Package\Sequence Container Import\Foreach Loop Container\Reject spells without hosp prov spell no"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Sequence Container Import\Foreach Loop Container\Populate Loads Table" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Sequence Container Import\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{CA242C4C-6A34-4FF7-A882-21D526F4231E}"
+              DTS:From="Package\Sequence Container Import\Foreach Loop Container\Populate Loads Table"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
               DTS:To="Package\Sequence Container Import\Foreach Loop Container\Script Task - Delete file after processing" />
           </DTS:PrecedenceConstraints>
           <DTS:ForEachVariableMappings>
@@ -1652,7 +1688,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="198.4,41.6"
           Id="Package\Sequence Container - Final dbo\Execute final merge sproc"
@@ -1680,13 +1716,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           Id="Package\Sequence Container Import\Foreach Loop Container\Data Flow Task"
           TopLeft="71.6666606399752,21.1333346902003" />
         <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Sequence Container Import\Foreach Loop Container\Populate Loads Table"
+          TopLeft="60.7857109328518,193.800000132487" />
+        <NodeLayout
           Size="260,41.6"
           Id="Package\Sequence Container Import\Foreach Loop Container\Reject spells without hosp prov spell no"
           TopLeft="18.4999959270161,106.133334710863" />
         <NodeLayout
           Size="262.4,41.6"
           Id="Package\Sequence Container Import\Foreach Loop Container\Script Task - Delete file after processing"
-          TopLeft="20.8333293265765,196.200001591048" />
+          TopLeft="32.8333295309353,274.5058850422" />
         <EdgeLayout
           Id="Package\Sequence Container Import\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           TopLeft="147.683328283496,62.7333346902003">
@@ -1711,18 +1751,40 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container Import\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="150.266662626796,147.733334710863">
+          TopLeft="149.442853429934,147.733334710863">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.4666668801847"
+              EndConnector="0,46.0666654216242"
               Start="0,0"
-              End="0,40.9666668801847">
+              End="0,38.5666654216242">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.9666668801847" />
+                    End="0,38.5666654216242" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container Import\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="151.209520129714,235.400000132487">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.1058849097124"
+              Start="0,0"
+              End="0,31.6058849097124">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6058849097124" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1734,8 +1796,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="337.6,293.6"
-          Size="337.6,336.8"
+          PanelSize="359.2,394.4"
+          Size="359.2,437.6"
           Id="Package\Sequence Container Import\Foreach Loop Container"
           TopLeft="29.7999966224037,190.400001983643" />
         <NodeLayout
@@ -1748,26 +1810,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="43.7333347903359,124.866668491894"
+              EndConnector="54.5333347903359,124.866668491894"
               Start="0,0"
-              End="43.7333347903359,117.366668491894">
+              End="54.5333347903359,117.366668491894">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.4333342459469" />
+                    End="0,58.4333342459468" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,58.4333342459469"
-                    Point2="0,62.4333342459469"
-                    Point3="4,62.4333342459469" />
+                    Point1="0,58.4333342459468"
+                    Point2="0,62.4333342459468"
+                    Point3="4,62.4333342459468" />
                   <mssgle:LineSegment
-                    End="39.7333347903359,62.4333342459469" />
+                    End="50.5333347903359,62.4333342459468" />
                   <mssgle:CubicBezierSegment
-                    Point1="39.7333347903359,62.4333342459469"
-                    Point2="43.7333347903359,62.4333342459469"
-                    Point3="43.7333347903359,66.4333342459469" />
+                    Point1="50.5333347903359,62.4333342459468"
+                    Point2="54.5333347903359,62.4333342459468"
+                    Point3="54.5333347903359,66.4333342459468" />
                   <mssgle:LineSegment
-                    End="43.7333347903359,117.366668491894" />
+                    End="54.5333347903359,117.366668491894" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1779,19 +1841,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="390.4,582.4"
-          Size="390.4,625.6"
+          PanelSize="390.4,683.2"
+          Size="390.4,726.4"
           Id="Package\Sequence Container Import"
           TopLeft="54.9999978144965,29.4666669008468" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="445.399997814496,342.266666900847">
+          TopLeft="445.399997814496,392.666666900847">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="79.5999813238785,-113.733333223131"
+              EndConnector="79.5999813238785,-164.133333223131"
               Start="0,0"
-              End="72.0999813238785,-113.733333223131">
+              End="72.0999813238785,-164.133333223131">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1802,13 +1864,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                     Point2="39.7999906619393,0"
                     Point3="39.7999906619393,-4" />
                   <mssgle:LineSegment
-                    End="39.7999906619393,-109.733333223131" />
+                    End="39.7999906619393,-160.133333223131" />
                   <mssgle:CubicBezierSegment
-                    Point1="39.7999906619393,-109.733333223131"
-                    Point2="39.7999906619393,-113.733333223131"
-                    Point3="43.7999906619393,-113.733333223131" />
+                    Point1="39.7999906619393,-160.133333223131"
+                    Point2="39.7999906619393,-164.133333223131"
+                    Point3="43.7999906619393,-164.133333223131" />
                   <mssgle:LineSegment
-                    End="72.0999813238785,-113.733333223131" />
+                    End="72.0999813238785,-164.133333223131" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

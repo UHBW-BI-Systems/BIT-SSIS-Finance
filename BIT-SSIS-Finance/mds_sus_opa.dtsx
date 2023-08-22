@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\marshsylz"
   DTS:DTSID="{18A38A95-2754-425C-B60C-BD0647FBC492}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_sus_opa"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{41FB57CA-6B6E-4D0C-97C3-68B233216B31}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{5E6BF2F9-0D2D-499D-921B-E33098C99F71}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,8 +27,6 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Retain="True"
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -632,7 +630,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="curr_dttm">
       <DTS:VariableValue
-        DTS:DataType="7">7/28/2023 11:36:10 AM</DTS:VariableValue>
+        DTS:DataType="7">8/22/2023 10:34:48 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -650,6 +648,7 @@
       DTS:refId="Package\Sequence Container - Final"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{4EEB548F-4510-4544-B663-5A4EFBFDF6F5}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -3680,6 +3679,36 @@
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
+              DTS:refId="Package\Sequence Container - Import\Foreach Loop Container\Populate Loads Table"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{1fd3a7ae-ead5-4b59-8c02-fb0ee45f0d61}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Populate Loads Table"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{70832826-2215-4155-ACCC-61F7E8AB201F}"
+                  SQLTask:SqlStatementSource="DECLARE @count INT&#xA;SET @count = (SELECT COUNT(*) from import.mds_sus_opa)&#xA;&#xA;INSERT INTO import.loads&#xA;(&#xA;    load_date,&#xA;    load_type,&#xA;    number_of_records,&#xA;    filename&#xA;)&#xA;VALUES&#xA;(   ?, -- load_date - datetime&#xA;    'OPA',        -- load_type - varchar(4)&#xA;    @count,         -- number_of_records - int&#xA;    ?         -- filename - varchar(255)&#xA;    )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::curr_dttm"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="7"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::filename"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="129"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
               DTS:refId="Package\Sequence Container - Import\Foreach Loop Container\Reject duplicate attendance id"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
@@ -4251,10 +4280,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             <DTS:PrecedenceConstraint
               DTS:refId="Package\Sequence Container - Import\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
               DTS:CreationName=""
-              DTS:DTSID="{2487FB47-2E63-422D-A191-ED986E74E5D0}"
+              DTS:DTSID="{BD914115-AC69-4E32-8EB2-FB31746EB0EA}"
               DTS:From="Package\Sequence Container - Import\Foreach Loop Container\Reject duplicate attendance id"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint 1"
+              DTS:To="Package\Sequence Container - Import\Foreach Loop Container\Populate Loads Table" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\Sequence Container - Import\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{0A0B5A28-F69C-4E21-B342-E75C93AC266C}"
+              DTS:From="Package\Sequence Container - Import\Foreach Loop Container\Populate Loads Table"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
               DTS:To="Package\Sequence Container - Import\Foreach Loop Container\Script Task - Delete file after processing" />
           </DTS:PrecedenceConstraints>
           <DTS:ForEachVariableMappings>
@@ -4299,6 +4336,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       DTS:refId="Package\Sequence Container - Transform"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{E1BAC4CF-06B8-47E0-A01B-127B1FCF59E2}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -4354,7 +4392,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="198.4,41.6"
           Id="Package\Sequence Container - Final\Execute final merge sproc"
@@ -4371,13 +4409,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           Id="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task"
           TopLeft="78.5666577590841,25.7333350001442" />
         <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Sequence Container - Import\Foreach Loop Container\Populate Loads Table"
+          TopLeft="65.3761846553445,173.827452351201" />
+        <NodeLayout
           Size="217.6,41.6"
           Id="Package\Sequence Container - Import\Foreach Loop Container\Reject duplicate attendance id"
           TopLeft="40.9333284325072,108.333335103459" />
         <NodeLayout
           Size="262.4,41.6"
           Id="Package\Sequence Container - Import\Foreach Loop Container\Script Task - Delete file after processing"
-          TopLeft="20.233326743709,181.733336239921" />
+          TopLeft="28.2333268799482,250.250984259679" />
         <EdgeLayout
           Id="Package\Sequence Container - Import\Foreach Loop Container.PrecedenceConstraints[Constraint]"
           TopLeft="151.749993095796,67.3333350001442">
@@ -4402,18 +4444,40 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container - Import\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
-          TopLeft="150.583327588108,149.933335103459">
+          TopLeft="152.354756543926,149.933335103459">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.8000011364616"
+              EndConnector="0,23.8941172477421"
               Start="0,0"
-              End="0,24.3000011364616">
+              End="0,16.3941172477421">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.3000011364616" />
+                    End="0,16.3941172477421" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container - Import\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="157.204755767646,215.427452351201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.8235319084776"
+              Start="0,0"
+              End="0,27.3235319084776">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3235319084776" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4425,8 +4489,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="318.4,278.4"
-          Size="318.4,321.6"
+          PanelSize="318.4,380"
+          Size="318.4,423.2"
           Id="Package\Sequence Container - Import\Foreach Loop Container"
           TopLeft="31.7333280351431,105.06666818195" />
         <NodeLayout
@@ -4439,26 +4503,26 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="61.6333336975842,39.8666673141061"
+              EndConnector="61.6333336975842,39.8666673141064"
               Start="0,0"
-              End="61.6333336975842,32.3666673141061">
+              End="61.6333336975842,32.3666673141064">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.933333657053" />
+                    End="0,15.9333336570532" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.933333657053"
-                    Point2="0,19.933333657053"
-                    Point3="4,19.933333657053" />
+                    Point1="0,15.9333336570532"
+                    Point2="0,19.9333336570532"
+                    Point3="4,19.9333336570532" />
                   <mssgle:LineSegment
-                    End="57.6333336975842,19.933333657053" />
+                    End="57.6333336975842,19.9333336570532" />
                   <mssgle:CubicBezierSegment
-                    Point1="57.6333336975842,19.933333657053"
-                    Point2="61.6333336975842,19.933333657053"
-                    Point3="61.6333336975842,23.933333657053" />
+                    Point1="57.6333336975842,19.9333336570532"
+                    Point2="61.6333336975842,19.9333336570532"
+                    Point3="61.6333336975842,23.9333336570532" />
                   <mssgle:LineSegment
-                    End="61.6333336975842,32.3666673141061" />
+                    End="61.6333336975842,32.3666673141064" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4470,8 +4534,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="368,482.4"
-          Size="368,525.6"
+          PanelSize="368,583.2"
+          Size="368,626.4"
           Id="Package\Sequence Container - Import"
           TopLeft="49.9999980131781,199.333334917493" />
         <NodeLayout
@@ -4487,13 +4551,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           TopLeft="467.499981423219,202.333333905008" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="417.999998013178,462.133334917493">
+          TopLeft="417.999998013178,512.533334917493">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="49.4999834100409,-95.400001012485"
+              EndConnector="49.4999834100409,-145.800001012485"
               Start="0,0"
-              End="41.9999834100409,-95.400001012485">
+              End="41.9999834100409,-145.800001012485">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4504,13 +4568,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
                     Point2="24.7499917050204,0"
                     Point3="24.7499917050204,-4" />
                   <mssgle:LineSegment
-                    End="24.7499917050204,-91.400001012485" />
+                    End="24.7499917050204,-141.800001012485" />
                   <mssgle:CubicBezierSegment
-                    Point1="24.7499917050204,-91.400001012485"
-                    Point2="24.7499917050204,-95.400001012485"
-                    Point3="28.7499917050204,-95.400001012485" />
+                    Point1="24.7499917050204,-141.800001012485"
+                    Point2="24.7499917050204,-145.800001012485"
+                    Point3="28.7499917050204,-145.800001012485" />
                   <mssgle:LineSegment
-                    End="41.9999834100409,-95.400001012485" />
+                    End="41.9999834100409,-145.800001012485" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4548,7 +4612,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     design-time-name="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\OLE DB Destination"
@@ -4592,9 +4656,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4628,9 +4690,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
