@@ -1894,10 +1894,10 @@
                 <SSIS:Property SSIS:Name="Name">mds_careflow_spells</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">38</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{97984531-9A40-4D80-A124-C352D932C628}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{281E9D2E-E9A0-4BB0-97BF-C5F4C66E4DE1}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

@@ -13,8 +13,8 @@
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{C9C1BC66-C990-4484-8A84-0E86D08A362B}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{281E9D2E-E9A0-4BB0-97BF-C5F4C66E4DE1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -46,14 +46,6 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Configurations>
-    <DTS:Configuration
-      DTS:ConfigurationString="C:\config\Finance.dtsConfig"
-      DTS:ConfigurationType="1"
-      DTS:CreationName=""
-      DTS:DTSID="{BD55E6F2-2C0B-43F5-BB49-BEEF3469DB2A}"
-      DTS:ObjectName="Finance" />
-  </DTS:Configurations>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -707,30 +699,30 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         <NodeLayout
           Size="203.2,41.6"
           Id="Package\Data Flow from hdm_local"
-          TopLeft="90,183" />
+          TopLeft="123.571429143147,183" />
         <NodeLayout
           Size="166.4,41.6"
           Id="Package\exec hdm_local sp"
-          TopLeft="108,110" />
+          TopLeft="141.571429143147,110" />
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\exec hdm_local sp curr_period"
-          TopLeft="89.285715806241,445.058829771194" />
+          TopLeft="121.428573496488,436.64706494734" />
         <NodeLayout
           Size="345.6,41.6"
           Id="Package\exec import sp for transform mds_careflow_spells_insert"
-          TopLeft="22.8571429909492,272" />
+          TopLeft="57.8571435869956,266.647058748456" />
         <NodeLayout
           Size="284.8,41.6"
           Id="Package\exec merge sp for dbo mds_careflow_spells"
-          TopLeft="58.2857146141481,356.529411786155" />
+          TopLeft="90.4285723043949,351.941176427689" />
         <NodeLayout
           Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
-          TopLeft="52,33" />
+          TopLeft="85.5714291431466,33" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="191.25,75">
+          TopLeft="224.821429143147,75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -752,7 +744,7 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="191.25,152">
+          TopLeft="224.821429143147,152">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -774,18 +766,18 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="193.628571495475,224.6">
+          TopLeft="227.914286365071,224.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47.4"
+              EndConnector="0,42.0470587484564"
               Start="0,0"
-              End="0,39.9">
+              End="0,34.5470587484564">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.9" />
+                    End="0,34.5470587484564" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -796,18 +788,18 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="198.171428802549,313.6">
+          TopLeft="231.742857945695,308.247058748456">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.9294117861554"
+              EndConnector="0,43.6941176792327"
               Start="0,0"
-              End="0,35.4294117861554">
+              End="0,36.1941176792327">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.4294117861554" />
+                    End="0,36.1941176792327" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -818,18 +810,18 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="200.585715210195,398.129411786155">
+          TopLeft="232.728572900441,393.541176427689">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.9294179850389"
+              EndConnector="0,43.1058885196507"
               Start="0,0"
-              End="0,39.4294179850389">
+              End="0,35.6058885196507">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.4294179850389" />
+                    End="0,35.6058885196507" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -845,7 +837,7 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
     design-time-name="Package\Data Flow from hdm_local">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="227.2,41.6"
           Id="Package\Data Flow from hdm_local\Source for mds_careflow_spells"
@@ -873,7 +865,9 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
