@@ -13,8 +13,8 @@
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{519AC320-B824-43E1-A1A3-4751C04EABF6}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{C9C1BC66-C990-4484-8A84-0E86D08A362B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -715,7 +715,7 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\exec hdm_local sp curr_period"
-          TopLeft="89.285715806241,455.764712274281" />
+          TopLeft="89.285715806241,445.058829771194" />
         <NodeLayout
           Size="345.6,41.6"
           Id="Package\exec import sp for transform mds_careflow_spells_insert"
@@ -822,14 +822,14 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.6353004881259"
+              EndConnector="0,46.9294179850389"
               Start="0,0"
-              End="0,50.1353004881259">
+              End="0,39.4294179850389">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.1353004881259" />
+                    End="0,39.4294179850389" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
