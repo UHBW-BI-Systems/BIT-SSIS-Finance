@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_careflow_ops"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{1366A017-AF4C-4EFC-BAF4-360636F068C2}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{8E382F34-BF8B-40B1-9871-B3D97BABF440}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,7 +38,7 @@
       DTS:DTSID="{BD9E3D9B-08A6-4BBF-82D8-5C3388D3529B}"
       DTS:ObjectName="HDM_Local">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::HDM_local_ConnectionString]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::HDM_Local_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"

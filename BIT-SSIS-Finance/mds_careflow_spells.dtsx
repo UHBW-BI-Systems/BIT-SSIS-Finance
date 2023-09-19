@@ -13,8 +13,8 @@
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{16E78855-B0E9-48EE-83BA-B94B5EAC914D}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{5C890802-E70E-4700-8E38-36D2D4CBAFCE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -39,7 +39,7 @@
       DTS:DTSID="{104caec3-3b70-480b-b7ff-05c8a426692f}"
       DTS:ObjectName="HDM_local">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::HDM_local_ConnectionString]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::HDM_Local_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"

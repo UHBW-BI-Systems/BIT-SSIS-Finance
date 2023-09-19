@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{D61045D9-D1F0-497D-9E57-D753B949F6BC}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{E2851E2F-6013-49F8-98C4-6B0EE4D6B1E9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,7 +38,7 @@
       DTS:DTSID="{BD9E3D9B-08A6-4BBF-82D8-5C3388D3529B}"
       DTS:ObjectName="HDM_local">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::HDM_local_ConnectionString]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::HDM_Local_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
