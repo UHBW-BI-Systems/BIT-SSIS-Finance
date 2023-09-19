@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="44"
-  DTS:VersionGUID="{A360512E-AE06-4278-93C7-25D7C5A731FD}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{D61045D9-D1F0-497D-9E57-D753B949F6BC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -33,15 +33,17 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[medwaybi\hdmsql.HDM_Local]"
+      DTS:refId="Package.ConnectionManagers[HDM_local]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{BD9E3D9B-08A6-4BBF-82D8-5C3388D3529B}"
-      DTS:ObjectName="medwaybi\hdmsql.HDM_Local">
+      DTS:ObjectName="HDM_local">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::HDM_local_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=medwaybi\hdmsql;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -288,8 +290,8 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
               <connections>
                 <connection
                   refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[medwaybi\hdmsql.HDM_Local]"
-                  connectionManagerRefId="Package.ConnectionManagers[medwaybi\hdmsql.HDM_Local]"
+                  connectionManagerID="Package.ConnectionManagers[HDM_local]"
+                  connectionManagerRefId="Package.ConnectionManagers[HDM_local]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -602,6 +604,10 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
           Id="Package\exec hdm_local sp"
           TopLeft="164.285717083484,120.058825213191" />
         <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\exec hdm_local sp curr_period"
+          TopLeft="152.857145460285,468.764712456601" />
+        <NodeLayout
           Size="360.8,41.6"
           Id="Package\exec import sp for transform mds_careflow_episodes_insert"
           TopLeft="75.7142870036924,285.235298117964" />
@@ -613,6 +619,28 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
           Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
           TopLeft="107.857144693939,31.3529416161838" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="247.071430888711,72.9529416161838">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.1058835970075"
+              Start="0,0"
+              End="0,39.6058835970075">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6058835970075" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="249.100002682209,161.658825213191">
@@ -671,32 +699,6 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,43.029413062396" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="222.4,41.6"
-          Id="Package\exec hdm_local sp curr_period"
-          TopLeft="152.857145460285,468.764712456601" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="247.071430888711,72.9529416161838">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.1058835970075"
-              Start="0,0"
-              End="0,39.6058835970075">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.6058835970075" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

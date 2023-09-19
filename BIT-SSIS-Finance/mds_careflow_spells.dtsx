@@ -13,8 +13,8 @@
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{281E9D2E-E9A0-4BB0-97BF-C5F4C66E4DE1}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{16E78855-B0E9-48EE-83BA-B94B5EAC914D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -34,15 +34,17 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[medway]"
+      DTS:refId="Package.ConnectionManagers[HDM_local]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{104caec3-3b70-480b-b7ff-05c8a426692f}"
-      DTS:ObjectName="medway">
+      DTS:ObjectName="HDM_local">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::HDM_local_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=medwaybi\hdmsql;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -328,8 +330,8 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
               <connections>
                 <connection
                   refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[medway]"
-                  connectionManagerRefId="Package.ConnectionManagers[medway]"
+                  connectionManagerID="Package.ConnectionManagers[HDM_local]"
+                  connectionManagerRefId="Package.ConnectionManagers[HDM_local]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

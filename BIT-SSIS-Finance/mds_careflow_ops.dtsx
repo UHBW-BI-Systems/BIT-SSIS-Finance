@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_careflow_ops"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{0FF997DE-1533-47D2-88D5-76654129479E}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{1366A017-AF4C-4EFC-BAF4-360636F068C2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -33,15 +33,17 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[medwaybi\hdmsql.HDM_Local]"
+      DTS:refId="Package.ConnectionManagers[HDM_Local]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{BD9E3D9B-08A6-4BBF-82D8-5C3388D3529B}"
-      DTS:ObjectName="medwaybi\hdmsql.HDM_Local">
+      DTS:ObjectName="HDM_Local">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::HDM_local_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=medwaybi\hdmsql;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -327,8 +329,8 @@ FROM [HDM_Local].[mds].[mds_careflow_ops]</property>
               <connections>
                 <connection
                   refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[medwaybi\hdmsql.HDM_Local]"
-                  connectionManagerRefId="Package.ConnectionManagers[medwaybi\hdmsql.HDM_Local]"
+                  connectionManagerID="Package.ConnectionManagers[HDM_Local]"
+                  connectionManagerRefId="Package.ConnectionManagers[HDM_Local]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -696,13 +698,29 @@ FROM [HDM_Local].[mds].[mds_careflow_ops]</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="279.2,41.6"
-          Id="Package\truncate finance import &amp; transform tables"
-          TopLeft="52.1428580308447,37.470588760805" />
+          Size="201.6,41.6"
+          Id="Package\Data Flow from hdm_local"
+          TopLeft="92.1428587120407,185.058826124792" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\exec hdm_local sp"
           TopLeft="112.142859052639,110.117648603182" />
+        <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\exec hdm_local sp curr_period"
+          TopLeft="82.1428585417417,413.70588815501" />
+        <NodeLayout
+          Size="336,41.6"
+          Id="Package\exec import sp for transform mds_careflow_ops_insert"
+          TopLeft="26.4285718786473,257.705885967169" />
+        <NodeLayout
+          Size="275.2,41.6"
+          Id="Package\exec merge sp for dbo mds_careflow_ops"
+          TopLeft="50.0000008514949,338.7647106334" />
+        <NodeLayout
+          Size="279.2,41.6"
+          Id="Package\truncate finance import &amp; transform tables"
+          TopLeft="52.1428580308447,37.470588760805" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="193.142858541742,79.070588760805">
@@ -725,10 +743,6 @@ FROM [HDM_Local].[mds].[mds_careflow_ops]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\Data Flow from hdm_local"
-          TopLeft="92.1428587120407,185.058826124792" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="193.74285888234,151.717648603182">
@@ -751,14 +765,6 @@ FROM [HDM_Local].[mds].[mds_careflow_ops]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="222.4,41.6"
-          Id="Package\exec hdm_local sp curr_period"
-          TopLeft="82.1428585417417,413.70588815501" />
-        <NodeLayout
-          Size="336,41.6"
-          Id="Package\exec import sp for transform mds_careflow_ops_insert"
-          TopLeft="26.4285718786473,257.705885967169" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="193.685715295344,226.658826124792">
@@ -781,10 +787,6 @@ FROM [HDM_Local].[mds].[mds_careflow_ops]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="275.2,41.6"
-          Id="Package\exec merge sp for dbo mds_careflow_ops"
-          TopLeft="50.0000008514949,338.7647106334" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="191.014286365071,299.305885967169">
