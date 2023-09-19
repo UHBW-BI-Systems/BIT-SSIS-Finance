@@ -85,7 +85,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="HDM_local_ConnectionString">
+    SSIS:Name="HDM_Local_ConnectionString">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{025b1c67-72c4-4c93-9dde-21fa62f1f153}</SSIS:Property>
