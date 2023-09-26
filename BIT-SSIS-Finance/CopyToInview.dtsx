@@ -12,8 +12,8 @@
   DTS:ObjectName="CopyToInview"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{057C4F14-56D2-4F29-A712-42E68AD97FE7}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{B9E5F934-2E6A-40FC-8C38-270D532E2049}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -42,18 +42,6 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=inview;Initial Catalog=nhs_import;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[medwaybi\hdmsql.HDM_Local]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{BD9E3D9B-08A6-4BBF-82D8-5C3388D3529B}"
-      DTS:ObjectName="medwaybi\hdmsql.HDM_Local">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=medwaybi\hdmsql;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
