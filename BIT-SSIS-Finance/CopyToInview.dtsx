@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\ChiltonMic"
   DTS:DTSID="{F007837B-250D-49BE-9056-16333E330CC5}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="CopyToInview"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{8062D672-D524-4E4A-B53B-6D65D5F88785}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{057C4F14-56D2-4F29-A712-42E68AD97FE7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,6 +27,8 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Retain="True"
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -37,6 +39,8 @@
       DTS:ObjectName="inview">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=inview;Initial Catalog=nhs_import;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -47,6 +51,8 @@
       DTS:ObjectName="medwaybi\hdmsql.HDM_Local">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=medwaybi\hdmsql;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -311,7 +317,9 @@
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[org_code_local_patient_identifier]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nhs_number]"
-                      cachedDataType="i8"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
                       cachedName="nhs_number"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[nhs_number]" />
@@ -586,6 +594,36 @@
                       cachedName="update_dttm"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[update_dttm]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[update_dttm]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pbr_ncc_pcc_adjusted_length_of_stay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="pbr_ncc_pcc_adjusted_length_of_stay"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_ncc_pcc_adjusted_length_of_stay]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_ncc_pcc_adjusted_length_of_stay]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pbr_final_adjusted_length_of_stay]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="pbr_final_adjusted_length_of_stay"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_final_adjusted_length_of_stay]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_final_adjusted_length_of_stay]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[der_activity_month]"
+                      cachedDataType="i4"
+                      cachedName="der_activity_month"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[der_activity_month]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[der_activity_month]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[der_management_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="der_management_type"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[der_management_type]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[der_management_type]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -713,7 +751,9 @@
                       name="org_code_local_patient_identifier" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
-                      dataType="i8"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
                       name="nhs_number" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number_status_indicator]"
@@ -912,6 +952,28 @@
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[update_dttm]"
                       dataType="dbTimeStamp"
                       name="update_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_ncc_pcc_adjusted_length_of_stay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="pbr_ncc_pcc_adjusted_length_of_stay" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_final_adjusted_length_of_stay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="pbr_final_adjusted_length_of_stay" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[der_activity_month]"
+                      dataType="i4"
+                      name="der_activity_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[der_management_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="der_management_type" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1245,10 +1307,12 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[nhs_number]"
-                      dataType="i8"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nhs_number]"
+                      length="10"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[nhs_number]"
                       name="nhs_number"
                       truncationRowDisposition="FailComponent" />
@@ -1634,6 +1698,48 @@
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[update_dttm]"
                       name="update_dttm"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_ncc_pcc_adjusted_length_of_stay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_ncc_pcc_adjusted_length_of_stay]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_ncc_pcc_adjusted_length_of_stay]"
+                      name="pbr_ncc_pcc_adjusted_length_of_stay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_final_adjusted_length_of_stay]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_final_adjusted_length_of_stay]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_final_adjusted_length_of_stay]"
+                      name="pbr_final_adjusted_length_of_stay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[der_activity_month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[der_activity_month]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[der_activity_month]"
+                      name="der_activity_month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[der_management_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[der_management_type]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[der_management_type]"
+                      name="der_management_type"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1761,7 +1867,9 @@
                       name="org_code_local_patient_identifier" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nhs_number]"
-                      dataType="i8"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
                       name="nhs_number" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nhs_number_status_indicator]"
@@ -1960,6 +2068,28 @@
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[update_dttm]"
                       dataType="dbTimeStamp"
                       name="update_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_ncc_pcc_adjusted_length_of_stay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="pbr_ncc_pcc_adjusted_length_of_stay" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_final_adjusted_length_of_stay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="pbr_final_adjusted_length_of_stay" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[der_activity_month]"
+                      dataType="i4"
+                      name="der_activity_month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[der_management_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="der_management_type" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2115,7 +2245,9 @@
                       name="org_code_local_patient_identifier" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nhs_number]"
-                      dataType="i8"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nhs_number]"
                       name="nhs_number" />
                     <outputColumn
@@ -2335,6 +2467,20 @@
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_npoc]"
                       name="spell_npoc" />
                     <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_ncc_pcc_adjusted_length_of_stay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_ncc_pcc_adjusted_length_of_stay]"
+                      name="pbr_ncc_pcc_adjusted_length_of_stay" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_final_adjusted_length_of_stay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_final_adjusted_length_of_stay]"
+                      name="pbr_final_adjusted_length_of_stay" />
+                    <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
                       dataType="dbTimeStamp2"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
@@ -2352,6 +2498,18 @@
                       dataType="dbTimeStamp"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[update_dttm]"
                       name="update_dttm" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[der_activity_month]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[der_activity_month]"
+                      name="der_activity_month" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[der_management_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[der_management_type]"
+                      name="der_management_type" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -2423,25 +2581,37 @@
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="29.5000004087176,97.8764718837804" />
+          TopLeft="93.6666645256301,177.609805850777" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Execute SQL Task"
-          TopLeft="20.6428568898415,11.6411761359772" />
+          TopLeft="76.4761880045576,35.907842995498" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="103.27142864928,53.2411761359772">
+          TopLeft="157.676188004558,77.507842995498">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44.6352957478032"
+              EndConnector="11.1904765210725,100.101962855279"
               Start="0,0"
-              End="0,37.1352957478032">
+              End="11.1904765210725,92.6019628552793">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.1352957478032" />
+                    End="0,46.0509814276397" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.0509814276397"
+                    Point2="0,50.0509814276397"
+                    Point3="4,50.0509814276397" />
+                  <mssgle:LineSegment
+                    End="7.1904765210725,50.0509814276397" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.1904765210725,50.0509814276397"
+                    Point2="11.1904765210725,50.0509814276397"
+                    Point3="11.1904765210725,54.0509814276397" />
+                  <mssgle:LineSegment
+                    End="11.1904765210725,92.6019628552793" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2504,7 +2674,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2517,7 +2687,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Data Flow Task\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
