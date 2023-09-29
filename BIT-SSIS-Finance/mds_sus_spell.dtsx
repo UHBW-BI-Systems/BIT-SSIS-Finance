@@ -13,8 +13,8 @@
   DTS:ObjectName="mds_sus_spell"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="168"
-  DTS:VersionGUID="{35878EF7-76C2-4C74-BA23-67F27684C923}">
+  DTS:VersionBuild="173"
+  DTS:VersionGUID="{1E33B5ED-CE17-49B3-88DA-B65E24FE4C4D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,7 +58,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Hospital Provider Spell No"
-              DTS:DTSID="{7FF15870-2AFC-4122-A892-3918E08BB6C4}"
+              DTS:DTSID="{B5B8283D-7B31-4394-9AB3-8DEECF43E4EE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -67,7 +67,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Identifier"
-              DTS:DTSID="{2CAB24FB-0120-41A8-A3D3-B5E476AB93C0}"
+              DTS:DTSID="{E9C4167C-836E-468E-ABA1-6ACD02921F9B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -76,7 +76,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Start Date (Hospital Provider Spell)"
-              DTS:DTSID="{2BDAA4BD-419E-4B35-966E-410B6003CCB3}"
+              DTS:DTSID="{1BF44997-E000-4363-81BD-BD3205D0906F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -85,7 +85,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="End Date (Hospital Provider Spell)"
-              DTS:DTSID="{676E5A22-2F81-42CC-B8AD-2852B1F03C05}"
+              DTS:DTSID="{032E5405-B743-4C0D-8611-229B0DE8D3C0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -94,7 +94,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ADMINISTRATIVE CATEGORY (ON ADMISSION)"
-              DTS:DTSID="{D0A05D1C-FBBB-47D5-90DA-1DBD277DB57E}"
+              DTS:DTSID="{01BECC3D-461A-4A40-A95C-6A1F35EAD855}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -103,7 +103,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Admission Method (Hospital Provider Spell)"
-              DTS:DTSID="{09B018F1-1CEE-43EC-8701-A84CB9E1962A}"
+              DTS:DTSID="{3A33E32B-E0E7-4319-91A0-2EFEC069A857}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -112,7 +112,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Discharge Destination (Hospital Provider Spell)"
-              DTS:DTSID="{89B4DD3D-E09F-4371-92AF-1CC368EA3E95}"
+              DTS:DTSID="{595131F6-D91B-43E6-B51E-E8967EDF3A40}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -121,7 +121,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Discharge Method (Hospital Provider Spell)"
-              DTS:DTSID="{F858C1DB-EA2C-4817-BE8A-B6EF3B1FA84C}"
+              DTS:DTSID="{98085A25-A762-40E0-AC0C-A9AACCF8164B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -130,7 +130,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Source of Admission (Hospital Provider Spell)"
-              DTS:DTSID="{878DC739-C4C3-4DED-B291-B1CF8356EEED}"
+              DTS:DTSID="{F89A273A-709A-48AD-970B-27959BD487A0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -139,7 +139,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell In PbR Not In PbR"
-              DTS:DTSID="{93CE189A-0D34-40F7-80DA-2B99CA12C150}"
+              DTS:DTSID="{323E9984-0E51-4808-9CD4-E7650DE746C1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -148,7 +148,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Patient Classification"
-              DTS:DTSID="{AB4B626A-658B-448B-B221-5CA8505768BA}"
+              DTS:DTSID="{F324A4E8-9CC7-4BAA-B46B-ADF9ACEFAE37}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -157,7 +157,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Decided To Admit Date"
-              DTS:DTSID="{71422A84-27B0-4DC2-9773-141271B66349}"
+              DTS:DTSID="{E27B6BE5-83D4-45E2-AB3E-3076DC0AE431}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -166,7 +166,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Main Specialty Code"
-              DTS:DTSID="{8EBC6191-93ED-4703-93F8-4D4A2051370E}"
+              DTS:DTSID="{ECCB610E-62AF-4716-A16C-4214041AE1B0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -175,7 +175,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Treatment Function Code"
-              DTS:DTSID="{A8CE40CD-C90B-4935-8726-2CC4EE72BAF8}"
+              DTS:DTSID="{7DAD6DD0-1A51-47FC-9B07-08666C8655D3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -184,7 +184,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Provider Site Code"
-              DTS:DTSID="{F5F87E8A-BD18-4C70-B2C9-69BF2C89FA42}"
+              DTS:DTSID="{F14D3ED4-61BA-4C0E-8CAD-325BCFBCBDFA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -193,61 +193,61 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Intended Management"
-              DTS:DTSID="{B8A9B659-9446-4BBC-88FF-9FA719EAFD0B}"
+              DTS:DTSID="{81567B60-39D9-4A1B-9625-92064FE2C47C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="3"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Length of Stay (Hospital Provider Spell)"
-              DTS:DTSID="{BAB0EC3D-AEFC-44DB-83BB-33C668FD4F9E}"
+              DTS:DTSID="{4BAC8B97-BEAA-42C4-8792-230EA0754AF6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="3"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PbR Spell Trimpoint Days"
-              DTS:DTSID="{C06CE3EB-8BB6-4311-B801-CDDD7E5BC298}"
+              DTS:DTSID="{68C90531-3E94-492D-A6C7-2A6FC78C5107}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="3"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PbR Days Beyond Trimpoint"
-              DTS:DTSID="{BED42819-F712-4E16-9C58-3632E5C5A610}"
+              DTS:DTSID="{918AC4E7-60A3-410C-B200-0BF45D27F92C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="3"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell ACC Length Of Stay"
-              DTS:DTSID="{EF10D2A7-139C-4DB2-BB64-86882E92EDE0}"
+              DTS:DTSID="{770B8F5A-C3FC-4C9C-AE2D-8495F6F7A313}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="3"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell NCC Length Of Stay"
-              DTS:DTSID="{80573EC0-4636-41BA-BA4A-95C7B7C79124}"
+              DTS:DTSID="{16F32008-B7A5-466F-84AC-6258E76F6401}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="3"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell PCC Length Of Stay"
-              DTS:DTSID="{FB7B0456-B61C-4333-9505-6C8A45CF1598}"
+              DTS:DTSID="{416C55F3-CA69-414D-A1E6-CCB47A8238CC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -256,7 +256,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Local Patient Identifier"
-              DTS:DTSID="{0F5D333B-2E66-4592-A24E-D6220DF2ABC3}"
+              DTS:DTSID="{298C1075-003D-4EC9-A52A-54D960193AD9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -265,7 +265,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Org Code Local Patient Identifier"
-              DTS:DTSID="{C97A361C-3FB0-48CB-9F03-299D4379E563}"
+              DTS:DTSID="{2DD983FE-979C-454D-878A-D88E3694AEF9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -274,7 +274,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NHS Number"
-              DTS:DTSID="{F6BACCB5-43DA-43AB-98CF-CAD1EB3A767A}"
+              DTS:DTSID="{8978B205-5427-4747-B1D4-2949FEC6C682}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -283,7 +283,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NHS Number Status Indicator"
-              DTS:DTSID="{03D34252-2266-4536-AE18-E3B9122DE31C}"
+              DTS:DTSID="{79679995-9F9E-40D3-996E-B17A002EB6C6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -292,7 +292,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Birth Date"
-              DTS:DTSID="{09EE84F8-10CE-437C-B320-CEC53A0B1F55}"
+              DTS:DTSID="{21BC2094-01D5-4770-8DFA-1E607EB61636}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -301,7 +301,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ethnic Category Code"
-              DTS:DTSID="{E0526169-0291-4ADF-B384-B32A728D5F70}"
+              DTS:DTSID="{ECA073E2-F92B-4607-A8F7-713CF8E74724}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -310,7 +310,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Age At Start of Spell"
-              DTS:DTSID="{B6D7A4E3-E0BA-49DD-A555-7A17499E4CF5}"
+              DTS:DTSID="{5BA4D4F1-48AD-46DC-886D-800996D6C528}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -319,7 +319,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Age At End of Spell"
-              DTS:DTSID="{67E5F904-6190-46E9-A59B-F004EE0BCB46}"
+              DTS:DTSID="{DC2429F6-7529-4683-8B8C-5A1DB32B0EA1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -328,7 +328,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Age"
-              DTS:DTSID="{ED039270-852C-461A-ADAA-EB1D6F6E00A1}"
+              DTS:DTSID="{87866E9B-75B8-4AF1-8732-D4EC2693528C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -337,7 +337,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Age At CDS Activity Date"
-              DTS:DTSID="{AE5FCFAA-5014-49C2-9198-C127FE56B454}"
+              DTS:DTSID="{3DC8FA8A-540F-401E-8FE6-588DBF1A7970}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -346,7 +346,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Postcode of Usual Address"
-              DTS:DTSID="{8936FFF6-B004-4C59-953D-E8E9A745C917}"
+              DTS:DTSID="{E4E60BE8-FE34-4DF6-959D-1442E7E5ADAC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -355,7 +355,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GP Code (Original data)"
-              DTS:DTSID="{FB0B70A3-BEC8-4B40-90BE-ACCEFCED5038}"
+              DTS:DTSID="{2A0F3764-E410-4EA2-BCE6-F0697DB6F341}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -364,7 +364,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GP Practice Code (Original Data)"
-              DTS:DTSID="{7B164CBE-A0E2-492A-8C87-5F074B6F2960}"
+              DTS:DTSID="{6377278D-BA59-4379-B92B-37C89818EDD1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -373,7 +373,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Referrer Code"
-              DTS:DTSID="{D9C6A17A-85EE-4609-A009-1C148A17C903}"
+              DTS:DTSID="{F64F34AA-112C-49F9-9B1B-DF553072B5C2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -382,7 +382,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Referring Organisation Code"
-              DTS:DTSID="{90CECA88-EB43-42BE-8236-4A8FD872F18E}"
+              DTS:DTSID="{46A4D6F7-BBBE-44E8-86C3-67E21110F1E1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -391,7 +391,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SHA Provider"
-              DTS:DTSID="{F700C1CA-E8EF-4CD5-82BD-C08D86E19D92}"
+              DTS:DTSID="{1DEB648C-DCE3-4937-AD50-8CAE185F2C81}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -400,7 +400,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Organisation Code (Code of Commissioner)"
-              DTS:DTSID="{9C5F9D93-610E-4A12-80E3-F0B446D376D1}"
+              DTS:DTSID="{7D0125FC-D21E-4ACD-B39F-683690F63459}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -409,7 +409,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Commissioner Code (Original Data)"
-              DTS:DTSID="{5D687301-E94A-4D81-8A83-43A01A402788}"
+              DTS:DTSID="{D9CAB961-F6B4-4887-B85C-FB1512B88CD0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -418,7 +418,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Organisation Code (Code of Provider)"
-              DTS:DTSID="{4E4D58FD-87DC-4168-ADC6-73B2C7E249FA}"
+              DTS:DTSID="{905C503D-1522-4879-8532-241E2F6FF7B6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -427,7 +427,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Patient Postcode Derived PCT"
-              DTS:DTSID="{230D1B01-4416-481C-9130-9AF96654B72F}"
+              DTS:DTSID="{88472C54-D6D6-400A-B792-A85E75D2A90A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -436,7 +436,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Patient Postcode Derived PCT Type"
-              DTS:DTSID="{2B8DB44F-0C01-4F51-AC28-6819865A3B7F}"
+              DTS:DTSID="{32C55477-4B44-4C06-84CF-CA1FD587C210}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -445,7 +445,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PCT Derived from GP Practice"
-              DTS:DTSID="{A7FCE437-EE86-4F0C-BA61-F54721A32E83}"
+              DTS:DTSID="{DA2A2EDA-F76B-4FB7-AE3C-F2F305C4B535}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -454,7 +454,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Derived Commissioner"
-              DTS:DTSID="{619581DD-EDB6-41F4-92B2-6A865C070354}"
+              DTS:DTSID="{C34A82D1-8E0F-464E-A581-5CE85FFD22BA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -463,7 +463,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Derived Commissioner Type"
-              DTS:DTSID="{66788DC7-1FAA-4521-A5D5-5D70B7ACC2B4}"
+              DTS:DTSID="{5FBDA583-15FA-4A9A-B604-E6FF09D6C23E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -472,7 +472,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Primary Diagnosis"
-              DTS:DTSID="{FB8C062C-6B2E-4A4F-AA87-6FA3A55DD33C}"
+              DTS:DTSID="{FE66998A-7C2E-406B-9D03-2A357E5785FC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -481,7 +481,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Secondary Diagnosis"
-              DTS:DTSID="{A16D553B-1957-457D-BCD3-E337C924244F}"
+              DTS:DTSID="{7802897C-047E-462B-9976-780DEF8120BE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -490,7 +490,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Number Diagnosis"
-              DTS:DTSID="{57612B80-11EF-4F39-9F0D-A944C412CB71}"
+              DTS:DTSID="{FC9AF497-BD97-432E-B4C5-0910A11A0BBE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -499,7 +499,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Dominant Procedure"
-              DTS:DTSID="{E9DADF6C-FCE3-486B-B736-FE43A7F8237F}"
+              DTS:DTSID="{EA369781-ADA2-49E8-97AB-5A0FAB0DEFB4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -508,7 +508,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Primary Procedure Code"
-              DTS:DTSID="{B0EFF94D-884F-4970-8ECC-7CE996BAC2CD}"
+              DTS:DTSID="{D8F7CFF8-FDFE-4826-9ECD-A301A29B5CAE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -517,7 +517,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Number Procedures"
-              DTS:DTSID="{696B2C43-1434-4A34-A9E3-6A0BB404838A}"
+              DTS:DTSID="{9DCBF9C7-6F74-44EA-8255-E2A624FA1C4A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -526,7 +526,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Core HRG"
-              DTS:DTSID="{B257502F-C2AC-4C06-8C50-F17905085021}"
+              DTS:DTSID="{22BA2707-C803-473D-A79A-258C9F9DD4ED}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -535,7 +535,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Number Unbundled HRGs"
-              DTS:DTSID="{3B83C0E8-38BF-450E-893B-F543CE0E03C6}"
+              DTS:DTSID="{26849AB6-F0D3-46F3-A1E9-AA757412F341}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -544,7 +544,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Number Unbundled Non Priced HRGs"
-              DTS:DTSID="{EAB23343-3BDE-4A39-8BE7-3FF01B1AD8D8}"
+              DTS:DTSID="{43FA7791-1FDD-48CA-8894-82A213887ACE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -553,7 +553,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Number Unbundled Priced HRGs"
-              DTS:DTSID="{42845334-6DE5-482B-B2DB-5D6471A81DBC}"
+              DTS:DTSID="{8D78449F-C37B-4EC3-A8E6-BC41B5226532}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -562,7 +562,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Programme Budgeting Category"
-              DTS:DTSID="{811DDF87-720A-4453-A276-E70EDF646DAB}"
+              DTS:DTSID="{A75FDB98-93C2-40FC-A7B3-8385493DA2A1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -571,7 +571,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Service Line"
-              DTS:DTSID="{5B4F6351-5AA5-4745-A6CF-D4C3FD2F0331}"
+              DTS:DTSID="{A64DBC3F-DD8C-4400-B481-A61A376D63BE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -580,25 +580,25 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell NPOC"
-              DTS:DTSID="{81DCAA5A-FC40-4D70-855E-A114E70AE19D}"
+              DTS:DTSID="{F800B683-379F-495B-A29B-368CA2232BE8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="3"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PbR NCC PCC Adjusted Length of Stay"
-              DTS:DTSID="{F9D8A257-3B1A-4C60-BC65-7168D9FDBC2B}"
+              DTS:DTSID="{5EB9258D-6DC8-43B2-872C-84ECAC788333}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:MaximumWidth="3"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PbR Final Adjusted Length of Stay"
-              DTS:DTSID="{33C21DEA-A420-48B7-982A-6A226292D916}"
+              DTS:DTSID="{A64945AF-703F-4626-8DDC-F779782A58FE}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -629,7 +629,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="curr_dttm">
       <DTS:VariableValue
-        DTS:DataType="7">9/28/2023 9:12:44 AM</DTS:VariableValue>
+        DTS:DataType="7">9/29/2023 8:58:22 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1505,7 +1505,7 @@
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Length of Stay (Hospital Provider Spell)]"
-                              length="3"
+                              length="4"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Length of Stay (Hospital Provider Spell)]"
                               name="Length of Stay (Hospital Provider Spell)"
                               truncationRowDisposition="FailComponent">
@@ -1527,7 +1527,7 @@
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PbR Spell Trimpoint Days]"
-                              length="3"
+                              length="4"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PbR Spell Trimpoint Days]"
                               name="PbR Spell Trimpoint Days"
                               truncationRowDisposition="FailComponent">
@@ -1549,7 +1549,7 @@
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PbR Days Beyond Trimpoint]"
-                              length="3"
+                              length="4"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PbR Days Beyond Trimpoint]"
                               name="PbR Days Beyond Trimpoint"
                               truncationRowDisposition="FailComponent">
@@ -1571,7 +1571,7 @@
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Spell ACC Length Of Stay]"
-                              length="3"
+                              length="4"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell ACC Length Of Stay]"
                               name="Spell ACC Length Of Stay"
                               truncationRowDisposition="FailComponent">
@@ -1593,7 +1593,7 @@
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Spell NCC Length Of Stay]"
-                              length="3"
+                              length="4"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell NCC Length Of Stay]"
                               name="Spell NCC Length Of Stay"
                               truncationRowDisposition="FailComponent">
@@ -1615,7 +1615,7 @@
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Spell PCC Length Of Stay]"
-                              length="3"
+                              length="4"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell PCC Length Of Stay]"
                               name="Spell PCC Length Of Stay"
                               truncationRowDisposition="FailComponent">
@@ -2319,7 +2319,7 @@
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PbR NCC PCC Adjusted Length of Stay]"
-                              length="3"
+                              length="4"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PbR NCC PCC Adjusted Length of Stay]"
                               name="PbR NCC PCC Adjusted Length of Stay"
                               truncationRowDisposition="FailComponent">
@@ -2341,7 +2341,7 @@
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PbR Final Adjusted Length of Stay]"
-                              length="3"
+                              length="4"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PbR Final Adjusted Length of Stay]"
                               name="PbR Final Adjusted Length of Stay"
                               truncationRowDisposition="FailComponent">
@@ -2495,37 +2495,37 @@
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Length of Stay (Hospital Provider Spell)]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="Length of Stay (Hospital Provider Spell)" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PbR Spell Trimpoint Days]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="PbR Spell Trimpoint Days" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PbR Days Beyond Trimpoint]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="PbR Days Beyond Trimpoint" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Spell ACC Length Of Stay]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="Spell ACC Length Of Stay" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Spell NCC Length Of Stay]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="Spell NCC Length Of Stay" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Spell PCC Length Of Stay]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="Spell PCC Length Of Stay" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Org Code Local Patient Identifier]"
@@ -2717,13 +2717,13 @@
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PbR NCC PCC Adjusted Length of Stay]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="PbR NCC PCC Adjusted Length of Stay" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PbR Final Adjusted Length of Stay]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="PbR Final Adjusted Length of Stay" />
                           </externalMetadataColumns>
                         </output>
@@ -2802,7 +2802,7 @@
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                          name="FastLoadKeepNulls">true</property>
+                          name="FastLoadKeepNulls">false</property>
                         <property
                           dataType="System.String"
                           description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -2829,13 +2829,19 @@
                           name="OLE DB Destination Input">
                           <inputColumns>
                             <inputColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Spell Identifier]"
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[load_dttm]"
+                              cachedDataType="date"
+                              cachedName="load_dttm"
+                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
+                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Derived Column.Outputs[Derived Column Output].Columns[load_dttm]" />
+                            <inputColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[filename]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="50"
-                              cachedName="Spell Identifier"
-                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_identifier]"
-                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell Identifier]" />
+                              cachedLength="255"
+                              cachedName="filename"
+                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
+                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Derived Column.Outputs[Derived Column Output].Columns[filename]" />
                             <inputColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Hospital Provider Spell No]"
                               cachedCodepage="1252"
@@ -2845,37 +2851,13 @@
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hospital_provider_spell_no]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Hospital Provider Spell No]" />
                             <inputColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Local Patient Identifier]"
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Spell Identifier]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="20"
-                              cachedName="Local Patient Identifier"
-                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[local_patient_identifier]"
-                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Local Patient Identifier]" />
-                            <inputColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NHS Number]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="10"
-                              cachedName="NHS Number"
-                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
-                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[NHS Number]" />
-                            <inputColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Derived Commissioner]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="5"
-                              cachedName="Derived Commissioner"
-                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[derived_commissioner]"
-                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Derived Commissioner]" />
-                            <inputColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Derived Commissioner Type]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="255"
-                              cachedName="Derived Commissioner Type"
-                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[derived_commissioner_type]"
-                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Derived Commissioner Type]" />
+                              cachedLength="50"
+                              cachedName="Spell Identifier"
+                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_identifier]"
+                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell Identifier]" />
                             <inputColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Start Date (Hospital Provider Spell)]"
                               cachedCodepage="1252"
@@ -2892,36 +2874,6 @@
                               cachedName="End Date (Hospital Provider Spell)"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date_hospital_provider_spell]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[End Date (Hospital Provider Spell)]" />
-                            <inputColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Spell Service Line]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="20"
-                              cachedName="Spell Service Line"
-                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_service_line]"
-                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell Service Line]" />
-                            <inputColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Spell NPOC]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="5"
-                              cachedName="Spell NPOC"
-                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_npoc]"
-                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell NPOC]" />
-                            <inputColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[load_dttm]"
-                              cachedDataType="date"
-                              cachedName="load_dttm"
-                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
-                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Derived Column.Outputs[Derived Column Output].Columns[load_dttm]" />
-                            <inputColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[filename]"
-                              cachedCodepage="1252"
-                              cachedDataType="str"
-                              cachedLength="255"
-                              cachedName="filename"
-                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
-                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Derived Column.Outputs[Derived Column Output].Columns[filename]" />
                             <inputColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ADMINISTRATIVE CATEGORY (ON ADMISSION)]"
                               cachedCodepage="1252"
@@ -3022,7 +2974,7 @@
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Length of Stay (Hospital Provider Spell)]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="3"
+                              cachedLength="4"
                               cachedName="Length of Stay (Hospital Provider Spell)"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[length_of_stay_hospital_provider_spell]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Length of Stay (Hospital Provider Spell)]" />
@@ -3030,7 +2982,7 @@
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PbR Spell Trimpoint Days]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="3"
+                              cachedLength="4"
                               cachedName="PbR Spell Trimpoint Days"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_spell_trimpoint_days]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PbR Spell Trimpoint Days]" />
@@ -3038,7 +2990,7 @@
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PbR Days Beyond Trimpoint]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="3"
+                              cachedLength="4"
                               cachedName="PbR Days Beyond Trimpoint"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_days_beyond_trimpoint]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PbR Days Beyond Trimpoint]" />
@@ -3046,7 +2998,7 @@
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Spell ACC Length Of Stay]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="3"
+                              cachedLength="4"
                               cachedName="Spell ACC Length Of Stay"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_acc_length_of_stay]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell ACC Length Of Stay]" />
@@ -3054,7 +3006,7 @@
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Spell NCC Length Of Stay]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="3"
+                              cachedLength="4"
                               cachedName="Spell NCC Length Of Stay"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_ncc_length_of_stay]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell NCC Length Of Stay]" />
@@ -3062,10 +3014,18 @@
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Spell PCC Length Of Stay]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="3"
+                              cachedLength="4"
                               cachedName="Spell PCC Length Of Stay"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_pcc_length_of_stay]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell PCC Length Of Stay]" />
+                            <inputColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Local Patient Identifier]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="20"
+                              cachedName="Local Patient Identifier"
+                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[local_patient_identifier]"
+                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Local Patient Identifier]" />
                             <inputColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Org Code Local Patient Identifier]"
                               cachedCodepage="1252"
@@ -3074,6 +3034,14 @@
                               cachedName="Org Code Local Patient Identifier"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[org_code_local_patient_identifier]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Org Code Local Patient Identifier]" />
+                            <inputColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NHS Number]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="10"
+                              cachedName="NHS Number"
+                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
+                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[NHS Number]" />
                             <inputColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NHS Number Status Indicator]"
                               cachedCodepage="1252"
@@ -3195,6 +3163,14 @@
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[commissioner_code_original_data]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Commissioner Code (Original Data)]" />
                             <inputColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Organisation Code (Code of Provider)]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="5"
+                              cachedName="Organisation Code (Code of Provider)"
+                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[organisation_code_code_of_provider]"
+                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Organisation Code (Code of Provider)]" />
+                            <inputColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Patient Postcode Derived PCT]"
                               cachedCodepage="1252"
                               cachedDataType="str"
@@ -3218,6 +3194,22 @@
                               cachedName="PCT Derived from GP Practice"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pct_derived_from_gp_practice]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PCT Derived from GP Practice]" />
+                            <inputColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Derived Commissioner]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="5"
+                              cachedName="Derived Commissioner"
+                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[derived_commissioner]"
+                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Derived Commissioner]" />
+                            <inputColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Derived Commissioner Type]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="255"
+                              cachedName="Derived Commissioner Type"
+                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[derived_commissioner_type]"
+                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Derived Commissioner Type]" />
                             <inputColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Spell Primary Diagnosis]"
                               cachedCodepage="1252"
@@ -3307,18 +3299,26 @@
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_programme_budgeting_category]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell Programme Budgeting Category]" />
                             <inputColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Organisation Code (Code of Provider)]"
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Spell Service Line]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="20"
+                              cachedName="Spell Service Line"
+                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_service_line]"
+                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell Service Line]" />
+                            <inputColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Spell NPOC]"
                               cachedCodepage="1252"
                               cachedDataType="str"
                               cachedLength="5"
-                              cachedName="Organisation Code (Code of Provider)"
-                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[organisation_code_code_of_provider]"
-                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Organisation Code (Code of Provider)]" />
+                              cachedName="Spell NPOC"
+                              externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_npoc]"
+                              lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Spell NPOC]" />
                             <inputColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PbR NCC PCC Adjusted Length of Stay]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="3"
+                              cachedLength="4"
                               cachedName="PbR NCC PCC Adjusted Length of Stay"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_ncc_pcc_adjusted_length_of_stay]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PbR NCC PCC Adjusted Length of Stay]" />
@@ -3326,7 +3326,7 @@
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PbR Final Adjusted Length of Stay]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="3"
+                              cachedLength="4"
                               cachedName="PbR Final Adjusted Length of Stay"
                               externalMetadataColumnId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_final_adjusted_length_of_stay]"
                               lineageId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source.Outputs[Flat File Source Output].Columns[PbR Final Adjusted Length of Stay]" />
@@ -3334,41 +3334,17 @@
                           <externalMetadataColumns
                             isUsed="True">
                             <externalMetadataColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_identifier]"
-                              codePage="1252"
-                              dataType="str"
-                              length="50"
-                              name="spell_identifier" />
-                            <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hospital_provider_spell_no]"
                               codePage="1252"
                               dataType="str"
                               length="20"
                               name="hospital_provider_spell_no" />
                             <externalMetadataColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[local_patient_identifier]"
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_identifier]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
-                              name="local_patient_identifier" />
-                            <externalMetadataColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
-                              codePage="1252"
-                              dataType="str"
-                              length="10"
-                              name="nhs_number" />
-                            <externalMetadataColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[derived_commissioner]"
-                              codePage="1252"
-                              dataType="str"
-                              length="5"
-                              name="derived_commissioner" />
-                            <externalMetadataColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[derived_commissioner_type]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              name="derived_commissioner_type" />
+                              length="50"
+                              name="spell_identifier" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date_hospital_provider_spell]"
                               codePage="1252"
@@ -3381,29 +3357,6 @@
                               dataType="str"
                               length="14"
                               name="end_date_hospital_provider_spell" />
-                            <externalMetadataColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_service_line]"
-                              codePage="1252"
-                              dataType="str"
-                              length="20"
-                              name="spell_service_line" />
-                            <externalMetadataColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_npoc]"
-                              codePage="1252"
-                              dataType="str"
-                              length="5"
-                              name="spell_npoc" />
-                            <externalMetadataColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
-                              dataType="dbTimeStamp2"
-                              name="load_dttm"
-                              scale="7" />
-                            <externalMetadataColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
-                              codePage="1252"
-                              dataType="str"
-                              length="255"
-                              name="filename" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[administrative_category_on_admission]"
                               codePage="1252"
@@ -3480,44 +3433,56 @@
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[length_of_stay_hospital_provider_spell]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="length_of_stay_hospital_provider_spell" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_spell_trimpoint_days]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="pbr_spell_trimpoint_days" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_days_beyond_trimpoint]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="pbr_days_beyond_trimpoint" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_acc_length_of_stay]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="spell_acc_length_of_stay" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_ncc_length_of_stay]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="spell_ncc_length_of_stay" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_pcc_length_of_stay]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="spell_pcc_length_of_stay" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[local_patient_identifier]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="local_patient_identifier" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[org_code_local_patient_identifier]"
                               codePage="1252"
                               dataType="str"
                               length="20"
                               name="org_code_local_patient_identifier" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
+                              codePage="1252"
+                              dataType="str"
+                              length="10"
+                              name="nhs_number" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number_status_indicator]"
                               codePage="1252"
@@ -3609,6 +3574,12 @@
                               length="5"
                               name="commissioner_code_original_data" />
                             <externalMetadataColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[organisation_code_code_of_provider]"
+                              codePage="1252"
+                              dataType="str"
+                              length="5"
+                              name="organisation_code_code_of_provider" />
+                            <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_postcode_derived_pct]"
                               codePage="1252"
                               dataType="str"
@@ -3626,6 +3597,18 @@
                               dataType="str"
                               length="5"
                               name="pct_derived_from_gp_practice" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[derived_commissioner]"
+                              codePage="1252"
+                              dataType="str"
+                              length="5"
+                              name="derived_commissioner" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[derived_commissioner_type]"
+                              codePage="1252"
+                              dataType="str"
+                              length="255"
+                              name="derived_commissioner_type" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_primary_diagnosis]"
                               codePage="1252"
@@ -3693,23 +3676,40 @@
                               length="8"
                               name="spell_programme_budgeting_category" />
                             <externalMetadataColumn
-                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[organisation_code_code_of_provider]"
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_service_line]"
+                              codePage="1252"
+                              dataType="str"
+                              length="20"
+                              name="spell_service_line" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_npoc]"
                               codePage="1252"
                               dataType="str"
                               length="5"
-                              name="organisation_code_code_of_provider" />
+                              name="spell_npoc" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_ncc_pcc_adjusted_length_of_stay]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="pbr_ncc_pcc_adjusted_length_of_stay" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_final_adjusted_length_of_stay]"
                               codePage="1252"
                               dataType="str"
-                              length="3"
+                              length="4"
                               name="pbr_final_adjusted_length_of_stay" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
+                              dataType="dbTimeStamp2"
+                              name="load_dttm"
+                              scale="7" />
+                            <externalMetadataColumn
+                              refId="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
+                              codePage="1252"
+                              dataType="str"
+                              length="255"
+                              name="filename" />
                           </externalMetadataColumns>
                         </input>
                       </inputs>
@@ -3849,14 +3849,35 @@
                   Language="CSharp"
                   ReadOnlyVariables="User::filename,$Project::Dataload_Directory">
                   <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_4c8d1f291f424f0a8e284f13da57274d")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_4c8d1f291f424f0a8e284f13da57274d")]
+[assembly: AssemblyCopyright("Copyright @  2023")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -4155,35 +4176,14 @@ namespace ST_4c8d1f291f424f0a8e284f13da57274d.Properties {
     }
 }]]></ProjectItem>
                   <ProjectItem
-                    Name="Properties\AssemblyInfo.cs"
-                    Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_4c8d1f291f424f0a8e284f13da57274d")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_4c8d1f291f424f0a8e284f13da57274d")]
-[assembly: AssemblyCopyright("Copyright @  2023")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -4486,45 +4486,45 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="198,42"
+          Size="198.4,41.6"
           Id="Package\Sequence Container - Final dbo\Execute final merge sproc"
           TopLeft="20.1332964446824,48.666667913331" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="230,164"
-          Size="230,207"
+          PanelSize="230.4,164"
+          Size="230.4,207.2"
           Id="Package\Sequence Container - Final dbo"
           TopLeft="1150.9999644359,390.39999929746" />
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\Sequence Container - Transform\Execute SQL Task"
           TopLeft="28.0333106504555,47.6000010744731" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="209,170"
-          Size="209,213"
+          PanelSize="208.8,169.6"
+          Size="208.8,212.8"
           Id="Package\Sequence Container - Transform"
           TopLeft="914.999979138375,388.721568963254" />
         <NodeLayout
-          Size="136,42"
+          Size="136,41.6"
           Id="Package\Sequence Container Import\Foreach Loop Container\Import CSV"
           TopLeft="71.6666606399752,21.1333346902003" />
         <NodeLayout
-          Size="245,42"
+          Size="244.8,41.6"
           Id="Package\Sequence Container Import\Foreach Loop Container\Populate Loads Table - NULL spells"
           TopLeft="43.3333316114214,270.000002934138" />
         <NodeLayout
-          Size="215,42"
+          Size="215.2,41.6"
           Id="Package\Sequence Container Import\Foreach Loop Container\Populate Loads Table - spells"
           TopLeft="61.1190443324126,192.200000111824" />
         <NodeLayout
-          Size="260,42"
+          Size="260,41.6"
           Id="Package\Sequence Container Import\Foreach Loop Container\Reject spells without hosp prov spell no"
           TopLeft="18.4999959270161,106.133334710863" />
         <NodeLayout
-          Size="262,42"
+          Size="262.4,41.6"
           Id="Package\Sequence Container Import\Foreach Loop Container\Script Task - Delete file after processing"
           TopLeft="37.6666628311549,349.305885414133" />
         <EdgeLayout
@@ -4642,12 +4642,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="380,446"
-          Size="380,489"
+          PanelSize="380,446.4"
+          Size="380,488.8"
           Id="Package\Sequence Container Import\Foreach Loop Container"
           TopLeft="22.7999966224037,130.400001983643" />
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\Sequence Container Import\Truncate import table"
           TopLeft="66.4666618320678,23.9333334917493" />
         <EdgeLayout
@@ -4687,24 +4687,24 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="415,675"
-          Size="415,718"
+          PanelSize="415.2,675.2"
+          Size="415.2,718.4"
           Id="Package\Sequence Container Import"
           TopLeft="65.4285692333365,320.854902186385" />
         <NodeLayout
-          Size="232,42"
+          Size="232,41.6"
           Id="Package\Sequence Container -retriveing missing spells\Execute Process Task - PS script"
           TopLeft="45.1666663024159,127.466666694217" />
         <NodeLayout
-          Size="286,42"
+          Size="286.4,41.6"
           Id="Package\Sequence Container -retriveing missing spells\Populate Loads Table - NULL spells Updated"
           TopLeft="33.2666495137748,319.000002954801" />
         <NodeLayout
-          Size="267,42"
+          Size="267.2,41.6"
           Id="Package\Sequence Container -retriveing missing spells\truncate mds_sus_apc_missing_spells"
           TopLeft="27,36.6000000206629" />
         <NodeLayout
-          Size="186,42"
+          Size="185.6,41.6"
           Id="Package\Sequence Container -retriveing missing spells\Update missing spells"
           TopLeft="67.333333399561,215.999999896685" />
         <EdgeLayout
@@ -4788,8 +4788,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="358,392"
-          Size="358,435"
+          PanelSize="358.4,392"
+          Size="358.4,435.2"
           Id="Package\Sequence Container -retriveing missing spells"
           TopLeft="530.16666669978,338.133333326446" />
         <EdgeLayout
@@ -4883,10 +4883,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="populate age needs to be run on sus data - &#xD;&#xA;not taken from Careflow as discharge dates might differ between two sources"
+          Text="populate age needs to be run on sus data - &#xA;not taken from Careflow as discharge dates might differ between two sources"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="439,56"
+          Size="439.2,56"
           Id="ca0630ee-4698-47a2-b6fd-7c00990788f9"
           TopLeft="498.166668289238,807.266667995983" />
       </GraphLayout>
@@ -4896,17 +4896,17 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     design-time-name="Package\Sequence Container Import\Foreach Loop Container\Import CSV">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="153,42"
+          Size="152.8,41.6"
           Id="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Derived Column"
           TopLeft="226,176" />
         <NodeLayout
-          Size="171,42"
+          Size="176.8,41.6"
           Id="Package\Sequence Container Import\Foreach Loop Container\Import CSV\OLE DB Destination"
-          TopLeft="302,292" />
+          TopLeft="336,310" />
         <NodeLayout
-          Size="151,42"
+          Size="151.2,41.6"
           Id="Package\Sequence Container Import\Foreach Loop Container\Import CSV\Flat File Source"
           TopLeft="197,66" />
         <EdgeLayout
@@ -4940,45 +4940,41 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container Import\Foreach Loop Container\Import CSV.Paths[Derived Column Output]"
-          TopLeft="302.4,217.6">
+          TopLeft="302.5,218">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="85.2,74.4"
+              EndConnector="122,92"
               Start="0,0"
-              End="85.2,66.9">
+              End="122,84.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.2" />
+                    End="0,42" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.2"
-                    Point2="0,37.2"
-                    Point3="4,37.2" />
+                    Point1="0,42"
+                    Point2="0,46"
+                    Point3="4,46" />
                   <mssgle:LineSegment
-                    End="81.2,37.2" />
+                    End="118,46" />
                   <mssgle:CubicBezierSegment
-                    Point1="81.2,37.2"
-                    Point2="85.2,37.2"
-                    Point3="85.2,41.2" />
+                    Point1="118,46"
+                    Point2="122,46"
+                    Point3="122,50" />
                   <mssgle:LineSegment
-                    End="85.2,66.9" />
+                    End="122,84.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
