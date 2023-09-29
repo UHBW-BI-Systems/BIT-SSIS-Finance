@@ -12,8 +12,8 @@
   DTS:ObjectName="CopyToInview"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{B9E5F934-2E6A-40FC-8C38-270D532E2049}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{7CB77DD4-0344-45D3-A9DE-3D63F76CF06F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -253,37 +253,49 @@
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[intended_management]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[length_of_stay_hospital_provider_spell]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
                       cachedName="length_of_stay_hospital_provider_spell"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[length_of_stay_hospital_provider_spell]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[length_of_stay_hospital_provider_spell]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pbr_spell_trimpoint_days]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
                       cachedName="pbr_spell_trimpoint_days"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_spell_trimpoint_days]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_spell_trimpoint_days]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pbr_days_beyond_trimpoint]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
                       cachedName="pbr_days_beyond_trimpoint"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_days_beyond_trimpoint]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_days_beyond_trimpoint]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[spell_acc_length_of_stay]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
                       cachedName="spell_acc_length_of_stay"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_acc_length_of_stay]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_acc_length_of_stay]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[spell_ncc_length_of_stay]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
                       cachedName="spell_ncc_length_of_stay"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_ncc_length_of_stay]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_ncc_length_of_stay]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[spell_pcc_length_of_stay]"
-                      cachedDataType="i4"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
                       cachedName="spell_pcc_length_of_stay"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_pcc_length_of_stay]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_pcc_length_of_stay]" />
@@ -586,7 +598,7 @@
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pbr_ncc_pcc_adjusted_length_of_stay]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="3"
+                      cachedLength="4"
                       cachedName="pbr_ncc_pcc_adjusted_length_of_stay"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_ncc_pcc_adjusted_length_of_stay]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_ncc_pcc_adjusted_length_of_stay]" />
@@ -594,7 +606,7 @@
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pbr_final_adjusted_length_of_stay]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="3"
+                      cachedLength="4"
                       cachedName="pbr_final_adjusted_length_of_stay"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_final_adjusted_length_of_stay]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_final_adjusted_length_of_stay]" />
@@ -703,27 +715,39 @@
                       name="intended_management" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[length_of_stay_hospital_provider_spell]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="length_of_stay_hospital_provider_spell" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_spell_trimpoint_days]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="pbr_spell_trimpoint_days" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_days_beyond_trimpoint]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="pbr_days_beyond_trimpoint" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_acc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="spell_acc_length_of_stay" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_ncc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="spell_ncc_length_of_stay" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_pcc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="spell_pcc_length_of_stay" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[local_patient_identifier]"
@@ -944,13 +968,13 @@
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_ncc_pcc_adjusted_length_of_stay]"
                       codePage="1252"
                       dataType="str"
-                      length="3"
+                      length="4"
                       name="pbr_ncc_pcc_adjusted_length_of_stay" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_final_adjusted_length_of_stay]"
                       codePage="1252"
                       dataType="str"
-                      length="3"
+                      length="4"
                       name="pbr_final_adjusted_length_of_stay" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[der_activity_month]"
@@ -1219,55 +1243,67 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[length_of_stay_hospital_provider_spell]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[length_of_stay_hospital_provider_spell]"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[length_of_stay_hospital_provider_spell]"
                       name="length_of_stay_hospital_provider_spell"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_spell_trimpoint_days]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_spell_trimpoint_days]"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_spell_trimpoint_days]"
                       name="pbr_spell_trimpoint_days"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_days_beyond_trimpoint]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_days_beyond_trimpoint]"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_days_beyond_trimpoint]"
                       name="pbr_days_beyond_trimpoint"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_acc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_acc_length_of_stay]"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_acc_length_of_stay]"
                       name="spell_acc_length_of_stay"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_ncc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_ncc_length_of_stay]"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_ncc_length_of_stay]"
                       name="spell_ncc_length_of_stay"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_pcc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_pcc_length_of_stay]"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_pcc_length_of_stay]"
                       name="spell_pcc_length_of_stay"
                       truncationRowDisposition="FailComponent" />
@@ -1693,7 +1729,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_ncc_pcc_adjusted_length_of_stay]"
-                      length="3"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_ncc_pcc_adjusted_length_of_stay]"
                       name="pbr_ncc_pcc_adjusted_length_of_stay"
                       truncationRowDisposition="FailComponent" />
@@ -1704,7 +1740,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_final_adjusted_length_of_stay]"
-                      length="3"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_final_adjusted_length_of_stay]"
                       name="pbr_final_adjusted_length_of_stay"
                       truncationRowDisposition="FailComponent" />
@@ -1819,27 +1855,39 @@
                       name="intended_management" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[length_of_stay_hospital_provider_spell]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="length_of_stay_hospital_provider_spell" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_spell_trimpoint_days]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="pbr_spell_trimpoint_days" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_days_beyond_trimpoint]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="pbr_days_beyond_trimpoint" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_acc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="spell_acc_length_of_stay" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_ncc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="spell_ncc_length_of_stay" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_pcc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="spell_pcc_length_of_stay" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[local_patient_identifier]"
@@ -2060,13 +2108,13 @@
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_ncc_pcc_adjusted_length_of_stay]"
                       codePage="1252"
                       dataType="str"
-                      length="3"
+                      length="4"
                       name="pbr_ncc_pcc_adjusted_length_of_stay" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_final_adjusted_length_of_stay]"
                       codePage="1252"
                       dataType="str"
-                      length="3"
+                      length="4"
                       name="pbr_final_adjusted_length_of_stay" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[der_activity_month]"
@@ -2189,32 +2237,44 @@
                       name="intended_management" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[length_of_stay_hospital_provider_spell]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[length_of_stay_hospital_provider_spell]"
                       name="length_of_stay_hospital_provider_spell" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_spell_trimpoint_days]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_spell_trimpoint_days]"
                       name="pbr_spell_trimpoint_days" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_days_beyond_trimpoint]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_days_beyond_trimpoint]"
                       name="pbr_days_beyond_trimpoint" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_acc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_acc_length_of_stay]"
                       name="spell_acc_length_of_stay" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_ncc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_ncc_length_of_stay]"
                       name="spell_ncc_length_of_stay" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_pcc_length_of_stay]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_pcc_length_of_stay]"
                       name="spell_pcc_length_of_stay" />
                     <outputColumn
@@ -2458,14 +2518,14 @@
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_ncc_pcc_adjusted_length_of_stay]"
                       codePage="1252"
                       dataType="str"
-                      length="3"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_ncc_pcc_adjusted_length_of_stay]"
                       name="pbr_ncc_pcc_adjusted_length_of_stay" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_final_adjusted_length_of_stay]"
                       codePage="1252"
                       dataType="str"
-                      length="3"
+                      length="4"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_final_adjusted_length_of_stay]"
                       name="pbr_final_adjusted_length_of_stay" />
                     <outputColumn
