@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\MarshSylZ"
   DTS:DTSID="{B9ACBF9B-B50B-44C9-8D76-A6596EE52784}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_sus_episode"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{68BE4B69-6FA5-49E9-ADFA-DEFB5F609D14}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{2F3107D6-DC25-468F-9E54-BD3585C4288A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,6 +27,8 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Retain="True"
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -55,34 +57,34 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unique CDS Identifier"
-              DTS:DTSID="{FA87639A-800C-4314-96AB-3687EF031011}"
+              DTS:DTSID="{3EB267BA-5E56-4143-8087-BBB778AAD030}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="3"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CDS Record Type"
-              DTS:DTSID="{A28575BC-3380-47F8-AFB1-1DE1FC4972B2}"
+              DTS:DTSID="{9C3EDE4F-4EB1-408E-A5B7-E9A51661191C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="30"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NHS RID (From Provider)"
-              DTS:DTSID="{C5EFA9CE-BE91-493F-A8FC-B7817D9ED09F}"
+              DTS:DTSID="{FD6A8179-926D-4C9D-9F5C-8EFC130CCDE0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="36"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Hospital Provider Spell No"
-              DTS:DTSID="{76192CCF-E1EF-41FC-ABC6-8BD5DFA2E6F8}"
+              DTS:DTSID="{B7DAF2A4-B1CF-4C9A-ABEE-4A403B98BFBA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -91,610 +93,610 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Spell Identifier"
-              DTS:DTSID="{DC4F1246-55F9-49B9-9B09-60A618685276}"
+              DTS:DTSID="{8265E93B-E518-4EEF-8173-E0FAE22A715B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="14"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Hospital Provider Spell Discharge Date"
-              DTS:DTSID="{106735D6-8B0A-4EFF-B2D5-E7C60D3446DA}"
+              DTS:DTSID="{855EAA61-3608-4CE5-BA21-14FD04428BE7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="2"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Admission Method (Original Data)"
-              DTS:DTSID="{DAB0ABB3-E729-4F1B-AEF2-F8F4348AD52A}"
+              DTS:DTSID="{BC017106-49DF-4CD9-AED8-5F410C86CDAA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="14"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Episode Start Date"
-              DTS:DTSID="{81CF61A2-AB8B-47C6-9101-CCBF384DAC3A}"
+              DTS:DTSID="{A6C9E8B0-102C-49B2-9C85-5EEB65E82415}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="14"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Episode Start Date Original"
-              DTS:DTSID="{F93E6F19-14BA-4D85-A440-2A3E9F58806F}"
+              DTS:DTSID="{22452EF9-B3ED-4DC3-8107-34D8AEA4365E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="14"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Episode End Date"
-              DTS:DTSID="{A47D4661-AF86-419A-BBB8-3CBDF06908EE}"
+              DTS:DTSID="{AD116620-48C1-4062-86D7-E0276D2DFE12}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="3"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Episode Number"
-              DTS:DTSID="{EAEF7366-515F-4343-8DAE-B007808338B1}"
+              DTS:DTSID="{DC66CA07-8BDF-4CF2-AC38-40875001A25E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="10"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Consultant Code"
-              DTS:DTSID="{2128A4A0-8DE2-4F84-B90F-0C2E69B6722C}"
+              DTS:DTSID="{B81C5346-9CC9-482D-A6E7-361B0E5DC996}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="3"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Main Specialty Code"
-              DTS:DTSID="{7CC4DAD9-98FB-4D47-B81B-85DFF3BD4EC6}"
+              DTS:DTSID="{57BD1260-3709-4DDE-85AB-09E612E7CA2C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="3"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Treatment Function Code"
-              DTS:DTSID="{F8EBF705-C3FF-40EB-90CC-532E291F4134}"
+              DTS:DTSID="{4BA06A81-2CBB-45CB-8DF5-DB31B8BE654C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Site code of Treatment (at start of episode)"
-              DTS:DTSID="{E11D6DB6-5610-4B43-8AC5-14EBDD6C785C}"
+              DTS:DTSID="{3CEBBDDE-A377-4FBD-9ECF-24F9AEFB1A24}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="20"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ward Code at Episode Start Date"
-              DTS:DTSID="{D41D2304-11B5-4604-BC5E-4965873ADD19}"
+              DTS:DTSID="{DAE04AD2-2267-4E80-8883-93D8056487A4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="20"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Ward Code at Episode End Date"
-              DTS:DTSID="{DDA9B38D-57D7-4BA9-B2F2-4553EC9B7586}"
+              DTS:DTSID="{F1ACB80A-4E3D-427B-9E6D-BCBC275D36B4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="3"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Neonatal Level of Care"
-              DTS:DTSID="{C25DAE1A-CD4D-421C-9BE7-27AA53EBC6DD}"
+              DTS:DTSID="{1DDD7158-2F4B-4EC1-A2CB-4E5AED8C0F61}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="20"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Local Patient Identifier"
-              DTS:DTSID="{6D5657E4-82D9-4417-8E1D-9BE37790E5BF}"
+              DTS:DTSID="{B029A3BC-9AC2-469C-BFBF-D155E10A02E3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="3"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Age at Start of Episode Derived"
-              DTS:DTSID="{6CBBECA1-6A50-453D-B525-EB516DB7CB2E}"
+              DTS:DTSID="{7ADEA734-CEAA-4C40-8878-DA2144E31E2A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="8"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Postcode Dominant"
-              DTS:DTSID="{63CB191E-5B68-473A-914A-0F0468EC3471}"
+              DTS:DTSID="{2D1C41D1-4D62-4307-BE18-E4E4CA237D86}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Organisation Code (PCT of Residence)"
-              DTS:DTSID="{9AF23460-FA00-4471-B33B-D5E46ABF51B0}"
+              DTS:DTSID="{ED327B6D-9F3F-4C6E-844F-3DB0A4D48358}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PCT Responsible"
-              DTS:DTSID="{E580E487-CE80-4AA5-85FA-D9CDE07A176A}"
+              DTS:DTSID="{EC9BE5FD-C282-4371-A235-6EEFBAB5DF5E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Derived Commissioner"
-              DTS:DTSID="{CBED7A2D-6618-41C4-AC44-053D974BD16A}"
+              DTS:DTSID="{C9B8BC51-068F-4FDC-8580-5243FFD215EA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="255"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Derived Commissioner Type"
-              DTS:DTSID="{C3E4FF80-8B1D-4CCC-8C3D-19B999FD7E82}"
+              DTS:DTSID="{5AC7DDCD-0594-4A90-B567-DBA688719355}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Primary Diagnosis Code"
-              DTS:DTSID="{0FF9A2C3-06D4-40A6-A1E0-E05377276938}"
+              DTS:DTSID="{2653A117-24C4-4BE5-8EA3-DA03316FB52D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 1"
-              DTS:DTSID="{0DB647D0-19A5-4A3A-8E70-10D2D6B5F1C8}"
+              DTS:DTSID="{2BB2F07E-C1BF-4C1B-AEE6-E0C216A1A6A2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 2"
-              DTS:DTSID="{FFC93D84-BFDA-413E-8E34-3B506B11068A}"
+              DTS:DTSID="{2E4E4074-E074-4F07-AB17-41E9FF39A098}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 3"
-              DTS:DTSID="{1A84D6BA-76E8-475F-823D-3282EC0F382E}"
+              DTS:DTSID="{A5CE5D11-9359-4767-83B8-302C99FE18AF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 4"
-              DTS:DTSID="{C886BB3E-8938-43DD-80C2-1E0966610EE0}"
+              DTS:DTSID="{4FFC3F62-76AF-44B8-8545-CAEC6D784C84}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 5"
-              DTS:DTSID="{992C4B50-B040-4ECE-BAF0-524AC45F8326}"
+              DTS:DTSID="{ADD6199D-95FE-46D7-99CE-56BDDE322E48}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 6"
-              DTS:DTSID="{ED18CD37-1B70-4234-AF1D-235BDBCD5C6D}"
+              DTS:DTSID="{7AFB6245-A2C9-42C4-85F2-A692EE82F14C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 7"
-              DTS:DTSID="{BC191A39-2905-41F2-AD9A-18BC9476E17D}"
+              DTS:DTSID="{041AE55D-93E2-4EAA-B8CA-53135EFD5C34}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 8"
-              DTS:DTSID="{1535C231-C293-4D57-9210-2FA7B8CEC931}"
+              DTS:DTSID="{A27DACE2-8FF1-4B9A-BDC1-A8004D4E0400}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 9"
-              DTS:DTSID="{59990FD1-D400-45DE-A26C-A29716A4669C}"
+              DTS:DTSID="{91A2B890-B1D2-4B0F-B72C-3A2A00BBF733}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 10"
-              DTS:DTSID="{476106F0-F91A-4B18-BA0B-30864BB213F3}"
+              DTS:DTSID="{2DDF8CD6-FD0C-4397-A97A-E15E0B1E6824}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 11"
-              DTS:DTSID="{F0AA4E9F-675D-4976-879B-B412033D916D}"
+              DTS:DTSID="{230634B6-6277-4D83-9C0A-D67C95CFC1E0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="6"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Diagnosis Code 12"
-              DTS:DTSID="{611A5C55-1825-4C94-A2C5-715725064CBB}"
+              DTS:DTSID="{6FA15F74-94B8-4E29-8E02-5DF113CEB432}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Primary Procedure Code"
-              DTS:DTSID="{84E8B938-B449-47BD-A503-3027F41C9732}"
+              DTS:DTSID="{50D13441-58BE-410A-9784-996D31109292}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 1"
-              DTS:DTSID="{CE3D039C-1B00-425D-B50B-3601E0BE4AC7}"
+              DTS:DTSID="{8E82BBB7-630E-458B-95E0-79669737BF64}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 2"
-              DTS:DTSID="{7CA6FF9B-438E-4997-B133-DADA361B67F0}"
+              DTS:DTSID="{7653C47E-7A0D-414B-893E-B238338B8AEA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 3"
-              DTS:DTSID="{B2E47DBF-DE1F-47F1-8F19-DE6A0F03F5D3}"
+              DTS:DTSID="{6FEDA914-CD1D-43D4-9E98-E2779C498A65}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 4"
-              DTS:DTSID="{C14090C4-B583-4720-BE23-E5269572435E}"
+              DTS:DTSID="{9B03430F-0C2C-454E-B279-B17E7621ED74}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 5"
-              DTS:DTSID="{C3AB2A25-4EC2-4317-8B67-21CB67ED1920}"
+              DTS:DTSID="{DBA89DD6-3881-453A-ACD0-B7CA0B4E9A9A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 6"
-              DTS:DTSID="{FB4C143F-E8F9-4A5E-8DF8-FF8ED1436A48}"
+              DTS:DTSID="{D01E5C3F-1632-4E5B-B7C6-2BB22E336A18}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 7"
-              DTS:DTSID="{19C25FB3-099D-42D6-B47D-AD511E0B4D59}"
+              DTS:DTSID="{274D5A8F-A468-4E0D-A77E-00C0DB0F4A9C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 8"
-              DTS:DTSID="{6F12D7A3-9886-43D0-AAD1-49197D8C1F48}"
+              DTS:DTSID="{7318A6CC-B980-4253-B3FF-3131231233CF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 9"
-              DTS:DTSID="{03B6D4E9-52A3-4516-AB74-66C5B1B698B3}"
+              DTS:DTSID="{FF516174-1443-4733-88CC-BBE74399487F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 10"
-              DTS:DTSID="{079414C4-E7E0-474B-B803-5A94335EB10C}"
+              DTS:DTSID="{853BE8A0-81FB-469A-A420-82EBFF5D3255}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 11"
-              DTS:DTSID="{247D35A5-4B97-47D4-AE30-757A57D937A2}"
+              DTS:DTSID="{FB14E91C-C523-4571-B1A8-9047EEAD997A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="4"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Secondary Procedure Code 12"
-              DTS:DTSID="{6063B2D6-04C2-4665-8964-C0B16B6866F0}"
+              DTS:DTSID="{D1336A15-1590-4759-A91D-09B1A16E74E6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="12"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Specialised Service Code 1"
-              DTS:DTSID="{4BBC8830-575A-4D93-A037-43EBDC5C6125}"
+              DTS:DTSID="{516A9207-99F1-4668-B3F8-AA2E1107EC8C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="12"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Specialised Service Code 2"
-              DTS:DTSID="{AF218B51-5E32-4116-A4ED-4C008C83BDFE}"
+              DTS:DTSID="{EB73B9A5-6E0C-45E9-B6BB-AA8B4081F43D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="12"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Specialised Service Code 3"
-              DTS:DTSID="{D5989E30-D3A9-46EF-9C26-D4653F95B2D9}"
+              DTS:DTSID="{7A97404A-8566-46FC-A7A5-3859E8FAED16}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="12"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Specialised Service Code 4"
-              DTS:DTSID="{8D326C0A-BBC4-493D-A34C-1296B493FE24}"
+              DTS:DTSID="{EA0388C1-EC1B-43A8-A566-F8D6CC6485BD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="12"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Specialised Service Code 5"
-              DTS:DTSID="{9A66419E-8443-4A33-ADF7-A56E8701AD77}"
+              DTS:DTSID="{AAABECFE-D30B-4DF6-B8BF-D8CEF73ED45A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="10"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Core HRG (Calculated)"
-              DTS:DTSID="{0E57E108-9FFD-4CE0-AD70-EB14D356E5E7}"
+              DTS:DTSID="{216D38EE-7012-4A0E-A12D-271A892B7680}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 1"
-              DTS:DTSID="{0815BE5C-5756-4CB1-8491-904CBBC86214}"
+              DTS:DTSID="{2D9E15DD-BD73-4A2E-AF10-666FD7E8B2F2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 2"
-              DTS:DTSID="{F0C8460C-205F-4019-8AE9-2622FD833CF6}"
+              DTS:DTSID="{0CE74D2D-8E2B-448A-BDE0-888EAD70EE0F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 3"
-              DTS:DTSID="{36260AC8-37D7-42CA-A75F-6BCC41983490}"
+              DTS:DTSID="{2CF2A985-13DA-4802-92AB-5F6726C75166}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 4"
-              DTS:DTSID="{8F462BFD-0135-4287-B001-9D0C4467116B}"
+              DTS:DTSID="{2CCA2AB5-75AA-42C2-8F30-B7FC6AB2BF1F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 5"
-              DTS:DTSID="{56A5D8D7-9322-40B2-A505-F0F79972BAF2}"
+              DTS:DTSID="{065B3A92-5911-4993-ADD8-89A9CDCECB31}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 6"
-              DTS:DTSID="{617FCC8F-222B-4F27-ADE8-6E87E784BA1B}"
+              DTS:DTSID="{0603069F-46C0-424B-B470-03B0B94D384B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 7"
-              DTS:DTSID="{918B5E9A-4E69-4E9B-86DE-4481CC33BFE8}"
+              DTS:DTSID="{77F16249-9FF7-4EF1-A59F-C52C4FFB65EA}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 8"
-              DTS:DTSID="{FD606EFA-693F-4791-BD8C-97CFBFA2DF33}"
+              DTS:DTSID="{4E8C6C52-E29B-4AF9-B11C-CE15E24BFBC9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 9"
-              DTS:DTSID="{845F675E-5B9B-4D74-B6C9-5EFC2A950C86}"
+              DTS:DTSID="{B9817E08-58E1-4B34-9C49-E8AF82DDB679}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 10"
-              DTS:DTSID="{B3AEB614-B56E-4D28-A334-322A40D7AC24}"
+              DTS:DTSID="{76C7BD49-18EF-4847-A013-D656306AB638}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 11"
-              DTS:DTSID="{BCD45BB4-5502-4DBD-B839-422A6D48AAE1}"
+              DTS:DTSID="{5EE09AA3-F3F2-4C13-8F6A-90EF7E6C6B81}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Unbundled HRG 12"
-              DTS:DTSID="{B4673B84-30E9-4948-8A2D-872BAA86E234}"
+              DTS:DTSID="{A826B680-219C-4916-A71E-9CD3D6FDD388}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="1"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="PbR Excluded Indicator"
-              DTS:DTSID="{236CC74B-6CD6-458A-BC95-364D89ECF7EA}"
+              DTS:DTSID="{611260F3-CF56-4D7D-AEBD-DAC325A8B6BC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="10"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Programme Budgeting Category"
-              DTS:DTSID="{DDECD831-E1EE-4598-918B-2EBBDDD66263}"
+              DTS:DTSID="{D8FC9A7E-DA7E-489F-BD1A-164A490EE6BD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="10"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="FCE Service Line"
-              DTS:DTSID="{C0C40388-55C5-463E-8314-54DC70862BD9}"
+              DTS:DTSID="{C6EBD265-ABE8-4236-9442-F862A5CE9FB4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -703,7 +705,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Dominant Contract Identifier"
-              DTS:DTSID="{F14CE1F5-68E1-4B13-9314-B3B6B56AE34B}"
+              DTS:DTSID="{A0DEE91A-2F02-4D94-B7E6-0AAF5E5713B6}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -720,7 +722,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="curr_dttm">
       <DTS:VariableValue
-        DTS:DataType="7">8/30/2023 11:48:17 AM</DTS:VariableValue>
+        DTS:DataType="7">10/3/2023 10:54:01 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -1017,7 +1019,7 @@
                               errorOrTruncationOperation="Conversion"
                               errorRowDisposition="FailComponent"
                               externalMetadataColumnId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Hospital Provider Spell No]"
-                              length="20"
+                              length="36"
                               lineageId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Hospital Provider Spell No]"
                               name="Hospital Provider Spell No"
                               truncationRowDisposition="FailComponent">
@@ -2563,19 +2565,19 @@
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CDS Record Type]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="3"
                               name="CDS Record Type" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[NHS RID (From Provider)]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="30"
                               name="NHS RID (From Provider)" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Hospital Provider Spell No]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="36"
                               name="Hospital Provider Spell No" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Spell Identifier]"
@@ -2587,403 +2589,403 @@
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Hospital Provider Spell Discharge Date]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="14"
                               name="Hospital Provider Spell Discharge Date" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Admission Method (Original Data)]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="2"
                               name="Admission Method (Original Data)" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Episode Start Date]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="14"
                               name="Episode Start Date" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Episode Start Date Original]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="14"
                               name="Episode Start Date Original" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Episode End Date]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="14"
                               name="Episode End Date" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Episode Number]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="3"
                               name="Episode Number" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Consultant Code]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="10"
                               name="Consultant Code" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Main Specialty Code]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="3"
                               name="Main Specialty Code" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Treatment Function Code]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="3"
                               name="Treatment Function Code" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Site code of Treatment (at start of episode)]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Site code of Treatment (at start of episode)" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Ward Code at Episode Start Date]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="20"
                               name="Ward Code at Episode Start Date" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Ward Code at Episode End Date]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="20"
                               name="Ward Code at Episode End Date" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Neonatal Level of Care]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="3"
                               name="Neonatal Level of Care" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Local Patient Identifier]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="20"
                               name="Local Patient Identifier" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Age at Start of Episode Derived]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="3"
                               name="Age at Start of Episode Derived" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Postcode Dominant]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="8"
                               name="Postcode Dominant" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Organisation Code (PCT of Residence)]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Organisation Code (PCT of Residence)" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PCT Responsible]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="PCT Responsible" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Derived Commissioner]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Derived Commissioner" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Derived Commissioner Type]"
                               codePage="1252"
                               dataType="str"
-                              length="100"
+                              length="255"
                               name="Derived Commissioner Type" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Primary Diagnosis Code]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Primary Diagnosis Code" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 1]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 1" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 2]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 2" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 3]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 3" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 4]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 4" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 5]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 5" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 6]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 6" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 7]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 7" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 8]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 8" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 9]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 9" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 10]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 10" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 11]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 11" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Diagnosis Code 12]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="6"
                               name="Secondary Diagnosis Code 12" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Primary Procedure Code]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Primary Procedure Code" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 1]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 1" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 2]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 2" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 3]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 3" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 4]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 4" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 5]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 5" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 6]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 6" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 7]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 7" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 8]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 8" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 9]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 9" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 10]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 10" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 11]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 11" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Secondary Procedure Code 12]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="4"
                               name="Secondary Procedure Code 12" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Specialised Service Code 1]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="12"
                               name="Specialised Service Code 1" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Specialised Service Code 2]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="12"
                               name="Specialised Service Code 2" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Specialised Service Code 3]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="12"
                               name="Specialised Service Code 3" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Specialised Service Code 4]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="12"
                               name="Specialised Service Code 4" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Specialised Service Code 5]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="12"
                               name="Specialised Service Code 5" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Core HRG (Calculated)]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="10"
                               name="Core HRG (Calculated)" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 1]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 1" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 2]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 2" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 3]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 3" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 4]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 4" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 5]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 5" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 6]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 6" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 7]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 7" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 8]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 8" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 9]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 9" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 10]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 10" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 11]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 11" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Unbundled HRG 12]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="5"
                               name="Unbundled HRG 12" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PbR Excluded Indicator]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="1"
                               name="PbR Excluded Indicator" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Programme Budgeting Category]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="10"
                               name="Programme Budgeting Category" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FCE Service Line]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="10"
                               name="FCE Service Line" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Dominant Contract Identifier]"
@@ -3136,7 +3138,7 @@
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Hospital Provider Spell No]"
                               cachedCodepage="1252"
                               cachedDataType="str"
-                              cachedLength="20"
+                              cachedLength="36"
                               cachedName="Hospital Provider Spell No"
                               externalMetadataColumnId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hospital_provider_spell_no]"
                               lineageId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Hospital Provider Spell No]" />
@@ -3717,7 +3719,7 @@
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hospital_provider_spell_no]"
                               codePage="1252"
                               dataType="str"
-                              length="20"
+                              length="36"
                               name="hospital_provider_spell_no" />
                             <externalMetadataColumn
                               refId="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_identifier]"
@@ -4201,7 +4203,7 @@
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{70832826-2215-4155-ACCC-61F7E8AB201F}"
-                  SQLTask:SqlStatementSource="DECLARE @count INT&#xA;SET @count = (SELECT COUNT(*) from import.mds_sus_apc_episode)&#xA;&#xA;INSERT INTO import.loads&#xA;(&#xA;    load_date,&#xA;    load_type,&#xA;    number_of_records,&#xA;    filename&#xA;)&#xA;VALUES&#xA;(   ?, -- load_date - datetime&#xA;    'APCEPI',        -- load_type - varchar(4)&#xA;    @count,         -- number_of_records - int&#xA;    ?         -- filename - varchar(255)&#xA;    )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  SQLTask:SqlStatementSource="DECLARE @count INT&#xA;SET @count = (SELECT COUNT(*) from import.mds_sus_apc_episode)&#xA;&#xA;INSERT INTO import.loads&#xA;(&#xA;    load_date,&#xA;    load_type,&#xA;    number_of_records,&#xA;    filename&#xA;)&#xA;VALUES&#xA;(   ?, -- load_date - datetime&#xA;    'SUS_APCEPI',        -- load_type - varchar(4)&#xA;    @count,         -- number_of_records - int&#xA;    ?         -- filename - varchar(255)&#xA;    )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
                   <SQLTask:ParameterBinding
                     SQLTask:ParameterName="0"
                     SQLTask:DtsVariableName="User::curr_dttm"
@@ -4252,14 +4254,35 @@
                   Language="CSharp"
                   ReadOnlyVariables="User::filename,$Project::Dataload_Directory">
                   <ProjectItem
-                    Name="Properties\Settings.settings"
-                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
-</SettingsFile>]]></ProjectItem>
+                    Name="Properties\AssemblyInfo.cs"
+                    Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_4c8d1f291f424f0a8e284f13da57274d")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_4c8d1f291f424f0a8e284f13da57274d")]
+[assembly: AssemblyCopyright("Copyright @  2023")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.resx"
                     Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
@@ -4558,35 +4581,14 @@ namespace ST_4c8d1f291f424f0a8e284f13da57274d.Properties {
     }
 }]]></ProjectItem>
                   <ProjectItem
-                    Name="Properties\AssemblyInfo.cs"
-                    Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
-
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_4c8d1f291f424f0a8e284f13da57274d")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_4c8d1f291f424f0a8e284f13da57274d")]
-[assembly: AssemblyCopyright("Copyright @  2023")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+                    Name="Properties\Settings.settings"
+                    Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
                   <ProjectItem
                     Name="Properties\Resources.Designer.cs"
                     Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
@@ -5127,7 +5129,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
     design-time-name="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Sequence Container - Import\Foreach Loop Container\Data Flow Task\OLE DB Destination"
@@ -5171,9 +5173,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5207,9 +5207,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

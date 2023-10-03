@@ -8,13 +8,13 @@
   DTS:DTSID="{DD3E9A09-AC56-4C7F-A38D-C2FC44741C6E}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{5C890802-E70E-4700-8E38-36D2D4CBAFCE}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{80986E59-10F9-4B34-99B1-D10FF0EBEDB4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -664,7 +664,7 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{4A70E9C3-A74E-47DA-BC9B-C7870CC6FC13}"
+      DTS:DTSID="{593DA012-B93A-4794-9312-3E99BC4BD85E}"
       DTS:From="Package\Data Flow from hdm_local"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -709,15 +709,15 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\exec hdm_local sp curr_period"
-          TopLeft="121.428573496488,436.64706494734" />
+          TopLeft="121.428573496488,508.580398852348" />
         <NodeLayout
           Size="345.6,41.6"
           Id="Package\exec import sp for transform mds_careflow_spells_insert"
-          TopLeft="57.8571435869956,266.647058748456" />
+          TopLeft="57.8571435869956,338.580392653464" />
         <NodeLayout
           Size="284.8,41.6"
           Id="Package\exec merge sp for dbo mds_careflow_spells"
-          TopLeft="90.4285723043949,351.941176427689" />
+          TopLeft="90.4285723043949,423.874510332697" />
         <NodeLayout
           Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
@@ -767,30 +767,8 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="227.914286365071,224.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.0470587484564"
-              Start="0,0"
-              End="0,34.5470587484564">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.5470587484564" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="231.742857945695,308.247058748456">
+          TopLeft="231.742857945695,380.180392653464">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -812,7 +790,7 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="232.728572900441,393.541176427689">
+          TopLeft="232.728572900441,465.474510332697">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -824,6 +802,28 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,35.6058885196507" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="227.914286365071,224.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,113.980392653464"
+              Start="0,0"
+              End="0,106.480392653464">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,106.480392653464" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

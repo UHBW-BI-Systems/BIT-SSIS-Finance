@@ -12,8 +12,8 @@
   DTS:ObjectName="CopyToInview"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{7CB77DD4-0344-45D3-A9DE-3D63F76CF06F}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{2468EAB1-5DD7-413A-BD06-0055C3392A15}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -135,7 +135,9 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hospital_provider_spell_no]"
-                      cachedDataType="i8"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="36"
                       cachedName="hospital_provider_spell_no"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hospital_provider_spell_no]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]" />
@@ -629,7 +631,9 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hospital_provider_spell_no]"
-                      dataType="i8"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
                       name="hospital_provider_spell_no" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_identifier]"
@@ -1077,10 +1081,12 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
-                      dataType="i8"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
+                      length="36"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
                       name="hospital_provider_spell_no"
                       truncationRowDisposition="FailComponent" />
@@ -1769,7 +1775,9 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
-                      dataType="i8"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
                       name="hospital_provider_spell_no" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
@@ -2135,7 +2143,9 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
-                      dataType="i8"
+                      codePage="1252"
+                      dataType="str"
+                      length="36"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
                       name="hospital_provider_spell_no" />
                     <outputColumn

@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\jeffriesma"
   DTS:DTSID="{6AEF6088-31EE-4E49-8FB4-196E69D17D35}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{E2851E2F-6013-49F8-98C4-6B0EE4D6B1E9}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{885C0619-8B71-4167-AD6F-DFBD0341ABD1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -561,7 +561,7 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{1E6FF18F-225F-4733-B8DB-B25E47DFEF22}"
+      DTS:DTSID="{EE8C6E2F-74D3-4C4D-AC10-0F3FCDDA2573}"
       DTS:From="Package\Data Flow from hdm_local"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -606,15 +606,15 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\exec hdm_local sp curr_period"
-          TopLeft="152.857145460285,468.764712456601" />
+          TopLeft="153.690478760505,540.698046361609" />
         <NodeLayout
           Size="360.8,41.6"
           Id="Package\exec import sp for transform mds_careflow_episodes_insert"
-          TopLeft="75.7142870036924,285.235298117964" />
+          TopLeft="76.5476203039121,357.168632022972" />
         <NodeLayout
           Size="305.6,41.6"
           Id="Package\exec merge sp for dbo mds_careflow_episodes"
-          TopLeft="109.857144949388,377.76471118036" />
+          TopLeft="110.690478249608,449.698045085368" />
         <NodeLayout
           Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
@@ -664,30 +664,8 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="253.964287642314,242.352943986345">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.882354131619"
-              Start="0,0"
-              End="0,35.382354131619">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.382354131619" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="259.53571597654,327.235298117964">
+          TopLeft="260.36904927676,399.168632022972">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -709,7 +687,7 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="263.357145204836,419.36471118036">
+          TopLeft="264.190478505056,491.298045085368">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -721,6 +699,28 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,41.9000012762409" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="254.230954292424,241.952943986345">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,115.215688036627"
+              Start="0,0"
+              End="0,107.715688036627">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.715688036627" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -744,21 +744,33 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
         <NodeLayout
           Size="262.4,41.6"
           Id="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes"
-          TopLeft="52.4285715380494,108.764705710758" />
+          TopLeft="58.2619046395869,210.164706516613" />
         <EdgeLayout
           Id="Package\Data Flow from hdm_local.Paths[OLE DB Source Output]"
-          TopLeft="180.214285769025,76.6">
+          TopLeft="176.8,76.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.1647057107575"
+              EndConnector="12.6619046395869,133.564706516613"
               Start="0,0"
-              End="0,24.6647057107575">
+              End="12.6619046395869,126.064706516613">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.6647057107575" />
+                    End="0,62.7823532583064" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,62.7823532583064"
+                    Point2="0,66.7823532583064"
+                    Point3="4,66.7823532583064" />
+                  <mssgle:LineSegment
+                    End="8.66190463958688,66.7823532583064" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.66190463958688,66.7823532583064"
+                    Point2="12.6619046395869,66.7823532583064"
+                    Point3="12.6619046395869,70.7823532583064" />
+                  <mssgle:LineSegment
+                    End="12.6619046395869,126.064706516613" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
