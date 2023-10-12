@@ -12,23 +12,21 @@
   DTS:ObjectName="mds_import_to_slam"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{E948DDE7-A249-446D-B02F-66C662FC7AAC}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{00F19A85-40B0-43B6-AC4C-B6A0083A2EF7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Finance]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{0D49CAAE-163B-40FD-901A-F0CE9990F9B2}"
+      DTS:DTSID="{FE00EF62-D5E4-42FB-B2D3-20AAB45A6D88}"
       DTS:ObjectName="Finance">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::Finance_ConnectionString_Database]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=BIT;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -1319,6 +1317,128 @@
                       name="OLE DB Source Output">
                       <outputColumns>
                         <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
+                          length="36"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
+                          name="hospital_provider_spell_no"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
+                          name="spell_identifier"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[main_specialty_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[main_specialty_code]"
+                          length="3"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[main_specialty_code]"
+                          name="main_specialty_code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[treatment_function_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[treatment_function_code]"
+                          length="3"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[treatment_function_code]"
+                          name="treatment_function_code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[local_patient_identifier]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[local_patient_identifier]"
+                          length="20"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[local_patient_identifier]"
+                          name="local_patient_identifier"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[derived_commissioner]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[derived_commissioner]"
+                          length="5"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[derived_commissioner]"
+                          name="derived_commissioner"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[derived_commissioner_type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[derived_commissioner_type]"
+                          length="255"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[derived_commissioner_type]"
+                          name="derived_commissioner_type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[primary_procedure_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[primary_procedure_code]"
+                          length="4"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[primary_procedure_code]"
+                          name="primary_procedure_code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[sus_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sus_load_dttm]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[sus_load_dttm]"
+                          name="sus_load_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_load_dttm]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_load_dttm]"
+                          name="careflow_load_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_modif_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_modif_dttm]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_modif_dttm]"
+                          name="careflow_modif_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_hdm_modif_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_hdm_modif_dttm]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_hdm_modif_dttm]"
+                          name="careflow_hdm_modif_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[episode_identifier_ipep_ext_id]"
                           codePage="1252"
                           dataType="str"
@@ -1361,26 +1481,6 @@
                           length="30"
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nhs_rid_from_provider]"
                           name="nhs_rid_from_provider"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
-                          length="36"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
-                          name="hospital_provider_spell_no"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
-                          dataType="i8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
-                          name="spell_identifier"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_discharge_date]"
@@ -1450,28 +1550,6 @@
                           name="consultant_code"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[main_specialty_code]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[main_specialty_code]"
-                          length="3"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[main_specialty_code]"
-                          name="main_specialty_code"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[treatment_function_code]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[treatment_function_code]"
-                          length="3"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[treatment_function_code]"
-                          name="treatment_function_code"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[site_code_of_treatment_at_start_of_episode]"
                           codePage="1252"
                           dataType="str"
@@ -1516,17 +1594,6 @@
                           name="neonatal_level_of_care"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[local_patient_identifier]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[local_patient_identifier]"
-                          length="20"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[local_patient_identifier]"
-                          name="local_patient_identifier"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[age_at_start_of_episode_derived]"
                           dataType="i2"
                           errorOrTruncationOperation="Conversion"
@@ -1567,28 +1634,6 @@
                           length="5"
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[pct_responsible]"
                           name="pct_responsible"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[derived_commissioner]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[derived_commissioner]"
-                          length="5"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[derived_commissioner]"
-                          name="derived_commissioner"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[derived_commissioner_type]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[derived_commissioner_type]"
-                          length="255"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[derived_commissioner_type]"
-                          name="derived_commissioner_type"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[primary_diagnosis_code]"
@@ -1732,17 +1777,6 @@
                           length="6"
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[secondary_diagnosis_code_12]"
                           name="secondary_diagnosis_code_12"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[primary_procedure_code]"
-                          codePage="1252"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[primary_procedure_code]"
-                          length="4"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[primary_procedure_code]"
-                          name="primary_procedure_code"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[secondary_procedure_code_1]"
@@ -2117,15 +2151,6 @@
                           name="dominant_contract_identifier"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[sus_load_dttm]"
-                          dataType="dbTimeStamp2"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sus_load_dttm]"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[sus_load_dttm]"
-                          name="sus_load_dttm"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_unique_cds_identifier]"
                           codePage="1252"
                           dataType="str"
@@ -2157,36 +2182,71 @@
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[wir_code]"
                           name="wir_code"
                           truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_load_dttm]"
-                          dataType="dbTimeStamp2"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_load_dttm]"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_load_dttm]"
-                          name="careflow_load_dttm"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_modif_dttm]"
-                          dataType="dbTimeStamp2"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_modif_dttm]"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_modif_dttm]"
-                          name="careflow_modif_dttm"
-                          truncationRowDisposition="FailComponent" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_hdm_modif_dttm]"
-                          dataType="dbTimeStamp2"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_hdm_modif_dttm]"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_hdm_modif_dttm]"
-                          name="careflow_hdm_modif_dttm"
-                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
+                          codePage="1252"
+                          dataType="str"
+                          length="36"
+                          name="hospital_provider_spell_no" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
+                          dataType="i8"
+                          name="spell_identifier" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[main_specialty_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="main_specialty_code" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[treatment_function_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="treatment_function_code" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[local_patient_identifier]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="local_patient_identifier" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[derived_commissioner]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="derived_commissioner" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[derived_commissioner_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="derived_commissioner_type" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[primary_procedure_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="primary_procedure_code" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sus_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="sus_load_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="careflow_load_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_modif_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="careflow_modif_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_hdm_modif_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="careflow_hdm_modif_dttm" />
                         <externalMetadataColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[episode_identifier_ipep_ext_id]"
                           codePage="1252"
@@ -2211,16 +2271,6 @@
                           dataType="str"
                           length="30"
                           name="nhs_rid_from_provider" />
-                        <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
-                          codePage="1252"
-                          dataType="str"
-                          length="36"
-                          name="hospital_provider_spell_no" />
-                        <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
-                          dataType="i8"
-                          name="spell_identifier" />
                         <externalMetadataColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_discharge_date]"
                           dataType="dbTimeStamp2"
@@ -2254,18 +2304,6 @@
                           length="10"
                           name="consultant_code" />
                         <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[main_specialty_code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="3"
-                          name="main_specialty_code" />
-                        <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[treatment_function_code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="3"
-                          name="treatment_function_code" />
-                        <externalMetadataColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[site_code_of_treatment_at_start_of_episode]"
                           codePage="1252"
                           dataType="str"
@@ -2290,12 +2328,6 @@
                           length="3"
                           name="neonatal_level_of_care" />
                         <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[local_patient_identifier]"
-                          codePage="1252"
-                          dataType="str"
-                          length="20"
-                          name="local_patient_identifier" />
-                        <externalMetadataColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[age_at_start_of_episode_derived]"
                           dataType="i2"
                           name="age_at_start_of_episode_derived" />
@@ -2317,18 +2349,6 @@
                           dataType="str"
                           length="5"
                           name="pct_responsible" />
-                        <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[derived_commissioner]"
-                          codePage="1252"
-                          dataType="str"
-                          length="5"
-                          name="derived_commissioner" />
-                        <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[derived_commissioner_type]"
-                          codePage="1252"
-                          dataType="str"
-                          length="255"
-                          name="derived_commissioner_type" />
                         <externalMetadataColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[primary_diagnosis_code]"
                           codePage="1252"
@@ -2407,12 +2427,6 @@
                           dataType="str"
                           length="6"
                           name="secondary_diagnosis_code_12" />
-                        <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[primary_procedure_code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="4"
-                          name="primary_procedure_code" />
                         <externalMetadataColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[secondary_procedure_code_1]"
                           codePage="1252"
@@ -2616,10 +2630,6 @@
                           length="50"
                           name="dominant_contract_identifier" />
                         <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sus_load_dttm]"
-                          dataType="dbTimeStamp2"
-                          name="sus_load_dttm" />
-                        <externalMetadataColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_unique_cds_identifier]"
                           codePage="1252"
                           dataType="str"
@@ -2636,18 +2646,6 @@
                           dataType="wstr"
                           length="2"
                           name="wir_code" />
-                        <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_load_dttm]"
-                          dataType="dbTimeStamp2"
-                          name="careflow_load_dttm" />
-                        <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_modif_dttm]"
-                          dataType="dbTimeStamp2"
-                          name="careflow_modif_dttm" />
-                        <externalMetadataColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_hdm_modif_dttm]"
-                          dataType="dbTimeStamp2"
-                          name="careflow_hdm_modif_dttm" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -2655,6 +2653,92 @@
                       isErrorOut="true"
                       name="OLE DB Source Error Output">
                       <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
+                          codePage="1252"
+                          dataType="str"
+                          length="36"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
+                          name="hospital_provider_spell_no" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
+                          dataType="i8"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
+                          name="spell_identifier" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[main_specialty_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[main_specialty_code]"
+                          name="main_specialty_code" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[treatment_function_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[treatment_function_code]"
+                          name="treatment_function_code" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[local_patient_identifier]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[local_patient_identifier]"
+                          name="local_patient_identifier" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[derived_commissioner]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[derived_commissioner]"
+                          name="derived_commissioner" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[derived_commissioner_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[derived_commissioner_type]"
+                          name="derived_commissioner_type" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[primary_procedure_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[primary_procedure_code]"
+                          name="primary_procedure_code" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sus_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sus_load_dttm]"
+                          name="sus_load_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_load_dttm]"
+                          name="careflow_load_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_modif_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_modif_dttm]"
+                          name="careflow_modif_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_hdm_modif_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_hdm_modif_dttm]"
+                          name="careflow_hdm_modif_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
                         <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[episode_identifier_ipep_ext_id]"
                           codePage="1252"
@@ -2683,18 +2767,6 @@
                           length="30"
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nhs_rid_from_provider]"
                           name="nhs_rid_from_provider" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
-                          codePage="1252"
-                          dataType="str"
-                          length="36"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
-                          name="hospital_provider_spell_no" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
-                          dataType="i8"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
-                          name="spell_identifier" />
                         <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_discharge_date]"
                           dataType="dbTimeStamp2"
@@ -2735,20 +2807,6 @@
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[consultant_code]"
                           name="consultant_code" />
                         <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[main_specialty_code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="3"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[main_specialty_code]"
-                          name="main_specialty_code" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[treatment_function_code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="3"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[treatment_function_code]"
-                          name="treatment_function_code" />
-                        <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[site_code_of_treatment_at_start_of_episode]"
                           codePage="1252"
                           dataType="str"
@@ -2777,13 +2835,6 @@
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[neonatal_level_of_care]"
                           name="neonatal_level_of_care" />
                         <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[local_patient_identifier]"
-                          codePage="1252"
-                          dataType="str"
-                          length="20"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[local_patient_identifier]"
-                          name="local_patient_identifier" />
-                        <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[age_at_start_of_episode_derived]"
                           dataType="i2"
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[age_at_start_of_episode_derived]"
@@ -2809,20 +2860,6 @@
                           length="5"
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pct_responsible]"
                           name="pct_responsible" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[derived_commissioner]"
-                          codePage="1252"
-                          dataType="str"
-                          length="5"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[derived_commissioner]"
-                          name="derived_commissioner" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[derived_commissioner_type]"
-                          codePage="1252"
-                          dataType="str"
-                          length="255"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[derived_commissioner_type]"
-                          name="derived_commissioner_type" />
                         <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[primary_diagnosis_code]"
                           codePage="1252"
@@ -2914,13 +2951,6 @@
                           length="6"
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[secondary_diagnosis_code_12]"
                           name="secondary_diagnosis_code_12" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[primary_procedure_code]"
-                          codePage="1252"
-                          dataType="str"
-                          length="4"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[primary_procedure_code]"
-                          name="primary_procedure_code" />
                         <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[secondary_procedure_code_1]"
                           codePage="1252"
@@ -3158,11 +3188,6 @@
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[dominant_contract_identifier]"
                           name="dominant_contract_identifier" />
                         <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sus_load_dttm]"
-                          dataType="dbTimeStamp2"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sus_load_dttm]"
-                          name="sus_load_dttm" />
-                        <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_unique_cds_identifier]"
                           codePage="1252"
                           dataType="str"
@@ -3182,33 +3207,6 @@
                           length="2"
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wir_code]"
                           name="wir_code" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_load_dttm]"
-                          dataType="dbTimeStamp2"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_load_dttm]"
-                          name="careflow_load_dttm" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_modif_dttm]"
-                          dataType="dbTimeStamp2"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_modif_dttm]"
-                          name="careflow_modif_dttm" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_hdm_modif_dttm]"
-                          dataType="dbTimeStamp2"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_hdm_modif_dttm]"
-                          name="careflow_hdm_modif_dttm" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
                       </outputColumns>
                       <externalMetadataColumns />
                     </output>
@@ -9235,43 +9233,6 @@
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="186.4,41.6"
-          Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM"
-          TopLeft="15.2666634215252,88.8000026448569" />
-        <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\Insert Merged Spells to SLAM\Truncate SLAM mds spell"
-          TopLeft="15.266663421525,12.533335372077" />
-        <EdgeLayout
-          Id="Package\Insert Merged Spells to SLAM.PrecedenceConstraints[Constraint]"
-          TopLeft="111.266663421525,54.133335372077">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.6666672727798"
-              Start="0,0"
-              End="0,27.1666672727798">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.1666672727798" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="224,185.6"
-          Size="224,228.8"
-          Id="Package\Insert Merged Spells to SLAM"
-          TopLeft="66.6666640175715,201.066668264601" />
-        <NodeLayout
-          Size="186.4,41.6"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM"
           TopLeft="23.2999832113591,80.200002582868" />
         <NodeLayout
@@ -9306,7 +9267,7 @@
           PanelSize="244.8,176.8"
           Size="244.8,220"
           Id="Package\Insert Merged Episodes to SLAM"
-          TopLeft="399.166650805209,201.933334938155" />
+          TopLeft="354.166652593348,194.133334876166" />
         <NodeLayout
           Size="186.4,41.6"
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM"
@@ -9343,21 +9304,58 @@
           PanelSize="233.6,181.6"
           Size="233.6,224.8"
           Id="Package\Insert Merged OPA to SLAM"
-          TopLeft="722.499971290431,205.400001632373" />
+          TopLeft="677.49997307857,194.133334876167" />
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM"
+          TopLeft="15.2666634215252,88.8000026448569" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Insert Merged Spells to SLAM\Truncate SLAM mds spell"
+          TopLeft="15.266663421525,12.533335372077" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="290.666664017571,313.700001601378">
+          Id="Package\Insert Merged Spells to SLAM.PrecedenceConstraints[Constraint]"
+          TopLeft="111.266663421525,54.133335372077">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="108.499986787638,0"
+              EndConnector="0,34.6666672727798"
               Start="0,0"
-              End="100.999986787638,0">
+              End="0,27.1666672727798">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="100.999986787638,0" />
+                    End="0,27.1666672727798" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="224,185.6"
+          Size="224,228.8"
+          Id="Package\Insert Merged Spells to SLAM"
+          TopLeft="54.9999978144966,192.400001529058" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="278.999997814497,305.466668202612">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.1666547788516,0"
+              Start="0,0"
+              End="67.6666547788516,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="67.6666547788516,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9368,18 +9366,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="643.966650805209,314.866668285264">
+          TopLeft="598.966652593348,305.333334876167">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="78.5333204852215,0"
+              EndConnector="78.5333204852218,0"
               Start="0,0"
-              End="71.0333204852215,0">
+              End="71.0333204852218,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="71.0333204852215,0" />
+                    End="71.0333204852218,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9388,98 +9386,29 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Finance connection string not parametized, we can't load test data to slam."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="424.8,40"
+          Id="d8b40317-2776-4fe9-951d-d5ce35e8af6c"
+          TopLeft="205.833325154252,492.266670578851" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source"
-          TopLeft="95.833329525259,63.266667169465" />
-        <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination"
-          TopLeft="109.999995628993,221.866668429905" />
-        <EdgeLayout
-          Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM.Paths[OLE DB Source Output]"
-          TopLeft="171.833329525259,104.866667169465">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="23.766666103734,117.00000126044"
-              Start="0,0"
-              End="23.766666103734,109.50000126044">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.5000006302198" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,54.5000006302198"
-                    Point2="0,58.5000006302198"
-                    Point3="4,58.5000006302198" />
-                  <mssgle:LineSegment
-                    End="19.766666103734,58.5000006302198" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.766666103734,58.5000006302198"
-                    Point2="23.766666103734,58.5000006302198"
-                    Point3="23.766666103734,62.5000006302198" />
-                  <mssgle:LineSegment
-                    End="23.766666103734,109.50000126044" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Destination"
-          TopLeft="109.999995628993,221.866668429905" />
-        <NodeLayout
           Size="152,41.6"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source"
           TopLeft="95.833329525259,63.266667169465" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Destination"
+          TopLeft="109.999995628993,221.866668429905" />
         <EdgeLayout
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM.Paths[OLE DB Source Output]"
           TopLeft="171.833329525259,104.866667169465">
@@ -9608,6 +9537,82 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source"
+          TopLeft="95.833329525259,63.266667169465" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination"
+          TopLeft="109.999995628993,221.866668429905" />
+        <EdgeLayout
+          Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM.Paths[OLE DB Source Output]"
+          TopLeft="171.833329525259,104.866667169465">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.766666103734,117.00000126044"
+              Start="0,0"
+              End="23.766666103734,109.50000126044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5000006302198" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.5000006302198"
+                    Point2="0,58.5000006302198"
+                    Point3="4,58.5000006302198" />
+                  <mssgle:LineSegment
+                    End="19.766666103734,58.5000006302198" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.766666103734,58.5000006302198"
+                    Point2="23.766666103734,58.5000006302198"
+                    Point3="23.766666103734,62.5000006302198" />
+                  <mssgle:LineSegment
+                    End="23.766666103734,109.50000126044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
