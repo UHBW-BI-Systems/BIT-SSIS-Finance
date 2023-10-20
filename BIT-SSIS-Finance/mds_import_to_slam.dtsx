@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_import_to_slam"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{00F19A85-40B0-43B6-AC4C-B6A0083A2EF7}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{8CCE188A-15FB-4AFD-B3CC-2366A8477D3B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,6 +44,18 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Insert cc to SLAM"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{d1d81a15-243c-42ca-b75e-0059e1e0659a}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert cc to SLAM">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Insert Merged Episodes to SLAM"
       DTS:CreationName="STOCK:SEQUENCE"
@@ -7011,6 +7023,241 @@
                           cachedName="careflow_hdm_modif_dttm"
                           externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[careflow_hdm_modif_dttm]"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_hdm_modif_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[number_bpt_indicators]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="number_bpt_indicators"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_bpt_indicators]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[number_bpt_indicators]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[specialised_service_code1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="specialised_service_code1"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[specialised_service_code1]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[specialised_service_code1]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bpt_indicator_1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="bpt_indicator_1"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_1]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_1]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bpt_indicator_1_action]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="bpt_indicator_1_action"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_1_action]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_1_action]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bpt_indicator_2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="bpt_indicator_2"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_2]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_2]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bpt_indicator_2_action]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="bpt_indicator_2_action"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_2_action]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_2_action]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bpt_indicator_3]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="bpt_indicator_3"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_3]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_3]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bpt_indicator_3_action]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="bpt_indicator_3_action"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_3_action]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_3_action]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bpt_indicator_4]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="bpt_indicator_4"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_4]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_4]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bpt_indicator_4_action]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="bpt_indicator_4_action"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_4_action]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_4_action]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bpt_indicator_5]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="bpt_indicator_5"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_5]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_5]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bpt_indicator_5_action]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="bpt_indicator_5_action"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_5_action]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_5_action]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_1"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_1]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_1]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_2"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_2]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_2]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_3]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_3"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_3]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_3]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_4]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_4"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_4]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_4]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_5]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_5"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_5]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_5]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_6]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_6"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_6]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_6]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_7]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_7"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_7]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_7]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_8]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_8"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_8]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_8]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_9]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_9"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_9]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_9]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_10]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_10"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_10]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_10]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_11]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_11"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_11]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_11]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unbundled_hrg_12]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="unbundled_hrg_12"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_12]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_12]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[load_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="load_dttm"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[load_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[update_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="update_dttm"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[update_dttm]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[update_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[filename]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="filename"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[filename]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[wir_code]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="wir_code"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wir_code]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[wir_code]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ward_at_episode_start]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="ward_at_episode_start"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ward_at_episode_start]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ward_at_episode_start]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ward_at_episode_end]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="ward_at_episode_end"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ward_at_episode_end]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ward_at_episode_end]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -7412,6 +7659,181 @@
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[careflow_hdm_modif_dttm]"
                           dataType="dbTimeStamp2"
                           name="careflow_hdm_modif_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_bpt_indicators]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="number_bpt_indicators" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[specialised_service_code1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="specialised_service_code1" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="bpt_indicator_1" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_1_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bpt_indicator_1_action" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="bpt_indicator_2" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_2_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bpt_indicator_2_action" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="bpt_indicator_3" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_3_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bpt_indicator_3_action" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="bpt_indicator_4" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_4_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bpt_indicator_4_action" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="bpt_indicator_5" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bpt_indicator_5_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bpt_indicator_5_action" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_1" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_2" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_3" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_4" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_5" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_6]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_6" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_7]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_7" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_8" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_9]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_9" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_10]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_10" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_11]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_11" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unbundled_hrg_12]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_12" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="load_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[update_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="update_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[filename]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="filename" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wir_code]"
+                          dataType="wstr"
+                          length="2"
+                          name="wir_code" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ward_at_episode_start]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ward_at_episode_start" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ward_at_episode_end]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ward_at_episode_end" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -8264,6 +8686,331 @@
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_hdm_modif_dttm]"
                           name="careflow_hdm_modif_dttm"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[number_bpt_indicators]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[number_bpt_indicators]"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[number_bpt_indicators]"
+                          name="number_bpt_indicators"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[specialised_service_code1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[specialised_service_code1]"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[specialised_service_code1]"
+                          name="specialised_service_code1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_1]"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_1]"
+                          name="bpt_indicator_1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_1_action]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_1_action]"
+                          length="50"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_1_action]"
+                          name="bpt_indicator_1_action"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_2]"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_2]"
+                          name="bpt_indicator_2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_2_action]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_2_action]"
+                          length="50"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_2_action]"
+                          name="bpt_indicator_2_action"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_3]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_3]"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_3]"
+                          name="bpt_indicator_3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_3_action]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_3_action]"
+                          length="50"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_3_action]"
+                          name="bpt_indicator_3_action"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_4]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_4]"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_4]"
+                          name="bpt_indicator_4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_4_action]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_4_action]"
+                          length="50"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_4_action]"
+                          name="bpt_indicator_4_action"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_5]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_5]"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_5]"
+                          name="bpt_indicator_5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_5_action]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_5_action]"
+                          length="50"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bpt_indicator_5_action]"
+                          name="bpt_indicator_5_action"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_1]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_1]"
+                          name="unbundled_hrg_1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_2]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_2]"
+                          name="unbundled_hrg_2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_3]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_3]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_3]"
+                          name="unbundled_hrg_3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_4]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_4]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_4]"
+                          name="unbundled_hrg_4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_5]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_5]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_5]"
+                          name="unbundled_hrg_5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_6]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_6]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_6]"
+                          name="unbundled_hrg_6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_7]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_7]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_7]"
+                          name="unbundled_hrg_7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_8]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_8]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_8]"
+                          name="unbundled_hrg_8"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_9]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_9]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_9]"
+                          name="unbundled_hrg_9"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_10]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_10]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_10]"
+                          name="unbundled_hrg_10"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_11]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_11]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_11]"
+                          name="unbundled_hrg_11"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_12]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_12]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[unbundled_hrg_12]"
+                          name="unbundled_hrg_12"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[load_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[load_dttm]"
+                          name="load_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[update_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[update_dttm]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[update_dttm]"
+                          name="update_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[filename]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[filename]"
+                          length="255"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[filename]"
+                          name="filename"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[wir_code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wir_code]"
+                          length="2"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[wir_code]"
+                          name="wir_code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ward_at_episode_start]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ward_at_episode_start]"
+                          length="20"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ward_at_episode_start]"
+                          name="ward_at_episode_start"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ward_at_episode_end]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ward_at_episode_end]"
+                          length="20"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ward_at_episode_end]"
+                          name="ward_at_episode_end"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -8665,6 +9412,181 @@
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[careflow_hdm_modif_dttm]"
                           dataType="dbTimeStamp2"
                           name="careflow_hdm_modif_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[number_bpt_indicators]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="number_bpt_indicators" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[specialised_service_code1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="specialised_service_code1" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="bpt_indicator_1" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_1_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bpt_indicator_1_action" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="bpt_indicator_2" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_2_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bpt_indicator_2_action" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="bpt_indicator_3" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_3_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bpt_indicator_3_action" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="bpt_indicator_4" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_4_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bpt_indicator_4_action" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="bpt_indicator_5" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bpt_indicator_5_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="bpt_indicator_5_action" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_1" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_2" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_3" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_4" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_5" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_6]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_6" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_7]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_7" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_8" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_9]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_9" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_10]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_10" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_11]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_11" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[unbundled_hrg_12]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="unbundled_hrg_12" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="load_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[update_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="update_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[filename]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="filename" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wir_code]"
+                          dataType="wstr"
+                          length="2"
+                          name="wir_code" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ward_at_episode_start]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ward_at_episode_start" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ward_at_episode_end]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ward_at_episode_end" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -9144,6 +10066,211 @@
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[careflow_hdm_modif_dttm]"
                           name="careflow_hdm_modif_dttm" />
                         <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[number_bpt_indicators]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[number_bpt_indicators]"
+                          name="number_bpt_indicators" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[specialised_service_code1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[specialised_service_code1]"
+                          name="specialised_service_code1" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_1]"
+                          name="bpt_indicator_1" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_1_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_1_action]"
+                          name="bpt_indicator_1_action" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_2]"
+                          name="bpt_indicator_2" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_2_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_2_action]"
+                          name="bpt_indicator_2_action" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_3]"
+                          name="bpt_indicator_3" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_3_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_3_action]"
+                          name="bpt_indicator_3_action" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_4]"
+                          name="bpt_indicator_4" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_4_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_4_action]"
+                          name="bpt_indicator_4_action" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_5]"
+                          name="bpt_indicator_5" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_5_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bpt_indicator_5_action]"
+                          name="bpt_indicator_5_action" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_1]"
+                          name="unbundled_hrg_1" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_2]"
+                          name="unbundled_hrg_2" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_3]"
+                          name="unbundled_hrg_3" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_4]"
+                          name="unbundled_hrg_4" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_5]"
+                          name="unbundled_hrg_5" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_6]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_6]"
+                          name="unbundled_hrg_6" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_7]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_7]"
+                          name="unbundled_hrg_7" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_8]"
+                          name="unbundled_hrg_8" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_9]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_9]"
+                          name="unbundled_hrg_9" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_10]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_10]"
+                          name="unbundled_hrg_10" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_11]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_11]"
+                          name="unbundled_hrg_11" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_12]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[unbundled_hrg_12]"
+                          name="unbundled_hrg_12" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
+                          name="load_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[update_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[update_dttm]"
+                          name="update_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[filename]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[filename]"
+                          name="filename" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wir_code]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wir_code]"
+                          name="wir_code" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ward_at_episode_start]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ward_at_episode_start]"
+                          name="ward_at_episode_start" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ward_at_episode_end]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ward_at_episode_end]"
+                          name="ward_at_episode_end" />
+                        <outputColumn
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -9218,6 +10345,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Insert Merged OPA to SLAM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{6774707D-60B3-4655-8755-D51231DCA5CD}"
+      DTS:From="Package\Insert Merged OPA to SLAM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Insert cc to SLAM" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -9230,7 +10365,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="186.4,41.6"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM"
@@ -9267,7 +10402,7 @@
           PanelSize="244.8,176.8"
           Size="244.8,220"
           Id="Package\Insert Merged Episodes to SLAM"
-          TopLeft="354.166652593348,194.133334876166" />
+          TopLeft="294.999988277753,112.66666756206" />
         <NodeLayout
           Size="186.4,41.6"
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM"
@@ -9304,7 +10439,7 @@
           PanelSize="233.6,181.6"
           Size="233.6,224.8"
           Id="Package\Insert Merged OPA to SLAM"
-          TopLeft="677.49997307857,194.133334876167" />
+          TopLeft="595.833309657045,117.866667603387" />
         <NodeLayout
           Size="186.4,41.6"
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM"
@@ -9341,21 +10476,21 @@
           PanelSize="224,185.6"
           Size="224,228.8"
           Id="Package\Insert Merged Spells to SLAM"
-          TopLeft="54.9999978144966,192.400001529058" />
+          TopLeft="24.1666657063698,100.533334132301" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="278.999997814497,305.466668202612">
+          TopLeft="248.16666570637,218.800000847181">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="75.1666547788516,0"
+              EndConnector="46.8333225713835,0"
               Start="0,0"
-              End="67.6666547788516,0">
+              End="39.3333225713835,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="67.6666547788516,0" />
+                    End="39.3333225713835,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9366,18 +10501,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="598.966652593348,305.333334876167">
+          TopLeft="539.799988277753,226.466667582724">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="78.5333204852218,0"
+              EndConnector="56.0333213792917,0"
               Start="0,0"
-              End="71.0333204852218,0">
+              End="48.5333213792917,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="71.0333204852218,0" />
+                    End="48.5333213792917,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9393,6 +10528,35 @@
           Size="424.8,40"
           Id="d8b40317-2776-4fe9-951d-d5ce35e8af6c"
           TopLeft="205.833325154252,492.266670578851" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="233.6,181.6"
+          Size="233.6,224.8"
+          Id="Package\Insert cc to SLAM"
+          TopLeft="876.666631831064,116.133334256278" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="829.433309657045,229.400000929833">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.2333221740192,0"
+              Start="0,0"
+              End="39.7333221740192,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.7333221740192,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>

@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_careflow_ops"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{8E382F34-BF8B-40B1-9871-B3D97BABF440}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{C843D1AA-FE5B-47C2-98C7-C339A9668EA3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -195,6 +195,13 @@
                       cachedName="DESCRIPTIONS"
                       externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIPTIONS]"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[DESCRIPTIONS]" />
+                    <inputColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].Columns[CLINIC_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="CLINIC_CODE"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].ExternalColumns[CLINIC_CODE]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[CLINIC_CODE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -241,6 +248,11 @@
                       dataType="wstr"
                       length="5"
                       name="DESCRIPTIONS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].ExternalColumns[CLINIC_CODE]"
+                      dataType="wstr"
+                      length="40"
+                      name="CLINIC_CODE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -302,6 +314,7 @@
       ,[DESCRIPTIONS]
       ,[SPECIALTY_CODE]
       ,[CDS_ANON_REASON]
+      ,[CLINIC_CODE]
       ,CURRENT_TIMESTAMP AS load_dttm 
 FROM [HDM_Local].[mds].[mds_careflow_ops]</property>
                 <property
@@ -426,6 +439,16 @@ FROM [HDM_Local].[mds].[mds_careflow_ops]</property>
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[DESCRIPTIONS]"
                       name="DESCRIPTIONS"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[CLINIC_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].ExternalColumns[CLINIC_CODE]"
+                      length="40"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[CLINIC_CODE]"
+                      name="CLINIC_CODE"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -471,6 +494,11 @@ FROM [HDM_Local].[mds].[mds_careflow_ops]</property>
                       dataType="wstr"
                       length="5"
                       name="DESCRIPTIONS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].ExternalColumns[CLINIC_CODE]"
+                      dataType="wstr"
+                      length="40"
+                      name="CLINIC_CODE" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -524,6 +552,12 @@ FROM [HDM_Local].[mds].[mds_careflow_ops]</property>
                       length="2"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Error Output].Columns[CDS_ANON_REASON]"
                       name="CDS_ANON_REASON" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Error Output].Columns[CLINIC_CODE]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Error Output].Columns[CLINIC_CODE]"
+                      name="CLINIC_CODE" />
                     <outputColumn
                       refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
                       dataType="dbTimeStamp"
@@ -840,13 +874,13 @@ FROM [HDM_Local].[mds].[mds_careflow_ops]</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="238.4,41.6"
-          Id="Package\Data Flow from hdm_local\Destination for mds_careflow_ops"
-          TopLeft="52.4285715380494,108.764705710758" />
-        <NodeLayout
           Size="217.6,41.6"
           Id="Package\Data Flow from hdm_local\Source for mds_careflow_ops"
           TopLeft="56,35" />
+        <NodeLayout
+          Size="238.4,41.6"
+          Id="Package\Data Flow from hdm_local\Destination for mds_careflow_ops"
+          TopLeft="52.4285715380494,108.764705710758" />
         <EdgeLayout
           Id="Package\Data Flow from hdm_local.Paths[OLE DB Source Output]"
           TopLeft="168.214285769025,76.6">

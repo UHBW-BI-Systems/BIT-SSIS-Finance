@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_merged_tables"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{BF27E7FC-EBB1-4306-BDDC-922BA2A00C44}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{7D8D5F8F-E626-48E4-B176-16C352FAE2AE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
