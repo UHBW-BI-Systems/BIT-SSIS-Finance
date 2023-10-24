@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_merged_tables"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{7D8D5F8F-E626-48E4-B176-16C352FAE2AE}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{A3B78114-29ED-406B-9694-B98F0686DFB2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -162,18 +162,18 @@
           PanelSize="268.8,183.2"
           Size="268.8,226.4"
           Id="Package\Sequence Container - Insert Episodes to Merged"
-          TopLeft="354.999985893568,56.3333337810306" />
+          TopLeft="418.333316710261,49.4000003925961" />
         <NodeLayout
           Size="166.4,41.6"
           Id="Package\Sequence Container - Insert OP to Merged\Insert to MDS OPA"
-          TopLeft="56.0666308376541,33.2000009504956" />
+          TopLeft="57.7332974380935,55.7333344629078" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="275.2,196"
           Size="275.2,239.2"
           Id="Package\Sequence Container - Insert OP to Merged"
-          TopLeft="659.166640473738,46.8000003719331" />
+          TopLeft="737.499970694384,45.9333336983788" />
         <NodeLayout
           Size="172.8,41.6"
           Id="Package\Sequence Container - Insert Spells to Merged\Insert to MDS Spells"
@@ -184,21 +184,21 @@
           PanelSize="277.6,192"
           Size="277.6,235.2"
           Id="Package\Sequence Container - Insert Spells to Merged"
-          TopLeft="36.6666652096642,52.2666671074763" />
+          TopLeft="58.3333310153749,51.400000433922" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="314.266665209664,169.700000444253">
+          TopLeft="335.933331015375,165.800000413259">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="40.7333206839036,0"
+              EndConnector="82.3999856948859,0"
               Start="0,0"
-              End="33.2333206839036,0">
+              End="74.8999856948859,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="33.2333206839036,0" />
+                    End="74.8999856948859,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -209,18 +209,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="623.799985893568,167.966667076482">
+          TopLeft="687.133316710261,164.066667045487">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="35.3666545801705,0"
+              EndConnector="50.3666539841234,0"
               Start="0,0"
-              End="27.8666545801705,0">
+              End="42.8666539841234,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="27.8666545801705,0" />
+                    End="42.8666539841234,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

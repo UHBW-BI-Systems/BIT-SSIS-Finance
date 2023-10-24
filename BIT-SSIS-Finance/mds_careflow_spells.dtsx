@@ -8,13 +8,13 @@
   DTS:DTSID="{DD3E9A09-AC56-4C7F-A38D-C2FC44741C6E}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{F252396C-610A-4E94-B2F3-FE46205EB493}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{F677CBB0-B316-4159-9FA2-D52C17E20075}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -224,6 +224,13 @@
                       cachedName="pas_id"
                       externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[pas_id]"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[pas_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[ARCHV_FLAG]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="ARCHV_FLAG"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[ARCHV_FLAG]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -290,6 +297,11 @@
                       dataType="wstr"
                       length="30"
                       name="pas_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      name="ARCHV_FLAG" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -355,6 +367,7 @@
       ,[admit_SSU_MAIN_CODE]
       ,[discharge_SSU_MAIN_CODE]
       ,[pas_id]
+      ,[ARCHV_FLAG]
       ,CURRENT_TIMESTAMP AS load_dttm 
 FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
                 <property
@@ -519,6 +532,16 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[pas_id]"
                       name="pas_id"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[ARCHV_FLAG]"
+                      length="1"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]"
+                      name="ARCHV_FLAG"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -584,6 +607,11 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
                       dataType="wstr"
                       length="30"
                       name="pas_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      name="ARCHV_FLAG" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -661,6 +689,12 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
                       length="30"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[pas_id]"
                       name="pas_id" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[ARCHV_FLAG]"
+                      name="ARCHV_FLAG" />
                     <outputColumn
                       refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
                       dataType="dbTimeStamp"

@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\jeffriesma"
   DTS:DTSID="{6AEF6088-31EE-4E49-8FB4-196E69D17D35}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="2057"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="52"
-  DTS:VersionGUID="{885C0619-8B71-4167-AD6F-DFBD0341ABD1}">
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{09FBE375-C743-43D9-BE9D-AAEE2E043EC6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -174,6 +174,13 @@
                       cachedName="load_dttm"
                       externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[load_dttm]" />
+                    <inputColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].Columns[ARCHV_FLAG]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="ARCHV_FLAG"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[ARCHV_FLAG]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -205,6 +212,11 @@
                       dataType="dbTimeStamp2"
                       name="load_dttm"
                       scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      name="ARCHV_FLAG" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -263,6 +275,7 @@
       ,[IPEP_EXT_ID]
       ,[SPECIALTY_CODE]
       ,[CDS_ANON_REASON]
+      ,[ARCHV_FLAG]
       ,CURRENT_TIMESTAMP AS load_dttm 
 FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                 <property
@@ -357,6 +370,16 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[load_dttm]"
                       name="load_dttm"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[ARCHV_FLAG]"
+                      length="1"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]"
+                      name="ARCHV_FLAG"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -387,6 +410,11 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                       refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
                       dataType="dbTimeStamp"
                       name="load_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      name="ARCHV_FLAG" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -422,6 +450,12 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                       length="2"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[CDS_ANON_REASON]"
                       name="CDS_ANON_REASON" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[ARCHV_FLAG]"
+                      name="ARCHV_FLAG" />
                     <outputColumn
                       refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
                       dataType="dbTimeStamp"
@@ -664,6 +698,28 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="254.230954292424,241.952943986345">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,115.215688036627"
+              Start="0,0"
+              End="0,107.715688036627">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.715688036627" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="260.36904927676,399.168632022972">
           <EdgeLayout.Curve>
@@ -699,28 +755,6 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,41.9000012762409" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="254.230954292424,241.952943986345">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,115.215688036627"
-              Start="0,0"
-              End="0,107.715688036627">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,107.715688036627" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
