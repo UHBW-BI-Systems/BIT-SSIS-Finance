@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{09FBE375-C743-43D9-BE9D-AAEE2E043EC6}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{AE33BED2-27E4-4C95-8DC5-480E4A5BAC49}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -181,6 +181,25 @@
                       cachedName="ARCHV_FLAG"
                       externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[ARCHV_FLAG]"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]" />
+                    <inputColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].Columns[EPI_NUM]"
+                      cachedDataType="i4"
+                      cachedName="EPI_NUM"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[EPI_NUM]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[EPI_NUM]" />
+                    <inputColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].Columns[EPI_COUNT]"
+                      cachedDataType="i4"
+                      cachedName="EPI_COUNT"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[EPI_COUNT]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[EPI_COUNT]" />
+                    <inputColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].Columns[IPSP_EXT_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="36"
+                      cachedName="IPSP_EXT_ID"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[IPSP_EXT_ID]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[IPSP_EXT_ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -217,6 +236,19 @@
                       dataType="wstr"
                       length="1"
                       name="ARCHV_FLAG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[EPI_NUM]"
+                      dataType="i4"
+                      name="EPI_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[EPI_COUNT]"
+                      dataType="i4"
+                      name="EPI_COUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[IPSP_EXT_ID]"
+                      dataType="wstr"
+                      length="36"
+                      name="IPSP_EXT_ID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -275,6 +307,9 @@
       ,[IPEP_EXT_ID]
       ,[SPECIALTY_CODE]
       ,[CDS_ANON_REASON]
+      ,[EPI_NUM]
+      ,[EPI_COUNT]
+      ,[IPSP_EXT_ID]
       ,[ARCHV_FLAG]
       ,CURRENT_TIMESTAMP AS load_dttm 
 FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
@@ -380,6 +415,34 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]"
                       name="ARCHV_FLAG"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[EPI_NUM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[EPI_NUM]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[EPI_NUM]"
+                      name="EPI_NUM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[EPI_COUNT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[EPI_COUNT]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[EPI_COUNT]"
+                      name="EPI_COUNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[IPSP_EXT_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[IPSP_EXT_ID]"
+                      length="36"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[IPSP_EXT_ID]"
+                      name="IPSP_EXT_ID"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -415,6 +478,19 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                       dataType="wstr"
                       length="1"
                       name="ARCHV_FLAG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[EPI_NUM]"
+                      dataType="i4"
+                      name="EPI_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[EPI_COUNT]"
+                      dataType="i4"
+                      name="EPI_COUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[IPSP_EXT_ID]"
+                      dataType="wstr"
+                      length="36"
+                      name="IPSP_EXT_ID" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -450,6 +526,22 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                       length="2"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[CDS_ANON_REASON]"
                       name="CDS_ANON_REASON" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[EPI_NUM]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[EPI_NUM]"
+                      name="EPI_NUM" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[EPI_COUNT]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[EPI_COUNT]"
+                      name="EPI_COUNT" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[IPSP_EXT_ID]"
+                      dataType="wstr"
+                      length="36"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[IPSP_EXT_ID]"
+                      name="IPSP_EXT_ID" />
                     <outputColumn
                       refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[ARCHV_FLAG]"
                       dataType="wstr"
