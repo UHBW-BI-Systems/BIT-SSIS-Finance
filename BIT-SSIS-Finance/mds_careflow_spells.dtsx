@@ -8,13 +8,13 @@
   DTS:DTSID="{DD3E9A09-AC56-4C7F-A38D-C2FC44741C6E}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{F677CBB0-B316-4159-9FA2-D52C17E20075}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{8BF2CB3C-D763-4812-974A-BC5A30994F9D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,7 +44,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MEDD-BI\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -1551,21 +1551,33 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         <NodeLayout
           Size="248,41.6"
           Id="Package\Data Flow from hdm_local\Destination for mds_careflow_spells"
-          TopLeft="52.4285715380494,108.764705710758" />
+          TopLeft="54.9285714387084,191.098039698418" />
         <EdgeLayout
           Id="Package\Data Flow from hdm_local.Paths[OLE DB Source Output]"
-          TopLeft="172.964285769025,77">
+          TopLeft="169.6,76.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.764705710758"
+              EndConnector="9.32857143870839,114.498039698418"
               Start="0,0"
-              End="0,24.264705710758">
+              End="9.32857143870839,106.998039698418">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.264705710758" />
+                    End="0,53.2490198492089" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.2490198492089"
+                    Point2="0,57.2490198492089"
+                    Point3="4,57.2490198492089" />
+                  <mssgle:LineSegment
+                    End="5.32857143870839,57.2490198492089" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.32857143870839,57.2490198492089"
+                    Point2="9.32857143870839,57.2490198492089"
+                    Point3="9.32857143870839,61.2490198492089" />
+                  <mssgle:LineSegment
+                    End="9.32857143870839,106.998039698418" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

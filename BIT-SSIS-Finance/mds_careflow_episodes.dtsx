@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\jeffriesma"
   DTS:DTSID="{6AEF6088-31EE-4E49-8FB4-196E69D17D35}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{AE33BED2-27E4-4C95-8DC5-480E4A5BAC49}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{6CCB37E4-00F2-4A0C-AA42-A1EBE462FD48}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -724,11 +724,11 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
         <NodeLayout
           Size="201.6,41.6"
           Id="Package\Data Flow from hdm_local"
-          TopLeft="150.714288280935,200.352943986345" />
+          TopLeft="159.880954583351,239.352944296289" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\exec hdm_local sp"
-          TopLeft="164.285717083484,120.058825213191" />
+          TopLeft="173.4523833859,159.058825523135" />
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\exec hdm_local sp curr_period"
@@ -744,10 +744,10 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
         <NodeLayout
           Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
-          TopLeft="107.857144693939,31.3529416161838" />
+          TopLeft="117.023810996355,70.352941926128" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="247.071430888711,72.9529416161838">
+          TopLeft="256.238097191127,111.952941926128">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -769,7 +769,7 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="249.100002682209,161.658825213191">
+          TopLeft="258.266668984625,200.658825523135">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -791,18 +791,18 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="254.230954292424,241.952943986345">
+          TopLeft="258.814287443632,280.952944296289">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,115.215688036627"
+              EndConnector="0,76.2156877266829"
               Start="0,0"
-              End="0,107.715688036627">
+              End="0,68.7156877266829">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,107.715688036627" />
+                    End="0,68.7156877266829" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
