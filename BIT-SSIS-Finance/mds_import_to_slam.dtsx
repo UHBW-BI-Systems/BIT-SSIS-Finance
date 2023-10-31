@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\marshsylz"
   DTS:DTSID="{B70DBF4B-B7C3-40A3-B823-FF565A802D2A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_import_to_slam"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{6E3BCCAB-7193-4585-8F09-183F12414C2E}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{0D82F6DE-B05D-4151-A5A0-AA841D29D0F8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,6 +24,8 @@
       DTS:ObjectName="Finance">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -34,6 +36,8 @@
       DTS:ObjectName="SLAM.DataSource">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=SLAM;Initial Catalog=DataSource;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -917,6 +921,14 @@
                           cachedName="archv_flag"
                           externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[archv_flag]"
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[archv_flag]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[intended_management]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="intended_management"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[intended_management]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[intended_management]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -1489,6 +1501,12 @@
                           dataType="str"
                           length="1"
                           name="archv_flag" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[intended_management]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="intended_management" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -2647,6 +2665,17 @@
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[archv_flag]"
                           name="archv_flag"
                           truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[intended_management]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[intended_management]"
+                          length="2"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[intended_management]"
+                          name="intended_management"
+                          truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -3219,6 +3248,12 @@
                           dataType="str"
                           length="1"
                           name="archv_flag" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[intended_management]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="intended_management" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -3828,6 +3863,13 @@
                           dataType="i4"
                           lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pbr_final_adjusted_length_of_stay]"
                           name="pbr_final_adjusted_length_of_stay" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[intended_management]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[intended_management]"
+                          name="intended_management" />
                         <outputColumn
                           refId="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[der_activity_month]"
                           dataType="i4"
@@ -11096,7 +11138,7 @@
           PanelSize="256.8,192"
           Size="256.8,235.2"
           Id="Package\Insert cc to SLAM"
-          TopLeft="870.833298729527,121.333334297604" />
+          TopLeft="887.49996473392,117.866667603387" />
         <NodeLayout
           Size="186.4,41.6"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM"
@@ -11254,30 +11296,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="829.433309657045,230.266667603387">
+          TopLeft="829.433309657045,232.866667603387">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="41.3999890724815,8.66666669421687"
+              EndConnector="58.0666550768748,0"
               Start="0,0"
-              End="33.8999890724815,8.66666669421687">
+              End="50.5666550768748,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="16.6999945362408,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.6999945362408,0"
-                    Point2="20.6999945362408,0"
-                    Point3="20.6999945362408,4" />
-                  <mssgle:LineSegment
-                    End="20.6999945362408,4.66666669421687" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20.6999945362408,4.66666669421687"
-                    Point2="20.6999945362408,8.66666669421687"
-                    Point3="24.6999945362408,8.66666669421687" />
-                  <mssgle:LineSegment
-                    End="33.8999890724815,8.66666669421687" />
+                    End="50.5666550768748,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
