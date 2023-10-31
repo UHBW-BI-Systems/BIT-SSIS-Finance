@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_merged_tables"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{EFD24A68-5F43-4642-9F32-7D0724FCAABC}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{21E1E9DA-2630-4C35-88C6-95A4F29CE28F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,10 +32,10 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager - Rejected]"
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager - deleted]"
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{24CE5911-1CB1-45A8-A4B2-77F1608510E3}"
-      DTS:ObjectName="Flat File Connection Manager - Rejected">
+      DTS:ObjectName="Flat File Connection Manager - deleted">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -45,7 +45,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\ubht.nhs.uk\shares\BI\Dataload\SUS\Logs\MDS_Rejected_Deletes_NotMatched.csv">
+          DTS:ConnectionString="\\ubht.nhs.uk\shares\BI\Dataload\SUS\Logs\MDS_Deletes.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -54,7 +54,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="extract_name"
-              DTS:DTSID="{5722E127-882F-47E4-AD93-A5EBFCF001AD}"
+              DTS:DTSID="{BB289594-2C87-43AB-AC83-BF262015F810}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -63,7 +63,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="spell_identifier"
-              DTS:DTSID="{EC88046F-8D52-418D-B3A2-4B81FD2898E3}"
+              DTS:DTSID="{ED8E7A2D-DB9B-4A24-AB22-B1E88C11DA25}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -72,7 +72,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="hospital_provider_spell_no"
-              DTS:DTSID="{90086AE7-9A15-483D-923D-6833162C506E}"
+              DTS:DTSID="{82D96DA3-4A7A-4AA8-9D79-FC0587A2401E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,25 +81,25 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="epi_unique_cds_identifier"
-              DTS:DTSID="{BF7D13F2-D524-4375-885B-49B07E1ACD1E}"
+              DTS:DTSID="{D7381CBC-C979-43A8-BF4B-EB196DFF5FE8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="3"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="epi_cds_record_type"
-              DTS:DTSID="{1D2A6C69-0884-424D-BB4C-EE2B0571E7F5}"
+              DTS:DTSID="{7D9486FF-817B-4B18-A911-C24798D90453}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="20"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="opa_attendance_identifier"
-              DTS:DTSID="{4D1DC379-DD3C-4B49-8AAC-D2C5332E5DD2}"
+              DTS:DTSID="{F05E88AC-1D1F-4AA8-8CA6-FEECBF2D4E63}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -108,33 +108,254 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="opa_generated_record_id"
-              DTS:DTSID="{AF6A87A1-73D0-4B93-BE81-D4181BA58058}"
+              DTS:DTSID="{18D62D98-A3F2-4D55-B765-6554CD6DE4C2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="rejection_reason"
-              DTS:DTSID="{E7E5FB7F-B63F-40AF-844E-6DC85E5113C5}"
+              DTS:DTSID="{FE5728A1-4E3A-48F1-8AC8-C315161EFD75}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="255"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="rejection_notes"
-              DTS:DTSID="{7BD32600-2228-4416-AE0A-70ACD8042F4A}"
+              DTS:DTSID="{48D160B7-AE17-4513-B750-D18A5DA80817}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000D__x000A_"
-              DTS:DataType="304"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="insert_dttm"
-              DTS:DTSID="{B294ADCF-717D-47BB-8EB6-EA0AE1279E2F}"
+              DTS:DTSID="{B83AD914-5AAA-44BC-B626-8703198B31FB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager - duplicates]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{67d05629-eb67-46cf-a911-4b708ef2d585}"
+      DTS:ObjectName="Flat File Connection Manager - duplicates">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\ubht.nhs.uk\shares\BI\Dataload\SUS\Logs\MDS_Duplicates.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="extract_name"
+              DTS:DTSID="{AAFA8D2B-28B3-4FD1-B49D-6527F7C5EC36}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="spell_identifier"
+              DTS:DTSID="{5E871BC2-20FA-4184-BE27-5576BBABBFCD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hospital_provider_spell_no"
+              DTS:DTSID="{3F7B16E6-513A-48D2-8A77-0FAEDB963C18}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="epi_unique_cds_identifier"
+              DTS:DTSID="{DC636D68-1293-4B17-A128-4E4F4C64D113}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="epi_cds_record_type"
+              DTS:DTSID="{09CB3992-9031-4A1B-A04E-B0E451A2CB0E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="opa_attendance_identifier"
+              DTS:DTSID="{B45D0E4D-5F1C-430A-AD9F-7F25C8CDE76B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="opa_generated_record_id"
+              DTS:DTSID="{A27B0C04-D4E6-4831-A11D-AFFA881EE98F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rejection_reason"
+              DTS:DTSID="{4DA74668-1E5C-4A9A-80FC-9A5C436B5D6A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rejection_notes"
+              DTS:DTSID="{59BFEE15-2E7C-4117-A0CA-E85099E06C49}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="insert_dttm"
+              DTS:DTSID="{275385BF-A6A7-4CE4-BF78-821760A60BF8}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager - NoMatch]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{a0aaa321-fc7b-4507-8821-9aa1a6291562}"
+      DTS:ObjectName="Flat File Connection Manager - NoMatch">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="\\ubht.nhs.uk\shares\BI\Dataload\SUS\Logs\MDS_Deletes.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="extract_name"
+              DTS:DTSID="{BB289594-2C87-43AB-AC83-BF262015F810}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="spell_identifier"
+              DTS:DTSID="{ED8E7A2D-DB9B-4A24-AB22-B1E88C11DA25}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="hospital_provider_spell_no"
+              DTS:DTSID="{82D96DA3-4A7A-4AA8-9D79-FC0587A2401E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="epi_unique_cds_identifier"
+              DTS:DTSID="{D7381CBC-C979-43A8-BF4B-EB196DFF5FE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="epi_cds_record_type"
+              DTS:DTSID="{7D9486FF-817B-4B18-A911-C24798D90453}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="opa_attendance_identifier"
+              DTS:DTSID="{F05E88AC-1D1F-4AA8-8CA6-FEECBF2D4E63}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="opa_generated_record_id"
+              DTS:DTSID="{18D62D98-A3F2-4D55-B765-6554CD6DE4C2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rejection_reason"
+              DTS:DTSID="{FE5728A1-4E3A-48F1-8AC8-C315161EFD75}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rejection_notes"
+              DTS:DTSID="{48D160B7-AE17-4513-B750-D18A5DA80817}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="insert_dttm"
+              DTS:DTSID="{B83AD914-5AAA-44BC-B626-8703198B31FB}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -161,13 +382,13 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\export not matched"
+      DTS:refId="Package\export deletes"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{8827BA91-8D81-4138-8CD0-9EEA585EE347}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="export not matched"
+      DTS:ObjectName="export deletes"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -175,7 +396,7 @@
           version="1">
           <components>
             <component
-              refId="Package\export not matched\Flat File Destination"
+              refId="Package\export deletes\Flat File Destination"
               componentClassID="Microsoft.FlatFileDestination"
               contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Destination"
@@ -199,162 +420,164 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\export not matched\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager - Rejected]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager - Rejected]"
+                  refId="Package\export deletes\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager - deleted]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager - deleted]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input]"
+                  refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input]"
                   hasSideEffects="true"
                   name="Flat File Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].Columns[spell_identifier]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].Columns[spell_identifier]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="spell_identifier"
-                      externalMetadataColumnId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[spell_identifier]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]" />
+                      externalMetadataColumnId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[spell_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]" />
                     <inputColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].Columns[hospital_provider_spell_no]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].Columns[hospital_provider_spell_no]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="hospital_provider_spell_no"
-                      externalMetadataColumnId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[hospital_provider_spell_no]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]" />
+                      externalMetadataColumnId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[hospital_provider_spell_no]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]" />
                     <inputColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].Columns[epi_unique_cds_identifier]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].Columns[epi_unique_cds_identifier]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="epi_unique_cds_identifier"
-                      externalMetadataColumnId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_unique_cds_identifier]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]" />
+                      externalMetadataColumnId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_unique_cds_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]" />
                     <inputColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].Columns[epi_cds_record_type]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].Columns[epi_cds_record_type]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="3"
                       cachedName="epi_cds_record_type"
-                      externalMetadataColumnId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_cds_record_type]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]" />
+                      externalMetadataColumnId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_cds_record_type]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]" />
                     <inputColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].Columns[opa_attendance_identifier]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].Columns[opa_attendance_identifier]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="opa_attendance_identifier"
-                      externalMetadataColumnId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_attendance_identifier]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]" />
+                      externalMetadataColumnId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_attendance_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]" />
                     <inputColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].Columns[rejection_reason]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].Columns[rejection_reason]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="rejection_reason"
-                      externalMetadataColumnId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_reason]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]" />
+                      externalMetadataColumnId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_reason]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]" />
                     <inputColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].Columns[rejection_notes]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].Columns[rejection_notes]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="rejection_notes"
-                      externalMetadataColumnId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_notes]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]" />
+                      externalMetadataColumnId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_notes]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]" />
                     <inputColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].Columns[insert_dttm]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].Columns[insert_dttm]"
                       cachedDataType="dbTimeStamp2"
                       cachedName="insert_dttm"
-                      externalMetadataColumnId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[insert_dttm]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]" />
+                      externalMetadataColumnId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[insert_dttm]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]" />
                     <inputColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].Columns[opa_unique_cds_identifier]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="opa_unique_cds_identifier"
-                      externalMetadataColumnId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_generated_record_id]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]" />
-                    <inputColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].Columns[extract_name]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].Columns[extract_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="extract_name"
-                      externalMetadataColumnId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[extract_name]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]" />
+                      externalMetadataColumnId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[extract_name]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]" />
+                    <inputColumn
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].Columns[opa_unique_cds_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="opa_unique_cds_identifier"
+                      externalMetadataColumnId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_generated_record_id]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[spell_identifier]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[spell_identifier]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="spell_identifier" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[hospital_provider_spell_no]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[hospital_provider_spell_no]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="hospital_provider_spell_no" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_unique_cds_identifier]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_unique_cds_identifier]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="epi_unique_cds_identifier" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_cds_record_type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="3"
-                      name="epi_cds_record_type" />
-                    <externalMetadataColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_attendance_identifier]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="opa_attendance_identifier" />
-                    <externalMetadataColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_generated_record_id]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_cds_record_type]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="opa_generated_record_id" />
+                      name="epi_cds_record_type" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_reason]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_attendance_identifier]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
+                      length="50"
+                      name="opa_attendance_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_reason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="rejection_reason" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_notes]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_notes]"
                       codePage="1252"
                       dataType="str"
-                      length="255"
+                      length="50"
                       name="rejection_notes" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[insert_dttm]"
-                      dataType="dbTimeStamp2"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[insert_dttm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="insert_dttm" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[extract_name]"
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[extract_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="extract_name" />
+                    <externalMetadataColumn
+                      refId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_generated_record_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="opa_generated_record_id" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
             </component>
             <component
-              refId="Package\export not matched\OLE DB Source"
+              refId="Package\export deletes\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -378,7 +601,17 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [extract_name]
+      ,[spell_identifier]
+      ,[hospital_provider_spell_no]
+      ,[epi_unique_cds_identifier]
+      ,[epi_cds_record_type]
+      ,[opa_attendance_identifier]
+      ,[opa_unique_cds_identifier]
+      ,[rejection_reason]
+      ,[rejection_notes]
+      ,[insert_dttm]
+  FROM [Finance].[import].[mds_rejected] WHERE rejection_reason ='deleted'</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -395,7 +628,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -403,7 +636,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\export not matched\OLE DB Source.Connections[OleDbConnection]"
+                  refId="Package\export deletes\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[Finance]"
                   connectionManagerRefId="Package.ConnectionManagers[Finance]"
                   description="The OLE DB runtime connection used to access the database."
@@ -411,174 +644,174 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output]"
+                  refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[extract_name]"
+                      externalMetadataColumnId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[extract_name]"
                       length="50"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]"
                       name="extract_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
+                      externalMetadataColumnId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
                       length="50"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
                       name="spell_identifier"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
+                      externalMetadataColumnId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
                       length="50"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
                       name="hospital_provider_spell_no"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_unique_cds_identifier]"
+                      externalMetadataColumnId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_unique_cds_identifier]"
                       length="50"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]"
                       name="epi_unique_cds_identifier"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_cds_record_type]"
+                      externalMetadataColumnId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_cds_record_type]"
                       length="3"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]"
                       name="epi_cds_record_type"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_attendance_identifier]"
+                      externalMetadataColumnId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_attendance_identifier]"
                       length="20"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]"
                       name="opa_attendance_identifier"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_reason]"
+                      externalMetadataColumnId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_reason]"
                       length="100"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]"
                       name="rejection_reason"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_notes]"
+                      externalMetadataColumnId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_notes]"
                       length="255"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]"
                       name="rejection_notes"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]"
                       dataType="dbTimeStamp2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[insert_dttm]"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]"
+                      externalMetadataColumnId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[insert_dttm]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]"
                       name="insert_dttm"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_unique_cds_identifier]"
+                      externalMetadataColumnId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_unique_cds_identifier]"
                       length="50"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]"
                       name="opa_unique_cds_identifier"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[extract_name]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[extract_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="extract_name" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="spell_identifier" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="hospital_provider_spell_no" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_unique_cds_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_unique_cds_identifier]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="epi_unique_cds_identifier" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_cds_record_type]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_cds_record_type]"
                       codePage="1252"
                       dataType="str"
                       length="3"
                       name="epi_cds_record_type" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_attendance_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_attendance_identifier]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="opa_attendance_identifier" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_reason]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_reason]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="rejection_reason" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_notes]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_notes]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="rejection_notes" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[insert_dttm]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[insert_dttm]"
                       dataType="dbTimeStamp2"
                       name="insert_dttm" />
                     <externalMetadataColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_unique_cds_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_unique_cds_identifier]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -586,88 +819,88 @@
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[extract_name]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[extract_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[extract_name]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[extract_name]"
                       name="extract_name" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
                       name="spell_identifier" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
                       name="hospital_provider_spell_no" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_unique_cds_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_unique_cds_identifier]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_unique_cds_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_unique_cds_identifier]"
                       name="epi_unique_cds_identifier" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_cds_record_type]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_cds_record_type]"
                       codePage="1252"
                       dataType="str"
                       length="3"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_cds_record_type]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_cds_record_type]"
                       name="epi_cds_record_type" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_attendance_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_attendance_identifier]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_attendance_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_attendance_identifier]"
                       name="opa_attendance_identifier" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_unique_cds_identifier]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_unique_cds_identifier]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_unique_cds_identifier]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_unique_cds_identifier]"
                       name="opa_unique_cds_identifier" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_reason]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_reason]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_reason]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_reason]"
                       name="rejection_reason" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_notes]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_notes]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_notes]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_notes]"
                       name="rejection_notes" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[insert_dttm]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[insert_dttm]"
                       dataType="dbTimeStamp2"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[insert_dttm]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[insert_dttm]"
                       name="insert_dttm" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -678,10 +911,1086 @@
           </components>
           <paths>
             <path
-              refId="Package\export not matched.Paths[OLE DB Source Output]"
-              endId="Package\export not matched\Flat File Destination.Inputs[Flat File Destination Input]"
+              refId="Package\export deletes.Paths[OLE DB Source Output]"
+              endId="Package\export deletes\Flat File Destination.Inputs[Flat File Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\export not matched\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\export deletes\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\export duplicates"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{05ae5874-a24c-4287-8352-33d4ea3ac068}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="export duplicates"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\export duplicates\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="2057"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\export duplicates\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager - duplicates]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager - duplicates]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].Columns[spell_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="spell_identifier"
+                      externalMetadataColumnId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[spell_identifier]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]" />
+                    <inputColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].Columns[hospital_provider_spell_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="hospital_provider_spell_no"
+                      externalMetadataColumnId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[hospital_provider_spell_no]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]" />
+                    <inputColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].Columns[epi_unique_cds_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="epi_unique_cds_identifier"
+                      externalMetadataColumnId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_unique_cds_identifier]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]" />
+                    <inputColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].Columns[epi_cds_record_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="epi_cds_record_type"
+                      externalMetadataColumnId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_cds_record_type]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]" />
+                    <inputColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].Columns[opa_attendance_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="opa_attendance_identifier"
+                      externalMetadataColumnId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_attendance_identifier]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]" />
+                    <inputColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].Columns[rejection_reason]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="rejection_reason"
+                      externalMetadataColumnId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_reason]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]" />
+                    <inputColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].Columns[rejection_notes]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="rejection_notes"
+                      externalMetadataColumnId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_notes]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]" />
+                    <inputColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].Columns[insert_dttm]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="insert_dttm"
+                      externalMetadataColumnId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[insert_dttm]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]" />
+                    <inputColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].Columns[extract_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="extract_name"
+                      externalMetadataColumnId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[extract_name]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]" />
+                    <inputColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].Columns[opa_unique_cds_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="opa_unique_cds_identifier"
+                      externalMetadataColumnId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_generated_record_id]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[spell_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="spell_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[hospital_provider_spell_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hospital_provider_spell_no" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="epi_unique_cds_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_cds_record_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="epi_cds_record_type" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="opa_attendance_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_reason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rejection_reason" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_notes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rejection_notes" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[insert_dttm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="insert_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[extract_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="extract_name" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_generated_record_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="opa_generated_record_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\export duplicates\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[import].[mds_rejected]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  [extract_name]
+      ,[spell_identifier]
+      ,[hospital_provider_spell_no]
+      ,[epi_unique_cds_identifier]
+      ,[epi_cds_record_type]
+      ,[opa_attendance_identifier]
+      ,[opa_unique_cds_identifier]
+      ,[rejection_reason]
+      ,[rejection_notes]
+      ,[insert_dttm]
+  FROM [Finance].[import].[mds_rejected] WHERE rejection_reason ='duplicate'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\export duplicates\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Finance]"
+                  connectionManagerRefId="Package.ConnectionManagers[Finance]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[extract_name]"
+                      length="50"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]"
+                      name="extract_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
+                      length="50"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
+                      name="spell_identifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
+                      length="50"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
+                      name="hospital_provider_spell_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_unique_cds_identifier]"
+                      length="50"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]"
+                      name="epi_unique_cds_identifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_cds_record_type]"
+                      length="3"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]"
+                      name="epi_cds_record_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_attendance_identifier]"
+                      length="20"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]"
+                      name="opa_attendance_identifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_reason]"
+                      length="100"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]"
+                      name="rejection_reason"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_notes]"
+                      length="255"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]"
+                      name="rejection_notes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[insert_dttm]"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]"
+                      name="insert_dttm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_unique_cds_identifier]"
+                      length="50"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]"
+                      name="opa_unique_cds_identifier"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[extract_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="extract_name" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="spell_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hospital_provider_spell_no" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="epi_unique_cds_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_cds_record_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="epi_cds_record_type" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="opa_attendance_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_reason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="rejection_reason" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_notes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="rejection_notes" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[insert_dttm]"
+                      dataType="dbTimeStamp2"
+                      name="insert_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="opa_unique_cds_identifier" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[extract_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[extract_name]"
+                      name="extract_name" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
+                      name="spell_identifier" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
+                      name="hospital_provider_spell_no" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_unique_cds_identifier]"
+                      name="epi_unique_cds_identifier" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_cds_record_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_cds_record_type]"
+                      name="epi_cds_record_type" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_attendance_identifier]"
+                      name="opa_attendance_identifier" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_unique_cds_identifier]"
+                      name="opa_unique_cds_identifier" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_reason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_reason]"
+                      name="rejection_reason" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_notes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_notes]"
+                      name="rejection_notes" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[insert_dttm]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[insert_dttm]"
+                      name="insert_dttm" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\export duplicates.Paths[OLE DB Source Output]"
+              endId="Package\export duplicates\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\export duplicates\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\export NoMatch"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{a086121f-91fd-4e72-bbf3-e1ba7410d4b2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="export NoMatch"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\export NoMatch\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="2057"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\export NoMatch\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager - NoMatch]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager - NoMatch]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].Columns[spell_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="spell_identifier"
+                      externalMetadataColumnId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[spell_identifier]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]" />
+                    <inputColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].Columns[hospital_provider_spell_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="hospital_provider_spell_no"
+                      externalMetadataColumnId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[hospital_provider_spell_no]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]" />
+                    <inputColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].Columns[epi_unique_cds_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="epi_unique_cds_identifier"
+                      externalMetadataColumnId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_unique_cds_identifier]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]" />
+                    <inputColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].Columns[epi_cds_record_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="epi_cds_record_type"
+                      externalMetadataColumnId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_cds_record_type]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]" />
+                    <inputColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].Columns[opa_attendance_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="opa_attendance_identifier"
+                      externalMetadataColumnId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_attendance_identifier]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]" />
+                    <inputColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].Columns[rejection_reason]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="rejection_reason"
+                      externalMetadataColumnId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_reason]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]" />
+                    <inputColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].Columns[rejection_notes]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="rejection_notes"
+                      externalMetadataColumnId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_notes]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]" />
+                    <inputColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].Columns[insert_dttm]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="insert_dttm"
+                      externalMetadataColumnId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[insert_dttm]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]" />
+                    <inputColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].Columns[extract_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="extract_name"
+                      externalMetadataColumnId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[extract_name]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]" />
+                    <inputColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].Columns[opa_unique_cds_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="opa_unique_cds_identifier"
+                      externalMetadataColumnId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_generated_record_id]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[spell_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="spell_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[hospital_provider_spell_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hospital_provider_spell_no" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="epi_unique_cds_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[epi_cds_record_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="epi_cds_record_type" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="opa_attendance_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_reason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rejection_reason" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rejection_notes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rejection_notes" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[insert_dttm]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="insert_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[extract_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="extract_name" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[opa_generated_record_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="opa_generated_record_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\export NoMatch\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[import].[mds_rejected]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  [extract_name]
+      ,[spell_identifier]
+      ,[hospital_provider_spell_no]
+      ,[epi_unique_cds_identifier]
+      ,[epi_cds_record_type]
+      ,[opa_attendance_identifier]
+      ,[opa_unique_cds_identifier]
+      ,[rejection_reason]
+      ,[rejection_notes]
+      ,[insert_dttm]
+  FROM [Finance].[import].[mds_rejected] WHERE rejection_reason =  'no match'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\export NoMatch\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Finance]"
+                  connectionManagerRefId="Package.ConnectionManagers[Finance]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[extract_name]"
+                      length="50"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[extract_name]"
+                      name="extract_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
+                      length="50"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_identifier]"
+                      name="spell_identifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
+                      length="50"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[hospital_provider_spell_no]"
+                      name="hospital_provider_spell_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_unique_cds_identifier]"
+                      length="50"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_unique_cds_identifier]"
+                      name="epi_unique_cds_identifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_cds_record_type]"
+                      length="3"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[epi_cds_record_type]"
+                      name="epi_cds_record_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_attendance_identifier]"
+                      length="20"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_attendance_identifier]"
+                      name="opa_attendance_identifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_reason]"
+                      length="100"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_reason]"
+                      name="rejection_reason"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_notes]"
+                      length="255"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[rejection_notes]"
+                      name="rejection_notes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[insert_dttm]"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[insert_dttm]"
+                      name="insert_dttm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_unique_cds_identifier]"
+                      length="50"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].Columns[opa_unique_cds_identifier]"
+                      name="opa_unique_cds_identifier"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[extract_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="extract_name" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="spell_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hospital_provider_spell_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hospital_provider_spell_no" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="epi_unique_cds_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[epi_cds_record_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="epi_cds_record_type" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="opa_attendance_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_reason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="rejection_reason" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rejection_notes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="rejection_notes" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[insert_dttm]"
+                      dataType="dbTimeStamp2"
+                      name="insert_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[opa_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="opa_unique_cds_identifier" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[extract_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[extract_name]"
+                      name="extract_name" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_identifier]"
+                      name="spell_identifier" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hospital_provider_spell_no]"
+                      name="hospital_provider_spell_no" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_unique_cds_identifier]"
+                      name="epi_unique_cds_identifier" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_cds_record_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[epi_cds_record_type]"
+                      name="epi_cds_record_type" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_attendance_identifier]"
+                      name="opa_attendance_identifier" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_unique_cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[opa_unique_cds_identifier]"
+                      name="opa_unique_cds_identifier" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_reason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_reason]"
+                      name="rejection_reason" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_notes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rejection_notes]"
+                      name="rejection_notes" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[insert_dttm]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[insert_dttm]"
+                      name="insert_dttm" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\export NoMatch.Paths[OLE DB Source Output]"
+              endId="Package\export NoMatch\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\export NoMatch\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -770,7 +2079,23 @@
       DTS:From="Package\Apply fixes and Insert to Rejected not matched records"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
-      DTS:To="Package\export not matched" />
+      DTS:To="Package\export deletes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{98998B40-CD7F-481A-8DFA-19F771947C9F}"
+      DTS:From="Package\export deletes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\export duplicates" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{4884B8C4-3C35-4BB2-8EDE-C2320EFD806F}"
+      DTS:From="Package\export duplicates"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\export NoMatch" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -785,9 +2110,13 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="172.8,41.6"
-          Id="Package\Insert to MDS Spells"
-          TopLeft="62.9666645142769,22.8666673760946" />
+          Size="330.4,41.6"
+          Id="Package\Apply fixes and Insert to Rejected not matched records"
+          TopLeft="28.3333322074678,330.200002624194" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\export deletes"
+          TopLeft="123.333328432507,431.600003430048" />
         <NodeLayout
           Size="182.4,41.6"
           Id="Package\Insert to MDS Episode"
@@ -797,9 +2126,9 @@
           Id="Package\Insert to MDS OPA"
           TopLeft="77.2666574610613,219.333335000144" />
         <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\export not matched"
-          TopLeft="96.6666628254787,431.600003430048" />
+          Size="172.8,41.6"
+          Id="Package\Insert to MDS Spells"
+          TopLeft="62.9666645142769,22.8666673760946" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="152.899997913838,64.4666673760946">
@@ -844,36 +2173,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="330.4,41.6"
-          Id="Package\Apply fixes and Insert to Rejected not matched records"
-          TopLeft="32.499998708566,295.533335682021" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="160.466657461061,260.933335000144">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="37.2333412475047,34.6000006818767"
+              EndConnector="33.0666747464065,69.2666676240496"
               Start="0,0"
-              End="37.2333412475047,27.1000006818767">
+              End="33.0666747464065,61.7666676240496">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.3000003409384" />
+                    End="0,30.6333338120248" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.3000003409384"
-                    Point2="0,17.3000003409384"
-                    Point3="4,17.3000003409384" />
+                    Point1="0,30.6333338120248"
+                    Point2="0,34.6333338120248"
+                    Point3="4,34.6333338120248" />
                   <mssgle:LineSegment
-                    End="33.2333412475047,17.3000003409384" />
+                    End="29.0666747464065,34.6333338120248" />
                   <mssgle:CubicBezierSegment
-                    Point1="33.2333412475047,17.3000003409384"
-                    Point2="37.2333412475047,17.3000003409384"
-                    Point3="37.2333412475047,21.3000003409384" />
+                    Point1="29.0666747464065,34.6333338120248"
+                    Point2="33.0666747464065,34.6333338120248"
+                    Point3="33.0666747464065,38.6333338120248" />
                   <mssgle:LineSegment
-                    End="37.2333412475047,27.1000006818767" />
+                    End="33.0666747464065,61.7666676240496" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -884,30 +2209,82 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="197.699998708566,337.133335682021">
+          TopLeft="194.433330319988,371.800002624194">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-17.4333358830873,94.4666677480273"
+              EndConnector="0,59.8000008058544"
               Start="0,0"
-              End="-17.4333358830873,86.9666677480273">
+              End="0,52.3000008058544">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.2333338740137" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43.2333338740137"
-                    Point2="0,47.2333338740137"
-                    Point3="-4,47.2333338740137" />
+                    End="0,52.3000008058544" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156.8,41.6"
+          Id="Package\export duplicates"
+          TopLeft="121.666661832068,546.866671012773" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="197.699995132288,473.200003430048">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.6666675827247"
+              Start="0,0"
+              End="0,66.1666675827247">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-13.4333358830873,47.2333338740137" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13.4333358830873,47.2333338740137"
-                    Point2="-17.4333358830873,47.2333338740137"
-                    Point3="-17.4333358830873,51.2333338740137" />
+                    End="0,66.1666675827247" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\export NoMatch"
+          TopLeft="114.166662130091,654.333338533508" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="200.066661832068,588.466671012773">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.89999970197678,65.866667520735"
+              Start="0,0"
+              End="-9.89999970197678,58.366667520735">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-17.4333358830873,86.9666677480273" />
+                    End="0,28.9333337603675" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.9333337603675"
+                    Point2="0,32.9333337603675"
+                    Point3="-4,32.9333337603675" />
+                  <mssgle:LineSegment
+                    End="-5.89999970197678,32.9333337603675" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.89999970197678,32.9333337603675"
+                    Point2="-9.89999970197678,32.9333337603675"
+                    Point3="-9.89999970197678,36.9333337603675" />
+                  <mssgle:LineSegment
+                    End="-9.89999970197678,58.366667520735" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -920,20 +2297,20 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\export not matched">
+    design-time-name="Package\export deletes">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
-          Id="Package\export not matched\OLE DB Source"
-          TopLeft="76.6666636202072,67.6000005372366" />
-        <NodeLayout
           Size="170.4,41.6"
-          Id="Package\export not matched\Flat File Destination"
+          Id="Package\export deletes\Flat File Destination"
           TopLeft="170.833326545027,227.933335144785" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\export deletes\OLE DB Source"
+          TopLeft="76.6666636202072,67.6000005372366" />
         <EdgeLayout
-          Id="Package\export not matched.Paths[OLE DB Source Output]"
+          Id="Package\export deletes.Paths[OLE DB Source Output]"
           TopLeft="152.666663620207,109.200000537237">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -970,7 +2347,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\export not matched\OLE DB Source">
+    design-time-name="Package\export deletes\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -979,6 +2356,122 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\export duplicates">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\export duplicates\Flat File Destination"
+          TopLeft="170.833326545027,227.933335144785" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\export duplicates\OLE DB Source"
+          TopLeft="76.6666636202072,67.6000005372366" />
+        <EdgeLayout
+          Id="Package\export duplicates.Paths[OLE DB Source Output]"
+          TopLeft="152.666663620207,109.200000537237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103.36666292482,118.733334607548"
+              Start="0,0"
+              End="103.36666292482,111.233334607548">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.3666673037741" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.3666673037741"
+                    Point2="0,59.3666673037741"
+                    Point3="4,59.3666673037741" />
+                  <mssgle:LineSegment
+                    End="99.3666629248197,59.3666673037741" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99.3666629248197,59.3666673037741"
+                    Point2="103.36666292482,59.3666673037741"
+                    Point3="103.36666292482,63.3666673037741" />
+                  <mssgle:LineSegment
+                    End="103.36666292482,111.233334607548" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\export duplicates\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\export NoMatch">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\export NoMatch\Flat File Destination"
+          TopLeft="170.833326545027,227.933335144785" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\export NoMatch\OLE DB Source"
+          TopLeft="76.6666636202072,67.6000005372366" />
+        <EdgeLayout
+          Id="Package\export NoMatch.Paths[OLE DB Source Output]"
+          TopLeft="152.666663620207,109.200000537237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103.36666292482,118.733334607548"
+              Start="0,0"
+              End="103.36666292482,111.233334607548">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.3666673037741" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.3666673037741"
+                    Point2="0,59.3666673037741"
+                    Point3="4,59.3666673037741" />
+                  <mssgle:LineSegment
+                    End="99.3666629248197,59.3666673037741" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99.3666629248197,59.3666673037741"
+                    Point2="103.36666292482,59.3666673037741"
+                    Point3="103.36666292482,63.3666673037741" />
+                  <mssgle:LineSegment
+                    End="103.36666292482,111.233334607548" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\export NoMatch\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
