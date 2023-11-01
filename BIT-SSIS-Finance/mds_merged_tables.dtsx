@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_merged_tables"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{21E1E9DA-2630-4C35-88C6-95A4F29CE28F}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{2348CF02-1DB1-4DB0-AB53-C33430FFB130}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -54,7 +54,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="extract_name"
-              DTS:DTSID="{BB289594-2C87-43AB-AC83-BF262015F810}"
+              DTS:DTSID="{72AEA37D-061C-46E3-BAD0-C30F85AF7565}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -63,7 +63,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="spell_identifier"
-              DTS:DTSID="{ED8E7A2D-DB9B-4A24-AB22-B1E88C11DA25}"
+              DTS:DTSID="{415763ED-9E60-483A-83DB-4ACB92AB7116}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -72,7 +72,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="hospital_provider_spell_no"
-              DTS:DTSID="{82D96DA3-4A7A-4AA8-9D79-FC0587A2401E}"
+              DTS:DTSID="{080444B3-DD7D-4075-B93C-047C66EC2E05}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,7 +81,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="epi_unique_cds_identifier"
-              DTS:DTSID="{D7381CBC-C979-43A8-BF4B-EB196DFF5FE8}"
+              DTS:DTSID="{1AA13E64-5FF0-4924-B028-50FE01FFAEB2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -90,7 +90,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="epi_cds_record_type"
-              DTS:DTSID="{7D9486FF-817B-4B18-A911-C24798D90453}"
+              DTS:DTSID="{4E1A409A-35A1-4B39-85E2-B6F859872258}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -99,7 +99,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="opa_attendance_identifier"
-              DTS:DTSID="{F05E88AC-1D1F-4AA8-8CA6-FEECBF2D4E63}"
+              DTS:DTSID="{3591BB9F-7162-4AB5-A8EE-BD5DB06C790E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -108,7 +108,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="opa_generated_record_id"
-              DTS:DTSID="{18D62D98-A3F2-4D55-B765-6554CD6DE4C2}"
+              DTS:DTSID="{57F3CC6F-C9A4-4289-A647-7857E056151A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -117,7 +117,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="rejection_reason"
-              DTS:DTSID="{FE5728A1-4E3A-48F1-8AC8-C315161EFD75}"
+              DTS:DTSID="{A4EBC9F6-A46F-44B1-8BAC-82CE1284C6D9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -126,7 +126,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="rejection_notes"
-              DTS:DTSID="{48D160B7-AE17-4513-B750-D18A5DA80817}"
+              DTS:DTSID="{2E83AAFE-E6EA-459D-9DC9-08A28FDEF2B1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -135,7 +135,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="insert_dttm"
-              DTS:DTSID="{B83AD914-5AAA-44BC-B626-8703198B31FB}"
+              DTS:DTSID="{840D2348-867B-4855-8F4C-29A1828184B0}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -164,7 +164,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="extract_name"
-              DTS:DTSID="{AAFA8D2B-28B3-4FD1-B49D-6527F7C5EC36}"
+              DTS:DTSID="{C1C67847-C0CC-4AE7-A130-3A5B25580607}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -173,7 +173,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="spell_identifier"
-              DTS:DTSID="{5E871BC2-20FA-4184-BE27-5576BBABBFCD}"
+              DTS:DTSID="{723BBDCE-C5F9-4F61-8D4C-81391B1B9AC0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -182,7 +182,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="hospital_provider_spell_no"
-              DTS:DTSID="{3F7B16E6-513A-48D2-8A77-0FAEDB963C18}"
+              DTS:DTSID="{6DE21E8F-C0C2-4396-93F1-E16495E78624}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -191,7 +191,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="epi_unique_cds_identifier"
-              DTS:DTSID="{DC636D68-1293-4B17-A128-4E4F4C64D113}"
+              DTS:DTSID="{2361D50E-76ED-43A5-978B-8090AB4015A0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -200,7 +200,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="epi_cds_record_type"
-              DTS:DTSID="{09CB3992-9031-4A1B-A04E-B0E451A2CB0E}"
+              DTS:DTSID="{2A69F047-5D77-408D-92AD-AE58CA58224D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -209,7 +209,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="opa_attendance_identifier"
-              DTS:DTSID="{B45D0E4D-5F1C-430A-AD9F-7F25C8CDE76B}"
+              DTS:DTSID="{F3E612ED-DB13-40D7-AA35-E2DB48D70230}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -218,7 +218,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="opa_generated_record_id"
-              DTS:DTSID="{A27B0C04-D4E6-4831-A11D-AFFA881EE98F}"
+              DTS:DTSID="{E0A36C45-805E-4DC6-8D88-FD52145443EE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -227,7 +227,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="rejection_reason"
-              DTS:DTSID="{4DA74668-1E5C-4A9A-80FC-9A5C436B5D6A}"
+              DTS:DTSID="{0B87692A-3A26-4486-8C82-071F9DDA5742}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -236,7 +236,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="rejection_notes"
-              DTS:DTSID="{59BFEE15-2E7C-4117-A0CA-E85099E06C49}"
+              DTS:DTSID="{23F647FB-7699-4AAD-AAC6-C15FDB64432D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -245,7 +245,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="insert_dttm"
-              DTS:DTSID="{275385BF-A6A7-4CE4-BF78-821760A60BF8}"
+              DTS:DTSID="{E56DDD2B-E226-4946-9EDB-B9F31D6B2895}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -265,7 +265,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\ubht.nhs.uk\shares\BI\Dataload\SUS\Logs\MDS_Deletes.csv">
+          DTS:ConnectionString="\\ubht.nhs.uk\shares\BI\Dataload\SUS\Logs\MDS_NoMatch.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -274,7 +274,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="extract_name"
-              DTS:DTSID="{BB289594-2C87-43AB-AC83-BF262015F810}"
+              DTS:DTSID="{01294506-C8AC-4FF7-AFF2-D7D9F3F2D162}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -283,7 +283,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="spell_identifier"
-              DTS:DTSID="{ED8E7A2D-DB9B-4A24-AB22-B1E88C11DA25}"
+              DTS:DTSID="{F05E5DEF-5271-4AC2-8E8F-D7811B063E7F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -292,7 +292,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="hospital_provider_spell_no"
-              DTS:DTSID="{82D96DA3-4A7A-4AA8-9D79-FC0587A2401E}"
+              DTS:DTSID="{8F0B1F74-FA99-48DE-A7B0-EBD71F36002B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -301,7 +301,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="epi_unique_cds_identifier"
-              DTS:DTSID="{D7381CBC-C979-43A8-BF4B-EB196DFF5FE8}"
+              DTS:DTSID="{EBC9ADD3-AFC5-44FF-B5E6-06E1218E21D8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -310,7 +310,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="epi_cds_record_type"
-              DTS:DTSID="{7D9486FF-817B-4B18-A911-C24798D90453}"
+              DTS:DTSID="{71979640-B0ED-4359-9EE9-E3F94E376608}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -319,7 +319,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="opa_attendance_identifier"
-              DTS:DTSID="{F05E88AC-1D1F-4AA8-8CA6-FEECBF2D4E63}"
+              DTS:DTSID="{FD2EA0C9-921F-4714-AE65-375204435FCC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -328,7 +328,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="opa_generated_record_id"
-              DTS:DTSID="{18D62D98-A3F2-4D55-B765-6554CD6DE4C2}"
+              DTS:DTSID="{17C35133-CD07-4521-9BD5-4A681A3466A8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -337,7 +337,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="rejection_reason"
-              DTS:DTSID="{FE5728A1-4E3A-48F1-8AC8-C315161EFD75}"
+              DTS:DTSID="{5B262EE9-ACCB-44B7-B092-F7B0772D13A1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -346,7 +346,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="rejection_notes"
-              DTS:DTSID="{48D160B7-AE17-4513-B750-D18A5DA80817}"
+              DTS:DTSID="{BB211BD7-6DB6-4D9A-ABBD-91A2C20DEBC0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -355,7 +355,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="insert_dttm"
-              DTS:DTSID="{B83AD914-5AAA-44BC-B626-8703198B31FB}"
+              DTS:DTSID="{9D6D19AF-CED3-41E6-A3C8-AA15A5144DF1}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
