@@ -8,14 +8,14 @@
   DTS:DTSID="{8DE1B04B-7B19-4620-B47E-7DA92E25EC23}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="2057"
   DTS:MaxErrorCount="10"
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="830"
-  DTS:VersionGUID="{C741C144-DFDD-4D6E-836C-310946154C88}">
+  DTS:VersionBuild="834"
+  DTS:VersionGUID="{31B79D37-ABF9-477E-A88A-88DB7041F107}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,7 +28,9 @@
         DTS:Name="ConnectionString">@[$Project::Admin_ConnectionString_Database]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=BIT_TEST;Initial Catalog=Admin;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Admin;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -41,7 +43,9 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Retain="True"
-          DTS:ConnectionString="Data Source=BIT_TEST;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -53,6 +57,8 @@
         DTS:Name="ConnectionString">@[$Project::JAC_ConnectionString_Database]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=PHD3;Initial Catalog=JAC;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -63,7 +69,8 @@
       DTS:ObjectName="SMTP">
       <DTS:ObjectData>
         <SmtpConnectionManager
-          ConnectionString="SmtpServer=SMTP;UseWindowsAuthentication=True;EnableSsl=False;" />
+          ConnectionString="SmtpServer=SMTP;UseWindowsAuthentication=True;EnableSsl=False;"
+          ConnectByProxy="False" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -104,7 +111,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">5/29/2023 4:10:20 PM</DTS:VariableValue>
+        DTS:DataType="7">10/6/2023 2:46:22 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -9802,7 +9809,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="email_fail_freeze_table"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SendMailTask:SendMailTaskData
@@ -9823,7 +9830,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="email_success_freeze_table"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:PropertyExpression
             DTS:Name="CCLine">@[User::v_email_address_cc]</DTS:PropertyExpression>
@@ -12454,7 +12461,7 @@ order by stored_date_of_issue_dt</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="get_email_address_fail"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -12485,7 +12492,7 @@ order by stored_date_of_issue_dt</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="get_email_address_success"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -26574,7 +26581,7 @@ ORDER BY ph.patient_trust_number;</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{2F2B5BFF-3C77-4A3A-A684-8B1DD214E0B6}"
-              SQLTask:SqlStatementSource="Insert into [error_logs] values ('LA29688','Pharmacy','',0,'',getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Insert into [error_logs] values ('LA31821','Pharmacy','',0,'',getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -26591,7 +26598,7 @@ ORDER BY ph.patient_trust_number;</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\check run_date"
@@ -26633,7 +26640,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="122.224056093355,60.8247769517102">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,23.5757798211721"
               Start="0,0"
               End="0,16.0757798211721">
@@ -26655,7 +26662,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="124.42971625784,197.470281731667">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,27.4637560937266"
               Start="0,0"
               End="0,19.9637560937266">
@@ -26677,7 +26684,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="121.461043142938,126.000556772882">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,29.869724958785"
               Start="0,0"
               End="0,22.369724958785">
@@ -26730,7 +26737,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="224.34284857925,54.0000069281631">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="8.5142856413004,23.4000009116009"
               Start="0,0"
               End="8.5142856413004,15.9000009116009">
@@ -26764,7 +26771,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="265.48570567345,119.000007839764">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="88.2857172537824,53.2352922837213"
               Start="0,0"
               End="88.2857172537824,45.7352922837213">
@@ -26800,7 +26807,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="201.657134220551,119.000007839764">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-67.1142770412009,53.0352935599614"
               Start="0,0"
               End="-67.1142770412009,45.5352935599614">
@@ -26834,7 +26841,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="353.771422927233,213.835300123485">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="14.5648411281074,25.2235320879934"
               Start="0,0"
               End="14.5648411281074,17.7235320879934">
@@ -26868,7 +26875,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="134.957140308739,213.635301399725">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,26.7176447744604"
               Start="0,0"
               End="0,19.2176447744604">
@@ -26909,7 +26916,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="265.828571282601,31.8316319495209">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-0.577861861903784,63.8271936283109"
               Start="0,0"
               End="6.92213813809622,63.8271936283109">
@@ -26943,7 +26950,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="139.236427142802,116.458825577832">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,25.8588246662308"
               Start="0,0"
               End="0,18.3588246662308">
@@ -26977,7 +26984,7 @@ ORDER BY ph.patient_trust_number;</property>
           PanelSize="209.6,59.2"
           Size="209.6,102.4"
           Id="Package\Legacy numbers"
-          TopLeft="61.4880962852312,680.469289276373" />
+          TopLeft="56.8452390633066,636.307523951139" />
         <NodeLayout
           Size="311.2,41.6"
           Id="Package\main drug flag missing email\Data Flow for pharmacy_main_drug_flag_missing"
@@ -27010,7 +27017,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="150.225410480402,211.575169226978">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-9.68254291281445,41.6483673488943"
               Start="0,0"
               End="-9.68254291281445,34.1483673488943">
@@ -27044,7 +27051,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="167.428585076819,51.2705911309661">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-17.2031745964165,48.3045780960115"
               Start="0,0"
               End="-17.2031745964165,40.8045780960115">
@@ -27080,7 +27087,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="140.542867567588,294.823536575872">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="12.0857178498286,27.505880315246"
               Start="0,0"
               End="12.0857178498286,20.005880315246">
@@ -27133,7 +27140,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="106.087301571758,52.2158227425246">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,24.3618693012745"
               Start="0,0"
               End="0,16.8618693012745">
@@ -27155,7 +27162,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="109.704851977059,120.577692043799">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,26.4181772110885"
               Start="0,0"
               End="0,18.9181772110885">
@@ -27208,7 +27215,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="112.23129080491,138.184387944357">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,28.4097373011586"
               Start="0,0"
               End="0,20.9097373011586">
@@ -27230,7 +27237,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="113.874151347665,223.394125245516">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,26.2294095071555"
               Start="0,0"
               End="0,18.7294095071555">
@@ -27252,7 +27259,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="114.859437346957,300.023534752671">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,34.0812218778645"
               Start="0,0"
               End="0,26.5812218778645">
@@ -27274,7 +27281,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="115.628571708348,375.704756630536">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,35.059955461425"
               Start="0,0"
               End="0,27.559955461425">
@@ -27296,7 +27303,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="112.649730412605,57.7554203184992">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,24.4289676258582"
               Start="0,0"
               End="0,16.9289676258582">
@@ -27337,7 +27344,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="108.284096876906,56.6700837598722">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,24.7560486415833"
               Start="0,0"
               End="0,17.2560486415833">
@@ -27359,7 +27366,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="110.761725018729,125.426132401455">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,28.0332962516052"
               Start="0,0"
               End="0,20.5332962516052">
@@ -27412,7 +27419,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="203.600011920929,53.8588283126331">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-64.0285713677506,24.9764719931726"
               Start="0,0"
               End="-64.0285713677506,17.4764719931726">
@@ -27446,7 +27453,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="139.571440553179,120.435300305806">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="65.8285714528998,25.8470602070174"
               Start="0,0"
               End="65.8285714528998,18.3470602070174">
@@ -27480,7 +27487,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="205.400012006079,187.882360512823">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-41.6285713677505,23.1176436805391"
               Start="0,0"
               End="-41.6285713677505,15.6176436805391">
@@ -27537,7 +27544,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="152.085714784447,52.3882410103889">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,24.3764721754923"
               Start="0,0"
               End="0,16.8764721754923">
@@ -27559,7 +27566,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="154.78571508247,118.364713185881">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,23.3764727224525"
               Start="0,0"
               End="0,15.8764727224525">
@@ -27588,7 +27595,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="178.275364842184,127.394118773154">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,27.0764716285324"
               Start="0,0"
               End="0,19.5764716285324">
@@ -27610,7 +27617,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="286.580378209604,240.186794458352">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="114.148193669044,-75.3456227709849"
               Start="0,0"
               End="106.648193669044,-75.3456227709849">
@@ -27644,7 +27651,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="174.621429419882,1503.84119073982">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="12.600000766346,31.9882348115"
               Start="0,0"
               End="12.600000766346,24.4882348115">
@@ -27678,7 +27685,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="279.62143018623,1559.31765844848">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="80.2000045129231,0"
               Start="0,0"
               End="72.7000045129231,0">
@@ -27700,7 +27707,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="511.021434699152,1562.00589134562">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="75.1396862443581,169.49281509535"
               Start="0,0"
               End="67.6396862443581,169.49281509535">
@@ -27736,7 +27743,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="703.128571878648,164.085292010241">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="51.157155252477,0"
               Start="0,0"
               End="43.657155252477,0">
@@ -27758,7 +27765,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="176.533046667325,196.070590401686">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,23.316204056666"
               Start="0,0"
               End="0,15.816204056666">
@@ -27780,27 +27787,27 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="1013.75001726406,490.085298528185">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-742.661920978829,241.583990748188"
+              StartConnector="{x:Null}"
+              EndConnector="-747.304778200753,197.422225422954"
               Start="0,0"
-              End="-735.161920978829,241.583990748188">
+              End="-739.804778200753,197.422225422954">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-367.330960489414,0" />
+                    End="-369.652389100377,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-367.330960489414,0"
-                    Point2="-371.330960489414,0"
-                    Point3="-371.330960489414,4" />
+                    Point1="-369.652389100377,0"
+                    Point2="-373.652389100377,0"
+                    Point3="-373.652389100377,4" />
                   <mssgle:LineSegment
-                    End="-371.330960489414,237.583990748188" />
+                    End="-373.652389100377,193.422225422954" />
                   <mssgle:CubicBezierSegment
-                    Point1="-371.330960489414,237.583990748188"
-                    Point2="-371.330960489414,241.583990748188"
-                    Point3="-375.330960489414,241.583990748188" />
+                    Point1="-373.652389100377,193.422225422954"
+                    Point2="-373.652389100377,197.422225422954"
+                    Point3="-377.652389100377,197.422225422954" />
                   <mssgle:LineSegment
-                    End="-735.161920978829,241.583990748188" />
+                    End="-739.804778200753,197.422225422954" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -27814,7 +27821,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="1229.75001726406,665.685298528185">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="75.3071386696099,46.5617638666729"
               Start="0,0"
               End="75.3071386696099,39.0617638666729">
@@ -27848,7 +27855,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="901.085727131125,286.129412333116">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="328.664290132935,28.3558861950693"
               Start="0,0"
               End="328.664290132935,20.8558861950693">
@@ -27879,30 +27886,18 @@ ORDER BY ph.patient_trust_number;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="166.288096285231,782.869289276373">
+          TopLeft="158.992857966984,738.707523951139">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.94761941457043,25.813395150378"
+              StartConnector="{x:Null}"
+              EndConnector="0,69.9751604756124"
               Start="0,0"
-              End="-9.94761941457043,18.313395150378">
+              End="0,62.4751604756124">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.90669757518901" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.90669757518901"
-                    Point2="0,12.906697575189"
-                    Point3="-4,12.906697575189" />
-                  <mssgle:LineSegment
-                    End="-5.94761941457043,12.906697575189" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.94761941457043,12.906697575189"
-                    Point2="-9.94761941457043,12.906697575189"
-                    Point3="-9.94761941457043,16.906697575189" />
-                  <mssgle:LineSegment
-                    End="-9.94761941457043,18.313395150378" />
+                    End="0,62.4751604756124" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -27916,7 +27911,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="272.740476870661,1061.48268442675">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="82.6365133083592,-51.0754861215814"
               Start="0,0"
               End="75.1365133083592,-51.0754861215814">
@@ -27950,7 +27945,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="600.17699017902,1014.40000875136">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="40.9904808939709,0"
               Start="0,0"
               End="33.4904808939709,0">
@@ -27972,7 +27967,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="861.167471072991,1020.2709241609">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="27.237305893092,0"
               Start="0,0"
               End="19.737305893092,0">
@@ -27994,7 +27989,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="992.404776966083,1148.14902912424">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-16.540876920448,85.8301172307929"
               Start="0,0"
               End="-16.540876920448,78.3301172307929">
@@ -28028,7 +28023,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="975.863900045635,1275.57914635503">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-790.642470029705,116.630675532223"
               Start="0,0"
               End="-790.642470029705,109.130675532223">
@@ -28062,7 +28057,7 @@ ORDER BY ph.patient_trust_number;</property>
           TopLeft="185.221430015929,1433.80982188725">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="-10.600000596047,28.4313688525701"
               Start="0,0"
               End="-10.600000596047,20.9313688525701">
@@ -28094,7 +28089,7 @@ ORDER BY ph.patient_trust_number;</property>
         <AnnotationLayout
           Text="Developed by: Marianne Jeffries&#xA;Service desk no.: SD530566&#xA;Purpose: automate load from source JAC database&#xA;Details: see SharePoint Finance Pharmacy Load&#xA;&#xA;Additional requirements:&#xA;03 fields added, extracts updated: Nov-2021&#xA;Extract from JAC amended: Jan-2022&#xA;permissions are not being kept on BIT, filters/Jenkins: Jan-2022&#xA;Extract from JAC amended for duplicate entries to do with the unit of measure: Jan-2022&#xA;Missing demographics: Feb-2022&#xA;Weston patients missing demographic data, script to update: March-2022&#xA;Historical missing values for Bevacizumab, Nivolumab &amp; Venetoclax, script to update: March-2022&#xA;Issue with Finance downstream process to import data, corrected their script: June-2022&#xA;Lloyds outpatients pharmacy data: July-2022&#xA;SD886476 Pharmacy Extract: Dec-2022&#xA;Split PSU drugs for FY: March-2023&#xA;Amend email recipients: March-2023"
           ParentId="Package"
-          FontInfo="{assembly:Null}"
+          FontInfo="{x:Null}"
           Size="545.6,311.2"
           Id="1a841f25-417a-437c-bd72-738b5cd2a551"
           TopLeft="1538.89841896028,1.0196069458363" />
@@ -28117,7 +28112,7 @@ ORDER BY ph.patient_trust_number;</property>
     design-time-name="Package\Data Flow from JAC database">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Data Flow from JAC database\Source for JAC Boots"
@@ -28173,7 +28168,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -28207,7 +28204,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -28229,13 +28228,15 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Next steps:&#xA;&#xA;- To configure each source, double-click the source.&#xA;- To indicate the flow of data, drag the green output arrows from the sources to the destinations.&#xA;To configure each destination, double-click each destination."
           ParentId="Package\Data Flow from JAC database"
-          Size="489.6,105.6"
+          Size="489.6,NaN"
           Id="04716c66-af32-4207-8065-1e244b343062"
           TopLeft="312.912398933997,377.470033264163">
           <AnnotationLayout.FontInfo>
@@ -28550,7 +28551,7 @@ ORDER BY ph.patient_trust_number;</property>
     design-time-name="Package\import to transform table\Data Flow from finance import Boots">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="312.8,41.6"
           Id="Package\import to transform table\Data Flow from finance import Boots\Destination for Boots finance transform pharmacy"
@@ -28598,7 +28599,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -28620,7 +28623,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -28642,7 +28647,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -28678,7 +28685,7 @@ ORDER BY ph.patient_trust_number;</property>
     design-time-name="Package\import to transform table\Data Flow from finance import UHB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="273.6,41.6"
           Id="Package\import to transform table\Data Flow from finance import UHB\Source for finance import pharmacy_UHB"
@@ -28726,7 +28733,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -28760,7 +28769,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -28782,7 +28793,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -28813,7 +28826,7 @@ ORDER BY ph.patient_trust_number;</property>
     design-time-name="Package\import to transform table\Data Flow from finance import WGH">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="276.8,41.6"
           Id="Package\import to transform table\Data Flow from finance import WGH\Source for finance import pharmacy_WGH"
@@ -28849,7 +28862,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -28871,7 +28886,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -28905,7 +28922,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -28936,7 +28955,7 @@ ORDER BY ph.patient_trust_number;</property>
     design-time-name="Package\main drug flag missing email\Data Flow for pharmacy_main_drug_flag_missing">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\main drug flag missing email\Data Flow for pharmacy_main_drug_flag_missing\Row Count"
@@ -28968,7 +28987,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -29002,7 +29023,9 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

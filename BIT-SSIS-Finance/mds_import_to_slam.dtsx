@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_import_to_slam"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{0D82F6DE-B05D-4151-A5A0-AA841D29D0F8}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{90545D3D-FE01-4839-ABAF-B5216F4E23D4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -11138,7 +11138,7 @@
           PanelSize="256.8,192"
           Size="256.8,235.2"
           Id="Package\Insert cc to SLAM"
-          TopLeft="887.49996473392,117.866667603387" />
+          TopLeft="870.833298729527,121.333334297604" />
         <NodeLayout
           Size="186.4,41.6"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM"
@@ -11175,7 +11175,7 @@
           PanelSize="244.8,176.8"
           Size="244.8,220"
           Id="Package\Insert Merged Episodes to SLAM"
-          TopLeft="294.999988277753,112.66666756206" />
+          TopLeft="289.999988476435,110.066667541397" />
         <NodeLayout
           Size="186.4,41.6"
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM"
@@ -11249,21 +11249,21 @@
           PanelSize="224,185.6"
           Size="224,228.8"
           Id="Package\Insert Merged Spells to SLAM"
-          TopLeft="24.1666657063698,100.533334132301" />
+          TopLeft="23.3333324061502,105.733334173627" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="248.16666570637,218.800000847181">
+          TopLeft="247.33333240615,220.100000857512">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="46.8333225713835,0"
+              EndConnector="42.6666560702849,0"
               Start="0,0"
-              End="39.3333225713835,0">
+              End="35.1666560702849,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="39.3333225713835,0" />
+                    End="35.1666560702849,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11274,18 +11274,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="539.799988277753,226.466667582724">
+          TopLeft="534.799988476435,220.066667541397">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="56.0333213792917,0"
+              EndConnector="61.0333211806098,10.20000006199"
               Start="0,0"
-              End="48.5333213792917,0">
+              End="53.5333211806098,10.20000006199">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="48.5333213792917,0" />
+                    End="26.5166605903049,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5166605903049,0"
+                    Point2="30.5166605903049,0"
+                    Point3="30.5166605903049,4" />
+                  <mssgle:LineSegment
+                    End="30.5166605903049,6.20000006198995" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.5166605903049,6.20000006198995"
+                    Point2="30.5166605903049,10.20000006199"
+                    Point3="34.5166605903049,10.20000006199" />
+                  <mssgle:LineSegment
+                    End="53.5333211806098,10.20000006199" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11296,18 +11308,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="829.433309657045,232.866667603387">
+          TopLeft="829.433309657045,230.266667603387">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.0666550768748,0"
+              EndConnector="41.3999890724815,8.66666669421687"
               Start="0,0"
-              End="50.5666550768748,0">
+              End="33.8999890724815,8.66666669421687">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="50.5666550768748,0" />
+                    End="16.6999945362408,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.6999945362408,0"
+                    Point2="20.6999945362408,0"
+                    Point3="20.6999945362408,4" />
+                  <mssgle:LineSegment
+                    End="20.6999945362408,4.66666669421687" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.6999945362408,4.66666669421687"
+                    Point2="20.6999945362408,8.66666669421687"
+                    Point3="24.6999945362408,8.66666669421687" />
+                  <mssgle:LineSegment
+                    End="33.8999890724815,8.66666669421687" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -11484,7 +11508,7 @@
     design-time-name="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152,41.6"
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source"
@@ -11524,7 +11548,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
