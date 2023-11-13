@@ -14,8 +14,8 @@
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="836"
-  DTS:VersionGUID="{B21468A6-52D4-4837-8484-1BB6504F3828}">
+  DTS:VersionBuild="838"
+  DTS:VersionGUID="{74B9F3CE-597D-4342-AABD-60FA06448365}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -111,7 +111,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">10/7/2023 11:35:26 AM</DTS:VariableValue>
+        DTS:DataType="7">10/8/2023 2:14:02 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2620,9 +2620,19 @@ SELECT		xdi.issue_date, --AS 'Date',
 			mds.[DRUG STRENGTH],
 			mds.[DRUG VOLUME],
 			mds.[DRUG PACK],
+			--SD1110167: NOV-2023
+                                                        --CAST(CASE WHEN xdi.quantity_containers IS NULL THEN xdi.quantity_doseunits
+			 -- 		  ELSE xdi.quantity_containers * (CASE WHEN dp.pack_magnitude = 0 THEN 1 ELSE dp.pack_magnitude END)
+			--	      END / CASE WHEN dp.pack_magnitude = 0 THEN 1 ELSE dp.pack_magnitude END AS decimal(10,4)) AS 'QuantityDecimal',								-- Fraction of full container
+
 			CAST(CASE WHEN xdi.quantity_containers IS NULL THEN xdi.quantity_doseunits
-			  		  ELSE xdi.quantity_containers * (CASE WHEN dp.pack_magnitude = 0 THEN 1 ELSE dp.pack_magnitude END)
-				      END / CASE WHEN dp.pack_magnitude = 0 THEN 1 ELSE dp.pack_magnitude END AS decimal(10,4)) AS 'QuantityDecimal',								-- Fraction of full container
+				ELSE xdi.quantity_containers *(CASE WHEN dp.pack_magnitude = 0 THEN 1 ELSE dp.pack_magnitude END)
+				END / CASE WHEN dp.pack_magnitude = 0 THEN 1
+					WHEN xdi.quantity_doseunits &gt; 0 AND dp.unit_description ='g' THEN dp.du_cont
+					ELSE dp.pack_magnitude END AS decimal(10,4)) 
+					AS 'QuantityDecimal',
+
+
 			ISNULL(ISNULL(vmp.UDFS_UOMCD,VMPP.QTY_UOMCD),VMPP2.QTY_UOMCD) AS 'UoM',																					-- Unit of Measure from dm+d, join depends on item
 			CASE WHEN dp.pack_magnitude = 0 THEN 1 
 				 --WHEN dp.du_cont &lt;&gt; dp.pack_magnitude THEN dp.du_cont
@@ -5261,9 +5271,16 @@ SELECT		xdi.issue_date AS 'issue_date',	 --AS 'Date',
 			mds.[DRUG STRENGTH],
 			mds.[DRUG VOLUME],
 			mds.[DRUG PACK],
+                                                       --SD1110167: NOV-2023
 			CAST(CASE WHEN xdi.quantity_containers IS NULL THEN xdi.quantity_doseunits
-			  		  ELSE xdi.quantity_containers * (CASE WHEN dp.pack_magnitude = 0 THEN 1 ELSE dp.pack_magnitude END)
-				      END / CASE WHEN dp.pack_magnitude = 0 THEN 1 ELSE dp.pack_magnitude END AS decimal(10,4)) AS 'QuantityDecimal',								-- Fraction of full container
+				ELSE xdi.quantity_containers *(CASE WHEN dp.pack_magnitude = 0 THEN 1 ELSE dp.pack_magnitude END)
+				END / CASE WHEN dp.pack_magnitude = 0 THEN 1
+					WHEN xdi.quantity_doseunits &gt; 0 AND dp.unit_description ='g' THEN dp.du_cont
+					ELSE dp.pack_magnitude END AS decimal(10,4)) 
+					AS 'QuantityDecimal',
+			--CAST(CASE WHEN xdi.quantity_containers IS NULL THEN xdi.quantity_doseunits
+			--  		  ELSE xdi.quantity_containers * (CASE WHEN dp.pack_magnitude = 0 THEN 1 ELSE dp.pack_magnitude END)
+			--     END / CASE WHEN dp.pack_magnitude = 0 THEN 1 ELSE dp.pack_magnitude END AS decimal(10,4)) AS 'QuantityDecimal',								-- Fraction of full container
 			ISNULL(ISNULL(vmp.UDFS_UOMCD,VMPP.QTY_UOMCD),VMPP2.QTY_UOMCD) AS 'UoM',																					-- Unit of Measure from dm+d, join depends on item
 			CASE WHEN dp.pack_magnitude = 0 THEN 1 
 				 --WHEN dp.du_cont &lt;&gt; dp.pack_magnitude THEN dp.du_cont
@@ -9809,7 +9826,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="email_fail_freeze_table"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SendMailTask:SendMailTaskData
@@ -9830,7 +9847,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="email_success_freeze_table"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:PropertyExpression
             DTS:Name="CCLine">@[User::v_email_address_cc]</DTS:PropertyExpression>
@@ -12461,7 +12478,7 @@ order by stored_date_of_issue_dt</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="get_email_address_fail"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -12492,7 +12509,7 @@ order by stored_date_of_issue_dt</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="get_email_address_success"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -26600,23 +26617,23 @@ ORDER BY ph.patient_trust_number;</property>
       <GraphLayout
         Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="151.2,41.6"
+          Size="151,42"
           Id="Package\check run_date"
           TopLeft="359.821434699152,1541.20589134562" />
         <NodeLayout
-          Size="217.6,41.6"
+          Size="218,42"
           Id="Package\Data Flow from JAC database"
           TopLeft="68.9803782096041,219.386794458352" />
         <NodeLayout
-          Size="249.6,41.6"
+          Size="250,42"
           Id="Package\Data Flow from transform pharmacy"
           TopLeft="49.8214294198824,1462.24119073982" />
         <NodeLayout
-          Size="184.8,41.6"
+          Size="185,42"
           Id="Package\Delete from error_logs"
           TopLeft="94.8214301862284,1535.82942555132" />
         <NodeLayout
-          Size="200.8,41.6"
+          Size="201,42"
           Id="Package\Delete from pharmacy"
           TopLeft="84.8214300159294,1392.20982188725" />
         <NodeLayout
@@ -26624,15 +26641,15 @@ ORDER BY ph.patient_trust_number;</property>
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request"
           TopLeft="9.68419377130044,8.82477695171025" />
         <NodeLayout
-          Size="193.6,41.6"
+          Size="194,42"
           Id="Package\Demographics\GetPatientDemographics"
           TopLeft="23.963918415409,84.4005567728824" />
         <NodeLayout
-          Size="208,41.6"
+          Size="208,42"
           Id="Package\Demographics\Update ArmedForces status"
           TopLeft="22.7012646452121,224.934037825394" />
         <NodeLayout
-          Size="208.8,41.6"
+          Size="209,42"
           Id="Package\Demographics\Update demographics and overseas visitor status"
           TopLeft="17.7581678704672,155.870281731667" />
         <EdgeLayout
@@ -26704,32 +26721,32 @@ ORDER BY ph.patient_trust_number;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="244.8,286.4"
-          Size="244.8,329.6"
+          PanelSize="245,287"
+          Size="245,330"
           Id="Package\Demographics"
           TopLeft="355.37699017902,845.60719830517" />
         <NodeLayout
-          Size="212.8,41.6"
+          Size="213,42"
           Id="Package\freeze table\email_fail_freeze_table"
           TopLeft="261.93626405534,239.058832211479" />
         <NodeLayout
-          Size="209.6,41.6"
+          Size="210,42"
           Id="Package\freeze table\email_success_freeze_table"
           TopLeft="30.5714234381292,240.352946174186" />
         <NodeLayout
-          Size="169.6,41.6"
+          Size="170,42"
           Id="Package\freeze table\freeze table update"
           TopLeft="139.54284857925,12.4000069281631" />
         <NodeLayout
-          Size="186.4,41.6"
+          Size="186,42"
           Id="Package\freeze table\get_email_address_fail"
           TopLeft="260.571422927233,172.235300123485" />
         <NodeLayout
-          Size="208.8,41.6"
+          Size="209,42"
           Id="Package\freeze table\get_email_address_success"
           TopLeft="30.1428571793497,172.035301399725" />
         <NodeLayout
-          Size="195.2,41.6"
+          Size="195,42"
           Id="Package\freeze table\update freeze table flags"
           TopLeft="135.257134220551,77.4000078397639" />
         <EdgeLayout
@@ -26895,20 +26912,20 @@ ORDER BY ph.patient_trust_number;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="488.8,336.8"
-          Size="488.8,380"
+          PanelSize="489,337"
+          Size="489,380"
           Id="Package\freeze table"
           TopLeft="586.16112094351,1541.49870644097" />
         <NodeLayout
-          Size="251.2,41.6"
+          Size="251,42"
           Id="Package\import to transform table\Data Flow from finance import Boots"
           TopLeft="14.0507094206972,74.8588255778318" />
         <NodeLayout
-          Size="246.4,41.6"
+          Size="246,42"
           Id="Package\import to transform table\Data Flow from finance import UHB"
           TopLeft="19.4285712826009,11.0316319495209" />
         <NodeLayout
-          Size="248.8,41.6"
+          Size="249,42"
           Id="Package\import to transform table\Data Flow from finance import WGH"
           TopLeft="14.422144864906,142.317650244063" />
         <EdgeLayout
@@ -26970,46 +26987,46 @@ ORDER BY ph.patient_trust_number;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="293.6,202.4"
-          Size="293.6,245.6"
+          PanelSize="294,203"
+          Size="294,246"
           Id="Package\import to transform table"
           TopLeft="754.285727131125,40.5294123331157" />
         <NodeLayout
-          Size="190.4,41.6"
+          Size="190,42"
           Id="Package\Legacy numbers\Update legacy numbers"
           TopLeft="9.63790358400946,6.67471877663718" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="209.6,59.2"
-          Size="209.6,102.4"
+          PanelSize="210,59"
+          Size="210,102"
           Id="Package\Legacy numbers"
           TopLeft="56.8452390633066,636.307523951139" />
         <NodeLayout
-          Size="311.2,41.6"
+          Size="311,42"
           Id="Package\main drug flag missing email\Data Flow for pharmacy_main_drug_flag_missing"
           TopLeft="11.8285850768189,9.67059113096605" />
         <NodeLayout
-          Size="254.4,41.6"
+          Size="254,42"
           Id="Package\main drug flag missing email\email_main_drug_flag_missing_email"
           TopLeft="25.4285854174166,322.329416891118" />
         <NodeLayout
-          Size="177.6,41.6"
+          Size="178,42"
           Id="Package\main drug flag missing email\Foreach row in recordset object\add row to string var"
           TopLeft="27.0285854174174,13.7764763688549" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="252,68.8"
+          PanelSize="252,69"
           Size="252,112"
           Id="Package\main drug flag missing email\Foreach row in recordset object"
           TopLeft="24.2254104804024,99.5751692269776" />
         <NodeLayout
-          Size="208.8,41.6"
+          Size="209,42"
           Id="Package\main drug flag missing email\get_email_address"
           TopLeft="36.1428675675879,253.223536575872" />
         <NodeLayout
-          Size="148.8,41.6"
+          Size="149,42"
           Id="Package\main drug flag missing email\Send Mail Task"
           TopLeft="56.6857284935149,384.364713550523" />
         <EdgeLayout
@@ -27119,8 +27136,8 @@ ORDER BY ph.patient_trust_number;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="333.6,446.4"
-          Size="333.6,489.6"
+          PanelSize="334,447"
+          Size="334,490"
           Id="Package\main drug flag missing email"
           TopLeft="1138.25715593367,712.247062394858" />
         <NodeLayout
@@ -27128,7 +27145,7 @@ ORDER BY ph.patient_trust_number;</property>
           Id="Package\outpatient details\Data Flow OP details"
           TopLeft="41.5714288025486,76.5776920437991" />
         <NodeLayout
-          Size="180,42.4"
+          Size="180,42"
           Id="Package\outpatient details\truncate pharmacy_op_details"
           TopLeft="12.6031743409681,9.81582274252457" />
         <NodeLayout
@@ -27182,32 +27199,32 @@ ORDER BY ph.patient_trust_number;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="208,208.8"
+          PanelSize="208,209"
           Size="208,252"
           Id="Package\outpatient details"
           TopLeft="888.404776966083,896.149029124237" />
         <NodeLayout
-          Size="169.6,56.8"
+          Size="170,57"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table Boots"
           TopLeft="27.6294280014171,166.594125245516" />
         <NodeLayout
-          Size="169.6,56"
+          Size="170,56"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table UHB"
           TopLeft="27.2331536084032,82.1843879443574" />
         <NodeLayout
-          Size="171.2,50.4"
+          Size="171,50"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds"
           TopLeft="29.7188746939131,249.623534752672" />
         <NodeLayout
-          Size="177.6,48"
+          Size="178,48"
           Id="Package\PHD patient history\truncate pharmacy_patient_history table"
           TopLeft="24.4663072168063,9.7554203184992" />
         <NodeLayout
-          Size="172.8,41.6"
+          Size="173,42"
           Id="Package\PHD patient history\Update demographic details"
           TopLeft="28,334.104756630536" />
         <NodeLayout
-          Size="177.6,41.6"
+          Size="178,42"
           Id="Package\PHD patient history\Update WGH demographic details"
           TopLeft="28.0571434166967,410.764712091961" />
         <EdgeLayout
@@ -27323,20 +27340,20 @@ ORDER BY ph.patient_trust_number;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="232.8,462.4"
-          Size="232.8,505.6"
+          PanelSize="233,463"
+          Size="233,506"
           Id="Package\PHD patient history"
           TopLeft="39.9404768706608,808.682684426751" />
         <NodeLayout
-          Size="172.8,44"
+          Size="173,44"
           Id="Package\Spell details\Data Flow spell details"
           TopLeft="22.9999999148506,81.4261324014554" />
         <NodeLayout
-          Size="188.8,44.8"
+          Size="189,45"
           Id="Package\Spell details\truncate pharmacy_spell_details"
           TopLeft="12.7681938389607,11.8700837598722" />
         <NodeLayout
-          Size="169.6,41.6"
+          Size="170,42"
           Id="Package\Spell details\Update spell details"
           TopLeft="27.3234501226067,153.459428653061" />
         <EdgeLayout
@@ -27386,32 +27403,32 @@ ORDER BY ph.patient_trust_number;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="220,212.8"
+          PanelSize="220,213"
           Size="220,256"
           Id="Package\Spell details"
           TopLeft="641.167471072991,890.39281919756" />
         <NodeLayout
-          Size="279.2,41.6"
+          Size="279,42"
           Id="Package\truncate finance import &amp; transform tables"
           TopLeft="41.6650145593226,85.7941187731536" />
         <NodeLayout
-          Size="252,41.6"
+          Size="252,42"
           Id="Package\truncate JAC dbo pharmacy_UBH"
           TopLeft="49.285715125045,154.470590401686" />
         <NodeLayout
-          Size="243.2,41.6"
+          Size="243,42"
           Id="Package\UHB main drug flag SD886476\Data Flow from JAC main drug flag"
           TopLeft="17.9714405531788,78.8353003058057" />
         <NodeLayout
-          Size="281.6,41.6"
+          Size="282,42"
           Id="Package\UHB main drug flag SD886476\Data Flow from JAC main drug flag missing"
           TopLeft="22.9714406383281,211.000004193362" />
         <NodeLayout
-          Size="378.4,41.6"
+          Size="378,42"
           Id="Package\UHB main drug flag SD886476\truncate finance main drug flag &amp; main drug flag missing tables"
           TopLeft="14.4000119209294,12.2588283126331" />
         <NodeLayout
-          Size="370.4,41.6"
+          Size="370,42"
           Id="Package\UHB main drug flag SD886476\update finance transform main drug flag"
           TopLeft="20.2000120060786,146.282360512823" />
         <EdgeLayout
@@ -27520,23 +27537,23 @@ ORDER BY ph.patient_trust_number;</property>
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="432,308"
-          Size="432,351.2"
+          Size="432,351"
           Id="Package\UHB main drug flag SD886476"
           TopLeft="1013.75001726406,314.485298528185" />
         <NodeLayout
-          Size="236,41.6"
+          Size="236,42"
           Id="Package\Update Northern Irish purchasers"
           TopLeft="857.863900045635,1233.97914635503" />
         <NodeLayout
-          Size="240.8,41.6"
+          Size="241,42"
           Id="Package\WGH id values\PHD tbl patient history table WGH"
           TopLeft="33.7142858115994,76.7647131858812" />
         <NodeLayout
-          Size="272.8,41.6"
+          Size="273,42"
           Id="Package\WGH id values\truncate pharmacy_patient_history_WGH"
           TopLeft="13.6571437572944,10.7882410103889" />
         <NodeLayout
-          Size="210.4,41.6"
+          Size="210,42"
           Id="Package\WGH id values\Update WGH id values"
           TopLeft="50.2571443533409,141.741185908334" />
         <EdgeLayout
@@ -27586,8 +27603,8 @@ ORDER BY ph.patient_trust_number;</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="302.4,208.8"
-          Size="302.4,252"
+          PanelSize="302,209"
+          Size="302,252"
           Id="Package\WGH id values"
           TopLeft="400.728571878648,38.8411716873671" />
         <EdgeLayout
@@ -28087,10 +28104,10 @@ ORDER BY ph.patient_trust_number;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="Developed by: Marianne Jeffries&#xA;Service desk no.: SD530566&#xA;Purpose: automate load from source JAC database&#xA;Details: see SharePoint Finance Pharmacy Load&#xA;&#xA;Additional requirements:&#xA;03 fields added, extracts updated: Nov-2021&#xA;Extract from JAC amended: Jan-2022&#xA;permissions are not being kept on BIT, filters/Jenkins: Jan-2022&#xA;Extract from JAC amended for duplicate entries to do with the unit of measure: Jan-2022&#xA;Missing demographics: Feb-2022&#xA;Weston patients missing demographic data, script to update: March-2022&#xA;Historical missing values for Bevacizumab, Nivolumab &amp; Venetoclax, script to update: March-2022&#xA;Issue with Finance downstream process to import data, corrected their script: June-2022&#xA;Lloyds outpatients pharmacy data: July-2022&#xA;SD886476 Pharmacy Extract: Dec-2022&#xA;Split PSU drugs for FY: March-2023&#xA;Amend email recipients: March-2023"
+          Text="Developed by: Marianne Jeffries&#xA;Service desk no.: SD530566&#xA;Purpose: automate load from source JAC database&#xA;Details: see SharePoint Finance Pharmacy Load&#xA;&#xA;Additional requirements:&#xA;03 fields added, extracts updated: Nov-2021&#xA;Extract from JAC amended: Jan-2022&#xA;permissions are not being kept on BIT, filters/Jenkins: Jan-2022&#xA;Extract from JAC amended for duplicate entries to do with the unit of measure: Jan-2022&#xA;Missing demographics: Feb-2022&#xA;Weston patients missing demographic data, script to update: March-2022&#xA;Historical missing values for Bevacizumab, Nivolumab &amp; Venetoclax, script to update: March-2022&#xA;Issue with Finance downstream process to import data, corrected their script: June-2022&#xA;Lloyds outpatients pharmacy data: July-2022&#xA;SD886476 Pharmacy Extract: Dec-2022&#xA;Split PSU drugs for FY: March-2023&#xA;Amend email recipients: March-2023&#xD;&#xA;SD1110167 Pharmacy Extract: Nov2023"
           ParentId="Package"
           FontInfo="{x:Null}"
-          Size="545.6,311.2"
+          Size="545,327"
           Id="1a841f25-417a-437c-bd72-738b5cd2a551"
           TopLeft="1538.89841896028,1.0196069458363" />
       </GraphLayout>
@@ -28112,29 +28129,29 @@ ORDER BY ph.patient_trust_number;</property>
     design-time-name="Package\Data Flow from JAC database">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
-          Size="176.8,41.6"
+          Size="178,42"
           Id="Package\Data Flow from JAC database\Source for JAC Boots"
           TopLeft="394.200808613173,9.76415094339624" />
         <NodeLayout
-          Size="297.6,41.6"
+          Size="298,42"
           Id="Package\Data Flow from JAC database\Destination for finance import pharmacy_WGH"
           TopLeft="705,101" />
         <NodeLayout
-          Size="180.8,41.6"
+          Size="181,42"
           Id="Package\Data Flow from JAC database\Source for JAC UHBW"
           TopLeft="67.2169811320756,5.5" />
         <NodeLayout
-          Size="174.4,41.6"
+          Size="174,42"
           Id="Package\Data Flow from JAC database\Source for JAC WGH"
           TopLeft="758,14.2352941069223" />
         <NodeLayout
-          Size="300,41.6"
+          Size="300,42"
           Id="Package\Data Flow from JAC database\Destination for finance import pharmacy_Boots"
           TopLeft="351.933962264151,99.6509433962264" />
         <NodeLayout
-          Size="294.4,41.6"
+          Size="294,42"
           Id="Package\Data Flow from JAC database\Destination for finance import pharmacy_UHB"
           TopLeft="9.50000000000003,97.8107658050355" />
         <EdgeLayout
@@ -28168,45 +28185,41 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow from JAC database.Paths[OLE DB Source Output1]"
-          TopLeft="482.600808613173,51.3641509433962">
+          TopLeft="483.200808613173,51.7641509433962">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="19.3331536509779,48.2867924528302"
+              EndConnector="18.733153650978,47.8867924528302"
               Start="0,0"
-              End="19.3331536509779,40.7867924528302">
+              End="18.733153650978,40.3867924528302">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.1433962264151" />
+                    End="0,19.9433962264151" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.1433962264151"
-                    Point2="0,24.1433962264151"
-                    Point3="4,24.1433962264151" />
+                    Point1="0,19.9433962264151"
+                    Point2="0,23.9433962264151"
+                    Point3="4,23.9433962264151" />
                   <mssgle:LineSegment
-                    End="15.3331536509779,24.1433962264151" />
+                    End="14.733153650978,23.9433962264151" />
                   <mssgle:CubicBezierSegment
-                    Point1="15.3331536509779,24.1433962264151"
-                    Point2="19.3331536509779,24.1433962264151"
-                    Point3="19.3331536509779,28.1433962264151" />
+                    Point1="14.733153650978,23.9433962264151"
+                    Point2="18.733153650978,23.9433962264151"
+                    Point3="18.733153650978,27.9433962264151" />
                   <mssgle:LineSegment
-                    End="19.3331536509779,40.7867924528302" />
+                    End="18.733153650978,40.3867924528302" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -28228,15 +28241,13 @@ ORDER BY ph.patient_trust_number;</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Next steps:&#xA;&#xA;- To configure each source, double-click the source.&#xA;- To indicate the flow of data, drag the green output arrows from the sources to the destinations.&#xA;To configure each destination, double-click each destination."
           ParentId="Package\Data Flow from JAC database"
-          Size="489.6,NaN"
+          Size="490,105"
           Id="04716c66-af32-4207-8065-1e244b343062"
           TopLeft="312.912398933997,377.470033264163">
           <AnnotationLayout.FontInfo>
