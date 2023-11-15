@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_merged_tables"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{2348CF02-1DB1-4DB0-AB53-C33430FFB130}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{25821BF9-0C2A-41CB-B867-E9233A7C7A37}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2110,23 +2110,31 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="330.4,41.6"
+          Size="330,42"
           Id="Package\Apply fixes and Insert to Rejected not matched records"
           TopLeft="28.3333322074678,330.200002624194" />
         <NodeLayout
-          Size="144,41.6"
+          Size="144,42"
           Id="Package\export deletes"
           TopLeft="123.333328432507,431.600003430048" />
         <NodeLayout
-          Size="182.4,41.6"
+          Size="157,42"
+          Id="Package\export duplicates"
+          TopLeft="121.666661832068,546.866671012773" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\export NoMatch"
+          TopLeft="114.166662130091,654.333338533508" />
+        <NodeLayout
+          Size="182,42"
           Id="Package\Insert to MDS Episode"
           TopLeft="65.2333313133987,125.000000764529" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166,42"
           Id="Package\Insert to MDS OPA"
           TopLeft="77.2666574610613,219.333335000144" />
         <NodeLayout
-          Size="172.8,41.6"
+          Size="173,42"
           Id="Package\Insert to MDS Spells"
           TopLeft="62.9666645142769,22.8666673760946" />
         <EdgeLayout
@@ -2229,10 +2237,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156.8,41.6"
-          Id="Package\export duplicates"
-          TopLeft="121.666661832068,546.866671012773" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="197.699995132288,473.200003430048">
@@ -2255,10 +2259,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\export NoMatch"
-          TopLeft="114.166662130091,654.333338533508" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="200.066661832068,588.466671012773">
@@ -2302,11 +2302,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170.4,41.6"
+          Size="170,42"
           Id="Package\export deletes\Flat File Destination"
           TopLeft="170.833326545027,227.933335144785" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\export deletes\OLE DB Source"
           TopLeft="76.6666636202072,67.6000005372366" />
         <EdgeLayout
@@ -2365,11 +2365,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170.4,41.6"
+          Size="170,42"
           Id="Package\export duplicates\Flat File Destination"
           TopLeft="170.833326545027,227.933335144785" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\export duplicates\OLE DB Source"
           TopLeft="76.6666636202072,67.6000005372366" />
         <EdgeLayout
@@ -2421,7 +2421,7 @@
     design-time-name="Package\export NoMatch">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\export NoMatch\Flat File Destination"
@@ -2461,7 +2461,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
