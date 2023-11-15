@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\jeffriesma"
   DTS:DTSID="{6AEF6088-31EE-4E49-8FB4-196E69D17D35}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="2057"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{6CCB37E4-00F2-4A0C-AA42-A1EBE462FD48}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{0CAC0B72-4965-4955-8333-0A84F2E3CC13}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -249,6 +249,21 @@
                       dataType="wstr"
                       length="36"
                       name="IPSP_EXT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[CAS_NUMBR]"
+                      dataType="wstr"
+                      length="36"
+                      name="CAS_NUMBR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[IN_UK_12MONTHS]"
+                      dataType="wstr"
+                      length="256"
+                      name="IN_UK_12MONTHS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes.Inputs[OLE DB Destination Input].ExternalColumns[OVERSEAS_DETAILS]"
+                      dataType="wstr"
+                      length="50"
+                      name="OVERSEAS_DETAILS" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -310,6 +325,9 @@
       ,[EPI_NUM]
       ,[EPI_COUNT]
       ,[IPSP_EXT_ID]
+      ,[CAS_NUMBR]
+      ,[IN_UK_12MONTHS]
+      ,[OVERSEAS_DETAILS]
       ,[ARCHV_FLAG]
       ,CURRENT_TIMESTAMP AS load_dttm 
 FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
@@ -443,6 +461,36 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[IPSP_EXT_ID]"
                       name="IPSP_EXT_ID"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[CAS_NUMBR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[CAS_NUMBR]"
+                      length="36"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[CAS_NUMBR]"
+                      name="CAS_NUMBR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[IN_UK_12MONTHS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[IN_UK_12MONTHS]"
+                      length="256"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[IN_UK_12MONTHS]"
+                      name="IN_UK_12MONTHS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[OVERSEAS_DETAILS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[OVERSEAS_DETAILS]"
+                      length="50"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].Columns[OVERSEAS_DETAILS]"
+                      name="OVERSEAS_DETAILS"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -491,6 +539,21 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                       dataType="wstr"
                       length="36"
                       name="IPSP_EXT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[CAS_NUMBR]"
+                      dataType="wstr"
+                      length="36"
+                      name="CAS_NUMBR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[IN_UK_12MONTHS]"
+                      dataType="wstr"
+                      length="256"
+                      name="IN_UK_12MONTHS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Output].ExternalColumns[OVERSEAS_DETAILS]"
+                      dataType="wstr"
+                      length="50"
+                      name="OVERSEAS_DETAILS" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -542,6 +605,24 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
                       length="36"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[IPSP_EXT_ID]"
                       name="IPSP_EXT_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[CAS_NUMBR]"
+                      dataType="wstr"
+                      length="36"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[CAS_NUMBR]"
+                      name="CAS_NUMBR" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[IN_UK_12MONTHS]"
+                      dataType="wstr"
+                      length="256"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[IN_UK_12MONTHS]"
+                      name="IN_UK_12MONTHS" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[OVERSEAS_DETAILS]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[OVERSEAS_DETAILS]"
+                      name="OVERSEAS_DETAILS" />
                     <outputColumn
                       refId="Package\Data Flow from hdm_local\Source for mds_careflow_episodes.Outputs[OLE DB Source Error Output].Columns[ARCHV_FLAG]"
                       dataType="wstr"
@@ -722,27 +803,27 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="201.6,41.6"
+          Size="202,42"
           Id="Package\Data Flow from hdm_local"
           TopLeft="159.880954583351,239.352944296289" />
         <NodeLayout
-          Size="164.8,41.6"
+          Size="165,42"
           Id="Package\exec hdm_local sp"
           TopLeft="173.4523833859,159.058825523135" />
         <NodeLayout
-          Size="222.4,41.6"
+          Size="222,42"
           Id="Package\exec hdm_local sp curr_period"
           TopLeft="153.690478760505,540.698046361609" />
         <NodeLayout
-          Size="360.8,41.6"
+          Size="361,42"
           Id="Package\exec import sp for transform mds_careflow_episodes_insert"
           TopLeft="76.5476203039121,357.168632022972" />
         <NodeLayout
-          Size="305.6,41.6"
+          Size="306,42"
           Id="Package\exec merge sp for dbo mds_careflow_episodes"
           TopLeft="110.690478249608,449.698045085368" />
         <NodeLayout
-          Size="279.2,41.6"
+          Size="279,42"
           Id="Package\truncate finance import &amp; transform tables"
           TopLeft="117.023810996355,70.352941926128" />
         <EdgeLayout
@@ -864,11 +945,11 @@ FROM [HDM_Local].[mds].[mds_careflow_episodes]</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="241.6,41.6"
+          Size="242,42"
           Id="Package\Data Flow from hdm_local\Source for mds_careflow_episodes"
           TopLeft="56,35" />
         <NodeLayout
-          Size="262.4,41.6"
+          Size="262,42"
           Id="Package\Data Flow from hdm_local\Destination for mds_careflow_episodes"
           TopLeft="58.2619046395869,210.164706516613" />
         <EdgeLayout
