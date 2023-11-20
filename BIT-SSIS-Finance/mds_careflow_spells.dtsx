@@ -13,8 +13,8 @@
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="78"
-  DTS:VersionGUID="{643360E5-E793-4701-8412-4ECD821691F9}">
+  DTS:VersionBuild="79"
+  DTS:VersionGUID="{34C93CFB-2203-4B03-9804-10210DFF46F8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -67,7 +67,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="spells_start_date">
       <DTS:VariableValue
-        DTS:DataType="7">11/16/2023 2:36:00 PM</DTS:VariableValue>
+        DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
