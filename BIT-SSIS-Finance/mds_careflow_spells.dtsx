@@ -13,8 +13,8 @@
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="79"
-  DTS:VersionGUID="{34C93CFB-2203-4B03-9804-10210DFF46F8}">
+  DTS:VersionBuild="80"
+  DTS:VersionGUID="{AC10B0F9-3364-4C5E-A99D-1A9CA78E4A1F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -749,7 +749,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70832826-2215-4155-ACCC-61F7E8AB201F}"
-          SQLTask:SqlStatementSource="SELECT MIN(start_date_hospital_provider_spell) AS spells_start_date&#xA; FROM  mds_spell"
+          SQLTask:SqlStatementSource="--SELECT MIN(start_date_hospital_provider_spell) AS spells_start_date  FROM  mds_spell&#xA;SELECT CASE&#xA;            WHEN MIN(start_date_hospital_provider_spell) IS NULL&#xA;               THEN '01-Jan-2023'&#xA;               ELSE MIN(start_date_hospital_provider_spell) &#xA;       END as spells_start_date FROM  mds_spell"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="spells_start_date"
