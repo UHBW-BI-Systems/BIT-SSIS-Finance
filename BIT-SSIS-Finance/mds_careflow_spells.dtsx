@@ -8,13 +8,13 @@
   DTS:DTSID="{DD3E9A09-AC56-4C7F-A38D-C2FC44741C6E}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{8BF2CB3C-D763-4812-974A-BC5A30994F9D}">
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{643360E5-E793-4701-8412-4ECD821691F9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,17 +44,38 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=MEDD-BI\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{144426AE-1EC6-46B1-B5B8-110B14151965}"
+      DTS:ObjectName="spells_start_date">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">11/16/2023 2:04:00 PM</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3F02F42E-E949-4CF0-B3DB-C5C630B0762A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="spells_start_date">
+      <DTS:VariableValue
+        DTS:DataType="7">11/16/2023 2:36:00 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Data Flow from hdm_local"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{8e3b7aeb-96b5-4ffa-aa12-37ad1afde0ea}"
+      DTS:DTSID="{74102BFD-5088-41AF-9506-D7DF20BB7579}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow from hdm_local"
@@ -149,12 +170,6 @@
                       externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[HDM_MODIF_DTTM]"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[HDM_MODIF_DTTM]" />
                     <inputColumn
-                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[load_dttm]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="load_dttm"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
-                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[load_dttm]" />
-                    <inputColumn
                       refId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[IPSP_EXT_ID]"
                       cachedDataType="wstr"
                       cachedLength="36"
@@ -231,6 +246,12 @@
                       cachedName="ARCHV_FLAG"
                       externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[ARCHV_FLAG]"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]" />
+                    <inputColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[load_dttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="load_dttm"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[load_dttm]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -242,11 +263,6 @@
                       refId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[HDM_MODIF_DTTM]"
                       dataType="dbTimeStamp"
                       name="HDM_MODIF_DTTM" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
-                      dataType="dbTimeStamp2"
-                      name="load_dttm"
-                      scale="7" />
                     <externalMetadataColumn
                       refId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[IPSP_EXT_ID]"
                       dataType="wstr"
@@ -302,6 +318,11 @@
                       dataType="wstr"
                       length="1"
                       name="ARCHV_FLAG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
+                      dataType="dbTimeStamp2"
+                      name="load_dttm"
+                      scale="7" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -355,21 +376,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [MODIF_DTTM]
-      ,[HDM_MODIF_DTTM]
-      ,[IPSP_EXT_ID]
-      ,[CAS_NUMBR]
-      ,[IN_UK_12MONTHS]
-      ,[OVERSEAS_DETAILS]
-      ,[SEX_NHSCODE]
-      ,[NHS_ID]
-      ,[CDS_ANON_REASON]
-      ,[admit_SSU_MAIN_CODE]
-      ,[discharge_SSU_MAIN_CODE]
-      ,[pas_id]
-      ,[ARCHV_FLAG]
-      ,CURRENT_TIMESTAMP AS load_dttm 
-FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXECUTE mds.mds_careflow_spells ?</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -390,7 +397,7 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"@spells_start_date:Input",{3F02F42E-E949-4CF0-B3DB-C5C630B0762A};</property>
               </properties>
               <connections>
                 <connection
@@ -422,15 +429,6 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
                       externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[HDM_MODIF_DTTM]"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[HDM_MODIF_DTTM]"
                       name="HDM_MODIF_DTTM"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[load_dttm]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
-                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[load_dttm]"
-                      name="load_dttm"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[IPSP_EXT_ID]"
@@ -542,6 +540,15 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]"
                       name="ARCHV_FLAG"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[load_dttm]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[load_dttm]"
+                      name="load_dttm"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -553,10 +560,6 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
                       refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[HDM_MODIF_DTTM]"
                       dataType="dbTimeStamp"
                       name="HDM_MODIF_DTTM" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
-                      dataType="dbTimeStamp"
-                      name="load_dttm" />
                     <externalMetadataColumn
                       refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[IPSP_EXT_ID]"
                       dataType="wstr"
@@ -612,6 +615,10 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
                       dataType="wstr"
                       length="1"
                       name="ARCHV_FLAG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
+                      dataType="dbTimeStamp"
+                      name="load_dttm" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -729,537 +736,25 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Data Flow from hdm_local TEST"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{3600aecc-43fb-4250-8a22-88a3b9ca788e}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow from hdm_local TEST"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Destination for mds_careflow_spells"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[import].[mds_careflow_spells]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Finance]"
-                  connectionManagerRefId="Package.ConnectionManagers[Finance]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[MODIF_DTTM]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="MODIF_DTTM"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[MODIF_DTTM]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[MODIF_DTTM]" />
-                    <inputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[HDM_MODIF_DTTM]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="HDM_MODIF_DTTM"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[HDM_MODIF_DTTM]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[HDM_MODIF_DTTM]" />
-                    <inputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[load_dttm]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="load_dttm"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[load_dttm]" />
-                    <inputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[IPSP_EXT_ID]"
-                      cachedDataType="wstr"
-                      cachedLength="36"
-                      cachedName="IPSP_EXT_ID"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[IPSP_EXT_ID]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[IPSP_EXT_ID]" />
-                    <inputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[CAS_NUMBR]"
-                      cachedDataType="wstr"
-                      cachedLength="36"
-                      cachedName="CAS_NUMBR"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[CAS_NUMBR]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[CAS_NUMBR]" />
-                    <inputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[IN_UK_12MONTHS]"
-                      cachedDataType="wstr"
-                      cachedLength="256"
-                      cachedName="IN_UK_12MONTHS"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[IN_UK_12MONTHS]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[IN_UK_12MONTHS]" />
-                    <inputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[OVERSEAS_DETAILS]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="OVERSEAS_DETAILS"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[OVERSEAS_DETAILS]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[OVERSEAS_DETAILS]" />
-                    <inputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[SEX_NHSCODE]"
-                      cachedDataType="wstr"
-                      cachedLength="25"
-                      cachedName="SEX_NHSCODE"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[SEX_NHSCODE]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[SEX_NHSCODE]" />
-                    <inputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].Columns[NHS_ID]"
-                      cachedDataType="wstr"
-                      cachedLength="25"
-                      cachedName="NHS_ID"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[NHS_ID]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[NHS_ID]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[MODIF_DTTM]"
-                      dataType="dbTimeStamp"
-                      name="MODIF_DTTM" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[HDM_MODIF_DTTM]"
-                      dataType="dbTimeStamp"
-                      name="HDM_MODIF_DTTM" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
-                      dataType="dbTimeStamp2"
-                      name="load_dttm"
-                      scale="7" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[IPSP_EXT_ID]"
-                      dataType="wstr"
-                      length="36"
-                      name="IPSP_EXT_ID" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[CAS_NUMBR]"
-                      dataType="wstr"
-                      length="36"
-                      name="CAS_NUMBR" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[IN_UK_12MONTHS]"
-                      dataType="wstr"
-                      length="256"
-                      name="IN_UK_12MONTHS" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[OVERSEAS_DETAILS]"
-                      dataType="wstr"
-                      length="50"
-                      name="OVERSEAS_DETAILS" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[SEX_NHSCODE]"
-                      dataType="wstr"
-                      length="25"
-                      name="SEX_NHSCODE" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input].ExternalColumns[NHS_ID]"
-                      dataType="wstr"
-                      length="25"
-                      name="NHS_ID" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="Source for mds_careflow_spells"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec [mds].[mds_careflow_spells_update_TEST]</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[HDM_local]"
-                  connectionManagerRefId="Package.ConnectionManagers[HDM_local]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[MODIF_DTTM]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[MODIF_DTTM]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[MODIF_DTTM]"
-                      name="MODIF_DTTM"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[HDM_MODIF_DTTM]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[HDM_MODIF_DTTM]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[HDM_MODIF_DTTM]"
-                      name="HDM_MODIF_DTTM"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[IPSP_EXT_ID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[IPSP_EXT_ID]"
-                      length="36"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[IPSP_EXT_ID]"
-                      name="IPSP_EXT_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[CAS_NUMBR]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[CAS_NUMBR]"
-                      length="36"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[CAS_NUMBR]"
-                      name="CAS_NUMBR"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[IN_UK_12MONTHS]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[IN_UK_12MONTHS]"
-                      length="256"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[IN_UK_12MONTHS]"
-                      name="IN_UK_12MONTHS"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[OVERSEAS_DETAILS]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[OVERSEAS_DETAILS]"
-                      length="50"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[OVERSEAS_DETAILS]"
-                      name="OVERSEAS_DETAILS"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[SEX_NHSCODE]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[SEX_NHSCODE]"
-                      length="25"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[SEX_NHSCODE]"
-                      name="SEX_NHSCODE"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[NHS_ID]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[NHS_ID]"
-                      length="25"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[NHS_ID]"
-                      name="NHS_ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[load_dttm]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].Columns[load_dttm]"
-                      name="load_dttm"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[MODIF_DTTM]"
-                      dataType="dbTimeStamp"
-                      name="MODIF_DTTM" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[HDM_MODIF_DTTM]"
-                      dataType="dbTimeStamp"
-                      name="HDM_MODIF_DTTM" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[IPSP_EXT_ID]"
-                      dataType="wstr"
-                      length="36"
-                      name="IPSP_EXT_ID" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[CAS_NUMBR]"
-                      dataType="wstr"
-                      length="36"
-                      name="CAS_NUMBR" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[IN_UK_12MONTHS]"
-                      dataType="wstr"
-                      length="256"
-                      name="IN_UK_12MONTHS" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[OVERSEAS_DETAILS]"
-                      dataType="wstr"
-                      length="50"
-                      name="OVERSEAS_DETAILS" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[SEX_NHSCODE]"
-                      dataType="wstr"
-                      length="25"
-                      name="SEX_NHSCODE" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[NHS_ID]"
-                      dataType="wstr"
-                      length="25"
-                      name="NHS_ID" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
-                      dataType="dbTimeStamp"
-                      name="load_dttm" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[MODIF_DTTM]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[MODIF_DTTM]"
-                      name="MODIF_DTTM" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[HDM_MODIF_DTTM]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[HDM_MODIF_DTTM]"
-                      name="HDM_MODIF_DTTM" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[IPSP_EXT_ID]"
-                      dataType="wstr"
-                      length="36"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[IPSP_EXT_ID]"
-                      name="IPSP_EXT_ID" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[CAS_NUMBR]"
-                      dataType="wstr"
-                      length="36"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[CAS_NUMBR]"
-                      name="CAS_NUMBR" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[IN_UK_12MONTHS]"
-                      dataType="wstr"
-                      length="256"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[IN_UK_12MONTHS]"
-                      name="IN_UK_12MONTHS" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[OVERSEAS_DETAILS]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[OVERSEAS_DETAILS]"
-                      name="OVERSEAS_DETAILS" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[SEX_NHSCODE]"
-                      dataType="wstr"
-                      length="25"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[SEX_NHSCODE]"
-                      name="SEX_NHSCODE" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[NHS_ID]"
-                      dataType="wstr"
-                      length="25"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[NHS_ID]"
-                      name="NHS_ID" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
-                      name="load_dttm" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Data Flow from hdm_local TEST.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\exec hdm_local sp"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{cde96b95-144d-45ff-83c0-e0313b3043bb}"
+      DTS:DTSID="{C6BB5AE2-6792-4B9A-92A2-430548DFF945}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="exec hdm_local sp"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{104caec3-3b70-480b-b7ff-05c8a426692f}"
-          SQLTask:SqlStatementSource="exec [mds].[mds_careflow_spells_update]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\exec hdm_local sp curr_period"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{eea73e2b-09eb-4e93-bc72-7bc19758c5b6}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="exec hdm_local sp curr_period"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{104caec3-3b70-480b-b7ff-05c8a426692f}"
-          SQLTask:SqlStatementSource="exec mds.mds_careflow_spells_curr_period_update" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{70832826-2215-4155-ACCC-61F7E8AB201F}"
+          SQLTask:SqlStatementSource="SELECT MIN(start_date_hospital_provider_spell) AS spells_start_date&#xA; FROM  mds_spell"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="spells_start_date"
+            SQLTask:DtsVariableName="User::spells_start_date" />
+        </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1318,27 +813,11 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{0D2BA459-4D91-4F12-9447-17B7E392E778}"
+      DTS:DTSID="{A31690B6-B5B1-4A37-986C-6B815926D8E3}"
       DTS:From="Package\truncate finance import &amp; transform tables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\exec hdm_local sp" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{1DFBC962-0C0C-42FA-AF3B-A2A6893B235A}"
-      DTS:From="Package\exec hdm_local sp"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Data Flow from hdm_local" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{6E99B70C-7F6B-4C30-8194-64417E3984AC}"
-      DTS:From="Package\Data Flow from hdm_local"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Data Flow from hdm_local TEST" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
@@ -1348,21 +827,21 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\exec merge sp for dbo mds_careflow_spells" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
-      DTS:CreationName=""
-      DTS:DTSID="{FF3D86AB-7828-4B5B-9450-B013BBD7B60A}"
-      DTS:From="Package\exec merge sp for dbo mds_careflow_spells"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 4"
-      DTS:To="Package\exec hdm_local sp curr_period" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{B4A025AF-AB08-4A9F-BB94-4FB5DBFFA7DB}"
-      DTS:From="Package\Data Flow from hdm_local TEST"
+      DTS:DTSID="{69B2EBD4-AD23-4876-92BC-C618D757AD7F}"
+      DTS:From="Package\Data Flow from hdm_local"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
       DTS:To="Package\exec import sp for transform mds_careflow_spells_insert" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{3C089702-E299-4C3C-BC19-A7C7BEDE1016}"
+      DTS:From="Package\exec hdm_local sp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Data Flow from hdm_local" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1377,91 +856,39 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="203.2,41.6"
+          Size="201.6,41.6"
           Id="Package\Data Flow from hdm_local"
-          TopLeft="123.571429143147,183" />
+          TopLeft="78.5714299094925,182.764708445559" />
         <NodeLayout
-          Size="230.4,41.6"
-          Id="Package\Data Flow from hdm_local TEST"
-          TopLeft="108,256" />
-        <NodeLayout
-          Size="166.4,41.6"
+          Size="164.8,41.6"
           Id="Package\exec hdm_local sp"
-          TopLeft="141.571429143147,110" />
-        <NodeLayout
-          Size="222.4,41.6"
-          Id="Package\exec hdm_local sp curr_period"
-          TopLeft="121.428573496488,508.580398852348" />
+          TopLeft="103.57143033524,100.941177886251" />
         <NodeLayout
           Size="345.6,41.6"
           Id="Package\exec import sp for transform mds_careflow_spells_insert"
-          TopLeft="57.8571435869956,338.580392653464" />
+          TopLeft="12.8571428206501,260.580391559544" />
         <NodeLayout
           Size="284.8,41.6"
           Id="Package\exec merge sp for dbo mds_careflow_spells"
-          TopLeft="90.4285723043949,423.874510332697" />
+          TopLeft="45.4285715380494,345.874509238777" />
         <NodeLayout
           Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
-          TopLeft="85.5714291431466,33" />
+          TopLeft="39.8571426503512,21.5294116038352" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="224.821429143147,75">
+          TopLeft="182.714286492795,63.1294116038352">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35"
+              EndConnector="0,37.8117662824153"
               Start="0,0"
-              End="0,27.5">
+              End="0,30.3117662824153">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="224.821429143147,152">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31"
-              Start="0,0"
-              End="0,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="224.035714571573,225">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31"
-              Start="0,0"
-              End="0,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5" />
+                    End="0,30.3117662824153" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1472,7 +899,7 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="231.742857945695,380.180392653464">
+          TopLeft="186.74285717935,302.180391559544">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1493,19 +920,19 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="232.728572900441,465.474510332697">
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="182.514286365072,224.364708445559">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43.1058885196507"
+              EndConnector="0,36.2156831139844"
               Start="0,0"
-              End="0,35.6058885196507">
+              End="0,28.7156831139844">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.6058885196507" />
+                    End="0,28.7156831139844" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1515,19 +942,19 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="226.928571793498,298">
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="182.671430122366,142.54117788625">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.580392653464"
+              EndConnector="0,40.223530559309"
               Start="0,0"
-              End="0,33.080392653464">
+              End="0,32.723530559309">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.080392653464" />
+                    End="0,32.723530559309" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1547,37 +974,25 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
         <NodeLayout
           Size="227.2,41.6"
           Id="Package\Data Flow from hdm_local\Source for mds_careflow_spells"
-          TopLeft="56,35" />
+          TopLeft="42,36" />
         <NodeLayout
           Size="248,41.6"
           Id="Package\Data Flow from hdm_local\Destination for mds_careflow_spells"
-          TopLeft="54.9285714387084,191.098039698418" />
+          TopLeft="25.8461538461539,123.538461538462" />
         <EdgeLayout
           Id="Package\Data Flow from hdm_local.Paths[OLE DB Source Output]"
-          TopLeft="169.6,76.6">
+          TopLeft="152.723076923077,77.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.32857143870839,114.498039698418"
+              EndConnector="0,45.9384615384616"
               Start="0,0"
-              End="9.32857143870839,106.998039698418">
+              End="0,38.4384615384616">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.2490198492089" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,53.2490198492089"
-                    Point2="0,57.2490198492089"
-                    Point3="4,57.2490198492089" />
-                  <mssgle:LineSegment
-                    End="5.32857143870839,57.2490198492089" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.32857143870839,57.2490198492089"
-                    Point2="9.32857143870839,57.2490198492089"
-                    Point3="9.32857143870839,61.2490198492089" />
-                  <mssgle:LineSegment
-                    End="9.32857143870839,106.998039698418" />
+                    End="0,38.4384615384616" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1604,52 +1019,6 @@ FROM [HDM_Local].[mds].[mds_careflow_spells]</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow from hdm_local\Source for mds_careflow_spells">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Data Flow from hdm_local TEST">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="248,42"
-          Id="Package\Data Flow from hdm_local TEST\Destination for mds_careflow_spells"
-          TopLeft="50.4285715380494,129.764705710758" />
-        <NodeLayout
-          Size="227,42"
-          Id="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells"
-          TopLeft="56,35" />
-        <EdgeLayout
-          Id="Package\Data Flow from hdm_local TEST.Paths[OLE DB Source Output]"
-          TopLeft="171.964285769025,77">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52.764705710758"
-              Start="0,0"
-              End="0,45.264705710758">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.264705710758" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow from hdm_local TEST\Source for mds_careflow_spells">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
