@@ -13,8 +13,8 @@
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="84"
-  DTS:VersionGUID="{028FED9C-3154-41A6-B0CA-DF72EDDE1076}">
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{FED31C18-6C1E-4BB1-81A8-F2625F78AB46}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
