@@ -13,8 +13,8 @@
   DTS:ObjectName="mds_careflow_spells"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="80"
-  DTS:VersionGUID="{AC10B0F9-3364-4C5E-A99D-1A9CA78E4A1F}">
+  DTS:VersionBuild="84"
+  DTS:VersionGUID="{028FED9C-3154-41A6-B0CA-DF72EDDE1076}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -65,7 +65,7 @@
       DTS:DTSID="{3F02F42E-E949-4CF0-B3DB-C5C630B0762A}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
-      DTS:ObjectName="spells_start_date">
+      DTS:ObjectName="spell_start_date">
       <DTS:VariableValue
         DTS:DataType="7">12:00:00 AM</DTS:VariableValue>
     </DTS:Variable>
@@ -397,7 +397,7 @@
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"@spells_start_date:Input",{3F02F42E-E949-4CF0-B3DB-C5C630B0762A};</property>
+                  name="ParameterMapping">"@spell_start_date:Input",{3F02F42E-E949-4CF0-B3DB-C5C630B0762A};</property>
               </properties>
               <connections>
                 <connection
@@ -749,11 +749,11 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70832826-2215-4155-ACCC-61F7E8AB201F}"
-          SQLTask:SqlStatementSource="--SELECT MIN(start_date_hospital_provider_spell) AS spells_start_date  FROM  mds_spell&#xA;SELECT CASE&#xA;            WHEN MIN(start_date_hospital_provider_spell) IS NULL&#xA;               THEN '01-Jan-2023'&#xA;               ELSE MIN(start_date_hospital_provider_spell) &#xA;       END as spells_start_date FROM  mds_spell"
+          SQLTask:SqlStatementSource="--SELECT MIN(start_date_hospital_provider_spell) AS spells_start_date  FROM  mds_spell&#xA;SELECT CASE&#xA;            WHEN MIN(start_date_hospital_provider_spell) IS NULL&#xA;               THEN '01-Apr-2022'&#xA;               ELSE MIN(start_date_hospital_provider_spell) &#xA;       END as spell_start_date FROM  mds_spell"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
-            SQLTask:ResultName="spells_start_date"
-            SQLTask:DtsVariableName="User::spells_start_date" />
+            SQLTask:ResultName="spell_start_date"
+            SQLTask:DtsVariableName="User::spell_start_date" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
