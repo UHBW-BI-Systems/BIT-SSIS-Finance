@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_careflow_ae"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{65671CF0-4919-4D6A-BE5E-FAAE6B4C7527}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{F043C17F-D985-4988-A88C-065C07B058DB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1139,10 +1139,10 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="mds careflow ed&#xD;&#xA;due to 1 ed linking to more than 1 spell pre 2023 added&#xD;&#xA;creates staging table on hdm_local where links to last admission lined to Ed ep&#xD;&#xA;and then moves data to BIT"
+          Text="mds careflow ed&#xD;&#xA;due to 1 ed episode can link to more than 1 spell pre 2023 added&#xD;&#xA;creates staging table on hdm_local where links to last admission lined to ED ep&#xD;&#xA;and then moves data to BIT"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="444,88"
+          Size="446,88"
           Id="139485b2-dc21-4add-9031-86cfa94cacee"
           TopLeft="466,144" />
       </GraphLayout>

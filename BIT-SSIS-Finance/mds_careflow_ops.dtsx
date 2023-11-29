@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\jeffriesma"
   DTS:DTSID="{706124BE-4659-453D-9A20-5EB2209DA29E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_careflow_ops"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{F266DE55-1FFA-4FBA-A7FB-44D47B2810A7}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{88E01494-79C7-4B5D-A82E-55CEDEF136FB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,8 +27,6 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Retain="True"
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -41,8 +39,6 @@
         DTS:Name="ConnectionString">@[$Project::HDM_Local_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -212,6 +208,20 @@
                       cachedName="OPAP_EXT_ID"
                       externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].ExternalColumns[OPAP_EXT_ID]"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[OPAP_EXT_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].Columns[CODING_MAIN_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="CODING_MAIN_CODE"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].ExternalColumns[coding_main_code]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[CODING_MAIN_CODE]" />
+                    <inputColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].Columns[ARCHV_FLAG]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="ARCHV_FLAG"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].ExternalColumns[ARCHV_FLAG]"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -263,6 +273,16 @@
                       dataType="wstr"
                       length="36"
                       name="OPAP_EXT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].ExternalColumns[coding_main_code]"
+                      dataType="wstr"
+                      length="25"
+                      name="coding_main_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Destination for mds_careflow_ops.Inputs[OLE DB Destination Input].ExternalColumns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      name="ARCHV_FLAG" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -449,6 +469,26 @@
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[DESCRIPTION5]"
                       name="DESCRIPTION5"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[CODING_MAIN_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].ExternalColumns[CODING_MAIN_CODE]"
+                      length="25"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[CODING_MAIN_CODE]"
+                      name="CODING_MAIN_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].ExternalColumns[ARCHV_FLAG]"
+                      length="1"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]"
+                      name="ARCHV_FLAG"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -499,6 +539,16 @@
                       dataType="wstr"
                       length="5"
                       name="DESCRIPTION5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].ExternalColumns[CODING_MAIN_CODE]"
+                      dataType="wstr"
+                      length="25"
+                      name="CODING_MAIN_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Output].ExternalColumns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      name="ARCHV_FLAG" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -558,6 +608,18 @@
                       length="40"
                       lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Error Output].Columns[CLINIC_CODE]"
                       name="CLINIC_CODE" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Error Output].Columns[CODING_MAIN_CODE]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Error Output].Columns[CODING_MAIN_CODE]"
+                      name="CODING_MAIN_CODE" />
+                    <outputColumn
+                      refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Error Output].Columns[ARCHV_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Error Output].Columns[ARCHV_FLAG]"
+                      name="ARCHV_FLAG" />
                     <outputColumn
                       refId="Package\Data Flow from hdm_local\Source for mds_careflow_ops.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
                       dataType="dbTimeStamp"
@@ -714,7 +776,7 @@
         <NodeLayout
           Size="201.6,41.6"
           Id="Package\Data Flow from hdm_local"
-          TopLeft="92.1428587120407,185.058826124792" />
+          TopLeft="92.1428587120407,184.44706141033" />
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\exec hdm_local sp"
@@ -759,14 +821,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.34117752161"
+              EndConnector="0,32.7294128071478"
               Start="0,0"
-              End="0,25.84117752161">
+              End="0,25.2294128071478">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.84117752161" />
+                    End="0,25.2294128071478" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -777,18 +839,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="193.685715295344,226.658826124792">
+          TopLeft="193.685715295344,226.04706141033">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.047059842377"
+              EndConnector="0,31.6588245568392"
               Start="0,0"
-              End="0,23.547059842377">
+              End="0,24.1588245568392">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.547059842377" />
+                    End="0,24.1588245568392" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
