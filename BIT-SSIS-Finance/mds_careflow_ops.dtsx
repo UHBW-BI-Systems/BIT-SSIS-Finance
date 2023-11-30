@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\jeffriesma"
   DTS:DTSID="{706124BE-4659-453D-9A20-5EB2209DA29E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_careflow_ops"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{88E01494-79C7-4B5D-A82E-55CEDEF136FB}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{46C08391-8BA6-4F1F-8B66-392783FBDA4D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,6 +27,8 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Retain="True"
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -39,6 +41,8 @@
         DTS:Name="ConnectionString">@[$Project::HDM_Local_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -774,23 +778,23 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="201.6,41.6"
+          Size="202,42"
           Id="Package\Data Flow from hdm_local"
           TopLeft="92.1428587120407,184.44706141033" />
         <NodeLayout
-          Size="164.8,41.6"
+          Size="165,42"
           Id="Package\exec hdm_local sp"
           TopLeft="112.142859052639,110.117648603182" />
         <NodeLayout
-          Size="336,41.6"
+          Size="336,42"
           Id="Package\exec import sp for transform mds_careflow_ops_insert"
           TopLeft="26.4285718786473,257.705885967169" />
         <NodeLayout
-          Size="275.2,41.6"
+          Size="275,42"
           Id="Package\exec merge sp for dbo mds_careflow_ops"
           TopLeft="50.0000008514949,338.7647106334" />
         <NodeLayout
-          Size="279.2,41.6"
+          Size="279,42"
           Id="Package\truncate finance import &amp; transform tables"
           TopLeft="52.1428580308447,37.470588760805" />
         <EdgeLayout
@@ -890,13 +894,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="217.6,41.6"
-          Id="Package\Data Flow from hdm_local\Source for mds_careflow_ops"
-          TopLeft="56,35" />
-        <NodeLayout
-          Size="238.4,41.6"
+          Size="238,42"
           Id="Package\Data Flow from hdm_local\Destination for mds_careflow_ops"
           TopLeft="52.4285715380494,118.705882320768" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Data Flow from hdm_local\Source for mds_careflow_ops"
+          TopLeft="56,35" />
         <EdgeLayout
           Id="Package\Data Flow from hdm_local.Paths[OLE DB Source Output]"
           TopLeft="168.214285769025,76.6">
