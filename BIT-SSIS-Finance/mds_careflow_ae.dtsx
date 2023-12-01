@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\JeffriesMa"
   DTS:DTSID="{21C3CBAC-6E06-42E9-ACDC-E50704F1F00F}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_careflow_ae"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{F043C17F-D985-4988-A88C-065C07B058DB}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{1B70F6AB-5C16-4199-A393-B51D4E4D50F7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -62,6 +62,17 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="7"
+      DTS:DTSID="{182122E1-42AA-4E6E-B22E-28BDAB013F25}"
+      DTS:ObjectName="ed_start_date">
+      <DTS:Property
+        DTS:DataType="7"
+        DTS:Name="ParameterValue">11/30/2023 4:03:34 PM</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -173,33 +184,6 @@
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HDM_MODIF_DTTM]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[HDM_MODIF_DTTM]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pas_id]"
-                      cachedDataType="wstr"
-                      cachedLength="30"
-                      cachedName="pas_id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pas_id]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pas_id]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[arriv_dttm]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="arriv_dttm"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[arriv_dttm]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[arriv_dttm]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ae_epis_id]"
-                      cachedDataType="wstr"
-                      cachedLength="36"
-                      cachedName="ae_epis_id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ae_epis_id]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ae_epis_id]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[spell_id]"
-                      cachedDataType="wstr"
-                      cachedLength="36"
-                      cachedName="spell_id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_id]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_id]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ae_ref_src]"
                       cachedDataType="wstr"
                       cachedLength="25"
@@ -213,41 +197,6 @@
                       cachedName="ae_ref_src_natcode"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ae_ref_src_natcode]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ae_ref_src_natcode]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cons_code]"
-                      cachedDataType="wstr"
-                      cachedLength="12"
-                      cachedName="cons_code"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_code]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_code]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cons_natcode]"
-                      cachedDataType="wstr"
-                      cachedLength="12"
-                      cachedName="cons_natcode"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_natcode]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_natcode]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cons_pspec_natcode]"
-                      cachedDataType="wstr"
-                      cachedLength="6"
-                      cachedName="cons_pspec_natcode"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_pspec_natcode]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_pspec_natcode]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[in_uk_12months]"
-                      cachedDataType="wstr"
-                      cachedLength="256"
-                      cachedName="in_uk_12months"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[in_uk_12months]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[in_uk_12months]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[overseas_details]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="overseas_details"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[overseas_details]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[overseas_details]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[wir_code]"
                       cachedDataType="wstr"
@@ -268,6 +217,13 @@
                       cachedName="load_dttm"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_dttm]"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[load_dttm]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AEAT_EXT_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="36"
+                      cachedName="AEAT_EXT_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AEAT_EXT_ID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AEAT_EXT_ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -280,24 +236,10 @@
                       dataType="dbTimeStamp"
                       name="HDM_MODIF_DTTM" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pas_id]"
-                      dataType="wstr"
-                      length="30"
-                      name="pas_id" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[arriv_dttm]"
-                      dataType="dbTimeStamp"
-                      name="arriv_dttm" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ae_epis_id]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AEAT_EXT_ID]"
                       dataType="wstr"
                       length="36"
-                      name="ae_epis_id" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spell_id]"
-                      dataType="wstr"
-                      length="36"
-                      name="spell_id" />
+                      name="AEAT_EXT_ID" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ae_ref_src]"
                       dataType="wstr"
@@ -308,31 +250,6 @@
                       dataType="wstr"
                       length="25"
                       name="ae_ref_src_natcode" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_code]"
-                      dataType="wstr"
-                      length="12"
-                      name="cons_code" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_natcode]"
-                      dataType="wstr"
-                      length="12"
-                      name="cons_natcode" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_pspec_natcode]"
-                      dataType="wstr"
-                      length="6"
-                      name="cons_pspec_natcode" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[in_uk_12months]"
-                      dataType="wstr"
-                      length="256"
-                      name="in_uk_12months" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[overseas_details]"
-                      dataType="wstr"
-                      length="50"
-                      name="overseas_details" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wir_code]"
                       dataType="wstr"
@@ -400,7 +317,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">execute [mds].[mds_careflow_ed] ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">execute  [mds].[mds_careflow_ed] ?</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -417,7 +334,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -455,45 +372,6 @@
                       name="HDM_MODIF_DTTM"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pas_id]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pas_id]"
-                      length="30"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[pas_id]"
-                      name="pas_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[arriv_dttm]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[arriv_dttm]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[arriv_dttm]"
-                      name="arriv_dttm"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ae_epis_id]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ae_epis_id]"
-                      length="36"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ae_epis_id]"
-                      name="ae_epis_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_id]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_id]"
-                      length="36"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[spell_id]"
-                      name="spell_id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ae_ref_src]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
@@ -512,56 +390,6 @@
                       length="25"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ae_ref_src_natcode]"
                       name="ae_ref_src_natcode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_code]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cons_code]"
-                      length="12"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_code]"
-                      name="cons_code"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_natcode]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cons_natcode]"
-                      length="12"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_natcode]"
-                      name="cons_natcode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_pspec_natcode]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cons_pspec_natcode]"
-                      length="6"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_pspec_natcode]"
-                      name="cons_pspec_natcode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[in_uk_12months]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[in_uk_12months]"
-                      length="256"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[in_uk_12months]"
-                      name="in_uk_12months"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[overseas_details]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[overseas_details]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[overseas_details]"
-                      name="overseas_details"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[wir_code]"
@@ -592,6 +420,16 @@
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[load_dttm]"
                       name="load_dttm"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AEAT_EXT_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AEAT_EXT_ID]"
+                      length="36"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AEAT_EXT_ID]"
+                      name="AEAT_EXT_ID"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -604,25 +442,6 @@
                       dataType="dbTimeStamp"
                       name="HDM_MODIF_DTTM" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pas_id]"
-                      dataType="wstr"
-                      length="30"
-                      name="pas_id" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[arriv_dttm]"
-                      dataType="dbTimeStamp"
-                      name="arriv_dttm" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ae_epis_id]"
-                      dataType="wstr"
-                      length="36"
-                      name="ae_epis_id" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[spell_id]"
-                      dataType="wstr"
-                      length="36"
-                      name="spell_id" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ae_ref_src]"
                       dataType="wstr"
                       length="25"
@@ -632,31 +451,6 @@
                       dataType="wstr"
                       length="25"
                       name="ae_ref_src_natcode" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cons_code]"
-                      dataType="wstr"
-                      length="12"
-                      name="cons_code" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cons_natcode]"
-                      dataType="wstr"
-                      length="12"
-                      name="cons_natcode" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cons_pspec_natcode]"
-                      dataType="wstr"
-                      length="6"
-                      name="cons_pspec_natcode" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[in_uk_12months]"
-                      dataType="wstr"
-                      length="256"
-                      name="in_uk_12months" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[overseas_details]"
-                      dataType="wstr"
-                      length="50"
-                      name="overseas_details" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wir_code]"
                       dataType="wstr"
@@ -671,6 +465,11 @@
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
                       dataType="dbTimeStamp"
                       name="load_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AEAT_EXT_ID]"
+                      dataType="wstr"
+                      length="36"
+                      name="AEAT_EXT_ID" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -689,28 +488,11 @@
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HDM_MODIF_DTTM]"
                       name="HDM_MODIF_DTTM" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pas_id]"
-                      dataType="wstr"
-                      length="30"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pas_id]"
-                      name="pas_id" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[arriv_dttm]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[arriv_dttm]"
-                      name="arriv_dttm" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ae_epis_id]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AEAT_EXT_ID]"
                       dataType="wstr"
                       length="36"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ae_epis_id]"
-                      name="ae_epis_id" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_id]"
-                      dataType="wstr"
-                      length="36"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[spell_id]"
-                      name="spell_id" />
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AEAT_EXT_ID]"
+                      name="AEAT_EXT_ID" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ae_ref_src]"
                       dataType="wstr"
@@ -723,36 +505,6 @@
                       length="25"
                       lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ae_ref_src_natcode]"
                       name="ae_ref_src_natcode" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cons_code]"
-                      dataType="wstr"
-                      length="12"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cons_code]"
-                      name="cons_code" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cons_natcode]"
-                      dataType="wstr"
-                      length="12"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cons_natcode]"
-                      name="cons_natcode" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cons_pspec_natcode]"
-                      dataType="wstr"
-                      length="6"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cons_pspec_natcode]"
-                      name="cons_pspec_natcode" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[in_uk_12months]"
-                      dataType="wstr"
-                      length="256"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[in_uk_12months]"
-                      name="in_uk_12months" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overseas_details]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overseas_details]"
-                      name="overseas_details" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wir_code]"
                       dataType="wstr"
@@ -836,6 +588,7 @@
       DTS:refId="Package\sproc careflow_ed_stage table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{F854933A-B8EE-47E9-AE88-B39D84918214}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -957,45 +710,77 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="151,42"
+          Size="151.2,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="131,196" />
+          TopLeft="135.166666501098,235.000000309944" />
         <NodeLayout
-          Size="331,42"
+          Size="331.2,41.6"
           Id="Package\exec import sp for transform mds_careflow_ed_insert"
-          TopLeft="56.1428584565922,256.345098364222" />
+          TopLeft="54.4761918561529,314.411765492361" />
         <NodeLayout
-          Size="285,42"
+          Size="284.8,41.6"
           Id="Package\exec merge sp for dbo mds_careflow_ed"
-          TopLeft="68.714287173991,330.639216043455" />
+          TopLeft="71.2142870746499,397.372549907137" />
         <NodeLayout
-          Size="165,42"
+          Size="163.2,41.6"
+          Id="Package\sproc careflow_ed_stage table"
+          TopLeft="137.166666501098,165.266666859521" />
+        <NodeLayout
+          Size="164.8,41.6"
           Id="Package\start_date"
-          TopLeft="134.857145971182,79.705884690929" />
+          TopLeft="131.523812770303,90.1058847735808" />
         <NodeLayout
-          Size="279,42"
+          Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
           TopLeft="99.142858286293,25.2941184085133" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="238.642858286293,67.2941184085133">
+          TopLeft="238.742858286293,66.8941184085133">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="61.214287684889,33.4117662824157"
+              EndConnector="-24.8190455159896,23.2117663650675"
               Start="0,0"
-              End="53.714287684889,33.4117662824157">
+              End="-24.8190455159896,15.7117663650675">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.4117662824157" />
+                    End="0,7.60588318253374" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.4117662824157"
-                    Point2="0,33.4117662824157"
-                    Point3="4,33.4117662824157" />
+                    Point1="0,7.60588318253374"
+                    Point2="0,11.6058831825337"
+                    Point3="-4,11.6058831825337" />
                   <mssgle:LineSegment
-                    End="53.714287684889,33.4117662824157" />
+                    End="-20.8190455159896,11.6058831825337" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.8190455159896,11.6058831825337"
+                    Point2="-24.8190455159896,11.6058831825337"
+                    Point3="-24.8190455159896,15.6058831825337" />
+                  <mssgle:LineSegment
+                    End="-24.8190455159896,15.7117663650675" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="216.345239635701,131.705884773581">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.56078208594"
+              Start="0,0"
+              End="0,26.06078208594">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.06078208594" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1006,24 +791,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="131,217">
+          TopLeft="210.766666501098,276.600000309944">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="90.6428584565922,39.345098364222"
+              EndConnector="9.30952535505463,37.8117651824169"
               Start="0,0"
-              End="90.6428584565922,31.845098364222">
+              End="9.30952535505463,30.3117651824169">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="86.6428584565922,0" />
+                    End="0,14.9058825912085" />
                   <mssgle:CubicBezierSegment
-                    Point1="86.6428584565922,0"
-                    Point2="90.6428584565922,0"
-                    Point3="90.6428584565922,4" />
+                    Point1="0,14.9058825912085"
+                    Point2="0,18.9058825912085"
+                    Point3="4,18.9058825912085" />
                   <mssgle:LineSegment
-                    End="90.6428584565922,31.845098364222" />
+                    End="5.30952535505463,18.9058825912085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.30952535505463,18.9058825912085"
+                    Point2="9.30952535505463,18.9058825912085"
+                    Point3="9.30952535505463,22.9058825912085" />
+                  <mssgle:LineSegment
+                    End="9.30952535505463,30.3117651824169" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1034,68 +825,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="221.642858456592,298.345098364222">
+          TopLeft="216.845239465401,356.011765492361">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10.4285712826012,32.294117679233"
+              EndConnector="0,41.3607844147762"
               Start="0,0"
-              End="-10.4285712826012,24.794117679233">
+              End="0,33.8607844147762">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.1470588396165" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.1470588396165"
-                    Point2="0,16.1470588396165"
-                    Point3="-4,16.1470588396165" />
-                  <mssgle:LineSegment
-                    End="-6.42857128260118,16.1470588396165" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-6.42857128260118,16.1470588396165"
-                    Point2="-10.4285712826012,16.1470588396165"
-                    Point3="-10.4285712826012,20.1470588396165" />
-                  <mssgle:LineSegment
-                    End="-10.4285712826012,24.794117679233" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\sproc careflow_ed_stage table"
-          TopLeft="133,141" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="299.857145971182,106.372551357596">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-3.85714597118204,55.6274486424043"
-              Start="0,0"
-              End="3.64285402881796,55.6274486424043">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,51.6274486424043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,51.6274486424043"
-                    Point2="22.5,55.6274486424043"
-                    Point3="18.5,55.6274486424043" />
-                  <mssgle:LineSegment
-                    End="3.64285402881796,55.6274486424043" />
+                    End="0,33.8607844147762" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1106,30 +847,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="296,167.666666666667">
+          TopLeft="214.766666501098,206.866666859521">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14,49.3333333333333"
+              EndConnector="0,28.1333334504234"
               Start="0,0"
-              End="-6.5,49.3333333333333">
+              End="0,20.6333334504234">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,45.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,45.3333333333333"
-                    Point2="22.5,49.3333333333333"
-                    Point3="18.5,49.3333333333333" />
-                  <mssgle:LineSegment
-                    End="-6.5,49.3333333333333" />
+                    End="0,20.6333334504234" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1139,12 +868,12 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
-          Text="mds careflow ed&#xD;&#xA;due to 1 ed episode can link to more than 1 spell pre 2023 added&#xD;&#xA;creates staging table on hdm_local where links to last admission lined to ED ep&#xD;&#xA;and then moves data to BIT"
+          Text="mds careflow ed&#xA;due to 1 ed episode can link to more than 1 spell pre 2023 added&#xA;creates staging table on hdm_local where links to last admission lined to ED ep&#xA;and then moves data to BIT&#xD;&#xA;COMPONENT DISABLED - NOT IN USE DUE TO CHANGE OF PROCESS"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="446,88"
+          Size="445.6,104"
           Id="139485b2-dc21-4add-9031-86cfa94cacee"
-          TopLeft="466,144" />
+          TopLeft="361.000004172325,130.999999896685" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1160,33 +889,33 @@
         <NodeLayout
           Size="171,42"
           Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="125,169" />
+          TopLeft="133,157" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="166,104">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="44.5,65"
+              EndConnector="52.5,53"
               Start="0,0"
-              End="44.5,57.5">
+              End="52.5,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.5" />
+                    End="0,22.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.5"
-                    Point2="0,32.5"
-                    Point3="4,32.5" />
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
                   <mssgle:LineSegment
-                    End="40.5,32.5" />
+                    End="48.5,26.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="40.5,32.5"
-                    Point2="44.5,32.5"
-                    Point3="44.5,36.5" />
+                    Point1="48.5,26.5"
+                    Point2="52.5,26.5"
+                    Point3="52.5,30.5" />
                   <mssgle:LineSegment
-                    End="44.5,57.5" />
+                    End="52.5,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
