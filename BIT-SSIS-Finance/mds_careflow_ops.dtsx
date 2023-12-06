@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\jeffriesma"
   DTS:DTSID="{706124BE-4659-453D-9A20-5EB2209DA29E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_careflow_ops"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{46C08391-8BA6-4F1F-8B66-392783FBDA4D}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{A2E48F59-BC79-416D-8252-404CB734F102}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -661,6 +661,7 @@
       DTS:refId="Package\exec hdm_local sp"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{980b3080-ebf2-4ec1-8393-138b500c8d4a}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -714,6 +715,28 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\exec start date sp"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F1E7BF9C-AA36-44FC-9B09-5D3F40546296}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="exec start date sp"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{70832826-2215-4155-ACCC-61F7E8AB201F}"
+          SQLTask:SqlStatementSource="exec [dbo].[mds_careflow_ops_start_date]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="appointment_date"
+            SQLTask:DtsVariableName="User::appointment_date" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\truncate finance import &amp; transform tables"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -743,11 +766,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{8C7D9546-FB00-4B50-B274-3D257C548D42}"
+      DTS:DTSID="{274846C6-5AC8-49EA-B0F6-D3CA2E06161C}"
       DTS:From="Package\exec hdm_local sp"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Data Flow from hdm_local" />
+      DTS:To="Package\exec start date sp" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -764,6 +787,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\exec merge sp for dbo mds_careflow_ops" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{8FC1EE58-BE20-4FAC-A273-0F5889293A9F}"
+      DTS:From="Package\exec start date sp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Data Flow from hdm_local" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -778,23 +809,27 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="202,42"
+          Size="201.6,41.6"
           Id="Package\Data Flow from hdm_local"
-          TopLeft="92.1428587120407,184.44706141033" />
+          TopLeft="92.8571444384906,259.38823893194" />
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\exec hdm_local sp"
-          TopLeft="112.142859052639,110.117648603182" />
+          TopLeft="112.142859052639,110.88235449626" />
         <NodeLayout
-          Size="336,42"
+          Size="336,41.6"
           Id="Package\exec import sp for transform mds_careflow_ops_insert"
-          TopLeft="26.4285718786473,257.705885967169" />
+          TopLeft="27.1428576050972,332.647063488779" />
         <NodeLayout
-          Size="275,42"
+          Size="275.2,41.6"
           Id="Package\exec merge sp for dbo mds_careflow_ops"
-          TopLeft="50.0000008514949,338.7647106334" />
+          TopLeft="50.7142865779448,413.70588815501" />
         <NodeLayout
-          Size="279,42"
+          Size="162.4,41.6"
+          Id="Package\exec start date sp"
+          TopLeft="118.571430590688,175.88235540786" />
+        <NodeLayout
+          Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
           TopLeft="52.1428580308447,37.470588760805" />
         <EdgeLayout
@@ -803,14 +838,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31.047059842377"
+              EndConnector="0,31.8117657354547"
               Start="0,0"
-              End="0,23.547059842377">
+              End="0,24.3117657354547">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.547059842377" />
+                    End="0,24.3117657354547" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -821,18 +856,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="193.74285888234,151.717648603182">
+          TopLeft="197.157144821664,152.48235449626">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32.7294128071478"
+              EndConnector="0,23.4000009116"
               Start="0,0"
-              End="0,25.2294128071478">
+              End="0,15.9000009116">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.2294128071478" />
+                    End="0,15.9000009116" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -843,7 +878,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="193.685715295344,226.04706141033">
+          TopLeft="194.400001021794,300.98823893194">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -865,7 +900,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="191.014286365071,299.305885967169">
+          TopLeft="191.728572091521,374.247063488779">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -885,6 +920,28 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="196.714287514589,217.48235540786">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.9058835240796"
+              Start="0,0"
+              End="0,34.4058835240796">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.4058835240796" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -892,13 +949,13 @@
     design-time-name="Package\Data Flow from hdm_local">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="238,42"
+          Size="238.4,41.6"
           Id="Package\Data Flow from hdm_local\Destination for mds_careflow_ops"
           TopLeft="52.4285715380494,118.705882320768" />
         <NodeLayout
-          Size="218,42"
+          Size="217.6,41.6"
           Id="Package\Data Flow from hdm_local\Source for mds_careflow_ops"
           TopLeft="56,35" />
         <EdgeLayout
@@ -920,7 +977,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
