@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_careflow_ops"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{A2E48F59-BC79-416D-8252-404CB734F102}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{FE13F88C-3335-4C07-9DC3-EE3C7897EED1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -926,14 +926,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41.9058835240796"
+              EndConnector="0,41.90588352408"
               Start="0,0"
-              End="0,34.4058835240796">
+              End="0,34.40588352408">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.4058835240796" />
+                    End="0,34.40588352408" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

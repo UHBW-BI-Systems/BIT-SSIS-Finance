@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="90"
-  DTS:VersionGUID="{586E2C1D-7941-4573-ACB2-6FFD97D180E4}">
+  DTS:VersionBuild="91"
+  DTS:VersionGUID="{E19ECCE1-4481-4E32-8623-122F95C949DB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -762,7 +762,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{70832826-2215-4155-ACCC-61F7E8AB201F}"
-          SQLTask:SqlStatementSource="exec [dbo].[mds_careflow_eps_start_date]"
+          SQLTask:SqlStatementSource="exec [dbo].[mds_careflow_episodes_start_date]"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="episode_start_date"
@@ -859,6 +859,10 @@
           Id="Package\exec merge sp for dbo mds_careflow_episodes"
           TopLeft="54.9761915865137,416.050985789951" />
         <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\exec start date sp"
+          TopLeft="119.285716317138,189.647061483258" />
+        <NodeLayout
           Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
           TopLeft="61.3095243332607,35.176470844556" />
@@ -876,6 +880,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,27.3705893077646" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="202.097620836096,153.247060152321">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.400001330937"
+              Start="0,0"
+              End="0,28.900001330937">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.900001330937" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -928,46 +954,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\exec start date sp"
-          TopLeft="119.285716317138,189.647061483258" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="202.097620836097,153.247060152321">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.4000013309369"
-              Start="0,0"
-              End="0,28.9000013309369">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.9000013309369" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="200.226192076123,231.247061483258">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37.1647067499814"
+              EndConnector="0,37.164706749981"
               Start="0,0"
-              End="0,29.6647067499814">
+              End="0,29.664706749981">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.6647067499814" />
+                    End="0,29.664706749981" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
