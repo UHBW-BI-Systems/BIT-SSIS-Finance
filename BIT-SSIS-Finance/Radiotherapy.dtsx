@@ -12,31 +12,2069 @@
   DTS:ObjectName="Radiotherapy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{68287358-8DC3-455A-AAE1-FCFB61F65E26}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{8A143C0D-D188-4E9E-AA53-DBCEF22772DE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BIT_DEV.Finance]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{774F3A1A-CBEF-4A91-BB0A-9191014C7B4C}"
+      DTS:ObjectName="BIT_DEV.Finance">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[HDM_Local]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{18FDF7C6-26C4-4B59-A1CE-6C33E622F7DE}"
       DTS:ObjectName="HDM_Local">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::HDM_Local_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=medwaybi\hdmsql;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PHD3.DumpPAD]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C4E96E27-78DB-4A27-9E93-F46EF032FC82}"
+      DTS:ObjectName="PHD3.DumpPAD">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=PHD3;Initial Catalog=DumpPAD;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
+      DTS:refId="Package\Careflow to Finance"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{01FD1BDF-2109-483A-B598-256525E90C6B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Careflow to Finance"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Careflow to Finance\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[import].[radiotherapy_careflow_ops]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Careflow to Finance\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BIT_DEV.Finance]"
+                  connectionManagerRefId="Package.ConnectionManagers[BIT_DEV.Finance]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[patient_id]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="patient_id"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_id]"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_id]" />
+                    <inputColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_of_birth]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date_of_birth"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_of_birth]"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_of_birth]" />
+                    <inputColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[patient_sex]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="patient_sex"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_sex]"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_sex]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[seq_no]"
+                      dataType="i4"
+                      name="seq_no" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[seq_2]"
+                      dataType="i4"
+                      name="seq_2" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[period_code]"
+                      dataType="i4"
+                      name="period_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_id]"
+                      dataType="wstr"
+                      length="30"
+                      name="patient_id" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_sex]"
+                      dataType="wstr"
+                      length="25"
+                      name="patient_sex" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_of_birth]"
+                      dataType="dbTimeStamp"
+                      name="date_of_birth" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[registered_gp_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="registered_gp_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[referrer_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="80"
+                      name="referrer_type" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_app_received]"
+                      dataType="dbTimeStamp"
+                      name="date_app_received" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pas_urgency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="pas_urgency" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_urgency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="nat_urgency" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[att_date]"
+                      dataType="dbTimeStamp"
+                      name="att_date" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[source_of_referral]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="source_of_referral" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[admin_categ_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="admin_categ_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[clinic_location_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="clinic_location_type" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[diag_op_p]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="diag_op_p" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="proc_1" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="proc_2" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="proc_3" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="proc_4" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="proc_5" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="proc_6" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[treatment_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="treatment_no" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[outcome_ind]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="outcome_ind" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[outcome_ind_dna]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="outcome_ind_dna" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[att_ind]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="att_ind" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_spec_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nat_spec_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[local_spec_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="local_spec_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[site_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="site_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cons_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[clinic_code_full]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="clinic_code_full" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[reason_for_cancel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="reason_for_cancel" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_site_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nat_site_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dha_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="dha_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gp_practice_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="gp_practice_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[purchaser_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="purchaser_id" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="billing_id" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[next_appt_date]"
+                      dataType="dbTimeStamp"
+                      name="next_appt_date" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dna_next_appt_date]"
+                      dataType="dbTimeStamp"
+                      name="dna_next_appt_date" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spec_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="spec_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contract_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="contract_id" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cct_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cct_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_nhs_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="new_nhs_number" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_proc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pbr_proc" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[op_exclude_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="op_exclude_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[copy_recipient_org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="copy_recipient_org" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pct_of_res]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="pct_of_res" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="attendance_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pcg_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="pcg_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="address_1" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="address_2" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="address_3" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="90"
+                      name="address_4" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[div_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="div_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spec_desc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="spec_desc" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nfu_ind]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nfu_ind" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_spec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="cons_spec" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_1" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_2" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_3" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_4" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_5" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_6" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_7" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_8" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_9]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_9" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_10" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_11]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_11" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_proc_12]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg_proc_12" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[referrer_org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="referrer_org" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[referrer_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="referrer_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[referral_reason]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="referral_reason" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time_arrived]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="time_arrived" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[time_seen]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="time_seen" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[consultant_led]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="consultant_led" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[op_exclude]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="op_exclude" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="nhs_number_status" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CDS_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CDS_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[service_line]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="service_line" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[npoc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="npoc" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_count]"
+                      dataType="i4"
+                      name="proc_count" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_updated]"
+                      dataType="i4"
+                      name="proc_updated" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[appointment_serial]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="appointment_serial" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Careflow to Finance\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Careflow to Finance\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Careflow to Finance\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Careflow to Finance\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec mds.radiotherapy_careflow_ops</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Careflow to Finance\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HDM_Local]"
+                  connectionManagerRefId="Package.ConnectionManagers[HDM_Local]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[patient_id]"
+                      length="30"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_id]"
+                      name="patient_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_of_birth]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_of_birth]"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_of_birth]"
+                      name="date_of_birth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[load_dttm]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[load_dttm]"
+                      name="load_dttm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_sex]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[patient_sex]"
+                      length="25"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_sex]"
+                      name="patient_sex"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[patient_id]"
+                      dataType="wstr"
+                      length="30"
+                      name="patient_id" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_of_birth]"
+                      dataType="dbTimeStamp"
+                      name="date_of_birth" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[load_dttm]"
+                      dataType="dbTimeStamp"
+                      name="load_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[patient_sex]"
+                      dataType="wstr"
+                      length="25"
+                      name="patient_sex" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[patient_id]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[patient_id]"
+                      name="patient_id" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_of_birth]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_of_birth]"
+                      name="date_of_birth" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[patient_sex]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[patient_sex]"
+                      name="patient_sex" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[load_dttm]"
+                      name="load_dttm" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Careflow to Finance.Paths[OLE DB Source Output]"
+              endId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EDB897FA-2810-4612-AECC-8225CB67353A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[import].[radiotherapy]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BIT_DEV.Finance]"
+                  connectionManagerRefId="Package.ConnectionManagers[BIT_DEV.Finance]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BHOC_no]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BHOC_no"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bhoc_no]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BHOC_no]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Surname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Surname"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[surname]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Surname]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[First_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="First_Name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DoB]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DoB"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dob]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoB]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Pat_Postcode]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Pat_Postcode"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pat_postcode]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pat_Postcode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Earliest_clin_Start]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Earliest_clin_Start"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[earliest_clin_start]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Earliest_clin_Start]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Exp_date]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Exp_date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exp_date]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Exp_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Diagnosis]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Diagnosis"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[diagnosis]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Diagnosis]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cons_attending]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Cons_attending"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_attending]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cons_attending]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Admin_status]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Admin_status"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[admin_status]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Admin_status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Dose_Hst]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Dose_Hst"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dose_hst]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Dose_Hst]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Tx_Intent]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Tx_Intent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tx_intent]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tx_Intent]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Course]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Course"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[course]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Course]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Fraction_No]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Fraction_No"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fraction_no]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fraction_No]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BHOC_charge_code]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="BHOC_charge_code"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bhoc_charge_code]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BHOC_charge_code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Site_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Site_Name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[site_name]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Site_Name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Ext_Rad]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Ext_Rad"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ext_rad]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ext_Rad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Source]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Source"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Source]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Trt_machine]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Trt_machine"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[trt_machine]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Trt_machine]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Pattern]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Pattern"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pattern]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pattern]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Pattern_Notes]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Pattern_Notes"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pattern_notes]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pattern_Notes]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Notes]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Notes"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[notes]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Notes]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Energy]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Energy"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[energy]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Energy]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DecToTreat]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DecToTreat"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dec_to_treat]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DecToTreat]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RefReqRecvd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RefReqRecvd"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ref_req_recvd]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[RefReqRecvd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MinWaitTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MinWaitTime"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[min_wait_time]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinWaitTime]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Admin_IpOp]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Admin_IpOp"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[admin_ip_op]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Admin_IpOp]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Charge IP OP]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Charge IP OP"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[charge_ip_op]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Charge IP OP]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Exposure Date]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Exposure Date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exposure_date]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Exposure Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bhoc_no]"
+                      dataType="wstr"
+                      length="50"
+                      name="bhoc_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[surname]"
+                      dataType="wstr"
+                      length="50"
+                      name="surname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dob]"
+                      dataType="wstr"
+                      length="50"
+                      name="dob" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pat_postcode]"
+                      dataType="wstr"
+                      length="50"
+                      name="pat_postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dec_to_treat]"
+                      dataType="wstr"
+                      length="50"
+                      name="dec_to_treat" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ref_req_recvd]"
+                      dataType="wstr"
+                      length="50"
+                      name="ref_req_recvd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[earliest_clin_start]"
+                      dataType="wstr"
+                      length="50"
+                      name="earliest_clin_start" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exp_date]"
+                      dataType="wstr"
+                      length="50"
+                      name="exp_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[diagnosis]"
+                      dataType="wstr"
+                      length="50"
+                      name="diagnosis" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[min_wait_time]"
+                      dataType="wstr"
+                      length="50"
+                      name="min_wait_time" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_attending]"
+                      dataType="wstr"
+                      length="50"
+                      name="cons_attending" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[admin_status]"
+                      dataType="wstr"
+                      length="50"
+                      name="admin_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[admin_ip_op]"
+                      dataType="wstr"
+                      length="50"
+                      name="admin_ip_op" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[dose_hst]"
+                      dataType="wstr"
+                      length="50"
+                      name="dose_hst" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[charge_ip_op]"
+                      dataType="wstr"
+                      length="50"
+                      name="charge_ip_op" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[tx_intent]"
+                      dataType="wstr"
+                      length="50"
+                      name="tx_intent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[course]"
+                      dataType="wstr"
+                      length="50"
+                      name="course" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fraction_no]"
+                      dataType="wstr"
+                      length="50"
+                      name="fraction_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bhoc_charge_code]"
+                      dataType="wstr"
+                      length="50"
+                      name="bhoc_charge_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[site_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="site_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ext_rad]"
+                      dataType="wstr"
+                      length="50"
+                      name="ext_rad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                      dataType="wstr"
+                      length="50"
+                      name="source" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[trt_machine]"
+                      dataType="wstr"
+                      length="50"
+                      name="trt_machine" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pattern]"
+                      dataType="wstr"
+                      length="50"
+                      name="pattern" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pattern_notes]"
+                      dataType="wstr"
+                      length="50"
+                      name="pattern_notes" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[notes]"
+                      dataType="wstr"
+                      length="255"
+                      name="notes" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[energy]"
+                      dataType="wstr"
+                      length="50"
+                      name="energy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[exposure_date]"
+                      dataType="wstr"
+                      length="50"
+                      name="exposure_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[radio_fractions_upload]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PHD3.DumpPAD]"
+                  connectionManagerRefId="Package.ConnectionManagers[PHD3.DumpPAD]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BHOC_no]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BHOC_no]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BHOC_no]"
+                      name="BHOC_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Surname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Surname]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Surname]"
+                      name="Surname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[First_Name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[First_Name]"
+                      name="First_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoB]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoB]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DoB]"
+                      name="DoB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pat_Postcode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Pat_Postcode]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pat_Postcode]"
+                      name="Pat_Postcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DecToTreat]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DecToTreat]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[DecToTreat]"
+                      name="DecToTreat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[RefReqRecvd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RefReqRecvd]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[RefReqRecvd]"
+                      name="RefReqRecvd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Earliest_clin_Start]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Earliest_clin_Start]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Earliest_clin_Start]"
+                      name="Earliest_clin_Start"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Exp_date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Exp_date]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Exp_date]"
+                      name="Exp_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Diagnosis]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Diagnosis]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Diagnosis]"
+                      name="Diagnosis"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinWaitTime]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinWaitTime]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[MinWaitTime]"
+                      name="MinWaitTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cons_attending]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cons_attending]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cons_attending]"
+                      name="Cons_attending"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Admin_status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Admin_status]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Admin_status]"
+                      name="Admin_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Admin_IpOp]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Admin_IpOp]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Admin_IpOp]"
+                      name="Admin_IpOp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Dose_Hst]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Dose_Hst]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Dose_Hst]"
+                      name="Dose_Hst"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Charge IP OP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Charge IP OP]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Charge IP OP]"
+                      name="Charge IP OP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tx_Intent]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Tx_Intent]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tx_Intent]"
+                      name="Tx_Intent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Course]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Course]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Course]"
+                      name="Course"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fraction_No]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Fraction_No]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fraction_No]"
+                      name="Fraction_No"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BHOC_charge_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BHOC_charge_code]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[BHOC_charge_code]"
+                      name="BHOC_charge_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Site_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Site_Name]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Site_Name]"
+                      name="Site_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ext_Rad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ext_Rad]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ext_Rad]"
+                      name="Ext_Rad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Source]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Source]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Source]"
+                      name="Source"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Trt_machine]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Trt_machine]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Trt_machine]"
+                      name="Trt_machine"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pattern]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Pattern]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pattern]"
+                      name="Pattern"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pattern_Notes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Pattern_Notes]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Pattern_Notes]"
+                      name="Pattern_Notes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Notes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Notes]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Notes]"
+                      name="Notes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Energy]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Energy]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Energy]"
+                      name="Energy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Exposure Date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Exposure Date]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Exposure Date]"
+                      name="Exposure Date"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BHOC_no]"
+                      dataType="wstr"
+                      length="50"
+                      name="BHOC_no" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Surname]"
+                      dataType="wstr"
+                      length="50"
+                      name="Surname" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[First_Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="First_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DoB]"
+                      dataType="wstr"
+                      length="50"
+                      name="DoB" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Pat_Postcode]"
+                      dataType="wstr"
+                      length="50"
+                      name="Pat_Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DecToTreat]"
+                      dataType="wstr"
+                      length="50"
+                      name="DecToTreat" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RefReqRecvd]"
+                      dataType="wstr"
+                      length="50"
+                      name="RefReqRecvd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Earliest_clin_Start]"
+                      dataType="wstr"
+                      length="50"
+                      name="Earliest_clin_Start" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Exp_date]"
+                      dataType="wstr"
+                      length="50"
+                      name="Exp_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Diagnosis]"
+                      dataType="wstr"
+                      length="50"
+                      name="Diagnosis" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MinWaitTime]"
+                      dataType="wstr"
+                      length="50"
+                      name="MinWaitTime" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cons_attending]"
+                      dataType="wstr"
+                      length="50"
+                      name="Cons_attending" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Admin_status]"
+                      dataType="wstr"
+                      length="50"
+                      name="Admin_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Admin_IpOp]"
+                      dataType="wstr"
+                      length="50"
+                      name="Admin_IpOp" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Dose_Hst]"
+                      dataType="wstr"
+                      length="50"
+                      name="Dose_Hst" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Charge IP OP]"
+                      dataType="wstr"
+                      length="50"
+                      name="Charge IP OP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Tx_Intent]"
+                      dataType="wstr"
+                      length="50"
+                      name="Tx_Intent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Course]"
+                      dataType="wstr"
+                      length="50"
+                      name="Course" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Fraction_No]"
+                      dataType="wstr"
+                      length="50"
+                      name="Fraction_No" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BHOC_charge_code]"
+                      dataType="wstr"
+                      length="50"
+                      name="BHOC_charge_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Site_Name]"
+                      dataType="wstr"
+                      length="100"
+                      name="Site_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ext_Rad]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ext_Rad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Source]"
+                      dataType="wstr"
+                      length="50"
+                      name="Source" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Trt_machine]"
+                      dataType="wstr"
+                      length="50"
+                      name="Trt_machine" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Pattern]"
+                      dataType="wstr"
+                      length="50"
+                      name="Pattern" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Pattern_Notes]"
+                      dataType="wstr"
+                      length="50"
+                      name="Pattern_Notes" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Notes]"
+                      dataType="wstr"
+                      length="255"
+                      name="Notes" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Energy]"
+                      dataType="wstr"
+                      length="50"
+                      name="Energy" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Exposure Date]"
+                      dataType="wstr"
+                      length="50"
+                      name="Exposure Date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BHOC_no]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BHOC_no]"
+                      name="BHOC_no" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Surname]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Surname]"
+                      name="Surname" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[First_Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[First_Name]"
+                      name="First_Name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoB]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DoB]"
+                      name="DoB" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Pat_Postcode]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Pat_Postcode]"
+                      name="Pat_Postcode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DecToTreat]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DecToTreat]"
+                      name="DecToTreat" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RefReqRecvd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RefReqRecvd]"
+                      name="RefReqRecvd" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Earliest_clin_Start]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Earliest_clin_Start]"
+                      name="Earliest_clin_Start" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Exp_date]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Exp_date]"
+                      name="Exp_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Diagnosis]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Diagnosis]"
+                      name="Diagnosis" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinWaitTime]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MinWaitTime]"
+                      name="MinWaitTime" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cons_attending]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cons_attending]"
+                      name="Cons_attending" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Admin_status]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Admin_status]"
+                      name="Admin_status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Admin_IpOp]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Admin_IpOp]"
+                      name="Admin_IpOp" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Dose_Hst]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Dose_Hst]"
+                      name="Dose_Hst" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Charge IP OP]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Charge IP OP]"
+                      name="Charge IP OP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Tx_Intent]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Tx_Intent]"
+                      name="Tx_Intent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Course]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Course]"
+                      name="Course" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Fraction_No]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Fraction_No]"
+                      name="Fraction_No" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BHOC_charge_code]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BHOC_charge_code]"
+                      name="BHOC_charge_code" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Site_Name]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Site_Name]"
+                      name="Site_Name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ext_Rad]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ext_Rad]"
+                      name="Ext_Rad" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Source]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Source]"
+                      name="Source" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Trt_machine]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Trt_machine]"
+                      name="Trt_machine" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Pattern]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Pattern]"
+                      name="Pattern" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Pattern_Notes]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Pattern_Notes]"
+                      name="Pattern_Notes" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Notes]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Notes]"
+                      name="Notes" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Energy]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Energy]"
+                      name="Energy" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Exposure Date]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Exposure Date]"
+                      name="Exposure Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EXEC radiotherapy_exclude"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F7195C86-93C5-41F1-9A97-FCDCF0DFD360}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EXEC radiotherapy_exclude"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{774F3A1A-CBEF-4A91-BB0A-9191014C7B4C}"
+          SQLTask:SqlStatementSource="EXEC [transform].[radiotherapy_exclude]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EXEC radiotherapy_mapping"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{4C5F0A5C-DA17-4EDE-A59F-3422DE66150E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EXEC radiotherapy_mapping"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{774F3A1A-CBEF-4A91-BB0A-9191014C7B4C}"
+          SQLTask:SqlStatementSource="exec transform.radiotherapy_mapping" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EXEC radiotherapy_storage"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{64AB8E34-0BAF-46F3-8CD6-1983255791FD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EXEC radiotherapy_storage"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{774F3A1A-CBEF-4A91-BB0A-9191014C7B4C}"
+          SQLTask:SqlStatementSource="EXEC dbo.radiotherapy_storage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1C9AA35C-6AB9-4F4B-8C02-3895A5D9CA47}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Execute SQL Task"
@@ -45,11 +2083,78 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{18FDF7C6-26C4-4B59-A1CE-6C33E622F7DE}"
-          SQLTask:SqlStatementSource="truncate table [DumpPAD].[dbo].[radio_fractions_upload]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{774F3A1A-CBEF-4A91-BB0A-9191014C7B4C}"
+          SQLTask:SqlStatementSource="truncate table import.radiotherapy" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate table radiotherapy_careflow_ops"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3276888E-9AB7-4A1D-A1E0-4CA297721301}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table radiotherapy_careflow_ops"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{774F3A1A-CBEF-4A91-BB0A-9191014C7B4C}"
+          SQLTask:SqlStatementSource="truncate table [import].[radiotherapy_careflow_ops]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{78AAE85D-0604-4B80-BD51-06B87D6077FD}"
+      DTS:From="Package\EXEC radiotherapy_mapping"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\truncate table radiotherapy_careflow_ops" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{484417CE-C3C8-46AB-969F-0FD1683497E5}"
+      DTS:From="Package\truncate table radiotherapy_careflow_ops"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Careflow to Finance" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{8354BF58-5AF5-4DFB-8D9C-625676C3BFC4}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\EXEC radiotherapy_mapping" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{C5D87787-2C1F-473F-A385-202B02ADF3DB}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{8D99102F-7586-41A4-987B-12A8FF4DF973}"
+      DTS:From="Package\Careflow to Finance"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\EXEC radiotherapy_storage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{AFF0E8C5-D389-4F4B-8B5E-3E119F77C8CA}"
+      DTS:From="Package\EXEC radiotherapy_storage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\EXEC radiotherapy_exclude" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -61,13 +2166,382 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="212,41.6"
+          Id="Package\EXEC radiotherapy_mapping"
+          TopLeft="29.0714289728477,89.6176482385417" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Careflow to Finance"
+          TopLeft="216.928574007385,232.205884690928" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\truncate table radiotherapy_careflow_ops"
+          TopLeft="91.9285713677504,176.558824666231" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="135.071428972848,131.217648238542">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.8571423949027,45.3411764276894"
+              Start="0,0"
+              End="42.8571423949027,37.8411764276894">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6705882138447" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.6705882138447"
+                    Point2="0,22.6705882138447"
+                    Point3="4,22.6705882138447" />
+                  <mssgle:LineSegment
+                    End="38.8571423949027,22.6705882138447" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.8571423949027,22.6705882138447"
+                    Point2="42.8571423949027,22.6705882138447"
+                    Point3="42.8571423949027,26.6705882138447" />
+                  <mssgle:LineSegment
+                    End="42.8571423949027,37.8411764276894" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="263.92857136775,197.358824666231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.6000026396342,34.8470600246971"
+              Start="0,0"
+              End="38.6000026396342,27.3470600246971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.6000026396342,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.6000026396342,0"
+                    Point2="38.6000026396342,0"
+                    Point3="38.6000026396342,4" />
+                  <mssgle:LineSegment
+                    End="38.6000026396342,27.3470600246971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="31.4285719637968,3.82352946538826" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="106.628571963797,45.4235294653883">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.4428570090508,44.1941187731535"
+              Start="0,0"
+              End="28.4428570090508,36.6941187731535">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0970593865767" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0970593865767"
+                    Point2="0,22.0970593865767"
+                    Point3="4,22.0970593865767" />
+                  <mssgle:LineSegment
+                    End="24.4428570090508,22.0970593865767" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.4428570090508,22.0970593865767"
+                    Point2="28.4428570090508,22.0970593865767"
+                    Point3="28.4428570090508,26.0970593865767" />
+                  <mssgle:LineSegment
+                    End="28.4428570090508,36.6941187731535" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Execute SQL Task"
-          TopLeft="25.500000340598,20.794117861553" />
+          TopLeft="230.500001788139,24.5588221137499" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="230.500001788139,45.3588221137499">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-48.6714298243426,-20.7352926483617"
+              Start="0,0"
+              End="-41.1714298243426,-20.7352926483617">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-20.3357149121713,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.3357149121713,0"
+                    Point2="-24.3357149121713,0"
+                    Point3="-24.3357149121713,-4" />
+                  <mssgle:LineSegment
+                    End="-24.3357149121713,-16.7352926483617" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.3357149121713,-16.7352926483617"
+                    Point2="-24.3357149121713,-20.7352926483617"
+                    Point3="-28.3357149121713,-20.7352926483617" />
+                  <mssgle:LineSegment
+                    End="-41.1714298243426,-20.7352926483617" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\EXEC radiotherapy_storage"
+          TopLeft="419.071433060023,244.970589490085" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="388.128574007385,253.005884690928">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.9428590526389,12.764704799157"
+              Start="0,0"
+              End="23.4428590526389,12.764704799157">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="11.4714295263194,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.4714295263194,0"
+                    Point2="15.4714295263194,0"
+                    Point3="15.4714295263194,4" />
+                  <mssgle:LineSegment
+                    End="15.4714295263194,8.76470479915696" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.4714295263194,8.76470479915696"
+                    Point2="15.4714295263194,12.764704799157"
+                    Point3="19.4714295263194,12.764704799157" />
+                  <mssgle:LineSegment
+                    End="23.4428590526389,12.764704799157" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\EXEC radiotherapy_exclude"
+          TopLeft="499.78572270335,146.578290115706" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="522.271433060023,244.970589490085">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="81.1142896433265,-56.7922993743791"
+              Start="0,0"
+              End="81.1142896433265,-49.2922993743791">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-24.3961496871895" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-24.3961496871895"
+                    Point2="0,-28.3961496871895"
+                    Point3="4,-28.3961496871895" />
+                  <mssgle:LineSegment
+                    End="77.1142896433265,-28.3961496871895" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77.1142896433265,-28.3961496871895"
+                    Point2="81.1142896433265,-28.3961496871895"
+                    Point3="81.1142896433265,-32.3961496871895" />
+                  <mssgle:LineSegment
+                    End="81.1142896433265,-49.2922993743791" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Careflow to Finance">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Careflow to Finance\OLE DB Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Careflow to Finance\OLE DB Destination"
+          TopLeft="5.49999948910305,91.3235301946686" />
+        <EdgeLayout
+          Id="Package\Careflow to Finance.Paths[OLE DB Source Output]"
+          TopLeft="80.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.3999994891031,44.2235301946686"
+              Start="0,0"
+              End="10.3999994891031,36.7235301946686">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1117650973343" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1117650973343"
+                    Point2="0,22.1117650973343"
+                    Point3="4,22.1117650973343" />
+                  <mssgle:LineSegment
+                    End="6.39999948910305,22.1117650973343" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.39999948910305,22.1117650973343"
+                    Point2="10.3999994891031,22.1117650973343"
+                    Point3="10.3999994891031,26.1117650973343" />
+                  <mssgle:LineSegment
+                    End="10.3999994891031,36.7235301946686" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Careflow to Finance\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Careflow to Finance\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="14.5,5.5" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="19.5,154.5" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="89.3,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.4,107.4"
+              Start="0,0"
+              End="15.4,99.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49.7"
+                    Point2="0,53.7"
+                    Point3="4,53.7" />
+                  <mssgle:LineSegment
+                    End="11.4,53.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.4,53.7"
+                    Point2="15.4,53.7"
+                    Point3="15.4,57.7" />
+                  <mssgle:LineSegment
+                    End="15.4,99.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
