@@ -14,8 +14,8 @@
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="858"
-  DTS:VersionGUID="{A40AE5E6-CB6F-4EE6-8114-42A7864AD1C2}">
+  DTS:VersionBuild="870"
+  DTS:VersionGUID="{80B0FF4A-6F28-4C19-98E5-88E988397D0E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -111,7 +111,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">12/24/2023 4:04:38 PM</DTS:VariableValue>
+        DTS:DataType="7">12/28/2023 2:56:33 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -200,7 +200,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="check run_date"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -9176,7 +9176,7 @@ WHERE Stored_Date_Of_Issue_dt BETWEEN DATEADD("Month", DATEDIFF("Month", -1, get
       DTS:LocaleID="-1"
       DTS:ObjectName="Delete from error_logs"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -9193,7 +9193,7 @@ WHERE Stored_Date_Of_Issue_dt BETWEEN DATEADD("Month", DATEDIFF("Month", -1, get
       DTS:LocaleID="-1"
       DTS:ObjectName="Delete from pharmacy"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -9752,7 +9752,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Update ArmedForces status"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9769,7 +9769,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Update demographics and overseas visitor status"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -9834,7 +9834,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="email_fail_freeze_table"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SendMailTask:SendMailTaskData
@@ -9855,7 +9855,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="email_success_freeze_table"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:PropertyExpression
             DTS:Name="CCLine">@[User::v_email_address_cc]</DTS:PropertyExpression>
@@ -12486,7 +12486,7 @@ order by stored_date_of_issue_dt</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="get_email_address_fail"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -12517,7 +12517,7 @@ order by stored_date_of_issue_dt</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="get_email_address_success"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="3">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -12548,7 +12548,7 @@ order by stored_date_of_issue_dt</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="update freeze table flags"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -21993,7 +21993,7 @@ FROM Finance.import.pharmacy_WGH AS puhb
           DTS:LocaleID="-1"
           DTS:ObjectName="Update legacy numbers"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -22226,7 +22226,7 @@ FROM Finance.import.pharmacy_WGH AS puhb
           DTS:LocaleID="-1"
           DTS:ObjectName="email_main_drug_flag_missing_email"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:PropertyExpression
             DTS:Name="CCLine">@[User::v_email_address_cc]</DTS:PropertyExpression>
@@ -22277,7 +22277,7 @@ FROM Finance.import.pharmacy_WGH AS puhb
               DTS:LocaleID="-1"
               DTS:ObjectName="add row to string var"
               DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:ObjectData>
                 <ExpressionTask
@@ -22303,7 +22303,7 @@ FROM Finance.import.pharmacy_WGH AS puhb
           DTS:LocaleID="-1"
           DTS:ObjectName="get_email_address"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -22335,7 +22335,7 @@ FROM Finance.import.pharmacy_WGH AS puhb
           DTS:LocaleID="-1"
           DTS:ObjectName="Send Mail Task"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:ObjectData>
             <SendMailTask:SendMailTaskData
@@ -23147,7 +23147,7 @@ ORDER BY	xdi.patient_hospitalno, m.app_date</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate pharmacy_op_details"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -23164,7 +23164,7 @@ ORDER BY	xdi.patient_hospitalno, m.app_date</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Update OP details"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -23181,7 +23181,7 @@ ORDER BY	xdi.patient_hospitalno, m.app_date</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Update OP details 1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -25103,6 +25103,851 @@ ORDER BY
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{3ec91891-c73c-4cb0-b72c-02597b245c55}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow PHD tbl patient history table WGH Lloyds 1"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Inputs[Data Conversion Input].Columns[patient_hospitalno]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="patient_hospitalno"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_hospitalno]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Inputs[Data Conversion Input].Columns[PAS_ID]"
+                          cachedDataType="wstr"
+                          cachedLength="30"
+                          cachedName="PAS_ID"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[PAS_ID]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Inputs[Data Conversion Input].Columns[nhs_number]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="nhs_number"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[nhs_number]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output].Columns[patient_hospitalno]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output].Columns[patient_hospitalno]"
+                          name="patient_hospitalno"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_hospitalno]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output].Columns[PAS_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output].Columns[PAS_ID]"
+                          name="PAS_ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[PAS_ID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output].Columns[nhs_number]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="16"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output].Columns[nhs_number]"
+                          name="nhs_number"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[nhs_number]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Destination for dbo tbl_patient_history"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[pharmacy_patient_history_WGH]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Finance]"
+                      connectionManagerRefId="Package.ConnectionManagers[Finance]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[issue_date]"
+                          cachedDataType="numeric"
+                          cachedName="issue_date"
+                          cachedPrecision="18"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[issue_date]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[issue_date]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[patient_id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="patient_id"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[patient_id]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_id]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[regd_gp_code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="16"
+                          cachedName="regd_gp_code"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[regd_gp_code]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[regd_gp_code]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[regd_practice_code]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="16"
+                          cachedName="regd_practice_code"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[regd_practice_code]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[regd_practice_code]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[patient_first_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="patient_first_name"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[patient_first_name]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_first_name]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[patient_last_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="patient_last_name"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[patient_last_name]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_last_name]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[valid_from_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="valid_from_date"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[valid_from_date]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[valid_from_date]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[valid_to_date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="valid_to_date"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[valid_to_date]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[valid_to_date]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[pct_of_residence]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="18"
+                          cachedName="pct_of_residence"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[pct_of_residence]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[pct_of_residence]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[patient_hospitalno]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="patient_hospitalno"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[patient_hospitalno]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output].Columns[patient_hospitalno]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[patient_natno]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="12"
+                          cachedName="patient_natno"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[patient_natno]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_natno]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[PAS_ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="PAS_ID"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[PAS_ID]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output].Columns[PAS_ID]" />
+                        <inputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].Columns[nhs_number]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="16"
+                          cachedName="nhs_number"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output].Columns[nhs_number]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[patient_hospitalno]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="patient_hospitalno" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[issue_date]"
+                          dataType="i4"
+                          name="issue_date" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[patient_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="patient_id" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[regd_gp_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="regd_gp_code" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[regd_practice_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="regd_practice_code" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[patient_first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="patient_first_name" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[patient_last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="patient_last_name" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[pct_of_residence]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="pct_of_residence" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[valid_from_date]"
+                          dataType="dbTimeStamp"
+                          name="valid_from_date" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[valid_to_date]"
+                          dataType="dbTimeStamp"
+                          name="valid_to_date" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[patient_natno]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="patient_natno" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[PAS_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="PAS_ID" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="nhs_number" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Source for dbo patient_history"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+       xdi.patient_hospitalno,
+       CAST(FORMAT(xdi.issue_date, 'yyyyMMdd') AS NUMERIC) AS issue_date,
+       xdi.patient_natno,
+       WGH.[PAS_ID],
+       WGH.[nhs_number],
+       ph.patient_id,
+       ph.regd_gp_code,
+       ph.regd_practice_code,
+       ph.patient_first_name,
+       ph.patient_last_name,
+       ph.valid_from_date,
+       ph.valid_to_date,
+       ph.pct_of_residence
+FROM JAC.dbo.mds_xdaily_issues_WES xdi WITH (NOLOCK)
+    JOIN JAC.dbo.SD1036030_Weston_legacy_numbers WGH  --SD1036030_Weston_legacy_numbers
+        ON WGH.[Weston_legacy_number] = xdi.patient_hospitalno--SD1036030_Weston_legacy_numbers
+    JOIN PHD.dbo.tbl_patient_history ph
+        ON ph.patient_trust_number = WGH.pas_id
+WHERE xdi.issue_date
+      BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 2, 0) AND (GETDATE())
+      AND xdi.issue_typeid IN ( 1, 2, 3, 4, 5, 6, 7, 8, 20 )
+      AND xdi.patient_hospitalno NOT LIKE 'T%'
+      AND xdi.issue_date
+      BETWEEN ph.valid_from_date AND ph.valid_to_date
+ORDER BY issue_date,
+         xdi.patient_hospitalno,
+         xdi.patient_natno;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[JAC]"
+                      connectionManagerRefId="Package.ConnectionManagers[JAC]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[issue_date]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[issue_date]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[issue_date]"
+                          name="issue_date"
+                          precision="18"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[patient_id]"
+                          length="8"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_id]"
+                          name="patient_id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[regd_gp_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[regd_gp_code]"
+                          length="16"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[regd_gp_code]"
+                          name="regd_gp_code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[regd_practice_code]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[regd_practice_code]"
+                          length="16"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[regd_practice_code]"
+                          name="regd_practice_code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[patient_first_name]"
+                          length="50"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_first_name]"
+                          name="patient_first_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[patient_last_name]"
+                          length="50"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_last_name]"
+                          name="patient_last_name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[valid_from_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[valid_from_date]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[valid_from_date]"
+                          name="valid_from_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[valid_to_date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[valid_to_date]"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[valid_to_date]"
+                          name="valid_to_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[pct_of_residence]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[pct_of_residence]"
+                          length="18"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[pct_of_residence]"
+                          name="pct_of_residence"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_hospitalno]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[patient_hospitalno]"
+                          length="255"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_hospitalno]"
+                          name="patient_hospitalno"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_natno]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[patient_natno]"
+                          length="12"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[patient_natno]"
+                          name="patient_natno"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[PAS_ID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[PAS_ID]"
+                          length="30"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[PAS_ID]"
+                          name="PAS_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[nhs_number]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[nhs_number]"
+                          length="4000"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].Columns[nhs_number]"
+                          name="nhs_number"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[issue_date]"
+                          dataType="numeric"
+                          name="issue_date"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[patient_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="patient_id" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[regd_gp_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="regd_gp_code" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[regd_practice_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="regd_practice_code" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[patient_first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="patient_first_name" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[patient_last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="patient_last_name" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[valid_from_date]"
+                          dataType="dbTimeStamp"
+                          name="valid_from_date" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[valid_to_date]"
+                          dataType="dbTimeStamp"
+                          name="valid_to_date" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[pct_of_residence]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="pct_of_residence" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[patient_hospitalno]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          name="patient_hospitalno" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[patient_natno]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="patient_natno" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[PAS_ID]"
+                          dataType="wstr"
+                          length="30"
+                          name="PAS_ID" />
+                        <externalMetadataColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output].ExternalColumns[nhs_number]"
+                          dataType="wstr"
+                          length="4000"
+                          name="nhs_number" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[patient_hospitalno]"
+                          codePage="1252"
+                          dataType="str"
+                          length="255"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[patient_hospitalno]"
+                          name="patient_hospitalno" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[issue_date]"
+                          dataType="numeric"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[issue_date]"
+                          name="issue_date"
+                          precision="18" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[patient_natno]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[patient_natno]"
+                          name="patient_natno" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[PAS_ID]"
+                          dataType="wstr"
+                          length="30"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[PAS_ID]"
+                          name="PAS_ID" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[nhs_number]"
+                          dataType="wstr"
+                          length="4000"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[nhs_number]"
+                          name="nhs_number" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[patient_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[patient_id]"
+                          name="patient_id" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[regd_gp_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[regd_gp_code]"
+                          name="regd_gp_code" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[regd_practice_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[regd_practice_code]"
+                          name="regd_practice_code" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[patient_first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[patient_first_name]"
+                          name="patient_first_name" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[patient_last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[patient_last_name]"
+                          name="patient_last_name" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[valid_from_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[valid_from_date]"
+                          name="valid_from_date" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[valid_to_date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[valid_to_date]"
+                          name="valid_to_date" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[pct_of_residence]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[pct_of_residence]"
+                          name="pct_of_residence" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1.Paths[Data Conversion Output]"
+                  endId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1.Paths[OLE DB Source Output]"
+                  endId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\PHD patient history\truncate pharmacy_patient_history table"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -25111,7 +25956,7 @@ ORDER BY
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate pharmacy_patient_history table"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -25128,7 +25973,7 @@ ORDER BY
           DTS:LocaleID="-1"
           DTS:ObjectName="Update demographic details"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -25145,7 +25990,7 @@ ORDER BY
           DTS:LocaleID="-1"
           DTS:ObjectName="Update demographic details 1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -25154,21 +25999,37 @@ ORDER BY
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\PHD patient history\Update WGH demographic details"
+          DTS:refId="Package\PHD patient history\Update legacy numbers WGH Lloyds"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
-          DTS:DTSID="{D660E123-A25F-476E-AF5E-A9AF708DE779}"
+          DTS:DTSID="{ec4b8b1c-86a8-489f-8f1b-4c45c6e3b8cb}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Update WGH demographic details"
+          DTS:ObjectName="Update legacy numbers WGH Lloyds"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{2F2B5BFF-3C77-4A3A-A684-8B1DD214E0B6}"
-              SQLTask:SqlStatementSource="UPDATE &#x9;transform.pharmacy&#xA;SET &#x9;gp_code = a.regd_gp_code,&#xA;    &#x9;gp_prac = a.regd_practice_code,&#xA;    &#x9;patient_first_name = a.patient_first_name,&#xA;    &#x9;patient_surname = a.patient_last_name,&#xA;    &#x9;pct = a.pct_of_residence&#xA;--select *&#xA;FROM transform.pharmacy x&#xA;    INNER JOIN dbo.pharmacy_patient_history a&#xA;        ON x.Patient_Identifier COLLATE DATABASE_DEFAULT = a.patient_hospitalno --for WGH test&#xA;           AND CONVERT(DATETIME, CONVERT(CHAR(8), Stored_Date_Of_Issue, 112)) = a.issue_date;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="exec [dbo].[pharm_update_transform.pharmacy_PAS_ID_WGH]&#xA;&#xA;--UPDATE  transform.pharmacy&#xA;--SET  gp_code = a.regd_gp_code,&#xA;--     gp_prac = a.regd_practice_code,&#xA;--    patient_first_name = a.patient_first_name&#xA;--     patient_surname = a.patient_last_name,&#xA;--     pct = a.pct_of_residence&#xA;----select *&#xA;--FROM transform.pharmacy x&#xA;--    INNER JOIN dbo.pharmacy_patient_history a&#xA;--        ON x.Patient_Identifier COLLATE DATABASE_DEFAULT = a.patient_hospitalno --for WGH test&#xA;--           AND CONVERT(DATETIME, CONVERT(CHAR(8), Stored_Date_Of_Issue, 112)) = a.issue_date;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PHD patient history\Update WGH Lloyds demographic details"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D660E123-A25F-476E-AF5E-A9AF708DE779}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update WGH Lloyds demographic details"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2F2B5BFF-3C77-4A3A-A684-8B1DD214E0B6}"
+              SQLTask:SqlStatementSource="exec [dbo].[pharm_update_transform.pharmacy_demographics_WGH]&#xA;&#xA;--UPDATE &#x9;transform.pharmacy&#xA;--SET &#x9;gp_code = a.regd_gp_code,&#xA;--    &#x9;gp_prac = a.regd_practice_code,&#xA;--   &#x9;patient_first_name = a.patient_first_name&#xA;--    &#x9;patient_surname = a.patient_last_name,&#xA;--    &#x9;pct = a.pct_of_residence&#xA;----select *&#xA;--FROM transform.pharmacy x&#xA;--    INNER JOIN dbo.pharmacy_patient_history a&#xA;--        ON x.Patient_Identifier COLLATE DATABASE_DEFAULT = a.patient_hospitalno --for WGH test&#xA;--           AND CONVERT(DATETIME, CONVERT(CHAR(8), Stored_Date_Of_Issue, 112)) = a.issue_date;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -25192,11 +26053,11 @@ ORDER BY
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{054861EA-EB81-4413-BAFF-909683C45295}"
+          DTS:DTSID="{B498F6FC-C688-4532-9EB7-BA855C366B9D}"
           DTS:From="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
-          DTS:To="Package\PHD patient history\Update demographic details" />
+          DTS:To="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
@@ -25212,7 +26073,23 @@ ORDER BY
           DTS:From="Package\PHD patient history\Update demographic details 1"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 4"
-          DTS:To="Package\PHD patient history\Update WGH demographic details" />
+          DTS:To="Package\PHD patient history\Update WGH Lloyds demographic details" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{9D81C121-31CA-425C-A5CB-CDA95B17A96F}"
+          DTS:From="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\PHD patient history\Update demographic details" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{F181D356-E181-4A87-A08C-4E753E884FC0}"
+          DTS:From="Package\PHD patient history\Update WGH Lloyds demographic details"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\PHD patient history\Update legacy numbers WGH Lloyds" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 7]"
           DTS:CreationName=""
@@ -26186,7 +27063,7 @@ ORDER BY	xdi.patient_hospitalno, xdi.issue_date</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate pharmacy_spell_details"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -26203,7 +27080,7 @@ ORDER BY	xdi.patient_hospitalno, xdi.issue_date</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Update spell details"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -26220,7 +27097,7 @@ ORDER BY	xdi.patient_hospitalno, xdi.issue_date</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="Update spell details 1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -27100,7 +27977,7 @@ ORDER BY	xdi.patient_hospitalno, xdi.issue_date</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Northern Irish purchasers"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -27123,6 +28000,7 @@ ORDER BY	xdi.patient_hospitalno, xdi.issue_date</property>
           DTS:refId="Package\WGH id values\PHD tbl patient history table WGH"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
+          DTS:Disabled="True"
           DTS:DTSID="{6F045F1D-9585-41D9-ADAE-A55F8B5C6F30}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -27519,6 +28397,7 @@ WHERE xdi.issue_date
           DTS:refId="Package\WGH id values\truncate pharmacy_patient_history_WGH"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{CF455B07-1DD0-4C72-B894-DD6F13912A0F}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -27533,13 +28412,14 @@ WHERE xdi.issue_date
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\WGH id values\Update WGH id values"
+          DTS:refId="Package\WGH id values\Update WGH id values_old"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{FC7CE07E-E59B-45A9-8962-7951A29E98B3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Update WGH id values"
+          DTS:ObjectName="Update WGH id values_old"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
@@ -27554,7 +28434,7 @@ WHERE xdi.issue_date
         <DTS:PrecedenceConstraint
           DTS:refId="Package\WGH id values.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{79EED5A3-5A66-4B48-866D-CF592F8A7B34}"
+          DTS:DTSID="{8B2FA969-403C-49F4-B87F-6421965BBD95}"
           DTS:From="Package\WGH id values\truncate pharmacy_patient_history_WGH"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -27566,7 +28446,7 @@ WHERE xdi.issue_date
           DTS:From="Package\WGH id values\PHD tbl patient history table WGH"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\WGH id values\Update WGH id values" />
+          DTS:To="Package\WGH id values\Update WGH id values_old" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -27764,41 +28644,41 @@ WHERE xdi.issue_date
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="151,42"
+          Size="151.2,41.6"
           Id="Package\check run_date"
-          TopLeft="382.678577945549,1541.20589134562" />
+          TopLeft="374.005108410085,1517.47311398785" />
         <NodeLayout
-          Size="218,42"
+          Size="217.6,41.6"
           Id="Package\Data Flow from JAC database"
-          TopLeft="91.8375214560017,219.386794458352" />
+          TopLeft="138.470175311376,229.327971068361" />
         <NodeLayout
-          Size="250,42"
+          Size="249.6,41.6"
           Id="Package\Data Flow from transform pharmacy"
-          TopLeft="72.67857266628,1462.24119073982" />
+          TopLeft="64.0051031308168,1438.50841338205" />
         <NodeLayout
-          Size="185,42"
+          Size="184.8,41.6"
           Id="Package\Delete from error_logs"
-          TopLeft="117.678573432626,1535.82942555132" />
+          TopLeft="109.005103897163,1512.09664819355" />
         <NodeLayout
-          Size="201,42"
+          Size="200.8,41.6"
           Id="Package\Delete from pharmacy"
-          TopLeft="107.678573262327,1392.20982188725" />
+          TopLeft="99.0051037268638,1368.47704452948" />
         <NodeLayout
           Size="228,52"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request"
           TopLeft="9.68419377130044,8.82477695171025" />
         <NodeLayout
-          Size="194,42"
+          Size="193.6,41.6"
           Id="Package\Demographics\GetPatientDemographics"
           TopLeft="23.963918415409,84.4005567728824" />
         <NodeLayout
-          Size="208,42"
+          Size="208,41.6"
           Id="Package\Demographics\Update ArmedForces status"
           TopLeft="22.7012646452121,224.934037825394" />
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\Demographics\Update demographics and overseas visitor status"
           TopLeft="17.7581678704672,155.870281731667" />
         <EdgeLayout
@@ -27806,7 +28686,7 @@ WHERE xdi.issue_date
           TopLeft="122.224056093355,60.8247769517102">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,23.5757798211721"
               Start="0,0"
               End="0,16.0757798211721">
@@ -27828,7 +28708,7 @@ WHERE xdi.issue_date
           TopLeft="124.42971625784,197.470281731667">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,27.4637560937266"
               Start="0,0"
               End="0,19.9637560937266">
@@ -27850,7 +28730,7 @@ WHERE xdi.issue_date
           TopLeft="121.461043142938,126.000556772882">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,29.869724958785"
               Start="0,0"
               End="0,22.369724958785">
@@ -27870,32 +28750,32 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="245,287"
-          Size="245,330"
+          PanelSize="244.8,286.4"
+          Size="244.8,329.6"
           Id="Package\Demographics"
-          TopLeft="378.234133425418,845.60719830517" />
+          TopLeft="368.744337345441,646.892909803991" />
         <NodeLayout
-          Size="213,42"
+          Size="212.8,41.6"
           Id="Package\freeze table\email_fail_freeze_table"
           TopLeft="261.93626405534,239.058832211479" />
         <NodeLayout
-          Size="210,42"
+          Size="209.6,41.6"
           Id="Package\freeze table\email_success_freeze_table"
           TopLeft="30.5714234381292,240.352946174186" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\freeze table\freeze table update"
           TopLeft="139.54284857925,12.4000069281631" />
         <NodeLayout
-          Size="186,42"
+          Size="185.6,41.6"
           Id="Package\freeze table\get_email_address_fail"
           TopLeft="260.571422927233,172.235300123485" />
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\freeze table\get_email_address_success"
           TopLeft="30.1428571793497,172.035301399725" />
         <NodeLayout
-          Size="195,42"
+          Size="195.2,41.6"
           Id="Package\freeze table\update freeze table flags"
           TopLeft="135.257134220551,77.4000078397639" />
         <EdgeLayout
@@ -27903,7 +28783,7 @@ WHERE xdi.issue_date
           TopLeft="224.34284857925,54.0000069281631">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="8.5142856413004,23.4000009116009"
               Start="0,0"
               End="8.5142856413004,15.9000009116009">
@@ -27937,7 +28817,7 @@ WHERE xdi.issue_date
           TopLeft="265.48570567345,119.000007839764">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="88.2857172537824,53.2352922837213"
               Start="0,0"
               End="88.2857172537824,45.7352922837213">
@@ -27973,7 +28853,7 @@ WHERE xdi.issue_date
           TopLeft="201.657134220551,119.000007839764">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-67.1142770412009,53.0352935599614"
               Start="0,0"
               End="-67.1142770412009,45.5352935599614">
@@ -28007,7 +28887,7 @@ WHERE xdi.issue_date
           TopLeft="353.771422927233,213.835300123485">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="14.5648411281074,25.2235320879934"
               Start="0,0"
               End="14.5648411281074,17.7235320879934">
@@ -28041,7 +28921,7 @@ WHERE xdi.issue_date
           TopLeft="134.957140308739,213.635301399725">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,26.7176447744604"
               Start="0,0"
               End="0,19.2176447744604">
@@ -28061,20 +28941,20 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="489,337"
-          Size="489,380"
+          PanelSize="488.8,332.8"
+          Size="488.8,376"
           Id="Package\freeze table"
-          TopLeft="609.018264189908,1541.49870644097" />
+          TopLeft="659.528469131725,1382.30374230945" />
         <NodeLayout
-          Size="251,42"
+          Size="251.2,41.6"
           Id="Package\import to transform table\Data Flow from finance import Boots"
           TopLeft="14.0507094206972,74.8588255778318" />
         <NodeLayout
-          Size="246,42"
+          Size="246.4,41.6"
           Id="Package\import to transform table\Data Flow from finance import UHB"
           TopLeft="19.4285712826009,11.0316319495209" />
         <NodeLayout
-          Size="249,42"
+          Size="248.8,41.6"
           Id="Package\import to transform table\Data Flow from finance import WGH"
           TopLeft="14.422144864906,142.317650244063" />
         <EdgeLayout
@@ -28082,7 +28962,7 @@ WHERE xdi.issue_date
           TopLeft="265.828571282601,31.8316319495209">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-0.577861861903784,63.8271936283109"
               Start="0,0"
               End="6.92213813809622,63.8271936283109">
@@ -28116,7 +28996,7 @@ WHERE xdi.issue_date
           TopLeft="139.236427142802,116.458825577832">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,25.8588246662308"
               Start="0,0"
               End="0,18.3588246662308">
@@ -28136,46 +29016,46 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="294,203"
-          Size="294,246"
+          PanelSize="294.4,203.2"
+          Size="294.4,246.4"
           Id="Package\import to transform table"
-          TopLeft="777.142870377523,40.5294123331157" />
+          TopLeft="823.775524232896,50.4705889431251" />
         <NodeLayout
-          Size="190,42"
+          Size="190.4,41.6"
           Id="Package\Legacy numbers\Update legacy numbers"
           TopLeft="9.63790358400946,6.67471877663718" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="210,59"
-          Size="210,102"
+          PanelSize="209.6,59.2"
+          Size="209.6,102.4"
           Id="Package\Legacy numbers"
-          TopLeft="79.7023823097042,636.307523951139" />
+          TopLeft="127.355444345721,453.979790301624" />
         <NodeLayout
-          Size="311,42"
+          Size="311.2,41.6"
           Id="Package\main drug flag missing email\Data Flow for pharmacy_main_drug_flag_missing"
           TopLeft="11.8285850768189,9.67059113096605" />
         <NodeLayout
-          Size="257,42"
+          Size="256.8,41.6"
           Id="Package\main drug flag missing email\email_main_drug_flag_missing_email"
           TopLeft="25.4285854174166,322.329416891118" />
         <NodeLayout
-          Size="178,42"
+          Size="177.6,41.6"
           Id="Package\main drug flag missing email\Foreach row in recordset object\add row to string var"
           TopLeft="27.0285854174174,13.7764763688549" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="252,69"
+          PanelSize="252,68.8"
           Size="252,112"
           Id="Package\main drug flag missing email\Foreach row in recordset object"
           TopLeft="24.2254104804024,99.5751692269776" />
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\main drug flag missing email\get_email_address"
           TopLeft="36.1428675675879,253.223536575872" />
         <NodeLayout
-          Size="149,42"
+          Size="148.8,41.6"
           Id="Package\main drug flag missing email\Send Mail Task"
           TopLeft="56.6857284935149,384.364713550523" />
         <EdgeLayout
@@ -28183,7 +29063,7 @@ WHERE xdi.issue_date
           TopLeft="150.225410480402,211.575169226978">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-9.68254291281445,41.6483673488943"
               Start="0,0"
               End="-9.68254291281445,34.1483673488943">
@@ -28217,7 +29097,7 @@ WHERE xdi.issue_date
           TopLeft="167.428585076819,51.2705911309661">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-17.2031745964165,48.3045780960115"
               Start="0,0"
               End="-17.2031745964165,40.8045780960115">
@@ -28253,7 +29133,7 @@ WHERE xdi.issue_date
           TopLeft="140.642867567588,295.223536575872">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="13.2857178498287,27.1058803152459"
               Start="0,0"
               End="13.2857178498287,19.6058803152459">
@@ -28285,10 +29165,10 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="334,481"
-          Size="334,524"
+          PanelSize="334.4,480.8"
+          Size="334.4,524"
           Id="Package\main drug flag missing email"
-          TopLeft="1161.11429918007,712.247062394858" />
+          TopLeft="1207.74695303545,722.188239004867" />
         <NodeLayout
           Size="136,44"
           Id="Package\outpatient details\Data Flow OP details"
@@ -28298,7 +29178,7 @@ WHERE xdi.issue_date
           Id="Package\outpatient details\Data Flow OP details 1"
           TopLeft="42.1428639913095,215.000005651923" />
         <NodeLayout
-          Size="180,42"
+          Size="180,41.6"
           Id="Package\outpatient details\truncate pharmacy_op_details"
           TopLeft="12.6031743409681,9.81582274252457" />
         <NodeLayout
@@ -28314,7 +29194,7 @@ WHERE xdi.issue_date
           TopLeft="109.99056957144,190.995869254888">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.0041363970347"
               Start="0,0"
               End="0,16.5041363970347">
@@ -28336,7 +29216,7 @@ WHERE xdi.issue_date
           TopLeft="108.814292921582,259.000005651923">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.7764710815723"
               Start="0,0"
               End="0,17.2764710815723">
@@ -28358,7 +29238,7 @@ WHERE xdi.issue_date
           TopLeft="106.087301571758,52.2158227425246">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.3618693012745"
               Start="0,0"
               End="0,16.8618693012745">
@@ -28380,7 +29260,7 @@ WHERE xdi.issue_date
           TopLeft="109.704851977059,120.577692043799">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,26.4181772110885"
               Start="0,0"
               End="0,18.9181772110885">
@@ -28400,44 +29280,52 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="202,355"
-          Size="202,398"
+          PanelSize="201.6,355.2"
+          Size="201.6,398.4"
           Id="Package\outpatient details"
-          TopLeft="911.261920212481,896.149029124237" />
+          TopLeft="932.384369551786,868.947348070472" />
         <NodeLayout
-          Size="170,57"
+          Size="169.6,56.8"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table Boots"
           TopLeft="27.6294280014171,166.594125245516" />
         <NodeLayout
-          Size="170,56"
+          Size="169.6,56"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table UHB"
           TopLeft="27.2331536084032,82.1843879443574" />
         <NodeLayout
-          Size="171,50"
+          Size="171.2,49.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds"
           TopLeft="29.7188746939131,249.623534752672" />
         <NodeLayout
-          Size="178,48"
+          Size="171.2,49.6"
+          Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1"
+          TopLeft="30.3428579456952,327.682358142661" />
+        <NodeLayout
+          Size="177.6,48"
           Id="Package\PHD patient history\truncate pharmacy_patient_history table"
           TopLeft="24.4663072168063,9.7554203184992" />
         <NodeLayout
-          Size="173,42"
+          Size="172.8,41.6"
           Id="Package\PHD patient history\Update demographic details"
-          TopLeft="28,334.104756630536" />
+          TopLeft="28.7142857264499,404.45769879368" />
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\PHD patient history\Update demographic details 1"
-          TopLeft="30.7142869185429,398.552948179707" />
+          TopLeft="32.8571440978927,472.72941980824" />
         <NodeLayout
-          Size="178,42"
-          Id="Package\PHD patient history\Update WGH demographic details"
-          TopLeft="29.4857148695965,463.52941871432" />
+          Size="180,42.4"
+          Id="Package\PHD patient history\Update legacy numbers WGH Lloyds"
+          TopLeft="28.8571444384906,604.517652978864" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\PHD patient history\Update WGH Lloyds demographic details"
+          TopLeft="27.1387760541181,539.563033226041" />
         <EdgeLayout
           Id="Package\PHD patient history.PrecedenceConstraints[Constraint]"
           TopLeft="112.23129080491,138.184387944357">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,28.4097373011586"
               Start="0,0"
               End="0,20.9097373011586">
@@ -28459,7 +29347,7 @@ WHERE xdi.issue_date
           TopLeft="113.874151347665,223.394125245516">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,26.2294095071555"
               Start="0,0"
               End="0,18.7294095071555">
@@ -28478,18 +29366,18 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PHD patient history.PrecedenceConstraints[Constraint 2]"
-          TopLeft="114.859437346957,300.023534752671">
+          TopLeft="115.630866319804,299.223534752672">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,34.0812218778645"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.4588233899893"
               Start="0,0"
-              End="0,26.5812218778645">
+              End="0,20.9588233899893">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.5812218778645" />
+                    End="0,20.9588233899893" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28500,18 +29388,18 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PHD patient history.PrecedenceConstraints[Constraint 3]"
-          TopLeft="116.757143459271,375.704756630536">
+          TopLeft="118.185714912171,446.05769879368">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,22.8481915491714"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.6717210145595"
               Start="0,0"
-              End="0,15.3481915491714">
+              End="0,19.1717210145595">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.3481915491714" />
+                    End="0,19.1717210145595" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28522,18 +29410,62 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PHD patient history.PrecedenceConstraints[Constraint 4]"
-          TopLeft="118.70000089407,440.152948179707">
+          TopLeft="119.197960076005,514.32941980824">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,23.3764705346122"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.2336134178016"
               Start="0,0"
-              End="0,15.8764705346122">
+              End="0,17.7336134178016">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.8764705346122" />
+                    End="0,17.7336134178016" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PHD patient history.PrecedenceConstraints[Constraint 5]"
+          TopLeft="115.528571836073,377.282358142661">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.1753406510187"
+              Start="0,0"
+              End="0,19.6753406510187">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.6753406510187" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PHD patient history.PrecedenceConstraints[Constraint 6]"
+          TopLeft="117.997960246304,581.163033226041">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.3546197528229"
+              Start="0,0"
+              End="0,15.8546197528229">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8546197528229" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28547,7 +29479,7 @@ WHERE xdi.issue_date
           TopLeft="112.649730412605,57.7554203184992">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.4289676258582"
               Start="0,0"
               End="0,16.9289676258582">
@@ -28567,28 +29499,28 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="231,520"
-          Size="231,563"
+          PanelSize="232,662.4"
+          Size="232,705.6"
           Id="Package\PHD patient history"
-          TopLeft="40.6547625971108,774.270919238257" />
+          TopLeft="63.8180282977015,591.943185588742" />
         <NodeLayout
-          Size="183,42"
+          Size="183.2,41.6"
           Id="Package\Spell details\Data Flow spell details"
           TopLeft="22.9999999148506,81.4261324014554" />
         <NodeLayout
-          Size="173,44"
+          Size="172.8,44"
           Id="Package\Spell details\Data Flow spell details 1"
           TopLeft="25.5142935602037,220.352948362027" />
         <NodeLayout
-          Size="189,45"
+          Size="188.8,44.8"
           Id="Package\Spell details\truncate pharmacy_spell_details"
           TopLeft="12.7681938389607,11.8700837598722" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Spell details\Update spell details"
           TopLeft="27.3234501226067,153.459428653061" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Spell details\Update spell details 1"
           TopLeft="25.2857178498289,292.823535481952" />
         <EdgeLayout
@@ -28596,7 +29528,7 @@ WHERE xdi.issue_date
           TopLeft="112.018871841405,195.059428653061">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,25.2935197089662"
               Start="0,0"
               End="0,17.7935197089662">
@@ -28618,7 +29550,7 @@ WHERE xdi.issue_date
           TopLeft="111.000005705016,264.352948362027">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,28.4705871199246"
               Start="0,0"
               End="0,20.9705871199246">
@@ -28640,7 +29572,7 @@ WHERE xdi.issue_date
           TopLeft="110.884096876906,56.6700837598722">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.7560486415832"
               Start="0,0"
               End="0,17.2560486415832">
@@ -28662,7 +29594,7 @@ WHERE xdi.issue_date
           TopLeft="113.361725018729,123.026132401455">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,30.4332962516056"
               Start="0,0"
               End="0,22.9332962516056">
@@ -28682,32 +29614,32 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="214,357"
-          Size="214,400"
+          PanelSize="214.4,356.8"
+          Size="214.4,400"
           Id="Package\Spell details"
-          TopLeft="664.024614319389,890.39281919756" />
+          TopLeft="664.738900045839,771.426430974477" />
         <NodeLayout
-          Size="279,42"
+          Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
-          TopLeft="64.5221578057202,85.7941187731536" />
+          TopLeft="111.154811661094,95.735295383163" />
         <NodeLayout
-          Size="252,42"
+          Size="252,41.6"
           Id="Package\truncate JAC dbo pharmacy_UBH"
-          TopLeft="72.1428583714426,154.470590401686" />
+          TopLeft="118.775512226816,164.411767011695" />
         <NodeLayout
-          Size="243,42"
+          Size="243.2,41.6"
           Id="Package\UHB main drug flag SD886476\Data Flow from JAC main drug flag"
           TopLeft="17.9714405531788,78.8353003058057" />
         <NodeLayout
-          Size="282,42"
+          Size="281.6,41.6"
           Id="Package\UHB main drug flag SD886476\Data Flow from JAC main drug flag missing"
           TopLeft="22.9714406383281,211.000004193362" />
         <NodeLayout
-          Size="378,42"
+          Size="377.6,41.6"
           Id="Package\UHB main drug flag SD886476\truncate finance main drug flag &amp; main drug flag missing tables"
           TopLeft="14.4000119209294,12.2588283126331" />
         <NodeLayout
-          Size="370,42"
+          Size="369.6,41.6"
           Id="Package\UHB main drug flag SD886476\update finance transform main drug flag"
           TopLeft="20.2000120060786,146.282360512823" />
         <EdgeLayout
@@ -28715,7 +29647,7 @@ WHERE xdi.issue_date
           TopLeft="203.600011920929,53.8588283126331">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-64.0285713677506,24.9764719931726"
               Start="0,0"
               End="-64.0285713677506,17.4764719931726">
@@ -28749,7 +29681,7 @@ WHERE xdi.issue_date
           TopLeft="139.571440553179,120.435300305806">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="65.8285714528998,25.8470602070174"
               Start="0,0"
               End="65.8285714528998,18.3470602070174">
@@ -28783,7 +29715,7 @@ WHERE xdi.issue_date
           TopLeft="205.400012006079,187.882360512823">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-41.6285713677505,23.1176436805391"
               Start="0,0"
               End="-41.6285713677505,15.6176436805391">
@@ -28816,39 +29748,39 @@ WHERE xdi.issue_date
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="432,308"
-          Size="432,351"
+          Size="432,351.2"
           Id="Package\UHB main drug flag SD886476"
-          TopLeft="1036.60716051046,314.485298528185" />
+          TopLeft="1083.23981436584,324.426475138194" />
         <NodeLayout
-          Size="236,42"
+          Size="236,41.6"
           Id="Package\Update Northern Irish purchasers"
-          TopLeft="1017.86390277042,1326.50855941743" />
+          TopLeft="919.394513338394,1306.18923140136" />
         <NodeLayout
-          Size="241,42"
+          Size="238.4,41.6"
           Id="Package\WGH id values\PHD tbl patient history table WGH"
-          TopLeft="33.7142858115994,76.7647131858812" />
+          TopLeft="11.5714282916518,76.7647131858813" />
         <NodeLayout
-          Size="273,42"
+          Size="229.6,41.6"
           Id="Package\WGH id values\truncate pharmacy_patient_history_WGH"
-          TopLeft="13.6571437572944,10.7882410103889" />
+          TopLeft="11.5142865779448,10.7882410103889" />
         <NodeLayout
-          Size="210,42"
-          Id="Package\WGH id values\Update WGH id values"
-          TopLeft="50.2571443533409,141.741185908334" />
+          Size="204,41.6"
+          Id="Package\WGH id values\Update WGH id values_old"
+          TopLeft="28.1142868333933,141.741185908334" />
         <EdgeLayout
           Id="Package\WGH id values.PrecedenceConstraints[Constraint]"
-          TopLeft="152.085714784447,52.3882410103889">
+          TopLeft="128.542857434798,52.3882410103889">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,24.3764721754923"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.3764721754924"
               Start="0,0"
-              End="0,16.8764721754923">
+              End="0,16.8764721754924">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.8764721754923" />
+                    End="0,16.8764721754924" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28859,18 +29791,18 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package\WGH id values.PrecedenceConstraints[Constraint 1]"
-          TopLeft="154.78571508247,118.364713185881">
+          TopLeft="130.442857562523,118.364713185881">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,23.3764727224525"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.3764727224528"
               Start="0,0"
-              End="0,15.8764727224525">
+              End="0,15.8764727224528">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.8764727224525" />
+                    End="0,15.8764727224528" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28882,16 +29814,16 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="302,209"
-          Size="302,252"
+          PanelSize="260,234.4"
+          Size="260,277.6"
           Id="Package\WGH id values"
-          TopLeft="423.585715125046,38.8411716873671" />
+          TopLeft="468.07551180107,32.7235245427459" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="201.132508088582,127.394118773154">
+          TopLeft="247.765161943956,137.335295383163">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,27.0764716285324"
               Start="0,0"
               End="0,19.5764716285324">
@@ -28910,30 +29842,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="309.437521456002,240.186794458352">
+          TopLeft="356.070175311376,250.127971068361">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="114.148193669044,-75.3456227709849"
+              StartConnector="{assembly:Null}"
+              EndConnector="112.005336489695,-78.6044465256155"
               Start="0,0"
-              End="106.648193669044,-75.3456227709849">
+              End="104.505336489695,-78.6044465256155">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="53.074096834522,0" />
+                    End="52.0026682448473,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="53.074096834522,0"
-                    Point2="57.074096834522,0"
-                    Point3="57.074096834522,-4" />
+                    Point1="52.0026682448473,0"
+                    Point2="56.0026682448473,0"
+                    Point3="56.0026682448473,-4" />
                   <mssgle:LineSegment
-                    End="57.074096834522,-71.3456227709849" />
+                    End="56.0026682448473,-74.6044465256155" />
                   <mssgle:CubicBezierSegment
-                    Point1="57.074096834522,-71.3456227709849"
-                    Point2="57.074096834522,-75.3456227709849"
-                    Point3="61.074096834522,-75.3456227709849" />
+                    Point1="56.0026682448473,-74.6044465256155"
+                    Point2="56.0026682448473,-78.6044465256155"
+                    Point3="60.0026682448473,-78.6044465256155" />
                   <mssgle:LineSegment
-                    End="106.648193669044,-75.3456227709849" />
+                    End="104.505336489695,-78.6044465256155" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28944,30 +29876,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="197.47857266628,1503.84119073982">
+          TopLeft="188.805103130817,1480.10841338205">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="12.600000766346,31.9882348115"
+              StartConnector="{assembly:Null}"
+              EndConnector="12.600000766346,31.9882348114998"
               Start="0,0"
-              End="12.600000766346,24.4882348115">
+              End="12.600000766346,24.4882348114998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.99411740575" />
+                    End="0,11.9941174057503" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.99411740575"
-                    Point2="0,15.99411740575"
-                    Point3="4,15.99411740575" />
+                    Point1="0,11.9941174057503"
+                    Point2="0,15.9941174057503"
+                    Point3="4,15.9941174057503" />
                   <mssgle:LineSegment
-                    End="8.600000766346,15.99411740575" />
+                    End="8.600000766346,15.9941174057503" />
                   <mssgle:CubicBezierSegment
-                    Point1="8.600000766346,15.99411740575"
-                    Point2="12.600000766346,15.99411740575"
-                    Point3="12.600000766346,19.99411740575" />
+                    Point1="8.600000766346,15.9941174057503"
+                    Point2="12.600000766346,15.9941174057503"
+                    Point3="12.600000766346,19.9941174057503" />
                   <mssgle:LineSegment
-                    End="12.600000766346,24.4882348115" />
+                    End="12.600000766346,24.4882348114998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28978,10 +29910,10 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="302.478573432628,1559.31765844848">
+          TopLeft="293.805103897165,1535.58488109071">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="80.2000045129231,0"
               Start="0,0"
               End="72.7000045129231,0">
@@ -29000,54 +29932,54 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="533.87857794555,1562.00589134562">
+          TopLeft="525.205108410085,1538.27311398785">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="75.1396862443581,169.49281509535"
+              StartConnector="{assembly:Null}"
+              EndConnector="134.32336072164,32.0306283215939"
               Start="0,0"
-              End="67.6396862443581,169.49281509535">
+              End="126.82336072164,32.0306283215939">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="33.569843122179,0" />
+                    End="63.1616803608198,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="33.569843122179,0"
-                    Point2="37.569843122179,0"
-                    Point3="37.569843122179,4" />
+                    Point1="63.1616803608198,0"
+                    Point2="67.1616803608198,0"
+                    Point3="67.1616803608198,4" />
                   <mssgle:LineSegment
-                    End="37.569843122179,165.49281509535" />
+                    End="67.1616803608198,28.0306283215939" />
                   <mssgle:CubicBezierSegment
-                    Point1="37.569843122179,165.49281509535"
-                    Point2="37.569843122179,169.49281509535"
-                    Point3="41.569843122179,169.49281509535" />
+                    Point1="67.1616803608198,28.0306283215939"
+                    Point2="67.1616803608198,32.0306283215939"
+                    Point3="71.1616803608198,32.0306283215939" />
                   <mssgle:LineSegment
-                    End="67.6396862443581,169.49281509535" />
+                    End="126.82336072164,32.0306283215939" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="29.569843122179,-22,16,16"
+              BoundingBox="59.1616803608198,-22,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="725.985715125046,164.085292010241">
+          TopLeft="728.07551180107,172.597056742936">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="51.157155252477,0"
+              StartConnector="{assembly:Null}"
+              EndConnector="95.7000124318267,0"
               Start="0,0"
-              End="43.657155252477,0">
+              End="88.2000124318267,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="43.657155252477,0" />
+                    End="88.2000124318267,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29058,10 +29990,10 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 14]"
-          TopLeft="199.390189913723,196.070590401686">
+          TopLeft="246.022843769097,206.011767011695">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,23.316204056666"
               Start="0,0"
               End="0,15.816204056666">
@@ -29080,30 +30012,18 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 15]"
-          TopLeft="1036.60716051046,490.085298528185">
+          TopLeft="1083.23981436584,502.603132719909">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-747.304778200753,197.422225422954"
+              StartConnector="{assembly:Null}"
+              EndConnector="-746.284370020114,0"
               Start="0,0"
-              End="-739.804778200753,197.422225422954">
+              End="-738.784370020114,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-369.652389100377,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-369.652389100377,0"
-                    Point2="-373.652389100377,0"
-                    Point3="-373.652389100377,4" />
-                  <mssgle:LineSegment
-                    End="-373.652389100377,193.422225422954" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-373.652389100377,193.422225422954"
-                    Point2="-373.652389100377,197.422225422954"
-                    Point3="-377.652389100377,197.422225422954" />
-                  <mssgle:LineSegment
-                    End="-739.804778200753,197.422225422954" />
+                    End="-738.784370020114,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29114,10 +30034,10 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 16]"
-          TopLeft="1252.60716051046,665.485298528185">
+          TopLeft="1299.23981436584,675.426475138194">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="75.50713866961,46.7617638666729"
               Start="0,0"
               End="75.50713866961,39.2617638666729">
@@ -29148,10 +30068,10 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="923.942870377523,286.129412333116">
+          TopLeft="970.575524232897,296.070588943125">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="328.664290132935,28.3558861950693"
               Start="0,0"
               End="328.664290132935,20.8558861950693">
@@ -29182,30 +30102,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="184.502382309704,738.707523951139">
+          TopLeft="232.155444345721,556.379790301624">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-28.2476197125934,35.5633952871176"
+              StartConnector="{assembly:Null}"
+              EndConnector="-52.3374160480195,35.5633952871182"
               Start="0,0"
-              End="-28.2476197125934,28.0633952871176">
+              End="-52.3374160480195,28.0633952871182">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.7816976435588" />
+                    End="0,13.7816976435591" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.7816976435588"
-                    Point2="0,17.7816976435588"
-                    Point3="-4,17.7816976435588" />
+                    Point1="0,13.7816976435591"
+                    Point2="0,17.7816976435591"
+                    Point3="-4,17.7816976435591" />
                   <mssgle:LineSegment
-                    End="-24.2476197125934,17.7816976435588" />
+                    End="-48.3374160480195,17.7816976435591" />
                   <mssgle:CubicBezierSegment
-                    Point1="-24.2476197125934,17.7816976435588"
-                    Point2="-28.2476197125934,17.7816976435588"
-                    Point3="-28.2476197125934,21.7816976435588" />
+                    Point1="-48.3374160480195,17.7816976435591"
+                    Point2="-52.3374160480195,17.7816976435591"
+                    Point3="-52.3374160480195,21.7816976435591" />
                   <mssgle:LineSegment
-                    End="-28.2476197125934,28.0633952871176" />
+                    End="-52.3374160480195,28.0633952871182" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29216,30 +30136,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="271.854762597111,1055.87091923826">
+          TopLeft="295.818028297702,944.743185588742">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="106.379370828307,-45.4637209330867"
+              StartConnector="{assembly:Null}"
+              EndConnector="72.9263090477396,-133.050275784751"
               Start="0,0"
-              End="98.8793708283069,-45.4637209330867">
+              End="65.4263090477396,-133.050275784751">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="49.1896854141535,0" />
+                    End="32.4631545238698,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="49.1896854141535,0"
-                    Point2="53.1896854141535,0"
-                    Point3="53.1896854141535,-4" />
+                    Point1="32.4631545238698,0"
+                    Point2="36.4631545238698,0"
+                    Point3="36.4631545238698,-4" />
                   <mssgle:LineSegment
-                    End="53.1896854141535,-41.4637209330867" />
+                    End="36.4631545238698,-129.050275784751" />
                   <mssgle:CubicBezierSegment
-                    Point1="53.1896854141535,-41.4637209330867"
-                    Point2="53.1896854141535,-45.4637209330867"
-                    Point3="57.1896854141535,-45.4637209330867" />
+                    Point1="36.4631545238698,-129.050275784751"
+                    Point2="36.4631545238698,-133.050275784751"
+                    Point3="40.4631545238698,-133.050275784751" />
                   <mssgle:LineSegment
-                    End="98.8793708283069,-45.4637209330867" />
+                    End="65.4263090477396,-133.050275784751" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29250,30 +30170,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="623.234133425418,1010.60719830517">
+          TopLeft="613.54433734544,811.69290980399">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="40.790480893971,79.7856208923902"
+              StartConnector="{assembly:Null}"
+              EndConnector="51.1945627003984,159.733521170486"
               Start="0,0"
-              End="33.290480893971,79.7856208923902">
+              End="43.6945627003984,159.733521170486">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="16.3952404469855,0" />
+                    End="21.5972813501992,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="16.3952404469855,0"
-                    Point2="20.3952404469855,0"
-                    Point3="20.3952404469855,4" />
+                    Point1="21.5972813501992,0"
+                    Point2="25.5972813501992,0"
+                    Point3="25.5972813501992,4" />
                   <mssgle:LineSegment
-                    End="20.3952404469855,75.7856208923902" />
+                    End="25.5972813501992,155.733521170486" />
                   <mssgle:CubicBezierSegment
-                    Point1="20.3952404469855,75.7856208923902"
-                    Point2="20.3952404469855,79.7856208923902"
-                    Point3="24.3952404469855,79.7856208923902" />
+                    Point1="25.5972813501992,155.733521170486"
+                    Point2="25.5972813501992,159.733521170486"
+                    Point3="29.5972813501992,159.733521170486" />
                   <mssgle:LineSegment
-                    End="33.290480893971,79.7856208923902" />
+                    End="43.6945627003984,159.733521170486" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29284,18 +30204,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="878.024614319389,1092.7709241609">
+          TopLeft="879.138900045839,971.426430974477">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="33.237305893092,0"
+              StartConnector="{assembly:Null}"
+              EndConnector="53.2454695059469,96.7209170959948"
               Start="0,0"
-              End="25.737305893092,0">
+              End="45.7454695059469,96.7209170959948">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="25.737305893092,0" />
+                    End="22.6227347529734,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.6227347529734,0"
+                    Point2="26.6227347529734,0"
+                    Point3="26.6227347529734,4" />
+                  <mssgle:LineSegment
+                    End="26.6227347529734,92.7209170959948" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.6227347529734,92.7209170959948"
+                    Point2="26.6227347529734,96.7209170959948"
+                    Point3="30.6227347529734,96.7209170959948" />
+                  <mssgle:LineSegment
+                    End="45.7454695059469,96.7209170959948" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29306,30 +30238,18 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="1012.26192021248,1294.14902912424">
+          TopLeft="1035.28944144509,1267.34734807047">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="123.601982557939,32.3595302931928"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.8418833308906"
               Start="0,0"
-              End="123.601982557939,24.8595302931928">
+              End="0,31.3418833308906">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.1797651465964" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.1797651465964"
-                    Point2="0,16.1797651465964"
-                    Point3="4,16.1797651465964" />
-                  <mssgle:LineSegment
-                    End="119.601982557939,16.1797651465964" />
-                  <mssgle:CubicBezierSegment
-                    Point1="119.601982557939,16.1797651465964"
-                    Point2="123.601982557939,16.1797651465964"
-                    Point3="123.601982557939,20.1797651465964" />
-                  <mssgle:LineSegment
-                    End="123.601982557939,24.8595302931928" />
+                    End="0,31.3418833308906" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29340,30 +30260,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="1135.86390277042,1368.10855941743">
+          TopLeft="919.394513338393,1326.98923140136">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-927.785329508092,24.1012624698242"
+              StartConnector="{assembly:Null}"
+              EndConnector="-619.58940961153,62.287813128122"
               Start="0,0"
-              End="-927.785329508092,16.6012624698242">
+              End="-612.08940961153,62.287813128122">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.05063123491209" />
+                    End="-305.794704805765,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.05063123491209"
-                    Point2="0,12.0506312349121"
-                    Point3="-4,12.0506312349121" />
+                    Point1="-305.794704805765,0"
+                    Point2="-309.794704805765,0"
+                    Point3="-309.794704805765,4" />
                   <mssgle:LineSegment
-                    End="-923.785329508092,12.0506312349121" />
+                    End="-309.794704805765,58.287813128122" />
                   <mssgle:CubicBezierSegment
-                    Point1="-923.785329508092,12.0506312349121"
-                    Point2="-927.785329508092,12.0506312349121"
-                    Point3="-927.785329508092,16.0506312349121" />
+                    Point1="-309.794704805765,58.287813128122"
+                    Point2="-309.794704805765,62.287813128122"
+                    Point3="-313.794704805765,62.287813128122" />
                   <mssgle:LineSegment
-                    End="-927.785329508092,16.6012624698242" />
+                    End="-612.08940961153,62.287813128122" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29374,10 +30294,10 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="208.078573262327,1433.80982188725">
+          TopLeft="199.405103726864,1410.07704452948">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-10.600000596047,28.4313688525701"
               Start="0,0"
               End="-10.600000596047,20.9313688525701">
@@ -29385,17 +30305,17 @@ WHERE xdi.issue_date
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.2156844262851" />
+                    End="0,10.2156844262852" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10.2156844262851"
-                    Point2="0,14.2156844262851"
-                    Point3="-4,14.2156844262851" />
+                    Point1="0,10.2156844262852"
+                    Point2="0,14.2156844262852"
+                    Point3="-4,14.2156844262852" />
                   <mssgle:LineSegment
-                    End="-6.60000059604698,14.2156844262851" />
+                    End="-6.60000059604701,14.2156844262852" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6.60000059604698,14.2156844262851"
-                    Point2="-10.600000596047,14.2156844262851"
-                    Point3="-10.600000596047,18.2156844262851" />
+                    Point1="-6.60000059604701,14.2156844262852"
+                    Point2="-10.600000596047,14.2156844262852"
+                    Point3="-10.600000596047,18.2156844262852" />
                   <mssgle:LineSegment
                     End="-10.600000596047,20.9313688525701" />
                 </mssgle:SegmentCollection>
@@ -29409,10 +30329,10 @@ WHERE xdi.issue_date
         <AnnotationLayout
           Text="Developed by: Marianne Jeffries&#xA;Service desk no.: SD530566&#xA;Purpose: automate load from source JAC database&#xA;Details: see SharePoint Finance Pharmacy Load&#xA;&#xA;Additional requirements:&#xA;03 fields added, extracts updated: Nov-2021&#xA;Extract from JAC amended: Jan-2022&#xA;permissions are not being kept on BIT, filters/Jenkins: Jan-2022&#xA;Extract from JAC amended for duplicate entries to do with the unit of measure: Jan-2022&#xA;Missing demographics: Feb-2022&#xA;Weston patients missing demographic data, script to update: March-2022&#xA;Historical missing values for Bevacizumab, Nivolumab &amp; Venetoclax, script to update: March-2022&#xA;Issue with Finance downstream process to import data, corrected their script: June-2022&#xA;Lloyds outpatients pharmacy data: July-2022&#xA;SD886476 Pharmacy Extract: Dec-2022&#xA;Split PSU drugs for FY: March-2023&#xA;Amend email recipients: March-2023&#xA;SD1110167 Pharmacy Extract: Nov2023&#xA;SD1036030 Pharmacy JAC_CMM patient data change: Jan-2024"
           ParentId="Package"
-          FontInfo="{x:Null}"
-          Size="383,407"
+          FontInfo="{assembly:Null}"
+          Size="383.2,407.2"
           Id="1a841f25-417a-437c-bd72-738b5cd2a551"
-          TopLeft="1489.94603572103,1.0196069458363" />
+          TopLeft="1536.5786895764,10.9607835558457" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -29432,7 +30352,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Data Flow from JAC database">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="298,42"
           Id="Package\Data Flow from JAC database\Destination for finance import pharmacy_WGH"
@@ -29462,7 +30382,7 @@ WHERE xdi.issue_date
           TopLeft="483.200808613173,51.7641509433962">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="18.733153650978,47.8867924528302"
               Start="0,0"
               End="18.733153650978,40.3867924528302">
@@ -29488,7 +30408,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -29496,7 +30418,7 @@ WHERE xdi.issue_date
           TopLeft="157.158490566038,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,50.7107658050355"
               Start="0,0"
               End="0,43.2107658050355">
@@ -29510,7 +30432,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -29518,7 +30442,7 @@ WHERE xdi.issue_date
           TopLeft="845.2,55.8352941069223">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="8.59999999999991,45.1647058930777"
               Start="0,0"
               End="8.59999999999991,37.6647058930777">
@@ -29544,13 +30468,15 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Next steps:&#xA;&#xA;- To configure each source, double-click the source.&#xA;- To indicate the flow of data, drag the green output arrows from the sources to the destinations.&#xA;To configure each destination, double-click each destination."
           ParentId="Package\Data Flow from JAC database"
-          Size="490,105"
+          Size="490,NaN"
           Id="04716c66-af32-4207-8065-1e244b343062"
           TopLeft="312.912398933997,377.470033264163">
           <AnnotationLayout.FontInfo>
@@ -29709,11 +30635,11 @@ WHERE xdi.issue_date
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="305,44"
+          Size="304.8,44"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request\Source for pharm_adm_ext_demographics_request"
           TopLeft="18.4056603773585,5.5" />
         <NodeLayout
-          Size="331,44"
+          Size="331.2,44"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request\Destination for pharm_adm_ext_demographics_request"
           TopLeft="5.5,163.27358490566" />
         <NodeLayout
@@ -29995,7 +30921,7 @@ WHERE xdi.issue_date
     design-time-name="Package\import to transform table\Data Flow from finance import UHB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="274,42"
           Id="Package\import to transform table\Data Flow from finance import UHB\Source for finance import pharmacy_UHB"
@@ -30043,7 +30969,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30077,7 +31005,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30099,7 +31029,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30347,7 +31279,7 @@ WHERE xdi.issue_date
     design-time-name="Package\outpatient details\Data Flow OP details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="217,42"
           Id="Package\outpatient details\Data Flow OP details\Source for dbo tbl_op_details"
@@ -30387,7 +31319,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30418,7 +31352,7 @@ WHERE xdi.issue_date
     design-time-name="Package\outpatient details\Data Flow OP details 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="217,42"
           Id="Package\outpatient details\Data Flow OP details 1\Source for dbo tbl_op_details"
@@ -30458,7 +31392,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30476,7 +31412,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table Boots">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="239,42"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table Boots\Source for dbo tbl_patient_history"
@@ -30516,7 +31452,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30547,13 +31485,13 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table UHB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="239,42"
+          Size="239.2,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table UHB\Source for dbo tbl_patient_history"
           TopLeft="16.4433962264151,5.5" />
         <NodeLayout
-          Size="242,42"
+          Size="241.6,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table UHB\Destination for dbo patient_history"
           TopLeft="30.5,112.330188679245" />
         <EdgeLayout
@@ -30587,7 +31525,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30620,17 +31560,17 @@ WHERE xdi.issue_date
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="221,42"
-          Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds\Source for dbo patient_history"
-          TopLeft="51,32" />
-        <NodeLayout
-          Size="260,42"
+          Size="260,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds\Destination for dbo tbl_patient_history"
           TopLeft="31,192" />
         <NodeLayout
-          Size="156,42"
+          Size="156,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds\Data Conversion"
           TopLeft="81,112" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds\Source for dbo patient_history"
+          TopLeft="51,32" />
         <EdgeLayout
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds.Paths[OLE DB Source Output]"
           TopLeft="160.25,74">
@@ -30700,10 +31640,95 @@ WHERE xdi.issue_date
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="260,41.6"
+          Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history"
+          TopLeft="31,192" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion"
+          TopLeft="81,112" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history"
+          TopLeft="51,32" />
+        <EdgeLayout
+          Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1.Paths[OLE DB Source Output]"
+          TopLeft="160,73.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,38.4"
+              Start="0,0"
+              End="0,30.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1.Paths[Data Conversion Output]"
+          TopLeft="159.8,153.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,38.4"
+              Start="0,0"
+              End="0,30.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Spell details\Data Flow spell details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="260,42"
           Id="Package\Spell details\Data Flow spell details\Source for dbo pharmacy_spell_details"
@@ -30743,7 +31768,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30774,7 +31801,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Spell details\Data Flow spell details 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="260,42"
           Id="Package\Spell details\Data Flow spell details 1\Source for dbo pharmacy_spell_details"
@@ -30814,7 +31841,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31018,17 +32047,17 @@ WHERE xdi.issue_date
     design-time-name="Package\WGH id values\PHD tbl patient history table WGH">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="303,42"
+          Size="303.2,41.6"
           Id="Package\WGH id values\PHD tbl patient history table WGH\Source for dbo pharmacy_patient_history_WGH"
           TopLeft="78,35" />
         <NodeLayout
-          Size="324,42"
+          Size="324,41.6"
           Id="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH"
           TopLeft="75.5,203.5" />
         <NodeLayout
-          Size="155,42"
+          Size="155.2,41.6"
           Id="Package\WGH id values\PHD tbl patient history table WGH\Data Conversion"
           TopLeft="155,116" />
         <EdgeLayout
@@ -31050,7 +32079,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31072,7 +32103,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
