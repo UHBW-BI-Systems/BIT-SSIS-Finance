@@ -12,8 +12,8 @@
   DTS:ObjectName="Radiotherapy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{0AE6D2A7-F753-45DD-A6C2-D2DD5541B6E7}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{8C3AE788-25BD-47E1-A1FC-246C285E817F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -197,6 +197,13 @@
                       cachedName="att_date"
                       externalMetadataColumnId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[att_date]"
                       lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[att_date]" />
+                    <inputColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cons_code]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="cons_code"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_code]"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_code]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -360,9 +367,8 @@
                       name="site_code" />
                     <externalMetadataColumn
                       refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
+                      dataType="wstr"
+                      length="12"
                       name="cons_code" />
                     <externalMetadataColumn
                       refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[clinic_code_full]"
@@ -857,6 +863,16 @@
                       lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[site_code]"
                       name="site_code"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cons_code]"
+                      length="12"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[cons_code]"
+                      name="cons_code"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -907,6 +923,11 @@
                       dataType="wstr"
                       length="30"
                       name="site_code" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cons_code]"
+                      dataType="wstr"
+                      length="12"
+                      name="cons_code" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -948,6 +969,12 @@
                       length="30"
                       lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[site_code]"
                       name="site_code" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cons_code]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cons_code]"
+                      name="cons_code" />
                     <outputColumn
                       refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[att_ind]"
                       dataType="wstr"
@@ -2555,13 +2582,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Careflow to Finance\OLE DB Destination"
-          TopLeft="5.49999948910305,91.3235301946686" />
-        <NodeLayout
           Size="149.6,41.6"
           Id="Package\Careflow to Finance\OLE DB Source"
           TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Careflow to Finance\OLE DB Destination"
+          TopLeft="5.49999948910305,91.3235301946686" />
         <EdgeLayout
           Id="Package\Careflow to Finance.Paths[OLE DB Source Output]"
           TopLeft="80.3,47.1">
