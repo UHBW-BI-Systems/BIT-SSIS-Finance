@@ -14,8 +14,8 @@
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="872"
-  DTS:VersionGUID="{DFFC644F-6A7D-4501-89FA-C12E0E40B170}">
+  DTS:VersionBuild="873"
+  DTS:VersionGUID="{48CDBC02-8FC1-4C1C-AC8C-7068AFAF9014}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -111,7 +111,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">1/1/2024 12:56:14 PM</DTS:VariableValue>
+        DTS:DataType="7">1/6/2024 11:05:32 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -22595,7 +22595,7 @@ FROM JAC.dbo.mds_xdaily_issues xdi WITH (NOLOCK)
   JOIN PHD.dbo.tbl_mdso m
   ON m.treatment_no = ('T' + xdi.patient_hospitalno)
 --WHERE		xdi.issue_date BETWEEN ? AND ?
-WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 2, 0) AND (GETDATE())
+WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 3, 0) AND (GETDATE())
   AND xdi.issue_date = m.app_date
   AND xdi.issue_typeid IN (1,2,3,4,5,6,7,8,20)
 
@@ -22970,7 +22970,7 @@ FROM JAC.dbo.mds_xdaily_issues xdi WITH (NOLOCK)
   ON m.treatment_no = xdi.patient_hospitalno
 --ON m.treatment_no = ('T' + xdi.patient_hospitalno)
 --WHERE		xdi.issue_date BETWEEN ? AND ?
-WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 2, 0) AND (GETDATE())
+WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 3, 0) AND (GETDATE())
   AND xdi.issue_date = m.app_date
   AND xdi.issue_typeid IN (1,2,3,4,5,6,7,8,20)
 
@@ -23523,7 +23523,7 @@ ON ph.patient_trust_number = ('T' + xdi.patient_hospitalno) OR ph.patient_trust_
 --		  ON ph.patient_id = ('T' + xdi.patient_hospitalno)
   --ON ph.patient_trust_number = ('T' + xdi.patient_hospitalno)
 --WHERE		xdi.issue_date BETWEEN ? AND ?
-WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 2, 0) AND (GETDATE())
+WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 3, 0) AND (GETDATE())
   AND xdi.issue_date BETWEEN  ph.valid_from_date AND ph.valid_to_date
   AND xdi.issue_typeid IN (1,2,3,4,5,6,7,8,20)
 ORDER BY	xdi.patient_hospitalno, issue_date, ph.valid_from_date
@@ -24116,7 +24116,7 @@ ON ph.patient_trust_number = ('T' + xdi.patient_hospitalno) OR ph.patient_trust_
 --		  ON ph.patient_id = ('T' + xdi.patient_hospitalno)
   --ON ph.patient_trust_number = ('T' + xdi.patient_hospitalno)
 --WHERE		xdi.issue_date BETWEEN ? AND ?
-WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 2, 0) AND (GETDATE())
+WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 3, 0) AND (GETDATE())
   AND xdi.issue_date BETWEEN  ph.valid_from_date AND ph.valid_to_date
   AND xdi.issue_typeid IN (1,2,3,4,5,6,7,8,20)
 ORDER BY	xdi.patient_hospitalno, issue_date, ph.valid_from_date
@@ -24789,7 +24789,7 @@ FROM JAC.dbo.mds_xdaily_issues_WES xdi WITH (NOLOCK)
     --ON ph.patient_trust_number = ('T' + xdi.patient_hospitalno)
         --ON REPLACE(xdi.patient_natno, ' ', '') = ph.nhs_number
 WHERE xdi.issue_date
-      BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 2, 0) AND (GETDATE())
+      BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 3, 0) AND (GETDATE())
       AND xdi.issue_date
       BETWEEN ph.valid_from_date AND ph.valid_to_date
       AND xdi.issue_typeid IN ( 1, 2, 3, 4, 5, 6, 7, 8, 20 )
@@ -25570,7 +25570,7 @@ FROM JAC.dbo.mds_xdaily_issues_WES xdi WITH (NOLOCK)
     JOIN PHD.dbo.tbl_patient_history ph
         ON ph.patient_trust_number = WGH.pas_id
 WHERE xdi.issue_date
-      BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 2, 0) AND (GETDATE())
+      BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 3, 0) AND (GETDATE())
       AND xdi.issue_typeid IN ( 1, 2, 3, 4, 5, 6, 7, 8, 20 )
       AND xdi.patient_hospitalno NOT LIKE 'T%'
       AND xdi.issue_date
@@ -26354,7 +26354,7 @@ FROM JAC.dbo.mds_xdaily_issues xdi WITH (NOLOCK)
   JOIN PHD.dbo.tbl_mdsi m
   ON m.treatment_no = ('T' + xdi.patient_hospitalno)
 --WHERE		xdi.issue_date BETWEEN ? AND ?
-WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 2, 0) AND (GETDATE())
+WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 3, 0) AND (GETDATE())
   AND xdi.issue_date BETWEEN m.spell_start_date AND m.spell_end_date
   AND xdi.issue_typeid IN (1,2,3,4,5,6,7,8,20)
 AND m.spec_natcode !='999'
@@ -26826,7 +26826,7 @@ FROM JAC.dbo.mds_xdaily_issues xdi WITH (NOLOCK)
 ON m.treatment_no = xdi.patient_hospitalno  --SD1036030
 --ON m.treatment_no = ('T' + xdi.patient_hospitalno)
 --WHERE		xdi.issue_date BETWEEN ? AND ?
-WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 2, 0) AND (GETDATE())
+WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 3, 0) AND (GETDATE())
   AND xdi.issue_date BETWEEN m.spell_start_date AND m.spell_end_date
   AND xdi.issue_typeid IN (1,2,3,4,5,6,7,8,20)
 AND m.spec_natcode !='999'
@@ -28644,7 +28644,7 @@ WHERE xdi.issue_date
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\check run_date"
@@ -28686,7 +28686,7 @@ WHERE xdi.issue_date
           TopLeft="122.224056093355,60.8247769517102">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,23.5757798211721"
               Start="0,0"
               End="0,16.0757798211721">
@@ -28708,7 +28708,7 @@ WHERE xdi.issue_date
           TopLeft="124.42971625784,197.470281731667">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,27.4637560937266"
               Start="0,0"
               End="0,19.9637560937266">
@@ -28730,7 +28730,7 @@ WHERE xdi.issue_date
           TopLeft="121.461043142938,126.000556772882">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,29.869724958785"
               Start="0,0"
               End="0,22.369724958785">
@@ -28783,7 +28783,7 @@ WHERE xdi.issue_date
           TopLeft="224.34284857925,54.0000069281631">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="8.5142856413004,23.4000009116009"
               Start="0,0"
               End="8.5142856413004,15.9000009116009">
@@ -28817,7 +28817,7 @@ WHERE xdi.issue_date
           TopLeft="265.48570567345,119.000007839764">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="88.2857172537824,53.2352922837213"
               Start="0,0"
               End="88.2857172537824,45.7352922837213">
@@ -28853,7 +28853,7 @@ WHERE xdi.issue_date
           TopLeft="201.657134220551,119.000007839764">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-67.1142770412009,53.0352935599614"
               Start="0,0"
               End="-67.1142770412009,45.5352935599614">
@@ -28887,7 +28887,7 @@ WHERE xdi.issue_date
           TopLeft="353.771422927233,213.835300123485">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="14.5648411281074,25.2235320879934"
               Start="0,0"
               End="14.5648411281074,17.7235320879934">
@@ -28921,7 +28921,7 @@ WHERE xdi.issue_date
           TopLeft="134.957140308739,213.635301399725">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,26.7176447744604"
               Start="0,0"
               End="0,19.2176447744604">
@@ -28962,7 +28962,7 @@ WHERE xdi.issue_date
           TopLeft="265.828571282601,31.8316319495209">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-0.577861861903784,63.8271936283109"
               Start="0,0"
               End="6.92213813809622,63.8271936283109">
@@ -28996,7 +28996,7 @@ WHERE xdi.issue_date
           TopLeft="139.236427142802,116.458825577832">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,25.8588246662308"
               Start="0,0"
               End="0,18.3588246662308">
@@ -29063,7 +29063,7 @@ WHERE xdi.issue_date
           TopLeft="150.225410480402,211.575169226978">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-9.68254291281445,41.6483673488943"
               Start="0,0"
               End="-9.68254291281445,34.1483673488943">
@@ -29097,7 +29097,7 @@ WHERE xdi.issue_date
           TopLeft="167.428585076819,51.2705911309661">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-17.2031745964165,48.3045780960115"
               Start="0,0"
               End="-17.2031745964165,40.8045780960115">
@@ -29133,7 +29133,7 @@ WHERE xdi.issue_date
           TopLeft="140.642867567588,295.223536575872">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="13.2857178498287,27.1058803152459"
               Start="0,0"
               End="13.2857178498287,19.6058803152459">
@@ -29194,7 +29194,7 @@ WHERE xdi.issue_date
           TopLeft="109.99056957144,190.995869254888">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.0041363970347"
               Start="0,0"
               End="0,16.5041363970347">
@@ -29216,7 +29216,7 @@ WHERE xdi.issue_date
           TopLeft="108.814292921582,259.000005651923">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.7764710815723"
               Start="0,0"
               End="0,17.2764710815723">
@@ -29238,7 +29238,7 @@ WHERE xdi.issue_date
           TopLeft="106.087301571758,52.2158227425246">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.3618693012745"
               Start="0,0"
               End="0,16.8618693012745">
@@ -29260,7 +29260,7 @@ WHERE xdi.issue_date
           TopLeft="109.704851977059,120.577692043799">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,26.4181772110885"
               Start="0,0"
               End="0,18.9181772110885">
@@ -29325,7 +29325,7 @@ WHERE xdi.issue_date
           TopLeft="112.23129080491,138.184387944357">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,28.4097373011586"
               Start="0,0"
               End="0,20.9097373011586">
@@ -29347,7 +29347,7 @@ WHERE xdi.issue_date
           TopLeft="113.874151347665,223.394125245516">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,26.2294095071555"
               Start="0,0"
               End="0,18.7294095071555">
@@ -29369,7 +29369,7 @@ WHERE xdi.issue_date
           TopLeft="115.630866319804,299.223534752672">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,28.4588233899893"
               Start="0,0"
               End="0,20.9588233899893">
@@ -29391,7 +29391,7 @@ WHERE xdi.issue_date
           TopLeft="118.185714912171,446.05769879368">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,26.6717210145595"
               Start="0,0"
               End="0,19.1717210145595">
@@ -29413,7 +29413,7 @@ WHERE xdi.issue_date
           TopLeft="119.197960076005,514.32941980824">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,25.2336134178016"
               Start="0,0"
               End="0,17.7336134178016">
@@ -29435,7 +29435,7 @@ WHERE xdi.issue_date
           TopLeft="115.528571836073,377.282358142661">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,27.1753406510187"
               Start="0,0"
               End="0,19.6753406510187">
@@ -29457,7 +29457,7 @@ WHERE xdi.issue_date
           TopLeft="117.997960246304,581.163033226041">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,23.3546197528229"
               Start="0,0"
               End="0,15.8546197528229">
@@ -29479,7 +29479,7 @@ WHERE xdi.issue_date
           TopLeft="112.649730412605,57.7554203184992">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.4289676258582"
               Start="0,0"
               End="0,16.9289676258582">
@@ -29528,7 +29528,7 @@ WHERE xdi.issue_date
           TopLeft="112.018871841405,195.059428653061">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,25.2935197089662"
               Start="0,0"
               End="0,17.7935197089662">
@@ -29550,7 +29550,7 @@ WHERE xdi.issue_date
           TopLeft="111.000005705016,264.352948362027">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,28.4705871199246"
               Start="0,0"
               End="0,20.9705871199246">
@@ -29572,7 +29572,7 @@ WHERE xdi.issue_date
           TopLeft="110.884096876906,56.6700837598722">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.7560486415832"
               Start="0,0"
               End="0,17.2560486415832">
@@ -29594,7 +29594,7 @@ WHERE xdi.issue_date
           TopLeft="113.361725018729,123.026132401455">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,30.4332962516056"
               Start="0,0"
               End="0,22.9332962516056">
@@ -29647,7 +29647,7 @@ WHERE xdi.issue_date
           TopLeft="203.600011920929,53.8588283126331">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-64.0285713677506,24.9764719931726"
               Start="0,0"
               End="-64.0285713677506,17.4764719931726">
@@ -29681,7 +29681,7 @@ WHERE xdi.issue_date
           TopLeft="139.571440553179,120.435300305806">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="65.8285714528998,25.8470602070174"
               Start="0,0"
               End="65.8285714528998,18.3470602070174">
@@ -29715,7 +29715,7 @@ WHERE xdi.issue_date
           TopLeft="205.400012006079,187.882360512823">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-41.6285713677505,23.1176436805391"
               Start="0,0"
               End="-41.6285713677505,15.6176436805391">
@@ -29772,7 +29772,7 @@ WHERE xdi.issue_date
           TopLeft="128.542857434798,52.3882410103889">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,24.3764721754924"
               Start="0,0"
               End="0,16.8764721754924">
@@ -29794,7 +29794,7 @@ WHERE xdi.issue_date
           TopLeft="130.442857562523,118.364713185881">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,23.3764727224528"
               Start="0,0"
               End="0,15.8764727224528">
@@ -29823,7 +29823,7 @@ WHERE xdi.issue_date
           TopLeft="247.765161943956,137.335295383163">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,27.0764716285324"
               Start="0,0"
               End="0,19.5764716285324">
@@ -29845,7 +29845,7 @@ WHERE xdi.issue_date
           TopLeft="356.070175311376,250.127971068361">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="112.005336489695,-78.6044465256155"
               Start="0,0"
               End="104.505336489695,-78.6044465256155">
@@ -29879,7 +29879,7 @@ WHERE xdi.issue_date
           TopLeft="188.805103130817,1480.10841338205">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="12.600000766346,31.9882348114998"
               Start="0,0"
               End="12.600000766346,24.4882348114998">
@@ -29913,7 +29913,7 @@ WHERE xdi.issue_date
           TopLeft="293.805103897165,1535.58488109071">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="80.2000045129231,0"
               Start="0,0"
               End="72.7000045129231,0">
@@ -29935,7 +29935,7 @@ WHERE xdi.issue_date
           TopLeft="525.205108410085,1538.27311398785">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="134.32336072164,32.0306283215939"
               Start="0,0"
               End="126.82336072164,32.0306283215939">
@@ -29971,7 +29971,7 @@ WHERE xdi.issue_date
           TopLeft="728.07551180107,172.597056742936">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="95.7000124318267,0"
               Start="0,0"
               End="88.2000124318267,0">
@@ -29993,7 +29993,7 @@ WHERE xdi.issue_date
           TopLeft="246.022843769097,206.011767011695">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,23.316204056666"
               Start="0,0"
               End="0,15.816204056666">
@@ -30015,7 +30015,7 @@ WHERE xdi.issue_date
           TopLeft="1083.23981436584,502.603132719909">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-746.284370020114,0"
               Start="0,0"
               End="-738.784370020114,0">
@@ -30037,7 +30037,7 @@ WHERE xdi.issue_date
           TopLeft="1299.23981436584,675.426475138194">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="75.50713866961,46.7617638666729"
               Start="0,0"
               End="75.50713866961,39.2617638666729">
@@ -30071,7 +30071,7 @@ WHERE xdi.issue_date
           TopLeft="970.575524232897,296.070588943125">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="328.664290132935,28.3558861950693"
               Start="0,0"
               End="328.664290132935,20.8558861950693">
@@ -30105,7 +30105,7 @@ WHERE xdi.issue_date
           TopLeft="232.155444345721,556.379790301624">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-52.3374160480195,35.5633952871182"
               Start="0,0"
               End="-52.3374160480195,28.0633952871182">
@@ -30139,7 +30139,7 @@ WHERE xdi.issue_date
           TopLeft="295.818028297702,944.743185588742">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="72.9263090477396,-133.050275784751"
               Start="0,0"
               End="65.4263090477396,-133.050275784751">
@@ -30173,7 +30173,7 @@ WHERE xdi.issue_date
           TopLeft="613.54433734544,811.69290980399">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="51.1945627003984,159.733521170486"
               Start="0,0"
               End="43.6945627003984,159.733521170486">
@@ -30207,7 +30207,7 @@ WHERE xdi.issue_date
           TopLeft="879.138900045839,971.426430974477">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="53.2454695059469,96.7209170959948"
               Start="0,0"
               End="45.7454695059469,96.7209170959948">
@@ -30241,7 +30241,7 @@ WHERE xdi.issue_date
           TopLeft="1035.28944144509,1267.34734807047">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,38.8418833308906"
               Start="0,0"
               End="0,31.3418833308906">
@@ -30263,7 +30263,7 @@ WHERE xdi.issue_date
           TopLeft="919.394513338393,1326.98923140136">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-619.58940961153,62.287813128122"
               Start="0,0"
               End="-612.08940961153,62.287813128122">
@@ -30297,7 +30297,7 @@ WHERE xdi.issue_date
           TopLeft="199.405103726864,1410.07704452948">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-10.600000596047,28.4313688525701"
               Start="0,0"
               End="-10.600000596047,20.9313688525701">
@@ -30329,7 +30329,7 @@ WHERE xdi.issue_date
         <AnnotationLayout
           Text="Developed by: Marianne Jeffries&#xA;Service desk no.: SD530566&#xA;Purpose: automate load from source JAC database&#xA;Details: see SharePoint Finance Pharmacy Load&#xA;&#xA;Additional requirements:&#xA;03 fields added, extracts updated: Nov-2021&#xA;Extract from JAC amended: Jan-2022&#xA;permissions are not being kept on BIT, filters/Jenkins: Jan-2022&#xA;Extract from JAC amended for duplicate entries to do with the unit of measure: Jan-2022&#xA;Missing demographics: Feb-2022&#xA;Weston patients missing demographic data, script to update: March-2022&#xA;Historical missing values for Bevacizumab, Nivolumab &amp; Venetoclax, script to update: March-2022&#xA;Issue with Finance downstream process to import data, corrected their script: June-2022&#xA;Lloyds outpatients pharmacy data: July-2022&#xA;SD886476 Pharmacy Extract: Dec-2022&#xA;Split PSU drugs for FY: March-2023&#xA;Amend email recipients: March-2023&#xA;SD1110167 Pharmacy Extract: Nov2023&#xA;SD1036030 Pharmacy JAC_CMM patient data change: Jan-2024"
           ParentId="Package"
-          FontInfo="{x:Null}"
+          FontInfo="{assembly:Null}"
           Size="383.2,407.2"
           Id="1a841f25-417a-437c-bd72-738b5cd2a551"
           TopLeft="1536.5786895764,10.9607835558457" />
@@ -30352,7 +30352,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Data Flow from JAC database">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="297.6,41.6"
           Id="Package\Data Flow from JAC database\Destination for finance import pharmacy_WGH"
@@ -30382,7 +30382,7 @@ WHERE xdi.issue_date
           TopLeft="483.200808613173,51.7641509433962">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="18.733153650978,47.8867924528302"
               Start="0,0"
               End="18.733153650978,40.3867924528302">
@@ -30416,7 +30416,7 @@ WHERE xdi.issue_date
           TopLeft="157.158490566038,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,50.7107658050355"
               Start="0,0"
               End="0,43.2107658050355">
@@ -30438,7 +30438,7 @@ WHERE xdi.issue_date
           TopLeft="845.2,55.8352941069223">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="8.59999999999991,45.1647058930777"
               Start="0,0"
               End="8.59999999999991,37.6647058930777">
@@ -30625,7 +30625,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Demographics\Data Flow pharm_adm_ext_demographics_request">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="304.8,44"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request\Source for pharm_adm_ext_demographics_request"
@@ -30661,9 +30661,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30689,9 +30687,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30722,7 +30718,7 @@ WHERE xdi.issue_date
     design-time-name="Package\freeze table\freeze table update">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="176,41.6"
           Id="Package\freeze table\freeze table update\Source for pharmacy"
@@ -30750,7 +30746,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30781,7 +30779,7 @@ WHERE xdi.issue_date
     design-time-name="Package\import to transform table\Data Flow from finance import Boots">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="312.8,41.6"
           Id="Package\import to transform table\Data Flow from finance import Boots\Destination for Boots finance transform pharmacy"
@@ -30829,9 +30827,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30853,9 +30849,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30877,9 +30871,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30915,21 +30907,21 @@ WHERE xdi.issue_date
     design-time-name="Package\import to transform table\Data Flow from finance import UHB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="274,42"
+          Size="273.6,41.6"
           Id="Package\import to transform table\Data Flow from finance import UHB\Source for finance import pharmacy_UHB"
           TopLeft="12.4811320754717,4.5" />
         <NodeLayout
-          Size="254,42"
+          Size="254.4,41.6"
           Id="Package\import to transform table\Data Flow from finance import UHB\Derived Column CATEGORIES UHB"
           TopLeft="38.4245283018868,160.537735849057" />
         <NodeLayout
-          Size="179,42"
+          Size="179.2,41.6"
           Id="Package\import to transform table\Data Flow from finance import UHB\Data Conversion UHB"
           TopLeft="66.5566037735849,82.8611859838275" />
         <NodeLayout
-          Size="307,42"
+          Size="307.2,41.6"
           Id="Package\import to transform table\Data Flow from finance import UHB\Destination for UHB finance transform pharmacy"
           TopLeft="20.0714287903843,244.231885260536" />
         <EdgeLayout
@@ -30963,9 +30955,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30999,9 +30989,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31023,9 +31011,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31273,13 +31259,13 @@ WHERE xdi.issue_date
     design-time-name="Package\outpatient details\Data Flow OP details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="217,42"
+          Size="216.8,41.6"
           Id="Package\outpatient details\Data Flow OP details\Source for dbo tbl_op_details"
           TopLeft="5.5,5.5" />
         <NodeLayout
-          Size="272,42"
+          Size="272,41.6"
           Id="Package\outpatient details\Data Flow OP details\Destination for dbo pharmacy_op_details"
           TopLeft="7.46226415094338,71.9150943396226" />
         <EdgeLayout
@@ -31313,9 +31299,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31346,13 +31330,13 @@ WHERE xdi.issue_date
     design-time-name="Package\outpatient details\Data Flow OP details 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="217,42"
+          Size="216.8,41.6"
           Id="Package\outpatient details\Data Flow OP details 1\Source for dbo tbl_op_details"
           TopLeft="5.5,5.5" />
         <NodeLayout
-          Size="272,42"
+          Size="272,41.6"
           Id="Package\outpatient details\Data Flow OP details 1\Destination for dbo pharmacy_op_details"
           TopLeft="7.46226415094338,71.9150943396226" />
         <EdgeLayout
@@ -31386,9 +31370,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31406,13 +31388,13 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table Boots">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="239,42"
+          Size="239.2,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table Boots\Source for dbo tbl_patient_history"
           TopLeft="40,32" />
         <NodeLayout
-          Size="260,42"
+          Size="260,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table Boots\Destination for dbo tbl_patient_history"
           TopLeft="35,120" />
         <EdgeLayout
@@ -31446,9 +31428,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31479,7 +31459,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table UHB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="239.2,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table UHB\Source for dbo tbl_patient_history"
@@ -31519,9 +31499,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31552,7 +31530,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="260,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds\Destination for dbo tbl_patient_history"
@@ -31584,9 +31562,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31608,9 +31584,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31641,7 +31615,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="260,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history"
@@ -31673,9 +31647,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31697,9 +31669,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31730,13 +31700,13 @@ WHERE xdi.issue_date
     design-time-name="Package\Spell details\Data Flow spell details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="260,42"
+          Size="260,41.6"
           Id="Package\Spell details\Data Flow spell details\Source for dbo pharmacy_spell_details"
           TopLeft="6.51886792452831,5.5" />
         <NodeLayout
-          Size="281,42"
+          Size="280.8,41.6"
           Id="Package\Spell details\Data Flow spell details\Destination for dbo pharmacy_spell_details"
           TopLeft="5.5,79.3867924528302" />
         <EdgeLayout
@@ -31770,9 +31740,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31803,13 +31771,13 @@ WHERE xdi.issue_date
     design-time-name="Package\Spell details\Data Flow spell details 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="260,42"
+          Size="260,41.6"
           Id="Package\Spell details\Data Flow spell details 1\Source for dbo pharmacy_spell_details"
           TopLeft="6.51886792452831,5.5" />
         <NodeLayout
-          Size="281,42"
+          Size="280.8,41.6"
           Id="Package\Spell details\Data Flow spell details 1\Destination for dbo pharmacy_spell_details"
           TopLeft="5.5,79.3867924528302" />
         <EdgeLayout
@@ -31843,9 +31811,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
