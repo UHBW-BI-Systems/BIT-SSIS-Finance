@@ -14,8 +14,8 @@
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="873"
-  DTS:VersionGUID="{48CDBC02-8FC1-4C1C-AC8C-7068AFAF9014}">
+  DTS:VersionBuild="875"
+  DTS:VersionGUID="{8812C08B-5143-4E27-BEA8-4CB683220BC3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -111,7 +111,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">1/6/2024 11:05:32 AM</DTS:VariableValue>
+        DTS:DataType="7">1/26/2024 10:48:14 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -25550,7 +25550,9 @@ ORDER BY
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">--SD1036030_Weston_legacy_numbers: implemented to manage source change from JAC/CMM
+--To be removed in Jan-2025
+SELECT DISTINCT
        xdi.patient_hospitalno,
        CAST(FORMAT(xdi.issue_date, 'yyyyMMdd') AS NUMERIC) AS issue_date,
        xdi.patient_natno,
@@ -30352,7 +30354,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Data Flow from JAC database">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="297.6,41.6"
           Id="Package\Data Flow from JAC database\Destination for finance import pharmacy_WGH"
@@ -30408,7 +30410,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30430,7 +30434,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30464,13 +30470,15 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Next steps:&#xA;&#xA;- To configure each source, double-click the source.&#xA;- To indicate the flow of data, drag the green output arrows from the sources to the destinations.&#xA;To configure each destination, double-click each destination."
           ParentId="Package\Data Flow from JAC database"
-          Size="489.6,105.6"
+          Size="489.6,NaN"
           Id="04716c66-af32-4207-8065-1e244b343062"
           TopLeft="312.912398933997,377.470033264163">
           <AnnotationLayout.FontInfo>
@@ -30554,7 +30562,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Data Flow from transform pharmacy">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="216,41.6"
           Id="Package\Data Flow from transform pharmacy\Source for Finance pharmacy"
@@ -30594,7 +30602,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30625,7 +30635,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Demographics\Data Flow pharm_adm_ext_demographics_request">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="304.8,44"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request\Source for pharm_adm_ext_demographics_request"
@@ -30661,7 +30671,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30687,7 +30699,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30779,7 +30793,7 @@ WHERE xdi.issue_date
     design-time-name="Package\import to transform table\Data Flow from finance import Boots">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="312.8,41.6"
           Id="Package\import to transform table\Data Flow from finance import Boots\Destination for Boots finance transform pharmacy"
@@ -30827,7 +30841,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30849,7 +30865,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30871,7 +30889,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30907,7 +30927,7 @@ WHERE xdi.issue_date
     design-time-name="Package\import to transform table\Data Flow from finance import UHB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="273.6,41.6"
           Id="Package\import to transform table\Data Flow from finance import UHB\Source for finance import pharmacy_UHB"
@@ -30955,7 +30975,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30989,7 +31011,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31011,7 +31035,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31259,41 +31285,29 @@ WHERE xdi.issue_date
     design-time-name="Package\outpatient details\Data Flow OP details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="216.8,41.6"
           Id="Package\outpatient details\Data Flow OP details\Source for dbo tbl_op_details"
-          TopLeft="5.5,5.5" />
+          TopLeft="44.5,56.5" />
         <NodeLayout
           Size="272,41.6"
           Id="Package\outpatient details\Data Flow OP details\Destination for dbo pharmacy_op_details"
-          TopLeft="7.46226415094338,71.9150943396226" />
+          TopLeft="16.4622641509434,121.915094339623" />
         <EdgeLayout
           Id="Package\outpatient details\Data Flow OP details.Paths[OLE DB Source Output]"
-          TopLeft="113.9,47.1">
+          TopLeft="152.681132075472,98.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="29.5622641509434,24.8150943396226"
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.8150943396226"
               Start="0,0"
-              End="29.5622641509434,17.3150943396226">
+              End="0,16.3150943396226">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.4075471698113" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.4075471698113"
-                    Point2="0,12.4075471698113"
-                    Point3="4,12.4075471698113" />
-                  <mssgle:LineSegment
-                    End="25.5622641509434,12.4075471698113" />
-                  <mssgle:CubicBezierSegment
-                    Point1="25.5622641509434,12.4075471698113"
-                    Point2="29.5622641509434,12.4075471698113"
-                    Point3="29.5622641509434,16.4075471698113" />
-                  <mssgle:LineSegment
-                    End="29.5622641509434,17.3150943396226" />
+                    End="0,16.3150943396226" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -31302,6 +31316,13 @@ WHERE xdi.issue_date
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="To be removed in Jan-2025"
+          ParentId="Package\outpatient details\Data Flow OP details"
+          FontInfo="{assembly:Null}"
+          Size="175.2,40"
+          Id="07e47d49-bb3d-43ac-bcc1-26d4ff514a47"
+          TopLeft="63.5,0.515094339622635" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -31330,7 +31351,7 @@ WHERE xdi.issue_date
     design-time-name="Package\outpatient details\Data Flow OP details 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="216.8,41.6"
           Id="Package\outpatient details\Data Flow OP details 1\Source for dbo tbl_op_details"
@@ -31344,7 +31365,7 @@ WHERE xdi.issue_date
           TopLeft="113.9,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="29.5622641509434,24.8150943396226"
               Start="0,0"
               End="29.5622641509434,17.3150943396226">
@@ -31388,7 +31409,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table Boots">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="239.2,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table Boots\Source for dbo tbl_patient_history"
@@ -31428,7 +31449,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31459,7 +31482,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table UHB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="239.2,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table UHB\Source for dbo tbl_patient_history"
@@ -31499,7 +31522,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31530,7 +31555,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="260,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds\Destination for dbo tbl_patient_history"
@@ -31548,7 +31573,7 @@ WHERE xdi.issue_date
           TopLeft="160.25,74">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,38"
               Start="0,0"
               End="0,30.5">
@@ -31570,7 +31595,7 @@ WHERE xdi.issue_date
           TopLeft="160,154">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,38"
               Start="0,0"
               End="0,30.5">
@@ -31615,25 +31640,25 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="260,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history"
-          TopLeft="31,192" />
+          TopLeft="23,203.058824301591" />
         <NodeLayout
           Size="155.2,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Data Conversion"
-          TopLeft="81,112" />
+          TopLeft="73,123.058824301591" />
         <NodeLayout
           Size="220.8,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Source for dbo patient_history"
-          TopLeft="51,32" />
+          TopLeft="43,43.058824301591" />
         <EdgeLayout
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1.Paths[OLE DB Source Output]"
-          TopLeft="160,73.6">
+          TopLeft="152,84.658824301591">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,38.4"
               Start="0,0"
               End="0,30.9">
@@ -31652,10 +31677,10 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1.Paths[Data Conversion Output]"
-          TopLeft="159.8,153.6">
+          TopLeft="151.8,164.658824301591">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,38.4"
               Start="0,0"
               End="0,30.9">
@@ -31672,6 +31697,13 @@ WHERE xdi.issue_date
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="To be removed in Jan-2025"
+          ParentId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1"
+          FontInfo="{assembly:Null}"
+          Size="172,60"
+          Id="f053c330-fd6a-4ea0-9d08-c9b52e692f20"
+          TopLeft="63.5714296540434,0.764705893077632" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -31700,21 +31732,21 @@ WHERE xdi.issue_date
     design-time-name="Package\Spell details\Data Flow spell details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="260,41.6"
           Id="Package\Spell details\Data Flow spell details\Source for dbo pharmacy_spell_details"
-          TopLeft="6.51886792452831,5.5" />
+          TopLeft="6.51886792452834,43.1923076923077" />
         <NodeLayout
           Size="280.8,41.6"
           Id="Package\Spell details\Data Flow spell details\Destination for dbo pharmacy_spell_details"
-          TopLeft="5.5,79.3867924528302" />
+          TopLeft="5.50000000000003,117.079100145138" />
         <EdgeLayout
           Id="Package\Spell details\Data Flow spell details.Paths[OLE DB Source Output]"
-          TopLeft="136.518867924528,47.1">
+          TopLeft="136.518867924528,84.7923076923077">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="9.3811320754717,32.2867924528302"
               Start="0,0"
               End="9.3811320754717,24.7867924528302">
@@ -31743,6 +31775,13 @@ WHERE xdi.issue_date
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="To be removed in Jan-2025"
+          ParentId="Package\Spell details\Data Flow spell details"
+          FontInfo="{assembly:Null}"
+          Size="172,40"
+          Id="d4d8838d-3e20-4a44-8248-2907bad66dfb"
+          TopLeft="43.5384615384617,0.461538461538442" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -31771,7 +31810,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Spell details\Data Flow spell details 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="260,41.6"
           Id="Package\Spell details\Data Flow spell details 1\Source for dbo pharmacy_spell_details"
@@ -31785,7 +31824,7 @@ WHERE xdi.issue_date
           TopLeft="136.518867924528,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="9.3811320754717,32.2867924528302"
               Start="0,0"
               End="9.3811320754717,24.7867924528302">
