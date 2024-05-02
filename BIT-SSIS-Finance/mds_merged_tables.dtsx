@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_merged_tables"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{6F5CDBF8-A27F-4E46-A353-734481501285}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{BA51B02E-7586-47A6-A82E-EDE2BEAE8531}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -362,10 +362,10 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager - NotTrustRecord]"
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager - NonTrustRecord]"
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{b77722a2-add7-4045-a949-34b2f135b724}"
-      DTS:ObjectName="Flat File Connection Manager - NotTrustRecord">
+      DTS:ObjectName="Flat File Connection Manager - NonTrustRecord">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -375,7 +375,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="\\ubht.nhs.uk\shares\BI\Dataload\SUS\Logs\MDS_NotRA7Records.csv">
+          DTS:ConnectionString="\\ubht.nhs.uk\shares\BI\Dataload\SUS\Logs\MDS_NonRA7Records.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -384,7 +384,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="extract_name"
-              DTS:DTSID="{BE56C134-581E-4189-B8A5-0DAE34269002}"
+              DTS:DTSID="{166052B1-57F8-498E-92D2-80375C7B2B5A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -393,7 +393,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="spell_identifier"
-              DTS:DTSID="{750F6F01-C827-4CE7-8F46-0E156E454D9A}"
+              DTS:DTSID="{E6E39707-1861-4B1C-90E7-0C386B59D702}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -402,7 +402,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="hospital_provider_spell_no"
-              DTS:DTSID="{BE6C6273-9D10-4CD5-A0B1-50AEC590BF01}"
+              DTS:DTSID="{9AB689D9-55ED-4693-B4FB-2E54196CDBA3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -411,7 +411,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="epi_unique_cds_identifier"
-              DTS:DTSID="{771FC934-E76A-40C6-BB0E-5D2519755FBC}"
+              DTS:DTSID="{51AAA893-0BCA-4DEB-AF79-81CBB7B973B3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -420,7 +420,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="epi_cds_record_type"
-              DTS:DTSID="{53827C2D-8BA9-448E-B229-40EC62AFB626}"
+              DTS:DTSID="{3D732A97-B18A-4169-A860-CC3CDAA5ADD6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -429,7 +429,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="opa_attendance_identifier"
-              DTS:DTSID="{A3D5A4F5-545D-42B1-803F-E11DAE2C3F16}"
+              DTS:DTSID="{2BB51C4F-929F-483A-93F0-959743C754C1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -438,7 +438,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="opa_generated_record_id"
-              DTS:DTSID="{5CCBBEE5-FDCE-4C94-A664-38EC8127B63C}"
+              DTS:DTSID="{20227C76-5184-4BC8-886B-B993921D15CE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -447,7 +447,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="rejection_reason"
-              DTS:DTSID="{27EB9A75-57BE-41E0-9BF2-2EB29C18456E}"
+              DTS:DTSID="{061487A0-4368-4851-8B6D-ECE6CE7E0A19}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -456,7 +456,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="rejection_notes"
-              DTS:DTSID="{2DC7EC22-E2F9-47B1-BE08-CAC9D68EF592}"
+              DTS:DTSID="{67C38221-507E-46F2-9AED-B951EA72FBB0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -465,7 +465,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="insert_dttm"
-              DTS:DTSID="{1E0EF2DF-9BC8-4C84-B06F-7CEE496D5B36}"
+              DTS:DTSID="{357EFB27-B716-437D-A3DF-DDFED2931677}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -2145,8 +2145,8 @@
               <connections>
                 <connection
                   refId="Package\export NotRa7 Records\Flat File Destination.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager - NotTrustRecord]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager - NotTrustRecord]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager - NonTrustRecord]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager - NonTrustRecord]"
                   name="FlatFileConnection" />
               </connections>
               <inputs>
@@ -3096,7 +3096,7 @@
     design-time-name="Package\export duplicates">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170,42"
           Id="Package\export duplicates\Flat File Destination"
@@ -3136,7 +3136,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

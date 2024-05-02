@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_import_to_slam"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{64648136-B6CB-427F-8ABE-EF05B6834D24}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{E913EB91-B665-45EC-97BB-6EB018A69953}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -10794,7 +10794,7 @@
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gp_practice_code_original_data]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="6"
+                          cachedLength="8"
                           cachedName="gp_practice_code_original_data"
                           externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gp_practice_code_original_data]"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[gp_practice_code_original_data]" />
@@ -10810,7 +10810,7 @@
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[referring_organisation_code]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="6"
+                          cachedLength="8"
                           cachedName="referring_organisation_code"
                           externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[referring_organisation_code]"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[referring_organisation_code]" />
@@ -10990,9 +10990,7 @@
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_ncc_pcc_adjusted_length_of_stay]" />
                         <inputColumn
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pbr_final_adjusted_length_of_stay]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="4"
+                          cachedDataType="i4"
                           cachedName="pbr_final_adjusted_length_of_stay"
                           externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pbr_final_adjusted_length_of_stay]"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_final_adjusted_length_of_stay]" />
@@ -11084,9 +11082,7 @@
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[careflow_hdm_modif_dttm]" />
                         <inputColumn
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[number_bpt_indicators]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="10"
+                          cachedDataType="i2"
                           cachedName="number_bpt_indicators"
                           externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_bpt_indicators]"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[number_bpt_indicators]" />
@@ -11496,7 +11492,7 @@
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gp_practice_code_original_data]"
                           codePage="1252"
                           dataType="str"
-                          length="6"
+                          length="8"
                           name="gp_practice_code_original_data" />
                         <externalMetadataColumn
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[referrer_code]"
@@ -11508,7 +11504,7 @@
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[referring_organisation_code]"
                           codePage="1252"
                           dataType="str"
-                          length="6"
+                          length="8"
                           name="referring_organisation_code" />
                         <externalMetadataColumn
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sha_provider]"
@@ -12319,7 +12315,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gp_practice_code_original_data]"
-                          length="6"
+                          length="8"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[gp_practice_code_original_data]"
                           name="gp_practice_code_original_data"
                           truncationRowDisposition="FailComponent" />
@@ -12341,7 +12337,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[referring_organisation_code]"
-                          length="6"
+                          length="8"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[referring_organisation_code]"
                           name="referring_organisation_code"
                           truncationRowDisposition="FailComponent" />
@@ -12590,12 +12586,10 @@
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_final_adjusted_length_of_stay]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="i4"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pbr_final_adjusted_length_of_stay]"
-                          length="4"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[pbr_final_adjusted_length_of_stay]"
                           name="pbr_final_adjusted_length_of_stay"
                           truncationRowDisposition="FailComponent" />
@@ -12723,12 +12717,10 @@
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[number_bpt_indicators]"
-                          codePage="1252"
-                          dataType="str"
+                          dataType="i2"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[number_bpt_indicators]"
-                          length="10"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[number_bpt_indicators]"
                           name="number_bpt_indicators"
                           truncationRowDisposition="FailComponent" />
@@ -13219,7 +13211,7 @@
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gp_practice_code_original_data]"
                           codePage="1252"
                           dataType="str"
-                          length="6"
+                          length="8"
                           name="gp_practice_code_original_data" />
                         <externalMetadataColumn
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[referrer_code]"
@@ -13231,7 +13223,7 @@
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[referring_organisation_code]"
                           codePage="1252"
                           dataType="str"
-                          length="6"
+                          length="8"
                           name="referring_organisation_code" />
                         <externalMetadataColumn
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sha_provider]"
@@ -13821,7 +13813,7 @@
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gp_practice_code_original_data]"
                           codePage="1252"
                           dataType="str"
-                          length="6"
+                          length="8"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gp_practice_code_original_data]"
                           name="gp_practice_code_original_data" />
                         <outputColumn
@@ -13835,7 +13827,7 @@
                           refId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[referring_organisation_code]"
                           codePage="1252"
                           dataType="str"
-                          length="6"
+                          length="8"
                           lineageId="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[referring_organisation_code]"
                           name="referring_organisation_code" />
                         <outputColumn
@@ -14393,7 +14385,7 @@
           PanelSize="234,182"
           Size="234,225"
           Id="Package\Insert Merged ED to SLAM"
-          TopLeft="866.666632228429,115.266667582724" />
+          TopLeft="875.666632228429,176.266667582724" />
         <NodeLayout
           Size="186,42"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM"
@@ -14430,7 +14422,7 @@
           PanelSize="245,177"
           Size="245,220"
           Id="Package\Insert Merged Episodes to SLAM"
-          TopLeft="289.999988476435,110.066667541397" />
+          TopLeft="294.999988476435,188.066667541397" />
         <NodeLayout
           Size="186,42"
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM"
@@ -14467,7 +14459,7 @@
           PanelSize="234,182"
           Size="234,225"
           Id="Package\Insert Merged OPA to SLAM"
-          TopLeft="580.833310253091,109.200000867844" />
+          TopLeft="582.833310253091,183.200000867844" />
         <NodeLayout
           Size="186,42"
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM"
@@ -14504,21 +14496,21 @@
           PanelSize="224,186"
           Size="224,229"
           Id="Package\Insert Merged Spells to SLAM"
-          TopLeft="23.3333324061502,105.733334173627" />
+          TopLeft="20.3333324061502,178.733334173627" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="247.33333240615,220.100000857512">
+          TopLeft="244.33333240615,295.650000857512">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="42.6666560702849,0"
+              EndConnector="50.6666560702848,0"
               Start="0,0"
-              End="35.1666560702849,0">
+              End="43.1666560702848,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="35.1666560702849,0" />
+                    End="43.1666560702848,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14529,18 +14521,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="534.799988476435,220.83333420462">
+          TopLeft="539.999988476435,296.883334204621">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="46.0333217766563,0"
+              EndConnector="42.833321776656,0"
               Start="0,0"
-              End="38.5333217766563,0">
+              End="35.333321776656,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="38.5333217766563,0" />
+                    End="35.333321776656,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14551,18 +14543,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="814.433310253091,224.633334225284">
+          TopLeft="816.833310253091,292.233334225284">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="52.2333219753374,0"
+              EndConnector="58.833321975338,0"
               Start="0,0"
-              End="44.7333219753374,0">
+              End="51.333321975338,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="44.7333219753374,0" />
+                    End="51.333321975338,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14585,7 +14577,7 @@
     design-time-name="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152,42"
           Id="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source"
@@ -14625,7 +14617,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14819,7 +14813,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,42"
+          Size="157,42"
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source"
           TopLeft="95.833329525259,63.266667169465" />
         <NodeLayout
@@ -14828,13 +14822,13 @@
           TopLeft="109.999995628993,221.866668429905" />
         <EdgeLayout
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM.Paths[OLE DB Source Output]"
-          TopLeft="171.833329525259,105.266667169465">
+          TopLeft="174.333329525259,105.266667169465">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="26.666666103734,116.60000126044"
+              EndConnector="24.166666103734,116.60000126044"
               Start="0,0"
-              End="26.666666103734,109.10000126044">
+              End="24.166666103734,109.10000126044">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -14845,13 +14839,13 @@
                     Point2="0,58.30000063022"
                     Point3="4,58.30000063022" />
                   <mssgle:LineSegment
-                    End="22.666666103734,58.30000063022" />
+                    End="20.166666103734,58.30000063022" />
                   <mssgle:CubicBezierSegment
-                    Point1="22.666666103734,58.30000063022"
-                    Point2="26.666666103734,58.30000063022"
-                    Point3="26.666666103734,62.30000063022" />
+                    Point1="20.166666103734,58.30000063022"
+                    Point2="24.166666103734,58.30000063022"
+                    Point3="24.166666103734,62.30000063022" />
                   <mssgle:LineSegment
-                    End="26.666666103734,109.10000126044" />
+                    End="24.166666103734,109.10000126044" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
