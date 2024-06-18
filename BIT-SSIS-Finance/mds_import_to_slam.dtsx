@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\marshsylz"
   DTS:DTSID="{B70DBF4B-B7C3-40A3-B823-FF565A802D2A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LastModifiedProductVersion="15.0.2000.128"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_import_to_slam"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{E913EB91-B665-45EC-97BB-6EB018A69953}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{F2414C12-74E2-47FC-9990-5044FFAB6279}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,8 +24,6 @@
       DTS:ObjectName="Finance">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -36,8 +34,6 @@
       DTS:ObjectName="SLAM.DataSource">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=SLAM;Initial Catalog=DataSource;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -402,7 +398,7 @@
                           refId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[derived_commissioner_type]"
                           cachedCodepage="1252"
                           cachedDataType="str"
-                          cachedLength="50"
+                          cachedLength="70"
                           cachedName="derived_commissioner_type"
                           externalMetadataColumnId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[derived_commissioner_type]"
                           lineageId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[derived_commissioner_type]" />
@@ -927,7 +923,7 @@
                           refId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[derived_commissioner_type]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="70"
                           name="derived_commissioner_type" />
                         <externalMetadataColumn
                           refId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_diagnosis]"
@@ -1624,7 +1620,7 @@
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[derived_commissioner_type]"
-                          length="50"
+                          length="70"
                           lineageId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[derived_commissioner_type]"
                           name="derived_commissioner_type"
                           truncationRowDisposition="FailComponent" />
@@ -2284,7 +2280,7 @@
                           refId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[derived_commissioner_type]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="70"
                           name="derived_commissioner_type" />
                         <externalMetadataColumn
                           refId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[number_diagnosis]"
@@ -2764,7 +2760,7 @@
                           refId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[derived_commissioner_type]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="70"
                           lineageId="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[derived_commissioner_type]"
                           name="derived_commissioner_type" />
                         <outputColumn
@@ -14350,11 +14346,11 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="186,42"
+          Size="185.6,41.6"
           Id="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM"
           TopLeft="31.7666366987769,84.9333339256713" />
         <NodeLayout
-          Size="187,42"
+          Size="187.2,41.6"
           Id="Package\Insert Merged ED to SLAM\Truncate SLAM mds ed"
           TopLeft="28.4333034978985,9.46666871918575" />
         <EdgeLayout
@@ -14382,16 +14378,16 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="234,182"
-          Size="234,225"
+          PanelSize="233.6,182.4"
+          Size="233.6,224.8"
           Id="Package\Insert Merged ED to SLAM"
           TopLeft="875.666632228429,176.266667582724" />
         <NodeLayout
-          Size="186,42"
+          Size="185.6,41.6"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM"
           TopLeft="23.2999832113591,80.200002582868" />
         <NodeLayout
-          Size="212,42"
+          Size="212,41.6"
           Id="Package\Insert Merged Episodes to SLAM\Truncate SLAM mds episode"
           TopLeft="17.4666501098214,12.6000020456314" />
         <EdgeLayout
@@ -14419,16 +14415,16 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="245,177"
-          Size="245,220"
+          PanelSize="244.8,176.8"
+          Size="244.8,220"
           Id="Package\Insert Merged Episodes to SLAM"
           TopLeft="294.999988476435,188.066667541397" />
         <NodeLayout
-          Size="186,42"
+          Size="185.6,41.6"
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM"
           TopLeft="31.7666366987769,84.9333339256713" />
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\Insert Merged OPA to SLAM\Truncate SLAM mds opa"
           TopLeft="28.4333034978985,9.46666871918575" />
         <EdgeLayout
@@ -14456,16 +14452,16 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="234,182"
-          Size="234,225"
+          PanelSize="233.6,182.4"
+          Size="233.6,224.8"
           Id="Package\Insert Merged OPA to SLAM"
           TopLeft="582.833310253091,183.200000867844" />
         <NodeLayout
-          Size="186,42"
+          Size="185.6,41.6"
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM"
           TopLeft="15.2666634215252,88.8000026448569" />
         <NodeLayout
-          Size="198,42"
+          Size="198.4,41.6"
           Id="Package\Insert Merged Spells to SLAM\Truncate SLAM mds spell"
           TopLeft="15.266663421525,12.533335372077" />
         <EdgeLayout
@@ -14493,8 +14489,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="224,186"
-          Size="224,229"
+          PanelSize="224,185.6"
+          Size="224,228.8"
           Id="Package\Insert Merged Spells to SLAM"
           TopLeft="20.3333324061502,178.733334173627" />
         <EdgeLayout
@@ -14567,7 +14563,7 @@
           Text="Finance connection string not parametized, we can't load test data to slam."
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="425,40"
+          Size="424.8,40"
           Id="d8b40317-2776-4fe9-951d-d5ce35e8af6c"
           TopLeft="205.833325154252,492.266670578851" />
       </GraphLayout>
@@ -14577,13 +14573,13 @@
     design-time-name="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,42"
+          Size="152,41.6"
           Id="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source"
           TopLeft="171.666659845247,67.6000005372366" />
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Destination"
           TopLeft="181.666659447882,246.133335289425" />
         <EdgeLayout
@@ -14617,9 +14613,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14811,7 +14805,7 @@
     design-time-name="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source"
@@ -14851,7 +14845,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
