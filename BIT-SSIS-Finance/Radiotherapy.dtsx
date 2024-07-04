@@ -12,8 +12,8 @@
   DTS:ObjectName="Radiotherapy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="118"
-  DTS:VersionGUID="{F4A35624-C726-4F44-AEC7-A090DA2E5819}">
+  DTS:VersionBuild="128"
+  DTS:VersionGUID="{E435A223-08E3-40C9-A303-B7142F0D6F65}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -54,7 +54,7 @@
       DTS:ObjectName="Excel Connection Manager 2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ChiltonMic\Downloads\Radiotherapy_Fractions_2024_04.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\ChiltonMic\Downloads\Radiotherapy_Fractions_2024_04.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -554,7 +554,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="adm_cur_period (temp)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1300,6 +1300,20 @@
                       cachedName="ubrn"
                       externalMetadataColumnId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ubrn]"
                       lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[ubrn]" />
+                    <inputColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[icb_of_res]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="icb_of_res"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[icb_of_res]"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[icb_of_res]" />
+                    <inputColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ethnic_category_code_nat]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="ethnic_category_code_nat"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_category_code_nat]"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[ethnic_category_code_nat]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1525,6 +1539,16 @@
                       dataType="wstr"
                       length="10"
                       name="ubrn" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[icb_of_res]"
+                      dataType="wstr"
+                      length="5"
+                      name="icb_of_res" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_category_code_nat]"
+                      dataType="wstr"
+                      length="25"
+                      name="ethnic_category_code_nat" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1870,6 +1894,26 @@
                       lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[ubrn]"
                       name="ubrn"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[icb_of_res]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[icb_of_res]"
+                      length="5"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[icb_of_res]"
+                      name="icb_of_res"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[ethnic_category_code_nat]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ethnic_category_code_nat]"
+                      length="25"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[ethnic_category_code_nat]"
+                      name="ethnic_category_code_nat"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1999,6 +2043,16 @@
                       dataType="wstr"
                       length="36"
                       name="ubrn" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[icb_of_res]"
+                      dataType="wstr"
+                      length="5"
+                      name="icb_of_res" />
+                    <externalMetadataColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ethnic_category_code_nat]"
+                      dataType="wstr"
+                      length="25"
+                      name="ethnic_category_code_nat" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2065,6 +2119,12 @@
                       lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cons_spec]"
                       name="cons_spec" />
                     <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ethnic_category_code_nat]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ethnic_category_code_nat]"
+                      name="ethnic_category_code_nat" />
+                    <outputColumn
                       refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ethnic_category_code]"
                       dataType="wstr"
                       length="25"
@@ -2118,6 +2178,12 @@
                       length="36"
                       lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ubrn]"
                       name="ubrn" />
+                    <outputColumn
+                      refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[icb_of_res]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[icb_of_res]"
+                      name="icb_of_res" />
                     <outputColumn
                       refId="Package\Careflow to Finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[priority_natcode]"
                       dataType="wstr"
@@ -2190,7 +2256,6 @@
       DTS:refId="Package\Careflow to Finance 1"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{6807a6f8-580d-416b-82ce-10f9286f810d}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -9582,10 +9647,26 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\PAS GK Match"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ab517d6e-00ad-4867-92c5-88dd76b1558e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PAS GK Match"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{774F3A1A-CBEF-4A91-BB0A-9191014C7B4C}"
+          SQLTask:SqlStatementSource="EXEC  dbo.radiotherapy_pas_gk_match" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\PAS Match"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
       DTS:DTSID="{8C36BC59-0A6D-4A51-895D-E3B6C1E1AA61}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -9597,6 +9678,23 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{774F3A1A-CBEF-4A91-BB0A-9191014C7B4C}"
           SQLTask:SqlStatementSource="EXEC  dbo.radiotherapy_pas_match" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PAS Match 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{cc31e4ed-e76b-4ac6-a70b-e09ca357b2ef}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PAS Match 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{774F3A1A-CBEF-4A91-BB0A-9191014C7B4C}"
+          SQLTask:SqlStatementSource="EXEC  dbo.radiotherapy_pas_brachy_match" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -12055,6 +12153,24 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\truncate table radiotherapy_careflow_ops 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{a76de595-d0be-4b33-a631-33e168af7311}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table radiotherapy_careflow_ops 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{774F3A1A-CBEF-4A91-BB0A-9191014C7B4C}"
+          SQLTask:SqlStatementSource="truncate table [import].[radiotherapy_careflow_epi]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\update radiotherapy table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -12140,10 +12256,34 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 16]"
       DTS:CreationName=""
-      DTS:DTSID="{7B51FADD-D168-4BCD-A0B1-BDAC0CD22D9F}"
+      DTS:DTSID="{61625B46-92FF-4D45-87FD-C0789343B46B}"
       DTS:From="Package\PAS Match"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 16"
+      DTS:To="Package\PAS GK Match" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 17]"
+      DTS:CreationName=""
+      DTS:DTSID="{1A2A638D-5AFD-4687-ACBB-DB7FA450957D}"
+      DTS:From="Package\truncate table radiotherapy_careflow_ops 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 17"
+      DTS:To="Package\Careflow to Finance 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 18]"
+      DTS:CreationName=""
+      DTS:DTSID="{7715F6BD-D1CC-4465-B370-E66858528931}"
+      DTS:From="Package\PAS GK Match"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 18"
+      DTS:To="Package\PAS Match 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 19]"
+      DTS:CreationName=""
+      DTS:DTSID="{F5D15999-24D6-4DC8-AC4B-CA0DAF8AE84E}"
+      DTS:From="Package\PAS Match 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 19"
       DTS:To="Package\PAS Feed" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
@@ -12237,7 +12377,7 @@
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\Careflow to Finance 1"
-          TopLeft="617.142867652738,237.82353274715" />
+          TopLeft="312.857148185069,377.76471118036" />
         <NodeLayout
           Size="207.2,41.6"
           Id="Package\EXEC radiotherapy_exclude"
@@ -12259,6 +12399,10 @@
           Id="Package\import radiotherapy file"
           TopLeft="44.071429228296,174.500002370162" />
         <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\import radiotherapy file 1"
+          TopLeft="50.7142865779449,117.000001640881" />
+        <NodeLayout
           Size="161.6,41.6"
           Id="Package\Load Grouper File"
           TopLeft="518.357151591048,11.6176471446218" />
@@ -12269,7 +12413,7 @@
         <NodeLayout
           Size="122.4,41.6"
           Id="Package\PAS Feed"
-          TopLeft="560.500009451594,275.676473269413" />
+          TopLeft="563.357152357394,420.205887061089" />
         <NodeLayout
           Size="128,41.6"
           Id="Package\PAS Match"
@@ -12293,7 +12437,7 @@
         <NodeLayout
           Size="177.6,41.6"
           Id="Package\truncate import table"
-          TopLeft="46.2142843640576,69.6764698053314" />
+          TopLeft="51.2142844492071,65.8529403399431" />
         <NodeLayout
           Size="172,42.4"
           Id="Package\truncate table radiotherapy_careflow_ops"
@@ -12414,18 +12558,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="137.444658781582,47.1">
+          TopLeft="40.6750331991056,26.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,22.5764698053314"
+              EndConnector="10.5392512501015,54.7529403399431"
               Start="0,0"
-              End="0,15.0764698053314">
+              End="3.0392512501015,54.7529403399431">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.0764698053314" />
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,50.7529403399431" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,50.7529403399431"
+                    Point2="-22.5,54.7529403399431"
+                    Point3="-18.5,54.7529403399431" />
+                  <mssgle:LineSegment
+                    End="3.0392512501015,54.7529403399431" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12479,19 +12635,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 16]"
-          TopLeft="619.885723682569,252.805885237889">
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="51.2142844492071,92.2529403399431">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,22.8705880315244"
+              EndConnector="-0.499997871262181,45.5470613009379"
               Start="0,0"
-              End="0,15.3705880315244">
+              End="-7.99999787126218,45.5470613009379">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.3705880315244" />
+                    End="-18.9999978712622,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.9999978712622,0"
+                    Point2="-22.9999978712622,0"
+                    Point3="-22.9999978712622,4" />
+                  <mssgle:LineSegment
+                    End="-22.9999978712622,41.5470613009379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.9999978712622,41.5470613009379"
+                    Point2="-22.9999978712622,45.5470613009379"
+                    Point3="-18.9999978712622,45.5470613009379" />
+                  <mssgle:LineSegment
+                    End="-7.99999787126218,45.5470613009379" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12526,6 +12694,40 @@
                     Point3="8.02857136775054,16.8470592954163" />
                   <mssgle:LineSegment
                     End="8.02857136775054,18.1941185908326" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="239.514286577945,137.800001640881">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-6.64285734964886,57.5000007292808"
+              Start="0,0"
+              End="0.857142650351136,57.5000007292808">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,4" />
+                  <mssgle:LineSegment
+                    End="22.5,53.5000007292808" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,53.5000007292808"
+                    Point2="22.5,57.5000007292808"
+                    Point3="18.5,57.5000007292808" />
+                  <mssgle:LineSegment
+                    End="0.857142650351136,57.5000007292808" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12663,18 +12865,48 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="188.8,41.6"
-          Id="Package\import radiotherapy file 1"
-          TopLeft="50.7142865779449,117.000001640881" />
+          Size="172,42.4"
+          Id="Package\truncate table radiotherapy_careflow_ops 1"
+          TopLeft="56.9285723043949,370.776474363334" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="46.2142843640576,90.4764698053314">
+          Id="Package.PrecedenceConstraints[Constraint 17]"
+          TopLeft="228.928572304395,395.270592771847">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="4.50000221388727,47.3235318355495"
+              EndConnector="83.9285758806739,0"
               Start="0,0"
-              End="-2.99999778611273,47.3235318355495">
+              End="76.4285758806739,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="76.4285758806739,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\PAS GK Match"
+          TopLeft="558.357152272244,270.600002370161" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\PAS Match 2"
+          TopLeft="564.071438083844,336.364709174839" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 16]"
+          TopLeft="554.071437913545,232.005885237889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="4.28571435869924,59.3941171322723"
+              Start="0,0"
+              End="-3.21428564130076,59.3941171322723">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -12685,13 +12917,13 @@
                     Point2="-22.5,0"
                     Point3="-22.5,4" />
                   <mssgle:LineSegment
-                    End="-22.5,43.3235318355495" />
+                    End="-22.5,55.3941171322723" />
                   <mssgle:CubicBezierSegment
-                    Point1="-22.5,43.3235318355495"
-                    Point2="-22.5,47.3235318355495"
-                    Point3="-18.5,47.3235318355495" />
+                    Point1="-22.5,55.3941171322723"
+                    Point2="-22.5,59.3941171322723"
+                    Point3="-18.5,59.3941171322723" />
                   <mssgle:LineSegment
-                    End="-2.99999778611273,47.3235318355495" />
+                    End="-3.21428564130076,59.3941171322723" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12701,31 +12933,53 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="239.514286577945,137.800001640881">
+          Id="Package.PrecedenceConstraints[Constraint 18]"
+          TopLeft="631.814295178044,312.200002370161">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-6.64285734964886,57.5000007292808"
+              EndConnector="0,24.1647068046781"
               Start="0,0"
-              End="0.857142650351136,57.5000007292808">
+              End="0,16.6647068046781">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
+                    End="0,16.6647068046781" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 19]"
+          TopLeft="632.871438083843,377.964709174839">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.31428572644961,42.2411778862501"
+              Start="0,0"
+              End="-8.31428572644961,34.7411778862501">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="22.5,53.5000007292808" />
+                    End="0,17.120588943125" />
                   <mssgle:CubicBezierSegment
-                    Point1="22.5,53.5000007292808"
-                    Point2="22.5,57.5000007292808"
-                    Point3="18.5,57.5000007292808" />
+                    Point1="0,17.120588943125"
+                    Point2="0,21.120588943125"
+                    Point3="-4,21.120588943125" />
                   <mssgle:LineSegment
-                    End="0.857142650351136,57.5000007292808" />
+                    End="-4.31428572644961,21.120588943125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.31428572644961,21.120588943125"
+                    Point2="-8.31428572644961,21.120588943125"
+                    Point3="-8.31428572644961,25.120588943125" />
+                  <mssgle:LineSegment
+                    End="-8.31428572644961,34.7411778862501" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12868,7 +13122,7 @@
     design-time-name="Package\Careflow to Finance 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Careflow to Finance 1\OLE DB Source"
@@ -12908,9 +13162,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13019,7 +13271,7 @@
     design-time-name="Package\import radiotherapy file">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="138.4,41.6"
           Id="Package\import radiotherapy file\Excel Source"
@@ -13047,7 +13299,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -13068,6 +13322,72 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\import radiotherapy file\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\import radiotherapy file 1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\import radiotherapy file 1\OLE DB Destination"
+          TopLeft="7.64285666845281,95.9117655531346" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\import radiotherapy file 1\Excel Source"
+          TopLeft="26.2142860670479,5.5" />
+        <EdgeLayout
+          Id="Package\import radiotherapy file 1.Paths[Excel Source Output]"
+          TopLeft="94.1285713677504,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.8117655531346"
+              Start="0,0"
+              End="0,41.3117655531346">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.3117655531346" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\import radiotherapy file 1\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\import radiotherapy file 1\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -13329,70 +13649,6 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Produce Grouper File\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\import radiotherapy file 1">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\import radiotherapy file 1\Excel Source"
-          TopLeft="26.2142860670479,5.5" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\import radiotherapy file 1\OLE DB Destination"
-          TopLeft="7.64285666845281,95.9117655531346" />
-        <EdgeLayout
-          Id="Package\import radiotherapy file 1.Paths[Excel Source Output]"
-          TopLeft="94.1285713677504,47.1">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48.8117655531346"
-              Start="0,0"
-              End="0,41.3117655531346">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.3117655531346" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\import radiotherapy file 1\Excel Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\import radiotherapy file 1\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

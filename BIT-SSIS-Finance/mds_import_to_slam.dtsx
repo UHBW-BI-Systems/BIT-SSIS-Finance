@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\marshsylz"
   DTS:DTSID="{B70DBF4B-B7C3-40A3-B823-FF565A802D2A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.128"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="2057"
   DTS:ObjectName="mds_import_to_slam"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{F2414C12-74E2-47FC-9990-5044FFAB6279}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{D2C9FC66-F12F-41DA-9025-7FD3777FB1B7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,6 +24,8 @@
       DTS:ObjectName="Finance">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -34,6 +36,8 @@
       DTS:ObjectName="SLAM.DataSource">
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=SLAM;Initial Catalog=DataSource;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1220,7 +1224,9 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+FROM Finance.dbo.mds_ed
+WHERE arrival_date &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -1237,7 +1243,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
@@ -4655,7 +4661,9 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+FROM Finance.dbo.mds_episode
+WHERE episode_end_date &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -4672,7 +4680,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
@@ -8427,7 +8435,9 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+FROM Finance.dbo.mds_opa
+WHERE appointment_date &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -8444,7 +8454,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
@@ -11914,7 +11924,9 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+FROM Finance.dbo.mds_spell
+WHERE end_date_hospital_provider_spell &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -11931,7 +11943,7 @@
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
@@ -14346,11 +14358,11 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="185.6,41.6"
+          Size="186,42"
           Id="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM"
           TopLeft="31.7666366987769,84.9333339256713" />
         <NodeLayout
-          Size="187.2,41.6"
+          Size="187,42"
           Id="Package\Insert Merged ED to SLAM\Truncate SLAM mds ed"
           TopLeft="28.4333034978985,9.46666871918575" />
         <EdgeLayout
@@ -14378,16 +14390,16 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="233.6,182.4"
-          Size="233.6,224.8"
+          PanelSize="234,182"
+          Size="234,225"
           Id="Package\Insert Merged ED to SLAM"
           TopLeft="875.666632228429,176.266667582724" />
         <NodeLayout
-          Size="185.6,41.6"
+          Size="186,42"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM"
           TopLeft="23.2999832113591,80.200002582868" />
         <NodeLayout
-          Size="212,41.6"
+          Size="212,42"
           Id="Package\Insert Merged Episodes to SLAM\Truncate SLAM mds episode"
           TopLeft="17.4666501098214,12.6000020456314" />
         <EdgeLayout
@@ -14415,16 +14427,16 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="244.8,176.8"
-          Size="244.8,220"
+          PanelSize="245,177"
+          Size="245,220"
           Id="Package\Insert Merged Episodes to SLAM"
           TopLeft="294.999988476435,188.066667541397" />
         <NodeLayout
-          Size="185.6,41.6"
+          Size="186,42"
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM"
           TopLeft="31.7666366987769,84.9333339256713" />
         <NodeLayout
-          Size="192.8,41.6"
+          Size="193,42"
           Id="Package\Insert Merged OPA to SLAM\Truncate SLAM mds opa"
           TopLeft="28.4333034978985,9.46666871918575" />
         <EdgeLayout
@@ -14452,16 +14464,16 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="233.6,182.4"
-          Size="233.6,224.8"
+          PanelSize="234,182"
+          Size="234,225"
           Id="Package\Insert Merged OPA to SLAM"
           TopLeft="582.833310253091,183.200000867844" />
         <NodeLayout
-          Size="185.6,41.6"
+          Size="186,42"
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM"
           TopLeft="15.2666634215252,88.8000026448569" />
         <NodeLayout
-          Size="198.4,41.6"
+          Size="198,42"
           Id="Package\Insert Merged Spells to SLAM\Truncate SLAM mds spell"
           TopLeft="15.266663421525,12.533335372077" />
         <EdgeLayout
@@ -14489,8 +14501,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="224,185.6"
-          Size="224,228.8"
+          PanelSize="224,186"
+          Size="224,229"
           Id="Package\Insert Merged Spells to SLAM"
           TopLeft="20.3333324061502,178.733334173627" />
         <EdgeLayout
@@ -14563,7 +14575,7 @@
           Text="Finance connection string not parametized, we can't load test data to slam."
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="424.8,40"
+          Size="425,40"
           Id="d8b40317-2776-4fe9-951d-d5ce35e8af6c"
           TopLeft="205.833325154252,492.266670578851" />
       </GraphLayout>
@@ -14575,11 +14587,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source"
           TopLeft="171.666659845247,67.6000005372366" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171,42"
           Id="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Destination"
           TopLeft="181.666659447882,246.133335289425" />
         <EdgeLayout
@@ -14649,13 +14661,13 @@
     design-time-name="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source"
           TopLeft="95.833329525259,63.266667169465" />
         <NodeLayout
-          Size="176.8,41.6"
+          Size="177,42"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Destination"
           TopLeft="199,190" />
         <EdgeLayout
@@ -14689,9 +14701,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14727,13 +14737,13 @@
     design-time-name="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171,42"
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM\OLE DB Destination"
           TopLeft="109.999995628993,221.866668429905" />
         <NodeLayout
-          Size="156.8,41.6"
+          Size="157,42"
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM\OLE DB Source"
           TopLeft="78,54" />
         <EdgeLayout
@@ -14767,9 +14777,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14805,7 +14813,7 @@
     design-time-name="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source"
@@ -14845,9 +14853,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
