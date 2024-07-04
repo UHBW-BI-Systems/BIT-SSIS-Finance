@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_import_to_slam"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{D2C9FC66-F12F-41DA-9025-7FD3777FB1B7}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{448871E2-5E06-44E3-B444-B62AAF0EE2B8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1226,7 +1226,7 @@
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
 FROM Finance.dbo.mds_ed
-WHERE arrival_date &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
+WHERE arrival_date &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -4663,7 +4663,7 @@ WHERE arrival_date &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
 FROM Finance.dbo.mds_episode
-WHERE episode_end_date &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
+WHERE episode_end_date &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -8437,7 +8437,7 @@ WHERE episode_end_date &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
 FROM Finance.dbo.mds_opa
-WHERE appointment_date &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
+WHERE appointment_date &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -11926,7 +11926,7 @@ WHERE appointment_date &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                       name="SqlCommand"
                       UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
 FROM Finance.dbo.mds_spell
-WHERE end_date_hospital_provider_spell &gt; EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
+WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
