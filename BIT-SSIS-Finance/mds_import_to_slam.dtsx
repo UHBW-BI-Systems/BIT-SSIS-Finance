@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_import_to_slam"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{448871E2-5E06-44E3-B444-B62AAF0EE2B8}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{F584D831-0766-42B6-A32A-62A57395ACC5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3083,6 +3083,379 @@ WHERE arrival_date &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Insert Merged ED to SLAM\Populate Audit Table"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{ff489346-e586-430e-8115-7d7f6f9fe415}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Populate Audit Table"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[audit]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Finance]"
+                      connectionManagerRefId="Package.ConnectionManagers[Finance]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latest_SUS_load_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="latest_SUS_load_dttm"
+                          externalMetadataColumnId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_date]"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[min_activity_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="min_activity_dttm"
+                          externalMetadataColumnId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[min_date]"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[max_activity_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="max_activity_dttm"
+                          externalMetadataColumnId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[max_date]"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_rows]"
+                          cachedDataType="i4"
+                          cachedName="total_rows"
+                          externalMetadataColumnId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_of_records]"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]" />
+                        <inputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[data_type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="data_type"
+                          externalMetadataColumnId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_type]"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_id]"
+                          dataType="i4"
+                          name="load_id" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_date]"
+                          dataType="dbTimeStamp"
+                          name="load_date" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="load_type" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[min_date]"
+                          dataType="dbTimeStamp2"
+                          name="min_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[max_date]"
+                          dataType="dbTimeStamp2"
+                          name="max_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_of_records]"
+                          dataType="i4"
+                          name="number_of_records" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT COUNT(*) total_rows,MAX(sus_load_dttm)latest_SUS_load_dttm,'ed'data_type,MIN(arrival_date) min_activity_dttm,MAX(arrival_date) max_activity_dttm
+FROM [DataSource].[dbo].[mds_ed]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SLAM.DataSource]"
+                      connectionManagerRefId="Package.ConnectionManagers[SLAM.DataSource]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_rows]"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]"
+                          name="total_rows"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latest_SUS_load_dttm]"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]"
+                          name="latest_SUS_load_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[min_activity_dttm]"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]"
+                          name="min_activity_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[max_activity_dttm]"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]"
+                          name="max_activity_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_type]"
+                          length="20"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]"
+                          name="data_type"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_rows]"
+                          dataType="i4"
+                          name="total_rows" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="latest_SUS_load_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="min_activity_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="max_activity_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="data_type" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_rows]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_rows]"
+                          name="total_rows" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latest_SUS_load_dttm]"
+                          name="latest_SUS_load_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_type]"
+                          name="data_type" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[min_activity_dttm]"
+                          name="min_activity_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[max_activity_dttm]"
+                          name="max_activity_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Insert Merged ED to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+                  endId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Insert Merged ED to SLAM\Truncate SLAM mds ed"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -3109,6 +3482,14 @@ WHERE arrival_date &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Insert Merged ED to SLAM.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{CFBEADFC-8A28-463A-8447-673E70BE6D17}"
+          DTS:From="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Insert Merged ED to SLAM\Populate Audit Table" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -7147,6 +7528,379 @@ WHERE episode_end_date &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{d30ff5b5-7b1f-4dc9-8f8d-17aa259042a1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Populate Audit Table"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[audit]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Finance]"
+                      connectionManagerRefId="Package.ConnectionManagers[Finance]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latest_SUS_load_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="latest_SUS_load_dttm"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_date]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[min_activity_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="min_activity_dttm"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[min_date]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[max_activity_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="max_activity_dttm"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[max_date]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_rows]"
+                          cachedDataType="i4"
+                          cachedName="total_rows"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_of_records]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[data_type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="data_type"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_type]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_id]"
+                          dataType="i4"
+                          name="load_id" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_date]"
+                          dataType="dbTimeStamp"
+                          name="load_date" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="load_type" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[min_date]"
+                          dataType="dbTimeStamp2"
+                          name="min_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[max_date]"
+                          dataType="dbTimeStamp2"
+                          name="max_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_of_records]"
+                          dataType="i4"
+                          name="number_of_records" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT COUNT(*) total_rows,MAX(sus_load_dttm)latest_SUS_load_dttm,'episode'data_type,MIN(hospital_provider_spell_discharge_date) min_activity_dttm,MAX(hospital_provider_spell_discharge_date) max_activity_dttm
+FROM [DataSource].[dbo].[mds_episode]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SLAM.DataSource]"
+                      connectionManagerRefId="Package.ConnectionManagers[SLAM.DataSource]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_rows]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]"
+                          name="total_rows"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latest_SUS_load_dttm]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]"
+                          name="latest_SUS_load_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[min_activity_dttm]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]"
+                          name="min_activity_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[max_activity_dttm]"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]"
+                          name="max_activity_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_type]"
+                          length="20"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]"
+                          name="data_type"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_rows]"
+                          dataType="i4"
+                          name="total_rows" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="latest_SUS_load_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="min_activity_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="max_activity_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="7"
+                          name="data_type" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_rows]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_rows]"
+                          name="total_rows" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latest_SUS_load_dttm]"
+                          name="latest_SUS_load_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="7"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_type]"
+                          name="data_type" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[min_activity_dttm]"
+                          name="min_activity_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[max_activity_dttm]"
+                          name="max_activity_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Insert Merged Episodes to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+                  endId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Insert Merged Episodes to SLAM\Truncate SLAM mds episode"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -7173,6 +7927,14 @@ WHERE episode_end_date &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Insert Merged Episodes to SLAM.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{3FAB962D-8840-4958-A55A-72E34EBE6235}"
+          DTS:From="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Insert Merged Episodes to SLAM\Populate Audit Table" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -10420,6 +11182,379 @@ WHERE appointment_date &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Insert Merged OPA to SLAM\Populate Audit Table"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{c53d4855-c27b-4464-a941-f11893bd3d5a}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Populate Audit Table"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[audit]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Finance]"
+                      connectionManagerRefId="Package.ConnectionManagers[Finance]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latest_SUS_load_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="latest_SUS_load_dttm"
+                          externalMetadataColumnId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_date]"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[min_activity_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="min_activity_dttm"
+                          externalMetadataColumnId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[min_date]"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[max_activity_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="max_activity_dttm"
+                          externalMetadataColumnId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[max_date]"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_rows]"
+                          cachedDataType="i4"
+                          cachedName="total_rows"
+                          externalMetadataColumnId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_of_records]"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]" />
+                        <inputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[data_type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="data_type"
+                          externalMetadataColumnId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_type]"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_id]"
+                          dataType="i4"
+                          name="load_id" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_date]"
+                          dataType="dbTimeStamp"
+                          name="load_date" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="load_type" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[min_date]"
+                          dataType="dbTimeStamp2"
+                          name="min_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[max_date]"
+                          dataType="dbTimeStamp2"
+                          name="max_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_of_records]"
+                          dataType="i4"
+                          name="number_of_records" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT COUNT(*) total_rows,MAX(sus_load_dttm)latest_SUS_load_dttm,'opa'data_type,MIN(appointment_date) min_activity_dttm,MAX(appointment_date) max_activity_dttm
+FROM [DataSource].[dbo].[mds_opa]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SLAM.DataSource]"
+                      connectionManagerRefId="Package.ConnectionManagers[SLAM.DataSource]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_rows]"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]"
+                          name="total_rows"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latest_SUS_load_dttm]"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]"
+                          name="latest_SUS_load_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[min_activity_dttm]"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]"
+                          name="min_activity_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[max_activity_dttm]"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]"
+                          name="max_activity_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_type]"
+                          length="20"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]"
+                          name="data_type"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_rows]"
+                          dataType="i4"
+                          name="total_rows" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="latest_SUS_load_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="min_activity_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="max_activity_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="data_type" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_rows]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_rows]"
+                          name="total_rows" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latest_SUS_load_dttm]"
+                          name="latest_SUS_load_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_type]"
+                          name="data_type" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[min_activity_dttm]"
+                          name="min_activity_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[max_activity_dttm]"
+                          name="max_activity_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Insert Merged OPA to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+                  endId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Insert Merged OPA to SLAM\Truncate SLAM mds opa"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -10446,6 +11581,14 @@ WHERE appointment_date &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE()))</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Insert Merged OPA to SLAM.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{188BE3D5-753F-4ABB-9C83-65010BA3C0BB}"
+          DTS:From="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Insert Merged OPA to SLAM\Populate Audit Table" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -14290,6 +15433,379 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Insert Merged Spells to SLAM\Populate Audit Table"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6C3D6090-1108-4C7B-9BE4-214F8C1E8239}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Populate Audit Table"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[audit]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Finance]"
+                      connectionManagerRefId="Package.ConnectionManagers[Finance]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latest_SUS_load_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="latest_SUS_load_dttm"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_date]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[min_activity_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="min_activity_dttm"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[min_date]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[max_activity_dttm]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="max_activity_dttm"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[max_date]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total_rows]"
+                          cachedDataType="i4"
+                          cachedName="total_rows"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_of_records]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]" />
+                        <inputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[data_type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="data_type"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_type]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_id]"
+                          dataType="i4"
+                          name="load_id" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_date]"
+                          dataType="dbTimeStamp"
+                          name="load_date" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="load_type" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[min_date]"
+                          dataType="dbTimeStamp2"
+                          name="min_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[max_date]"
+                          dataType="dbTimeStamp2"
+                          name="max_date"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[number_of_records]"
+                          dataType="i4"
+                          name="number_of_records" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT COUNT(*) total_rows,MAX(sus_load_dttm)latest_SUS_load_dttm,'spell'data_type,MIN(end_date_hospital_provider_spell) min_activity_dttm,MAX(end_date_hospital_provider_spell) max_activity_dttm
+FROM [DataSource].[dbo].[mds_spell]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SLAM.DataSource]"
+                      connectionManagerRefId="Package.ConnectionManagers[SLAM.DataSource]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_rows]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[total_rows]"
+                          name="total_rows"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latest_SUS_load_dttm]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[latest_SUS_load_dttm]"
+                          name="latest_SUS_load_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[min_activity_dttm]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[min_activity_dttm]"
+                          name="min_activity_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[max_activity_dttm]"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[max_activity_dttm]"
+                          name="max_activity_dttm"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_type]"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[data_type]"
+                          name="data_type"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[total_rows]"
+                          dataType="i4"
+                          name="total_rows" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="latest_SUS_load_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="min_activity_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          name="max_activity_dttm" />
+                        <externalMetadataColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="data_type" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_rows]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[total_rows]"
+                          name="total_rows" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latest_SUS_load_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[latest_SUS_load_dttm]"
+                          name="latest_SUS_load_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[data_type]"
+                          name="data_type" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[min_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[min_activity_dttm]"
+                          name="min_activity_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[max_activity_dttm]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[max_activity_dttm]"
+                          name="max_activity_dttm" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Insert Merged Spells to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+                  endId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Insert Merged Spells to SLAM\Truncate SLAM mds spell"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
@@ -14316,6 +15832,14 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Insert Merged Spells to SLAM.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{95CBBAC7-E38A-4667-93A5-D9A23B589924}"
+          DTS:From="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Insert Merged Spells to SLAM\Populate Audit Table" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -14387,13 +15911,39 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Insert Merged ED to SLAM\Populate Audit Table"
+          TopLeft="39.5,164" />
+        <EdgeLayout
+          Id="Package\Insert Merged ED to SLAM.PrecedenceConstraints[Constraint 1]"
+          TopLeft="127.383318349388,126.933333925671">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.0666660743287"
+              Start="0,0"
+              End="0,29.5666660743287">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5666660743287" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="234,182"
-          Size="234,225"
+          PanelSize="234,266"
+          Size="234,309"
           Id="Package\Insert Merged ED to SLAM"
-          TopLeft="875.666632228429,176.266667582724" />
+          TopLeft="923.666632228429,146.266667582724" />
         <NodeLayout
           Size="186,42"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM"
@@ -14424,13 +15974,39 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table"
+          TopLeft="33.3333324061502,159.266670578851" />
+        <EdgeLayout
+          Id="Package\Insert Merged Episodes to SLAM.PrecedenceConstraints[Constraint 1]"
+          TopLeft="120.066657808755,122.200002582868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.0666679959831"
+              Start="0,0"
+              End="0,29.5666679959831">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5666679959831" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="245,177"
-          Size="245,220"
+          PanelSize="278,255"
+          Size="278,298"
           Id="Package\Insert Merged Episodes to SLAM"
-          TopLeft="294.999988476435,188.066667541397" />
+          TopLeft="293.999988476435,145.066667541397" />
         <NodeLayout
           Size="186,42"
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM"
@@ -14438,21 +16014,47 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
         <NodeLayout
           Size="193,42"
           Id="Package\Insert Merged OPA to SLAM\Truncate SLAM mds opa"
-          TopLeft="28.4333034978985,9.46666871918575" />
+          TopLeft="27.4333034978985,17.4666687191857" />
         <EdgeLayout
           Id="Package\Insert Merged OPA to SLAM.PrecedenceConstraints[Constraint]"
-          TopLeft="124.899970098338,51.0666687191857">
+          TopLeft="124.349970098338,59.4666687191857">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.8666652064855"
+              EndConnector="0,25.4666652064856"
               Start="0,0"
-              End="0,26.3666652064855">
+              End="0,17.9666652064856">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.3666652064855" />
+                    End="0,17.9666652064856" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table"
+          TopLeft="34,167" />
+        <EdgeLayout
+          Id="Package\Insert Merged OPA to SLAM.PrecedenceConstraints[Constraint 1]"
+          TopLeft="124.633318349388,126.933333925671">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.0666660743287"
+              Start="0,0"
+              End="0,32.5666660743287">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5666660743287" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14464,32 +16066,58 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="234,182"
-          Size="234,225"
+          PanelSize="260,260"
+          Size="260,303"
           Id="Package\Insert Merged OPA to SLAM"
-          TopLeft="582.833310253091,183.200000867844" />
+          TopLeft="612.833310253091,142.200000867844" />
         <NodeLayout
           Size="186,42"
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM"
-          TopLeft="15.2666634215252,88.8000026448569" />
+          TopLeft="17.2666634215252,96.8000026448569" />
         <NodeLayout
           Size="198,42"
           Id="Package\Insert Merged Spells to SLAM\Truncate SLAM mds spell"
           TopLeft="15.266663421525,12.533335372077" />
         <EdgeLayout
           Id="Package\Insert Merged Spells to SLAM.PrecedenceConstraints[Constraint]"
-          TopLeft="111.266663421525,54.133335372077">
+          TopLeft="112.266663421525,54.533335372077">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.6666672727798"
+              EndConnector="0,42.2666672727799"
               Start="0,0"
-              End="0,27.1666672727798">
+              End="0,34.7666672727799">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.1666672727798" />
+                    End="0,34.7666672727799" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Insert Merged Spells to SLAM\Populate Audit Table"
+          TopLeft="22,172" />
+        <EdgeLayout
+          Id="Package\Insert Merged Spells to SLAM.PrecedenceConstraints[Constraint 1]"
+          TopLeft="111.383331710763,138.800002644857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.1999973551431"
+              Start="0,0"
+              End="0,25.6999973551431">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6999973551431" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14501,24 +16129,36 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="224,186"
-          Size="224,229"
+          PanelSize="251,277"
+          Size="251,320"
           Id="Package\Insert Merged Spells to SLAM"
-          TopLeft="20.3333324061502,178.733334173627" />
+          TopLeft="22.3333324061502,137.733334173627" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="244.33333240615,295.650000857512">
+          TopLeft="147.83333240615,457.733334173627">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="50.6666560702848,0"
+              EndConnector="285.166656070285,-14.66666663223"
               Start="0,0"
-              End="43.1666560702848,0">
+              End="285.166656070285,-7.16666663222998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="43.1666560702848,0" />
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="281.166656070285,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="281.166656070285,22.5"
+                    Point2="285.166656070285,22.5"
+                    Point3="285.166656070285,18.5" />
+                  <mssgle:LineSegment
+                    End="285.166656070285,-7.16666663222998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14529,18 +16169,18 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="539.999988476435,296.883334204621">
+          TopLeft="571.999988476435,293.883334204621">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="42.833321776656,0"
+              EndConnector="40.833321776656,0"
               Start="0,0"
-              End="35.333321776656,0">
+              End="33.333321776656,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="35.333321776656,0" />
+                    End="33.333321776656,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14551,18 +16191,18 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="816.833310253091,292.233334225284">
+          TopLeft="872.833310253091,297.233334225284">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.833321975338,0"
+              EndConnector="50.8333219753381,0"
               Start="0,0"
-              End="51.333321975338,0">
+              End="43.3333219753381,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="51.333321975338,0" />
+                    End="43.3333219753381,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14585,7 +16225,7 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
     design-time-name="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152,42"
           Id="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM\OLE DB Source"
@@ -14625,7 +16265,9 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14661,7 +16303,7 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
     design-time-name="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152,42"
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM\OLE DB Source"
@@ -14701,7 +16343,9 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14737,7 +16381,7 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
     design-time-name="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM\OLE DB Destination"
@@ -14777,7 +16421,9 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14882,6 +16528,277 @@ WHERE end_date_hospital_provider_spell &lt;= EOMONTH(DATEADD(MONTH, - 1, GETDATE
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Insert Merged Spells to SLAM\Populate Audit Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source"
+          TopLeft="60,39" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination"
+          TopLeft="174,202" />
+        <EdgeLayout
+          Id="Package\Insert Merged Spells to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+          TopLeft="138.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,121"
+              Start="0,0"
+              End="124,113.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.5"
+                    Point2="0,60.5"
+                    Point3="4,60.5" />
+                  <mssgle:LineSegment
+                    End="120,60.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120,60.5"
+                    Point2="124,60.5"
+                    Point3="124,64.5" />
+                  <mssgle:LineSegment
+                    End="124,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Insert Merged Episodes to SLAM\Populate Audit Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination"
+          TopLeft="174,202" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source"
+          TopLeft="60,39" />
+        <EdgeLayout
+          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+          TopLeft="138.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,121"
+              Start="0,0"
+              End="124,113.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.5"
+                    Point2="0,60.5"
+                    Point3="4,60.5" />
+                  <mssgle:LineSegment
+                    End="120,60.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120,60.5"
+                    Point2="124,60.5"
+                    Point3="124,64.5" />
+                  <mssgle:LineSegment
+                    End="124,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Insert Merged OPA to SLAM\Populate Audit Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination"
+          TopLeft="174,202" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source"
+          TopLeft="60,39" />
+        <EdgeLayout
+          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+          TopLeft="138.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,121"
+              Start="0,0"
+              End="124,113.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.5"
+                    Point2="0,60.5"
+                    Point3="4,60.5" />
+                  <mssgle:LineSegment
+                    End="120,60.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120,60.5"
+                    Point2="124,60.5"
+                    Point3="124,64.5" />
+                  <mssgle:LineSegment
+                    End="124,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Insert Merged ED to SLAM\Populate Audit Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination"
+          TopLeft="174,202" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source"
+          TopLeft="60,39" />
+        <EdgeLayout
+          Id="Package\Insert Merged ED to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+          TopLeft="138.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,121"
+              Start="0,0"
+              End="124,113.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.5"
+                    Point2="0,60.5"
+                    Point3="4,60.5" />
+                  <mssgle:LineSegment
+                    End="120,60.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120,60.5"
+                    Point2="124,60.5"
+                    Point3="124,64.5" />
+                  <mssgle:LineSegment
+                    End="124,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
