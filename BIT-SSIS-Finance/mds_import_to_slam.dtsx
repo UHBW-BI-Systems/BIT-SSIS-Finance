@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_import_to_slam"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{F584D831-0766-42B6-A32A-62A57395ACC5}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{34247470-CA6B-45FC-AA0E-07692C05284E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -15886,6 +15886,10 @@ FROM [DataSource].[dbo].[mds_spell]</property>
           Id="Package\Insert Merged ED to SLAM\Data Flow BIT to SLAM"
           TopLeft="31.7666366987769,84.9333339256713" />
         <NodeLayout
+          Size="181,42"
+          Id="Package\Insert Merged ED to SLAM\Populate Audit Table"
+          TopLeft="39.5,164" />
+        <NodeLayout
           Size="187,42"
           Id="Package\Insert Merged ED to SLAM\Truncate SLAM mds ed"
           TopLeft="28.4333034978985,9.46666871918575" />
@@ -15911,10 +15915,6 @@ FROM [DataSource].[dbo].[mds_spell]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Insert Merged ED to SLAM\Populate Audit Table"
-          TopLeft="39.5,164" />
         <EdgeLayout
           Id="Package\Insert Merged ED to SLAM.PrecedenceConstraints[Constraint 1]"
           TopLeft="127.383318349388,126.933333925671">
@@ -15949,6 +15949,10 @@ FROM [DataSource].[dbo].[mds_spell]</property>
           Id="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM"
           TopLeft="23.2999832113591,80.200002582868" />
         <NodeLayout
+          Size="181,42"
+          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table"
+          TopLeft="33.3333324061502,159.266670578851" />
+        <NodeLayout
           Size="212,42"
           Id="Package\Insert Merged Episodes to SLAM\Truncate SLAM mds episode"
           TopLeft="17.4666501098214,12.6000020456314" />
@@ -15974,10 +15978,6 @@ FROM [DataSource].[dbo].[mds_spell]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table"
-          TopLeft="33.3333324061502,159.266670578851" />
         <EdgeLayout
           Id="Package\Insert Merged Episodes to SLAM.PrecedenceConstraints[Constraint 1]"
           TopLeft="120.066657808755,122.200002582868">
@@ -16012,6 +16012,10 @@ FROM [DataSource].[dbo].[mds_spell]</property>
           Id="Package\Insert Merged OPA to SLAM\Data Flow BIT to SLAM"
           TopLeft="31.7666366987769,84.9333339256713" />
         <NodeLayout
+          Size="181,42"
+          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table"
+          TopLeft="34,167" />
+        <NodeLayout
           Size="193,42"
           Id="Package\Insert Merged OPA to SLAM\Truncate SLAM mds opa"
           TopLeft="27.4333034978985,17.4666687191857" />
@@ -16037,10 +16041,6 @@ FROM [DataSource].[dbo].[mds_spell]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table"
-          TopLeft="34,167" />
         <EdgeLayout
           Id="Package\Insert Merged OPA to SLAM.PrecedenceConstraints[Constraint 1]"
           TopLeft="124.633318349388,126.933333925671">
@@ -16075,6 +16075,10 @@ FROM [DataSource].[dbo].[mds_spell]</property>
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM"
           TopLeft="17.2666634215252,96.8000026448569" />
         <NodeLayout
+          Size="181,42"
+          Id="Package\Insert Merged Spells to SLAM\Populate Audit Table"
+          TopLeft="22,172" />
+        <NodeLayout
           Size="198,42"
           Id="Package\Insert Merged Spells to SLAM\Truncate SLAM mds spell"
           TopLeft="15.266663421525,12.533335372077" />
@@ -16100,10 +16104,6 @@ FROM [DataSource].[dbo].[mds_spell]</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Insert Merged Spells to SLAM\Populate Audit Table"
-          TopLeft="22,172" />
         <EdgeLayout
           Id="Package\Insert Merged Spells to SLAM.PrecedenceConstraints[Constraint 1]"
           TopLeft="111.383331710763,138.800002644857">
@@ -16300,6 +16300,66 @@ FROM [DataSource].[dbo].[mds_spell]</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Insert Merged ED to SLAM\Populate Audit Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source"
+          TopLeft="60,39" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination"
+          TopLeft="174,202" />
+        <EdgeLayout
+          Id="Package\Insert Merged ED to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+          TopLeft="138.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,121"
+              Start="0,0"
+              End="124,113.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.5"
+                    Point2="0,60.5"
+                    Point3="4,60.5" />
+                  <mssgle:LineSegment
+                    End="120,60.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120,60.5"
+                    Point2="124,60.5"
+                    Point3="124,64.5" />
+                  <mssgle:LineSegment
+                    End="124,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Insert Merged Episodes to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
@@ -16374,6 +16434,79 @@ FROM [DataSource].[dbo].[mds_spell]</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Insert Merged Episodes to SLAM\Populate Audit Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source"
+          TopLeft="60,39" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination"
+          TopLeft="174,202" />
+        <EdgeLayout
+          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+          TopLeft="138.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,121"
+              Start="0,0"
+              End="124,113.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.5"
+                    Point2="0,60.5"
+                    Point3="4,60.5" />
+                  <mssgle:LineSegment
+                    End="120,60.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120,60.5"
+                    Point2="124,60.5"
+                    Point3="124,64.5" />
+                  <mssgle:LineSegment
+                    End="124,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -16456,10 +16589,83 @@ FROM [DataSource].[dbo].[mds_spell]</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Insert Merged OPA to SLAM\Populate Audit Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source"
+          TopLeft="60,39" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination"
+          TopLeft="174,202" />
+        <EdgeLayout
+          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
+          TopLeft="138.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,121"
+              Start="0,0"
+              End="124,113.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.5"
+                    Point2="0,60.5"
+                    Point3="4,60.5" />
+                  <mssgle:LineSegment
+                    End="120,60.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="120,60.5"
+                    Point2="124,60.5"
+                    Point3="124,64.5" />
+                  <mssgle:LineSegment
+                    End="124,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\Insert Merged Spells to SLAM\Data Flow BIT to SLAM\OLE DB Source"
@@ -16499,7 +16705,9 @@ FROM [DataSource].[dbo].[mds_spell]</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -16535,7 +16743,7 @@ FROM [DataSource].[dbo].[mds_spell]</property>
     design-time-name="Package\Insert Merged Spells to SLAM\Populate Audit Table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="157,42"
           Id="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source"
@@ -16575,20 +16783,14 @@ FROM [DataSource].[dbo].[mds_spell]</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Destination">
     <Properties>
@@ -16602,200 +16804,8 @@ FROM [DataSource].[dbo].[mds_spell]</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Insert Merged Episodes to SLAM\Populate Audit Table">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination"
-          TopLeft="174,202" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source"
-          TopLeft="60,39" />
-        <EdgeLayout
-          Id="Package\Insert Merged Episodes to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
-          TopLeft="138.5,81">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="124,121"
-              Start="0,0"
-              End="124,113.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.5"
-                    Point2="0,60.5"
-                    Point3="4,60.5" />
-                  <mssgle:LineSegment
-                    End="120,60.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="120,60.5"
-                    Point2="124,60.5"
-                    Point3="124,64.5" />
-                  <mssgle:LineSegment
-                    End="124,113.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Merged Episodes to SLAM\Populate Audit Table\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Insert Merged OPA to SLAM\Populate Audit Table">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination"
-          TopLeft="174,202" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source"
-          TopLeft="60,39" />
-        <EdgeLayout
-          Id="Package\Insert Merged OPA to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
-          TopLeft="138.5,81">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="124,121"
-              Start="0,0"
-              End="124,113.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.5"
-                    Point2="0,60.5"
-                    Point3="4,60.5" />
-                  <mssgle:LineSegment
-                    End="120,60.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="120,60.5"
-                    Point2="124,60.5"
-                    Point3="124,64.5" />
-                  <mssgle:LineSegment
-                    End="124,113.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Merged OPA to SLAM\Populate Audit Table\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Insert Merged ED to SLAM\Populate Audit Table">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Destination"
-          TopLeft="174,202" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source"
-          TopLeft="60,39" />
-        <EdgeLayout
-          Id="Package\Insert Merged ED to SLAM\Populate Audit Table.Paths[OLE DB Source Output]"
-          TopLeft="138.5,81">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="124,121"
-              Start="0,0"
-              End="124,113.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.5"
-                    Point2="0,60.5"
-                    Point3="4,60.5" />
-                  <mssgle:LineSegment
-                    End="120,60.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="120,60.5"
-                    Point2="124,60.5"
-                    Point3="124,64.5" />
-                  <mssgle:LineSegment
-                    End="124,113.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Insert Merged ED to SLAM\Populate Audit Table\OLE DB Source">
+    design-time-name="Package\Insert Merged Spells to SLAM\Populate Audit Table\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
