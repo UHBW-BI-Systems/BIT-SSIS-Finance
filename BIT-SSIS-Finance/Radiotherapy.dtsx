@@ -12,8 +12,8 @@
   DTS:ObjectName="Radiotherapy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="193"
-  DTS:VersionGUID="{73DA67CE-A346-40E9-90C8-526E6D4EC790}">
+  DTS:VersionBuild="194"
+  DTS:VersionGUID="{594C9BD7-B279-48FA-93B6-D04A37250A3C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4806,7 +4806,7 @@
           SendMailTask:Subject="Radiotherapy No Matches"
           SendMailTask:MessageSource="Attached are the nomatches from the latest Radiotherapy MDS. Please correct by next months run" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
           <SendMailTask:Attachments
-            SendMailTask:FileName="\\ubht.nhs.uk\shares\BI\Dataload\Radiotherapy\nomatch.csv|\\ubht.nhs.uk\shares\BI\Dataload\Radiotherapy\nomatch.csv" />
+            SendMailTask:FileName="\\ubht.nhs.uk\shares\BI\Dataload\Radiotherapy\nomatch.csv" />
         </SendMailTask:SendMailTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5493,7 +5493,7 @@
     design-time-name="Package\Load Grouper File">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Load Grouper File\OLE DB Destination"
@@ -5521,9 +5521,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
