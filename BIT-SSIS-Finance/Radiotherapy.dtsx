@@ -12,8 +12,8 @@
   DTS:ObjectName="Radiotherapy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="192"
-  DTS:VersionGUID="{273AEDBB-5C2A-4F60-9E1C-044D4D39AF08}">
+  DTS:VersionBuild="193"
+  DTS:VersionGUID="{73DA67CE-A346-40E9-90C8-526E6D4EC790}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -515,7 +515,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="c:\temp\nomatch.csv">
+          DTS:ConnectionString="\\ubht.nhs.uk\shares\BI\Dataload\Radiotherapy\nomatch.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -524,7 +524,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="patient_id"
-              DTS:DTSID="{07665645-026A-4AEA-A11F-52BF8DAD7319}"
+              DTS:DTSID="{A5898EC1-8EF3-4D23-B3BE-E76960DF8AF9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -533,7 +533,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="period_code"
-              DTS:DTSID="{BE698C8C-3A89-4A48-B474-4D573C480520}"
+              DTS:DTSID="{B6A4BFE0-6E52-4D5F-9F6D-7987C1A38F60}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -542,7 +542,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="exp_date"
-              DTS:DTSID="{C212EFDB-33DF-4BD6-964B-3AF3BEEA5A9E}"
+              DTS:DTSID="{5E690632-1BEB-4907-86B6-E21E9507D107}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -551,7 +551,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="radio_group"
-              DTS:DTSID="{262CB179-01B6-4C10-BBB2-7F55569B56C6}"
+              DTS:DTSID="{678975A9-D839-41EA-AB57-AF1362C16158}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -560,7 +560,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="upload_date"
-              DTS:DTSID="{732EB151-CDC9-4CDD-9B9C-A4C75B1BBE32}"
+              DTS:DTSID="{D724115D-A13F-44C6-8362-501F02971D00}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -569,7 +569,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="pk_radio_fraction"
-              DTS:DTSID="{777D154C-F35D-4A83-863F-E21A72A1DEAB}"
+              DTS:DTSID="{78CD3593-1332-477F-A378-20B0E2600D1E}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -4806,7 +4806,7 @@
           SendMailTask:Subject="Radiotherapy No Matches"
           SendMailTask:MessageSource="Attached are the nomatches from the latest Radiotherapy MDS. Please correct by next months run" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask">
           <SendMailTask:Attachments
-            SendMailTask:FileName="C:\Temp\nomatch.csv" />
+            SendMailTask:FileName="\\ubht.nhs.uk\shares\BI\Dataload\Radiotherapy\nomatch.csv|\\ubht.nhs.uk\shares\BI\Dataload\Radiotherapy\nomatch.csv" />
         </SendMailTask:SendMailTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
