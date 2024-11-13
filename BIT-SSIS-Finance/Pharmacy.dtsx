@@ -14,8 +14,8 @@
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="907"
-  DTS:VersionGUID="{B98C36DC-C4DE-44C7-B597-7AE13480D8F4}">
+  DTS:VersionBuild="925"
+  DTS:VersionGUID="{883FECC2-1DE2-4F10-A7FE-F8AA09419B1D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,6 +31,20 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Admin;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BIT_DEV.SSISDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E95EABE6-1C6B-445B-943E-B36333056FE9}"
+      DTS:ObjectName="BIT_DEV.SSISDB">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::SSISDB_ConnectionString_Database]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=SSISDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -111,7 +125,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">9/9/2024 9:28:06 AM</DTS:VariableValue>
+        DTS:DataType="7">10/12/2024 11:02:13 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -5348,7 +5362,7 @@
 --Select *, CURRENT_TIMESTAMP AS upload_date 
 --  FROM [Finance].[transform].[tbl_pharmacy]
 from finance.transform.pharmacy
-WHERE Stored_Date_Of_Issue_dt BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 2, 0) AND (GETDATE())</property>
+WHERE Stored_Date_Of_Issue_dt BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 3, 0) AND (GETDATE())</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -7443,9 +7457,27 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Demographics\Execute Get deomgraphic package in Admin"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{956766a4-ace4-4394-a55d-f1ea4060534a}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute Get deomgraphic package in Admin"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E95EABE6-1C6B-445B-943E-B36333056FE9}"
+              SQLTask:SqlStatementSource="DECLARE @execution_id BIGINT&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'GetPatientDemographics_HDM.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'BIT-SSIS', @project_name=N'BIT-SSIS-Admin', @use32bitruntime=False, @reference_id=7, @runinscaleout=False&#xA;--SELECT @execution_id&#xA;DECLARE @var0 SMALLINT = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Demographics\GetPatientDemographics"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
           DTS:DTSID="{1215D3A3-2144-4D0D-A20E-5FD910412E8D}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
@@ -7496,6 +7528,22 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
+          DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F4E496C8-6F0E-491C-99C6-43FC991F2C30}"
+          DTS:From="Package\Demographics\GetPatientDemographics"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Demographics\Execute Get deomgraphic package in Admin" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{9E44D25F-CCB8-4E07-9485-E4BABD5807E8}"
+          DTS:From="Package\Demographics\Execute Get deomgraphic package in Admin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Demographics\Update demographics and overseas visitor status" />
+        <DTS:PrecedenceConstraint
           DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint 13]"
           DTS:CreationName=""
           DTS:DTSID="{64B12BBB-17F8-4F34-BEA9-B34B96B795BA}"
@@ -7511,14 +7559,6 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 14"
           DTS:To="Package\Demographics\Update ArmedForces status" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint 15]"
-          DTS:CreationName=""
-          DTS:DTSID="{5A991C12-00E8-4CEE-B466-C7CCFE8A2C56}"
-          DTS:From="Package\Demographics\GetPatientDemographics"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 15"
-          DTS:To="Package\Demographics\Update demographics and overseas visitor status" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -16884,7 +16924,7 @@ FROM Finance.import.pharmacy_UHB AS puhb
                           dataType="str"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
-                          length="255"
+                          length="20"
                           lineageId="Package\import to transform table\Data Flow from finance import WGH\Data Conversion WGH.Outputs[Data Conversion Output].Columns[Patient_Identifier]"
                           name="Patient_Identifier"
                           truncationRowDisposition="FailComponent">
@@ -17760,14 +17800,6 @@ FROM Finance.import.pharmacy_UHB AS puhb
                           externalMetadataColumnId="Package\import to transform table\Data Flow from finance import WGH\Destination for WGH finance transform pharmacy.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
                           lineageId="Package\import to transform table\Data Flow from finance import WGH\Data Conversion WGH.Outputs[Data Conversion Output].Columns[Quantity]" />
                         <inputColumn
-                          refId="Package\import to transform table\Data Flow from finance import WGH\Destination for WGH finance transform pharmacy.Inputs[OLE DB Destination Input].Columns[Patient_Identifier]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="255"
-                          cachedName="Patient_Identifier"
-                          externalMetadataColumnId="Package\import to transform table\Data Flow from finance import WGH\Destination for WGH finance transform pharmacy.Inputs[OLE DB Destination Input].ExternalColumns[Patient_Identifier]"
-                          lineageId="Package\import to transform table\Data Flow from finance import WGH\Data Conversion WGH.Outputs[Data Conversion Output].Columns[Patient_Identifier]" />
-                        <inputColumn
                           refId="Package\import to transform table\Data Flow from finance import WGH\Destination for WGH finance transform pharmacy.Inputs[OLE DB Destination Input].Columns[DataSource]"
                           cachedCodepage="1252"
                           cachedDataType="str"
@@ -17963,6 +17995,14 @@ FROM Finance.import.pharmacy_UHB AS puhb
                           cachedName="DRUG_PACK"
                           externalMetadataColumnId="Package\import to transform table\Data Flow from finance import WGH\Destination for WGH finance transform pharmacy.Inputs[OLE DB Destination Input].ExternalColumns[DRUG_PACK]"
                           lineageId="Package\import to transform table\Data Flow from finance import WGH\Source for finance import pharmacy_WGH.Outputs[OLE DB Source Output].Columns[DRUG_PACK]" />
+                        <inputColumn
+                          refId="Package\import to transform table\Data Flow from finance import WGH\Destination for WGH finance transform pharmacy.Inputs[OLE DB Destination Input].Columns[patient_hospitalno]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="patient_hospitalno"
+                          externalMetadataColumnId="Package\import to transform table\Data Flow from finance import WGH\Destination for WGH finance transform pharmacy.Inputs[OLE DB Destination Input].ExternalColumns[Patient_Identifier]"
+                          lineageId="Package\import to transform table\Data Flow from finance import WGH\Source for finance import pharmacy_WGH.Outputs[OLE DB Source Output].Columns[patient_hospitalno]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
@@ -21141,7 +21181,7 @@ FROM Finance.transform.pharmacy xdi WITH (NOLOCK)
     JOIN SUS.dbo.sus_opa_pbr_current s
         ON s.local_patient_identifier = xdi.Patient_Identifier
 WHERE xdi.stored_date_of_issue_dt
-      BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 2, 0) AND (GETDATE())
+      BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 3, 0) AND (GETDATE())
       AND xdi.stored_date_of_issue_dt = s.appointment_date
       AND xdi.Issue_Type_Code IN ( 1, 2, 3, 4, 5, 6, 7, 8, 20 )
 ORDER BY xdi.Patient_Identifier,
@@ -21323,7 +21363,7 @@ ORDER BY xdi.Patient_Identifier,
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate pharmacy_op_details"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -21341,7 +21381,7 @@ ORDER BY xdi.Patient_Identifier,
           DTS:LocaleID="-1"
           DTS:ObjectName="Update OP details"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -21359,7 +21399,7 @@ ORDER BY xdi.Patient_Identifier,
           DTS:LocaleID="-1"
           DTS:ObjectName="Update OP details 1"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -21376,7 +21416,7 @@ ORDER BY xdi.Patient_Identifier,
           DTS:LocaleID="-1"
           DTS:ObjectName="Update OP details 2"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -24538,7 +24578,7 @@ ORDER BY issue_date,
 FROM [Finance].[import].[pharmacy_WGH] xdi WITH (NOLOCK)
 JOIN SUS.dbo.sus_apc_spell_pbr_current s
 ON s.local_patient_identifier = xdi.patient_hospitalno
-WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 2, 0) AND (GETDATE())
+WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 3, 0) AND (GETDATE())
   --AND xdi.issue_date BETWEEN  ph.valid_from_date AND ph.valid_to_date
   AND xdi.issue_typeid IN (1,2,3,4,5,6,7,8,20)
 ORDER BY	issue_date, xdi.patient_hospitalno
@@ -25125,7 +25165,7 @@ FROM [Finance].[import].[pharmacy_UHB] xdi WITH (NOLOCK)
 JOIN SUS.dbo.sus_apc_spell_pbr_current s
 ON s.local_patient_identifier = xdi.patient_hospitalno
 
-WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 2, 0) AND (GETDATE())
+WHERE xdi.issue_date BETWEEN DATEADD("Month", DATEDIFF("Month", -1, GETDATE()) - 3, 0) AND (GETDATE())
   --AND xdi.issue_date BETWEEN  ph.valid_from_date AND ph.valid_to_date
   AND xdi.issue_typeid IN (1,2,3,4,5,6,7,8,20)
 ORDER BY	issue_date, xdi.patient_hospitalno</property>
@@ -25369,7 +25409,6 @@ ORDER BY	issue_date, xdi.patient_hospitalno</property>
           DTS:refId="Package\PHD patient history\Update demographic details"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:Disabled="True"
           DTS:DTSID="{8629B55E-16DD-4175-AA46-B49A149AA1C1}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -25440,7 +25479,7 @@ ORDER BY	issue_date, xdi.patient_hospitalno</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{55A30C92-F314-4F58-9149-3B9DDF56A9C6}"
+          DTS:DTSID="{E4609299-AAD7-421E-BC7B-129E864B9457}"
           DTS:From="Package\PHD patient history\truncate pharmacy_patient_history table"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -25448,11 +25487,19 @@ ORDER BY	issue_date, xdi.patient_hospitalno</property>
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{689C2271-193A-45C0-8CDA-90FD247AECF2}"
-          DTS:From="Package\PHD patient history\Data Flow tbl patient history Lloyds"
+          DTS:DTSID="{4DD54896-0ED8-4366-BF3B-D8926F241C6E}"
+          DTS:From="Package\PHD patient history\Data Flow PHD tbl patient history table UHB"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
-          DTS:To="Package\PHD patient history\Update demographic details" />
+          DTS:To="Package\PHD patient history\Data Flow PHD tbl patient history table Boots" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{3684CD05-A850-4C0A-98DB-45534C0C2C05}"
+          DTS:From="Package\PHD patient history\Data Flow PHD tbl patient history table Boots"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
@@ -25470,6 +25517,14 @@ ORDER BY	issue_date, xdi.patient_hospitalno</property>
           DTS:ObjectName="Constraint 4"
           DTS:To="Package\PHD patient history\Update WGH Lloyds demographic details" />
         <DTS:PrecedenceConstraint
+          DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{A31E1B1C-EC64-45C5-8CEA-75F7ABE2F02E}"
+          DTS:From="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1" />
+        <DTS:PrecedenceConstraint
           DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 6]"
           DTS:CreationName=""
           DTS:DTSID="{F181D356-E181-4A87-A08C-4E753E884FC0}"
@@ -25477,6 +25532,14 @@ ORDER BY	issue_date, xdi.patient_hospitalno</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 6"
           DTS:To="Package\PHD patient history\Update legacy numbers WGH Lloyds" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{379C8ACF-1352-4BF0-A240-513416821E8C}"
+          DTS:From="Package\PHD patient history\Data Flow tbl patient history Lloyds"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\PHD patient history\Update demographic details" />
         <DTS:PrecedenceConstraint
           DTS:refId="Package\PHD patient history.PrecedenceConstraints[Constraint 8]"
           DTS:CreationName=""
@@ -26802,7 +26865,7 @@ SELECT DISTINCT xdi.Patient_Identifier,--patient_hospitalno,
 FROM Finance.transform.pharmacy xdi WITH (NOLOCK)
   JOIN SUS.dbo.sus_apc_spell_pbr_current s
   ON s.local_patient_identifier = xdi.Patient_Identifier
-WHERE xdi.stored_date_of_issue_dt BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 2, 0) AND (GETDATE())
+WHERE xdi.stored_date_of_issue_dt BETWEEN DATEADD("Month", DATEDIFF("Month", -1, getdate()) - 3, 0) AND (GETDATE())
   AND xdi.stored_date_of_issue_dt BETWEEN s.start_date_hospital_provider_spell AND s.end_date_hospital_provider_spell --m.spell_start_date AND m.spell_end_date
   AND xdi.Issue_Type_Code IN (1,2,3,4,5,6,7,8,20)
 AND s.treatment_function_code !='999'
@@ -28135,23 +28198,9 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
                           cachedName="issue_date"
                           externalMetadataColumnId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[issue_date]"
                           lineageId="Package\WGH id values\PHD tbl patient history table WGH\Source for dbo pharmacy_patient_history_WGH.Outputs[OLE DB Source Output].Columns[issue_date]" />
-                        <inputColumn
-                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].Columns[patient_trust_number]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="20"
-                          cachedName="patient_trust_number"
-                          externalMetadataColumnId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[patient_trust_number]"
-                          lineageId="Package\WGH id values\PHD tbl patient history table WGH\Data Conversion.Outputs[Data Conversion Output].Columns[patient_trust_number]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[patient_trust_number]"
-                          codePage="1252"
-                          dataType="str"
-                          length="20"
-                          name="patient_trust_number" />
                         <externalMetadataColumn
                           refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
                           codePage="1252"
@@ -28160,8 +28209,70 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
                           name="nhs_number" />
                         <externalMetadataColumn
                           refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[issue_date]"
-                          dataType="dbTimeStamp"
+                          dataType="i4"
                           name="issue_date" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[patient_hospitalno]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="patient_hospitalno" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[patient_natno]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="patient_natno" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[PAS_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="PAS_ID" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[patient_id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="patient_id" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[regd_gp_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="regd_gp_code" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[regd_practice_code]"
+                          codePage="1252"
+                          dataType="str"
+                          length="16"
+                          name="regd_practice_code" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[patient_first_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="patient_first_name" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[patient_last_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="patient_last_name" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[pct_of_residence]"
+                          codePage="1252"
+                          dataType="str"
+                          length="18"
+                          name="pct_of_residence" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[valid_from_date]"
+                          dataType="dbTimeStamp"
+                          name="valid_from_date" />
+                        <externalMetadataColumn
+                          refId="Package\WGH id values\PHD tbl patient history table WGH\Destination for dbo pharmacy_patient_history_WGH.Inputs[OLE DB Destination Input].ExternalColumns[valid_to_date]"
+                          dataType="dbTimeStamp"
+                          name="valid_to_date" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -28613,44 +28724,44 @@ WHERE xdi.issue_date
       <GraphLayout
         Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="151,42"
+          Size="151.2,41.6"
           Id="Package\check run_date"
           TopLeft="989.005118883472,1517.47311398785" />
         <NodeLayout
-          Size="218,42"
+          Size="217.6,41.6"
           Id="Package\Data Flow from JAC database"
-          TopLeft="753.470185784763,229.327971068361" />
+          TopLeft="752.755900058313,229.327971068361" />
         <NodeLayout
-          Size="250,42"
+          Size="249.6,41.6"
           Id="Package\Data Flow from transform pharmacy"
           TopLeft="679.005113604203,1438.50841338205" />
         <NodeLayout
-          Size="185,42"
+          Size="184.8,41.6"
           Id="Package\Delete from error_logs"
           TopLeft="724.00511437055,1512.09664819355" />
         <NodeLayout
-          Size="201,42"
+          Size="200.8,41.6"
           Id="Package\Delete from pharmacy"
           TopLeft="714.005114200251,1368.47704452948" />
         <NodeLayout
           Size="228,52"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request"
-          TopLeft="9.68419377130044,8.82477695171025" />
+          TopLeft="19.2117401743834,8.82477695171025" />
         <NodeLayout
-          Size="194,42"
+          Size="193.6,41.6"
           Id="Package\Demographics\GetPatientDemographics"
-          TopLeft="23.963918415409,84.4005567728824" />
+          TopLeft="33.491464818492,84.4005567728824" />
         <NodeLayout
-          Size="208,42"
+          Size="208,41.6"
           Id="Package\Demographics\Update ArmedForces status"
-          TopLeft="22.7012646452121,224.934037825394" />
+          TopLeft="32.2288110482959,294.52227409546" />
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\Demographics\Update demographics and overseas visitor status"
-          TopLeft="17.7581678704672,155.870281731667" />
+          TopLeft="28.7142857264503,221.634988536345" />
         <EdgeLayout
           Id="Package\Demographics.PrecedenceConstraints[Constraint 13]"
-          TopLeft="122.424056093355,60.8247769517102">
+          TopLeft="131.951602496438,60.8247769517102">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -28672,18 +28783,44 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Demographics.PrecedenceConstraints[Constraint 14]"
-          TopLeft="124.42971625784,197.470281731667">
+          TopLeft="134.671548387373,263.234988536345">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,27.4637560937266"
+              EndConnector="0,31.2872855591152"
               Start="0,0"
-              End="0,19.9637560937266">
+              End="0,23.7872855591152">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.9637560937266" />
+                    End="0,23.7872855591152" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Demographics\Execute Get deomgraphic package in Admin"
+          TopLeft="26.9275544922845,154.247061300938" />
+        <EdgeLayout
+          Id="Package\Demographics.PrecedenceConstraints[Constraint]"
+          TopLeft="132.409509655388,126.000556772882">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28.2465045280552"
+              Start="0,0"
+              End="0,20.7465045280552">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.7465045280552" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28693,19 +28830,19 @@ WHERE xdi.issue_date
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Demographics.PrecedenceConstraints[Constraint 15]"
-          TopLeft="121.661043142938,126.000556772882">
+          Id="Package\Demographics.PrecedenceConstraints[Constraint 1]"
+          TopLeft="133.820920109367,195.847061300938">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,29.8697249587846"
+              EndConnector="0,25.7879272354076"
               Start="0,0"
-              End="0,22.3697249587846">
+              End="0,18.2879272354076">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.3697249587846" />
+                    End="0,18.2879272354076" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28717,32 +28854,32 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="245,289"
-          Size="245,332"
+          PanelSize="260.8,391.2"
+          Size="260.8,434.4"
           Id="Package\Demographics"
           TopLeft="983.744347818829,646.892909803991" />
         <NodeLayout
-          Size="213,42"
+          Size="212.8,41.6"
           Id="Package\freeze table\email_fail_freeze_table"
           TopLeft="261.93626405534,239.058832211479" />
         <NodeLayout
-          Size="210,42"
+          Size="209.6,41.6"
           Id="Package\freeze table\email_success_freeze_table"
           TopLeft="30.5714234381292,240.352946174186" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\freeze table\freeze table update"
           TopLeft="139.54284857925,12.4000069281631" />
         <NodeLayout
-          Size="186,42"
+          Size="185.6,41.6"
           Id="Package\freeze table\get_email_address_fail"
           TopLeft="260.571422927233,172.235300123485" />
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\freeze table\get_email_address_success"
           TopLeft="30.1428571793497,172.035301399725" />
         <NodeLayout
-          Size="195,42"
+          Size="195.2,41.6"
           Id="Package\freeze table\update freeze table flags"
           TopLeft="135.257134220551,77.4000078397639" />
         <EdgeLayout
@@ -28908,22 +29045,22 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="489,333"
-          Size="489,376"
+          PanelSize="488.8,332.8"
+          Size="488.8,376"
           Id="Package\freeze table"
-          TopLeft="1274.52847960511,1382.30374230945" />
+          TopLeft="1273.81419387866,1382.30374230945" />
         <NodeLayout
-          Size="251,42"
+          Size="251.2,41.6"
           Id="Package\import to transform table\Data Flow from finance import Boots"
           TopLeft="14.0507094206972,74.8588255778318" />
         <NodeLayout
-          Size="246,42"
+          Size="246.4,41.6"
           Id="Package\import to transform table\Data Flow from finance import UHB"
           TopLeft="19.4285712826009,11.0316319495209" />
         <NodeLayout
-          Size="249,42"
+          Size="248.8,41.6"
           Id="Package\import to transform table\Data Flow from finance import WGH"
-          TopLeft="14.422144864906,142.317650244063" />
+          TopLeft="15.2157956720725,143.167323458594" />
         <EdgeLayout
           Id="Package\import to transform table.PrecedenceConstraints[Constraint]"
           TopLeft="265.828571282601,31.8316319495209">
@@ -28960,18 +29097,18 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package\import to transform table.PrecedenceConstraints[Constraint 1]"
-          TopLeft="139.236427142802,116.458825577832">
+          TopLeft="139.633252546385,116.458825577832">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,25.8588246662308"
+              EndConnector="0,26.708497880762"
               Start="0,0"
-              End="0,18.3588246662308">
+              End="0,19.208497880762">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.3588246662308" />
+                    End="0,19.208497880762" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -28983,46 +29120,46 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="294,203"
-          Size="294,246"
+          PanelSize="294.4,240"
+          Size="294.4,283.2"
           Id="Package\import to transform table"
           TopLeft="1438.77553470628,50.4705889431251" />
         <NodeLayout
-          Size="190,42"
+          Size="190.4,41.6"
           Id="Package\Legacy numbers\Update legacy numbers"
           TopLeft="9.63790358400946,6.67471877663718" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="210,59"
-          Size="210,102"
+          PanelSize="209.6,59.2"
+          Size="209.6,102.4"
           Id="Package\Legacy numbers"
           TopLeft="742.355454819108,453.979790301624" />
         <NodeLayout
-          Size="311,42"
+          Size="311.2,41.6"
           Id="Package\main drug flag missing email\Data Flow for pharmacy_main_drug_flag_missing"
           TopLeft="11.8285850768189,9.67059113096605" />
         <NodeLayout
-          Size="257,42"
+          Size="256.8,41.6"
           Id="Package\main drug flag missing email\email_main_drug_flag_missing_email"
           TopLeft="25.4285854174166,322.329416891118" />
         <NodeLayout
-          Size="178,42"
+          Size="177.6,41.6"
           Id="Package\main drug flag missing email\Foreach row in recordset object\add row to string var"
           TopLeft="27.0285854174174,13.7764763688549" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="252,69"
+          PanelSize="252,68.8"
           Size="252,112"
           Id="Package\main drug flag missing email\Foreach row in recordset object"
           TopLeft="24.2254104804024,99.5751692269776" />
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\main drug flag missing email\get_email_address"
           TopLeft="36.1428675675879,253.223536575872" />
         <NodeLayout
-          Size="149,42"
+          Size="148.8,41.6"
           Id="Package\main drug flag missing email\Send Mail Task"
           TopLeft="56.6857284935149,384.364713550523" />
         <EdgeLayout
@@ -29132,8 +29269,8 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="334,481"
-          Size="334,524"
+          PanelSize="334.4,480.8"
+          Size="334.4,524"
           Id="Package\main drug flag missing email"
           TopLeft="1822.74696350884,722.188239004867" />
         <NodeLayout
@@ -29145,7 +29282,11 @@ WHERE xdi.issue_date
           Id="Package\outpatient details\Data Flow OP details 1"
           TopLeft="41.1428639913095,356.000005651923" />
         <NodeLayout
-          Size="180,42"
+          Size="136,44"
+          Id="Package\outpatient details\Data Flow OP details 2"
+          TopLeft="36,75" />
+        <NodeLayout
+          Size="180,41.6"
           Id="Package\outpatient details\truncate pharmacy_op_details"
           TopLeft="12.6031743409681,9.81582274252457" />
         <NodeLayout
@@ -29156,6 +29297,10 @@ WHERE xdi.issue_date
           Size="136,44"
           Id="Package\outpatient details\Update OP details 1"
           TopLeft="40.485721851855,419.776476733495" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\outpatient details\Update OP details 2"
+          TopLeft="35,146" />
         <EdgeLayout
           Id="Package\outpatient details.PrecedenceConstraints[Constraint]"
           TopLeft="178.83827515157,319.995869254888">
@@ -29225,6 +29370,28 @@ WHERE xdi.issue_date
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\outpatient details.PrecedenceConstraints[Constraint 2]"
+          TopLeft="103.301587170484,51.8158227425246">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,23.1841772574754"
+              Start="0,0"
+              End="0,15.6841772574754">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.6841772574754" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\outpatient details.PrecedenceConstraints[Constraint 22]"
           TopLeft="41.5714288025486,256.577692043799">
           <EdgeLayout.Curve>
@@ -29258,36 +29425,6 @@ WHERE xdi.issue_date
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="136,44"
-          Id="Package\outpatient details\Data Flow OP details 2"
-          TopLeft="36,75" />
-        <NodeLayout
-          Size="136,44"
-          Id="Package\outpatient details\Update OP details 2"
-          TopLeft="35,146" />
-        <EdgeLayout
-          Id="Package\outpatient details.PrecedenceConstraints[Constraint 2]"
-          TopLeft="103.301587170484,51.8158227425246">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,23.1841772574754"
-              Start="0,0"
-              End="0,15.6841772574754">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.6841772574754" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\outpatient details.PrecedenceConstraints[Constraint 3]"
           TopLeft="103.5,119">
@@ -29313,80 +29450,80 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="213,519"
-          Size="213,562"
+          PanelSize="212.8,519.2"
+          Size="212.8,562.4"
           Id="Package\outpatient details"
           TopLeft="1546.38438002517,735.947348070472" />
         <NodeLayout
-          Size="170,57"
+          Size="169.6,56.8"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table Boots"
           TopLeft="27.6294280014171,166.594125245516" />
         <NodeLayout
-          Size="165,42"
+          Size="164.8,46.4"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table UHB"
-          TopLeft="29.3760107877529,85.243211516668" />
+          TopLeft="29.3760107877529,80.1451722294837" />
         <NodeLayout
-          Size="171,50"
+          Size="171.2,49.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds"
           TopLeft="29.7188746939131,249.623534752672" />
         <NodeLayout
-          Size="171,50"
+          Size="171.2,49.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1"
           TopLeft="30.3428579456952,327.682358142661" />
         <NodeLayout
-          Size="160,50"
+          Size="160,49.6"
           Id="Package\PHD patient history\Data Flow tbl patient history Lloyds"
           TopLeft="210.657147248424,249.42353311179" />
         <NodeLayout
-          Size="152,53"
+          Size="152,52.8"
           Id="Package\PHD patient history\Data Flow tbl patient history UHB"
           TopLeft="216.28571946767,89.0941195024334" />
         <NodeLayout
-          Size="178,48"
+          Size="269.6,41.6"
           Id="Package\PHD patient history\truncate pharmacy_patient_history table"
           TopLeft="24.4663072168063,9.7554203184992" />
         <NodeLayout
-          Size="173,42"
+          Size="172.8,41.6"
           Id="Package\PHD patient history\Update demographic details"
           TopLeft="28.7142857264499,404.45769879368" />
         <NodeLayout
-          Size="177,42"
+          Size="176.8,41.6"
           Id="Package\PHD patient history\Update demographic details 1"
           TopLeft="32.8571440978927,472.72941980824" />
         <NodeLayout
-          Size="180,42"
+          Size="180,41.6"
           Id="Package\PHD patient history\Update legacy numbers WGH Lloyds"
           TopLeft="28.8571444384906,604.517652978864" />
         <NodeLayout
-          Size="180,42"
+          Size="180,41.6"
           Id="Package\PHD patient history\Update WGH Lloyds demographic details"
           TopLeft="27.1387760541181,539.563033226041" />
         <EdgeLayout
           Id="Package\PHD patient history.PrecedenceConstraints[Constraint]"
-          TopLeft="113.266307216806,57.7554203184992">
+          TopLeft="159.266307216806,51.3554203184992">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="179.019412250863,31.3386991839342"
+              EndConnector="133.019412250864,37.7386991839342"
               Start="0,0"
-              End="179.019412250863,23.8386991839342">
+              End="133.019412250864,30.2386991839342">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.6693495919671" />
+                    End="0,14.8693495919671" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.6693495919671"
-                    Point2="0,15.6693495919671"
-                    Point3="4,15.6693495919671" />
+                    Point1="0,14.8693495919671"
+                    Point2="0,18.8693495919671"
+                    Point3="4,18.8693495919671" />
                   <mssgle:LineSegment
-                    End="175.019412250863,15.6693495919671" />
+                    End="129.019412250864,18.8693495919671" />
                   <mssgle:CubicBezierSegment
-                    Point1="175.019412250863,15.6693495919671"
-                    Point2="179.019412250863,15.6693495919671"
-                    Point3="179.019412250863,19.6693495919671" />
+                    Point1="129.019412250864,18.8693495919671"
+                    Point2="133.019412250864,18.8693495919671"
+                    Point3="133.019412250864,22.8693495919671" />
                   <mssgle:LineSegment
-                    End="179.019412250863,23.8386991839342" />
+                    End="133.019412250864,30.2386991839342" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29397,30 +29534,40 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package\PHD patient history.PrecedenceConstraints[Constraint 1]"
-          TopLeft="290.657147248424,299.82353311179">
+          TopLeft="112.102719394585,126.545172229484">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-175.542861521974,104.63416568189"
+              EndConnector="0,40.0489530160323"
               Start="0,0"
-              End="-175.542861521974,97.1341656818897">
+              End="0,32.5489530160323">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,88.8464951740602" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,88.8464951740602"
-                    Point2="0,92.8464951740602"
-                    Point3="-4,92.8464951740602" />
+                    End="0,32.5489530160323" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PHD patient history.PrecedenceConstraints[Constraint 2]"
+          TopLeft="113.874151347665,223.394125245516">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,26.2294095071559"
+              Start="0,0"
+              End="0,18.7294095071559">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-171.542861521974,92.8464951740602" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-171.542861521974,92.8464951740602"
-                    Point2="-175.542861521974,92.8464951740602"
-                    Point3="-175.542861521974,96.8464951740602" />
-                  <mssgle:LineSegment
-                    End="-175.542861521974,97.1341656818897" />
+                    End="0,18.7294095071559" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29474,6 +29621,28 @@ WHERE xdi.issue_date
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\PHD patient history.PrecedenceConstraints[Constraint 5]"
+          TopLeft="115.630866319804,299.223534752672">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28.458823389989"
+              Start="0,0"
+              End="0,20.958823389989">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.958823389989" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\PHD patient history.PrecedenceConstraints[Constraint 6]"
           TopLeft="117.997960246304,581.163033226041">
           <EdgeLayout.Curve>
@@ -29487,6 +29656,40 @@ WHERE xdi.issue_date
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,15.8546197528229" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PHD patient history.PrecedenceConstraints[Constraint 7]"
+          TopLeft="290.657147248424,299.02353311179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-175.542861521974,105.43416568189"
+              Start="0,0"
+              End="-175.542861521974,97.93416568189">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.717082840945" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.717082840945"
+                    Point2="0,52.717082840945"
+                    Point3="-4,52.717082840945" />
+                  <mssgle:LineSegment
+                    End="-171.542861521974,52.717082840945" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-171.542861521974,52.717082840945"
+                    Point2="-175.542861521974,52.717082840945"
+                    Point3="-175.542861521974,56.717082840945" />
+                  <mssgle:LineSegment
+                    End="-175.542861521974,97.93416568189" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29520,40 +29723,40 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="382,662"
-          Size="382,705"
+          PanelSize="382.4,700.8"
+          Size="382.4,744"
           Id="Package\PHD patient history"
           TopLeft="560.246608180401,597.060832733363" />
         <NodeLayout
-          Size="242,42"
+          Size="241.6,41.6"
           Id="Package\populate JAC dbo pharmacy tables"
           TopLeft="734.489808426653,165.176472904773" />
         <NodeLayout
-          Size="183,42"
+          Size="183.2,41.6"
           Id="Package\Spell details\Data Flow spell details"
           TopLeft="35.3746631700902,221.367310834666" />
         <NodeLayout
-          Size="173,44"
+          Size="172.8,44"
           Id="Package\Spell details\Data Flow spell details 1"
           TopLeft="41.460385447693,353.411773757539" />
         <NodeLayout
-          Size="183,42"
+          Size="183.2,41.6"
           Id="Package\Spell details\Data Flow spell details 2"
           TopLeft="34.8603816159653,79.8823546785796" />
         <NodeLayout
-          Size="189,45"
+          Size="188.8,44.8"
           Id="Package\Spell details\truncate pharmacy_spell_details"
           TopLeft="28,11.8700837598722" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Spell details\Update spell details"
           TopLeft="41.8409705571963,287.28295994165" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Spell details\Update spell details 1"
           TopLeft="44.8032383695678,414.411772481299" />
         <NodeLayout
-          Size="179,42"
+          Size="179.2,41.6"
           Id="Package\Spell details\Update spell details 2"
           TopLeft="40.2000058753149,144.56470935716" />
         <EdgeLayout
@@ -29681,28 +29884,28 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="246,511"
-          Size="246,554"
+          PanelSize="246.4,511.2"
+          Size="246.4,554.4"
           Id="Package\Spell details"
           TopLeft="1255.88176727283,722.249959710585" />
         <NodeLayout
-          Size="280,42"
+          Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
           TopLeft="726.154822134481,95.735295383163" />
         <NodeLayout
-          Size="243,42"
+          Size="243.2,41.6"
           Id="Package\UHB main drug flag SD886476\Data Flow from JAC main drug flag"
           TopLeft="17.9714405531788,78.8353003058057" />
         <NodeLayout
-          Size="282,42"
+          Size="281.6,41.6"
           Id="Package\UHB main drug flag SD886476\Data Flow from JAC main drug flag missing"
           TopLeft="22.9714406383281,211.000004193362" />
         <NodeLayout
-          Size="378,42"
+          Size="377.6,41.6"
           Id="Package\UHB main drug flag SD886476\truncate finance main drug flag &amp; main drug flag missing tables"
           TopLeft="14.4000119209294,12.2588283126331" />
         <NodeLayout
-          Size="370,42"
+          Size="369.6,41.6"
           Id="Package\UHB main drug flag SD886476\update finance transform main drug flag"
           TopLeft="20.2000120060786,146.282360512823" />
         <EdgeLayout
@@ -29811,23 +30014,23 @@ WHERE xdi.issue_date
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="432,308"
-          Size="432,351"
+          Size="432,351.2"
           Id="Package\UHB main drug flag SD886476"
           TopLeft="1698.23982483923,324.426475138194" />
         <NodeLayout
-          Size="236,42"
+          Size="236,41.6"
           Id="Package\Update Northern Irish purchasers"
           TopLeft="1534.39452381178,1306.18923140136" />
         <NodeLayout
-          Size="238,42"
+          Size="238.4,41.6"
           Id="Package\WGH id values\PHD tbl patient history table WGH"
           TopLeft="11.5714282916518,76.7647131858813" />
         <NodeLayout
-          Size="230,42"
+          Size="230.4,41.6"
           Id="Package\WGH id values\truncate pharmacy_patient_history_WGH"
           TopLeft="11.5142865779448,10.7882410103889" />
         <NodeLayout
-          Size="204,42"
+          Size="204,41.6"
           Id="Package\WGH id values\Update WGH id values_old"
           TopLeft="28.1142868333933,141.741185908334" />
         <EdgeLayout
@@ -29877,19 +30080,19 @@ WHERE xdi.issue_date
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="260,235"
-          Size="260,278"
+          PanelSize="260,235.2"
+          Size="260,278.4"
           Id="Package\WGH id values"
           TopLeft="1083.07552227446,32.7235245427459" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="866.154822134481,137.335295383163">
+          TopLeft="865.754822134481,137.335295383163">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-10.865013707828,27.84117752161"
+              EndConnector="-10.4650137078281,27.84117752161"
               Start="0,0"
-              End="-10.865013707828,20.34117752161">
+              End="-10.4650137078281,20.34117752161">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -29900,13 +30103,13 @@ WHERE xdi.issue_date
                     Point2="0,13.920588760805"
                     Point3="-4,13.920588760805" />
                   <mssgle:LineSegment
-                    End="-6.86501370782801,13.920588760805" />
+                    End="-6.46501370782812,13.920588760805" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6.86501370782801,13.920588760805"
-                    Point2="-10.865013707828,13.920588760805"
-                    Point3="-10.865013707828,17.920588760805" />
+                    Point1="-6.46501370782812,13.920588760805"
+                    Point2="-10.4650137078281,13.920588760805"
+                    Point3="-10.4650137078281,17.920588760805" />
                   <mssgle:LineSegment
-                    End="-10.865013707828,20.34117752161" />
+                    End="-10.4650137078281,20.34117752161" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -29917,30 +30120,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="971.070185784763,250.127971068361">
+          TopLeft="970.355900058313,250.127971068361">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="112.005336489695,-78.6044465256155"
+              EndConnector="112.719622216147,-78.2044465256151"
               Start="0,0"
-              End="104.505336489695,-78.6044465256155">
+              End="105.219622216147,-78.2044465256151">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="52.0026682448473,0" />
+                    End="52.3598111080734,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="52.0026682448473,0"
-                    Point2="56.0026682448473,0"
-                    Point3="56.0026682448473,-4" />
+                    Point1="52.3598111080734,0"
+                    Point2="56.3598111080734,0"
+                    Point3="56.3598111080734,-4" />
                   <mssgle:LineSegment
-                    End="56.0026682448473,-74.6044465256155" />
+                    End="56.3598111080734,-74.2044465256151" />
                   <mssgle:CubicBezierSegment
-                    Point1="56.0026682448473,-74.6044465256155"
-                    Point2="56.0026682448473,-78.6044465256155"
-                    Point3="60.0026682448473,-78.6044465256155" />
+                    Point1="56.3598111080734,-74.2044465256151"
+                    Point2="56.3598111080734,-78.2044465256151"
+                    Point3="60.3598111080734,-78.2044465256151" />
                   <mssgle:LineSegment
-                    End="104.505336489695,-78.6044465256155" />
+                    End="105.219622216147,-78.2044465256151" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30011,50 +30214,62 @@ WHERE xdi.issue_date
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="134.32336072164,32.0306283215939"
+              EndConnector="133.609074995188,32.0306283216"
               Start="0,0"
-              End="126.82336072164,32.0306283215939">
+              End="126.109074995188,32.0306283216">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="63.1616803608198,0" />
+                    End="62.8045374975942,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="63.1616803608198,0"
-                    Point2="67.1616803608198,0"
-                    Point3="67.1616803608198,4" />
+                    Point1="62.8045374975942,0"
+                    Point2="66.8045374975942,0"
+                    Point3="66.8045374975942,4" />
                   <mssgle:LineSegment
-                    End="67.1616803608198,28.0306283215939" />
+                    End="66.8045374975942,28.0306283216" />
                   <mssgle:CubicBezierSegment
-                    Point1="67.1616803608198,28.0306283215939"
-                    Point2="67.1616803608198,32.0306283215939"
-                    Point3="71.1616803608198,32.0306283215939" />
+                    Point1="66.8045374975942,28.0306283216"
+                    Point2="66.8045374975942,32.0306283216"
+                    Point3="70.8045374975942,32.0306283216" />
                   <mssgle:LineSegment
-                    End="126.82336072164,32.0306283215939" />
+                    End="126.109074995188,32.0306283216" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="59.1616803608198,-22,16,16"
+              BoundingBox="58.8045374975942,-22,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="1343.07552227446,172.597056742936">
+          TopLeft="1343.07552227446,171.923524542746">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="95.7000124318267,0"
+              EndConnector="95.7000124318201,20.1470644003792"
               Start="0,0"
-              End="88.2000124318267,0">
+              End="88.2000124318201,20.1470644003792">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="88.2000124318267,0" />
+                    End="43.8500062159101,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.8500062159101,0"
+                    Point2="47.8500062159101,0"
+                    Point3="47.8500062159101,4" />
+                  <mssgle:LineSegment
+                    End="47.8500062159101,16.1470644003792" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.8500062159101,16.1470644003792"
+                    Point2="47.8500062159101,20.1470644003792"
+                    Point3="51.8500062159101,20.1470644003792" />
+                  <mssgle:LineSegment
+                    End="88.2000124318201,20.1470644003792" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30065,7 +30280,7 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 14]"
-          TopLeft="858.779997105708,206.776472904773">
+          TopLeft="858.422854242483,206.776472904773">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -30143,30 +30358,24 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="1585.57553470628,296.070588943125">
+          TopLeft="1733.17553470628,192.070588943125">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="328.664290132935,28.3558861950693"
+              EndConnector="181.06429013295,132.355886195069"
               Start="0,0"
-              End="328.664290132935,20.8558861950693">
+              End="181.06429013295,124.855886195069">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.1779430975347" />
+                    End="177.06429013295,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10.1779430975347"
-                    Point2="0,14.1779430975347"
-                    Point3="4,14.1779430975347" />
+                    Point1="177.06429013295,0"
+                    Point2="181.06429013295,0"
+                    Point3="181.06429013295,4" />
                   <mssgle:LineSegment
-                    End="324.664290132935,14.1779430975347" />
-                  <mssgle:CubicBezierSegment
-                    Point1="324.664290132935,14.1779430975347"
-                    Point2="328.664290132935,14.1779430975347"
-                    Point3="328.664290132935,18.1779430975347" />
-                  <mssgle:LineSegment
-                    End="328.664290132935,20.8558861950693" />
+                    End="181.06429013295,124.855886195069" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30177,30 +30386,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="847.355454819108,555.979790301624">
+          TopLeft="847.155454819108,556.379790301624">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-96.108846638707,41.081042431739"
+              EndConnector="-95.708846638707,40.681042431739"
               Start="0,0"
-              End="-96.108846638707,33.581042431739">
+              End="-95.708846638707,33.181042431739">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.5405212158695" />
+                    End="0,16.3405212158695" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.5405212158695"
-                    Point2="0,20.5405212158695"
-                    Point3="-4,20.5405212158695" />
+                    Point1="0,16.3405212158695"
+                    Point2="0,20.3405212158695"
+                    Point3="-4,20.3405212158695" />
                   <mssgle:LineSegment
-                    End="-92.108846638707,20.5405212158695" />
+                    End="-91.708846638707,20.3405212158695" />
                   <mssgle:CubicBezierSegment
-                    Point1="-92.108846638707,20.5405212158695"
-                    Point2="-96.108846638707,20.5405212158695"
-                    Point3="-96.108846638707,24.5405212158695" />
+                    Point1="-91.708846638707,20.3405212158695"
+                    Point2="-95.708846638707,20.3405212158695"
+                    Point3="-95.708846638707,24.3405212158695" />
                   <mssgle:LineSegment
-                    End="-96.108846638707,33.581042431739" />
+                    End="-95.708846638707,33.181042431739" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30211,30 +30420,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="942.246608180401,949.560832733363">
+          TopLeft="942.646608180401,969.060832733363">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="41.497739638428,-136.667922929372"
+              EndConnector="41.0977396384285,-104.967922929372"
               Start="0,0"
-              End="33.997739638428,-136.667922929372">
+              End="33.5977396384285,-104.967922929372">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="16.748869819214,0" />
+                    End="16.5488698192142,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="16.748869819214,0"
-                    Point2="20.748869819214,0"
-                    Point3="20.748869819214,-4" />
+                    Point1="16.5488698192142,0"
+                    Point2="20.5488698192142,0"
+                    Point3="20.5488698192142,-4" />
                   <mssgle:LineSegment
-                    End="20.748869819214,-132.667922929372" />
+                    End="20.5488698192142,-100.967922929372" />
                   <mssgle:CubicBezierSegment
-                    Point1="20.748869819214,-132.667922929372"
-                    Point2="20.748869819214,-136.667922929372"
-                    Point3="24.748869819214,-136.667922929372" />
+                    Point1="20.5488698192142,-100.967922929372"
+                    Point2="20.5488698192142,-104.967922929372"
+                    Point3="24.5488698192142,-104.967922929372" />
                   <mssgle:LineSegment
-                    End="33.997739638428,-136.667922929372" />
+                    End="33.5977396384285,-104.967922929372" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30245,30 +30454,24 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="1228.74434781883,812.892909803991">
+          TopLeft="1244.54434781883,864.092909803991">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="27.137419454001,186.357049906594"
+              EndConnector="134.537419454001,-141.842950093406"
               Start="0,0"
-              End="19.637419454001,186.357049906594">
+              End="134.537419454001,-134.342950093406">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="9.56870972700051,0" />
+                    End="130.537419454001,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="9.56870972700051,0"
-                    Point2="13.5687097270005,0"
-                    Point3="13.5687097270005,4" />
+                    Point1="130.537419454001,0"
+                    Point2="134.537419454001,0"
+                    Point3="134.537419454001,-4" />
                   <mssgle:LineSegment
-                    End="13.5687097270005,182.357049906594" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.5687097270005,182.357049906594"
-                    Point2="13.5687097270005,186.357049906594"
-                    Point3="17.5687097270005,186.357049906594" />
-                  <mssgle:LineSegment
-                    End="19.637419454001,186.357049906594" />
+                    End="134.537419454001,-134.342950093406" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30279,30 +30482,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="1501.88176727283,999.249959710585">
+          TopLeft="1502.28176727283,999.449959710585">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="44.5026127523399,17.697388359887"
+              EndConnector="44.1026127523398,17.6973883598871"
               Start="0,0"
-              End="37.0026127523399,17.697388359887">
+              End="36.6026127523398,17.6973883598871">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.25130637617,0" />
+                    End="18.0513063761699,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="18.25130637617,0"
-                    Point2="22.25130637617,0"
-                    Point3="22.25130637617,4" />
+                    Point1="18.0513063761699,0"
+                    Point2="22.0513063761699,0"
+                    Point3="22.0513063761699,4" />
                   <mssgle:LineSegment
-                    End="22.25130637617,13.697388359887" />
+                    End="22.0513063761699,13.6973883598871" />
                   <mssgle:CubicBezierSegment
-                    Point1="22.25130637617,13.697388359887"
-                    Point2="22.25130637617,17.697388359887"
-                    Point3="26.25130637617,17.697388359887" />
+                    Point1="22.0513063761699,13.6973883598871"
+                    Point2="22.0513063761699,17.6973883598871"
+                    Point3="26.0513063761699,17.6973883598871" />
                   <mssgle:LineSegment
-                    End="37.0026127523399,17.697388359887" />
+                    End="36.6026127523398,17.6973883598871" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30313,30 +30516,30 @@ WHERE xdi.issue_date
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="1759.38438002517,1016.94734807047">
+          TopLeft="1759.18438002517,1017.14734807047">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="11.0101437866099,310.241883330888"
+              EndConnector="11.2101437866099,309.841883330888"
               Start="0,0"
-              End="18.5101437866099,310.241883330888">
+              End="18.7101437866099,309.841883330888">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="29.5101437866099,0" />
+                    End="29.7101437866099,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="29.5101437866099,0"
-                    Point2="33.5101437866099,0"
-                    Point3="33.5101437866099,4" />
+                    Point1="29.7101437866099,0"
+                    Point2="33.7101437866099,0"
+                    Point3="33.7101437866099,4" />
                   <mssgle:LineSegment
-                    End="33.5101437866099,306.241883330888" />
+                    End="33.7101437866099,305.841883330888" />
                   <mssgle:CubicBezierSegment
-                    Point1="33.5101437866099,306.241883330888"
-                    Point2="33.5101437866099,310.241883330888"
-                    Point3="29.5101437866099,310.241883330888" />
+                    Point1="33.7101437866099,305.841883330888"
+                    Point2="33.7101437866099,309.841883330888"
+                    Point3="29.7101437866099,309.841883330888" />
                   <mssgle:LineSegment
-                    End="18.5101437866099,310.241883330888" />
+                    End="18.7101437866099,309.841883330888" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -30417,7 +30620,7 @@ WHERE xdi.issue_date
           Text="Developed by: Marianne Jeffries&#xA;Service desk no.: SD530566&#xA;Purpose: automate load from source JAC database&#xA;Details: see SharePoint Finance Pharmacy Load&#xA;&#xA;Additional requirements:&#xA;03 fields added, extracts updated: Nov-2021&#xA;Extract from JAC amended: Jan-2022&#xA;permissions are not being kept on BIT, filters/Jenkins: Jan-2022&#xA;Extract from JAC amended for duplicate entries to do with the unit of measure: Jan-2022&#xA;Missing demographics: Feb-2022&#xA;Weston patients missing demographic data, script to update: March-2022&#xA;Historical missing values for Bevacizumab, Nivolumab &amp; Venetoclax, script to update: March-2022&#xA;Issue with Finance downstream process to import data, corrected their script: June-2022&#xA;Lloyds outpatients pharmacy data: July-2022&#xA;SD886476 Pharmacy Extract: Dec-2022&#xA;Split PSU drugs for FY: March-2023&#xA;Amend email recipients: March-2023&#xA;SD1110167 Pharmacy Extract: Nov-2023&#xA;SD1036030 Pharmacy JAC_CMM patient data change: Jan-2024&#xA;SD1230828 MDS Rewrite Pharmacy MDSO Data: Boots supply disabled, WGH supply from sp on JAC: Oct-2024"
           ParentId="Package"
           FontInfo="{x:Null}"
-          Size="613,359"
+          Size="612.8,359.2"
           Id="1a841f25-417a-437c-bd72-738b5cd2a551"
           TopLeft="2151.57870004979,10.9607835558457" />
       </GraphLayout>
@@ -30439,7 +30642,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Data Flow from JAC database">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\Data Flow from JAC database\Source for JAC WGH"
@@ -30475,9 +30678,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30499,15 +30700,13 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="Next steps:&#xA;&#xA;- To configure each source, double-click the source.&#xA;- To indicate the flow of data, drag the green output arrows from the sources to the destinations.&#xA;To configure each destination, double-click each destination."
           ParentId="Package\Data Flow from JAC database"
-          Size="489.6,NaN"
+          Size="489.6,105.6"
           Id="04716c66-af32-4207-8065-1e244b343062"
           TopLeft="312.912398933997,377.470033264163">
           <AnnotationLayout.FontInfo>
@@ -30572,11 +30771,11 @@ WHERE xdi.issue_date
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="216,42"
+          Size="216,41.6"
           Id="Package\Data Flow from transform pharmacy\Source for Finance pharmacy"
           TopLeft="28.2857142735501,20.4705882138447" />
         <NodeLayout
-          Size="237,42"
+          Size="236.8,41.6"
           Id="Package\Data Flow from transform pharmacy\Destination for Finance pharmacy"
           TopLeft="28.3333333333333,104.666666666667" />
         <EdgeLayout
@@ -30641,7 +30840,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Demographics\Data Flow pharm_adm_ext_demographics_request">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="304.8,44"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request\Source for pharm_adm_ext_demographics_request"
@@ -30677,9 +30876,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -30705,9 +30902,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -30933,7 +31128,7 @@ WHERE xdi.issue_date
     design-time-name="Package\import to transform table\Data Flow from finance import UHB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="273.6,41.6"
           Id="Package\import to transform table\Data Flow from finance import UHB\Source for finance import pharmacy_UHB"
@@ -30981,9 +31176,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31017,9 +31210,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31041,9 +31232,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31074,7 +31263,7 @@ WHERE xdi.issue_date
     design-time-name="Package\import to transform table\Data Flow from finance import WGH">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="276.8,41.6"
           Id="Package\import to transform table\Data Flow from finance import WGH\Source for finance import pharmacy_WGH"
@@ -31110,9 +31299,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31134,9 +31321,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31170,9 +31355,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31291,7 +31474,7 @@ WHERE xdi.issue_date
     design-time-name="Package\outpatient details\Data Flow OP details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="217,42"
           Id="Package\outpatient details\Data Flow OP details\Source for dbo tbl_op_details"
@@ -31319,14 +31502,16 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="To be removed in Jan-2025"
           ParentId="Package\outpatient details\Data Flow OP details"
           FontInfo="{x:Null}"
-          Size="175,40"
+          Size="175,NaN"
           Id="07e47d49-bb3d-43ac-bcc1-26d4ff514a47"
           TopLeft="63.5,0.515094339622635" />
       </GraphLayout>
@@ -31357,7 +31542,7 @@ WHERE xdi.issue_date
     design-time-name="Package\outpatient details\Data Flow OP details 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="217,42"
           Id="Package\outpatient details\Data Flow OP details 1\Source for dbo tbl_op_details"
@@ -31397,7 +31582,9 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31412,10 +31599,107 @@ WHERE xdi.issue_date
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\outpatient details\Data Flow OP details 2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="272,41.6"
+          Id="Package\outpatient details\Data Flow OP details 2\Destination for dbo pharmacy_op_details"
+          TopLeft="30.4622641509434,252.915094339623" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\outpatient details\Data Flow OP details 2\Data Conversion"
+          TopLeft="74,131" />
+        <NodeLayout
+          Size="216.8,41.6"
+          Id="Package\outpatient details\Data Flow OP details 2\Source for dbo tbl_op_details"
+          TopLeft="37.5,15.5" />
+        <EdgeLayout
+          Id="Package\outpatient details\Data Flow OP details 2.Paths[OLE DB Source Output]"
+          TopLeft="149,57.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,73.5"
+              Start="0,0"
+              End="0,66">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\outpatient details\Data Flow OP details 2.Paths[Data Conversion Output]"
+          TopLeft="152,173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="14.4622641509434,79.915094339623"
+              Start="0,0"
+              End="14.4622641509434,72.415094339623">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.9575471698115" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.9575471698115"
+                    Point2="0,39.9575471698115"
+                    Point3="4,39.9575471698115" />
+                  <mssgle:LineSegment
+                    End="10.4622641509434,39.9575471698115" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.4622641509434,39.9575471698115"
+                    Point2="14.4622641509434,39.9575471698115"
+                    Point3="14.4622641509434,43.9575471698115" />
+                  <mssgle:LineSegment
+                    End="14.4622641509434,72.415094339623" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\outpatient details\Data Flow OP details 2\Destination for dbo pharmacy_op_details">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\outpatient details\Data Flow OP details 2\Source for dbo tbl_op_details">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table Boots">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="239.2,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table Boots\Source for dbo tbl_patient_history"
@@ -31455,9 +31739,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31488,7 +31770,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table UHB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="239.2,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table UHB\Source for dbo tbl_patient_history"
@@ -31528,9 +31810,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31561,7 +31841,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="260,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds\Destination for dbo tbl_patient_history"
@@ -31593,9 +31873,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31617,9 +31895,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31650,7 +31926,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="260,41.6"
           Id="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1\Destination for dbo tbl_patient_history"
@@ -31682,9 +31958,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31706,16 +31980,14 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="To be removed in Jan-2025"
           ParentId="Package\PHD patient history\Data Flow PHD tbl patient history table WGH Lloyds 1"
           FontInfo="{x:Null}"
-          Size="172,NaN"
+          Size="172,40"
           Id="f053c330-fd6a-4ea0-9d08-c9b52e692f20"
           TopLeft="63.5714296540434,0.764705893077632" />
       </GraphLayout>
@@ -31746,7 +32018,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow tbl patient history Lloyds">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="220.8,41.6"
           Id="Package\PHD patient history\Data Flow tbl patient history Lloyds\Source for dbo patient_history"
@@ -31778,9 +32050,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31802,9 +32072,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31835,7 +32103,7 @@ WHERE xdi.issue_date
     design-time-name="Package\PHD patient history\Data Flow tbl patient history UHB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="242.4,41.6"
           Id="Package\PHD patient history\Data Flow tbl patient history UHB\Destination for dbo patient_history"
@@ -31879,9 +32147,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -31915,9 +32181,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -31948,7 +32212,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Spell details\Data Flow spell details">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="260,41.6"
           Id="Package\Spell details\Data Flow spell details\Source for dbo pharmacy_spell_details"
@@ -31988,16 +32252,14 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
           Text="To be removed in Jan-2025"
           ParentId="Package\Spell details\Data Flow spell details"
           FontInfo="{x:Null}"
-          Size="172,NaN"
+          Size="172,40"
           Id="d4d8838d-3e20-4a44-8248-2907bad66dfb"
           TopLeft="43.5384615384617,0.461538461538442" />
       </GraphLayout>
@@ -32028,7 +32290,7 @@ WHERE xdi.issue_date
     design-time-name="Package\Spell details\Data Flow spell details 1">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="260,41.6"
           Id="Package\Spell details\Data Flow spell details 1\Source for dbo pharmacy_spell_details"
@@ -32068,9 +32330,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -32088,17 +32348,17 @@ WHERE xdi.issue_date
     design-time-name="Package\Spell details\Data Flow spell details 2">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="260,42"
+          Size="260,41.6"
           Id="Package\Spell details\Data Flow spell details 2\Source for dbo pharmacy_spell_details"
           TopLeft="21.5188679245284,18.1923076923077" />
         <NodeLayout
-          Size="281,42"
+          Size="280.8,41.6"
           Id="Package\Spell details\Data Flow spell details 2\Destination for dbo pharmacy_spell_details"
           TopLeft="18.5000000000001,212.079100145138" />
         <NodeLayout
-          Size="155,42"
+          Size="155.2,41.6"
           Id="Package\Spell details\Data Flow spell details 2\Data Conversion"
           TopLeft="66,110" />
         <EdgeLayout
@@ -32154,9 +32414,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-0.34999999999995,35.239550072569,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -32373,7 +32631,7 @@ WHERE xdi.issue_date
     design-time-name="Package\WGH id values\PHD tbl patient history table WGH">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="303.2,41.6"
           Id="Package\WGH id values\PHD tbl patient history table WGH\Source for dbo pharmacy_patient_history_WGH"
@@ -32405,9 +32663,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -32429,9 +32685,7 @@ WHERE xdi.issue_date
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -32455,103 +32709,6 @@ WHERE xdi.issue_date
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\outpatient details\Data Flow OP details 2">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="272,42"
-          Id="Package\outpatient details\Data Flow OP details 2\Destination for dbo pharmacy_op_details"
-          TopLeft="30.4622641509434,252.915094339623" />
-        <NodeLayout
-          Size="217,42"
-          Id="Package\outpatient details\Data Flow OP details 2\Source for dbo tbl_op_details"
-          TopLeft="37.5,15.5" />
-        <NodeLayout
-          Size="156,42"
-          Id="Package\outpatient details\Data Flow OP details 2\Data Conversion"
-          TopLeft="74,131" />
-        <EdgeLayout
-          Id="Package\outpatient details\Data Flow OP details 2.Paths[OLE DB Source Output]"
-          TopLeft="149,57.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,73.5"
-              Start="0,0"
-              End="0,66">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,66" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\outpatient details\Data Flow OP details 2.Paths[Data Conversion Output]"
-          TopLeft="152,173">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="14.4622641509434,79.915094339623"
-              Start="0,0"
-              End="14.4622641509434,72.415094339623">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.9575471698115" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.9575471698115"
-                    Point2="0,39.9575471698115"
-                    Point3="4,39.9575471698115" />
-                  <mssgle:LineSegment
-                    End="10.4622641509434,39.9575471698115" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10.4622641509434,39.9575471698115"
-                    Point2="14.4622641509434,39.9575471698115"
-                    Point3="14.4622641509434,43.9575471698115" />
-                  <mssgle:LineSegment
-                    End="14.4622641509434,72.415094339623" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\outpatient details\Data Flow OP details 2\Destination for dbo pharmacy_op_details">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\outpatient details\Data Flow OP details 2\Source for dbo tbl_op_details">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

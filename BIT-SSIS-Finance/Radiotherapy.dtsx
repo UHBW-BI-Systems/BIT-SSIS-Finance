@@ -12,8 +12,8 @@
   DTS:ObjectName="Radiotherapy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="194"
-  DTS:VersionGUID="{594C9BD7-B279-48FA-93B6-D04A37250A3C}">
+  DTS:VersionBuild="203"
+  DTS:VersionGUID="{920466FB-4EDF-49E8-9E58-3368950AE7EB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -581,10 +581,10 @@
       DTS:DTSID="{F4D5A64F-FB78-40D9-B208-92C3D6D3E237}"
       DTS:ObjectName="Radiotherapy Excel File">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[User::ExcelConnectionString1]+ @[User::FileName]+ @[User::ExcelConnectionString2]</DTS:PropertyExpression>
+        DTS:Name="ServerName">@[User::FileName]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\brs006d\Dataload\Radiotherapy\Radiotherapy_Fractions_2024_10.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\brs006D\Dataload\Radiotherapy\Control\Radiotherapy_Fractions.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -634,7 +634,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="FileName">
       <DTS:VariableValue
-        DTS:DataType="8">\\brs006d\Dataload\Radiotherapy\Radiotherapy_Fractions_2024_10.xlsx</DTS:VariableValue>
+        DTS:DataType="8">\\brs006D\Dataload\Radiotherapy\Control\Radiotherapy_Fractions.xlsx</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -2581,10 +2581,12 @@
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
         DTS:DTSID="{054D6BC7-B5CB-4BC2-B026-27D162B76086}"
         DTS:ObjectName="{054D6BC7-B5CB-4BC2-B026-27D162B76086}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::Dataload_Directory_Radiotherapy]</DTS:PropertyExpression>
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="\\brs006D\Dataload\Radiotherapy\" />
+              Folder="\\BRS006D\Dataload\Radiotherapy\" />
             <FEFEProperty
               FileSpec="*.xlsx" />
             <FEFEProperty
@@ -3154,16 +3156,6 @@
                           length="255"
                           name="F41" />
                         <externalMetadataColumn
-                          refId="Package\Loads Files\import file\Excel Source.Outputs[Excel Source Output].ExternalColumns[Acceptable Thresholds]"
-                          dataType="wstr"
-                          length="255"
-                          name="Acceptable Thresholds" />
-                        <externalMetadataColumn
-                          refId="Package\Loads Files\import file\Excel Source.Outputs[Excel Source Output].ExternalColumns[Days]"
-                          dataType="wstr"
-                          length="255"
-                          name="Days" />
-                        <externalMetadataColumn
                           refId="Package\Loads Files\import file\Excel Source.Outputs[Excel Source Output].ExternalColumns[F44]"
                           dataType="wstr"
                           length="255"
@@ -3303,6 +3295,16 @@
                           dataType="wstr"
                           length="255"
                           name="F71" />
+                        <externalMetadataColumn
+                          refId="Package\Loads Files\import file\Excel Source.Outputs[Excel Source Output].ExternalColumns[F42]"
+                          dataType="wstr"
+                          length="255"
+                          name="F42" />
+                        <externalMetadataColumn
+                          refId="Package\Loads Files\import file\Excel Source.Outputs[Excel Source Output].ExternalColumns[F43]"
+                          dataType="wstr"
+                          length="255"
+                          name="F43" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -3972,8 +3974,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{C893688C-DD34-49E0-96D0-32ADB87796C2}"
-          DTS:ObjectName="{C893688C-DD34-49E0-96D0-32ADB87796C2}"
+          DTS:DTSID="{D94AB494-F005-4EFC-83AB-F36211B8F037}"
+          DTS:ObjectName="{D94AB494-F005-4EFC-83AB-F36211B8F037}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -4988,47 +4990,47 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="183.2,41.6"
+          Size="183,42"
           Id="Package\Beam Match and Feed"
           TopLeft="395.500006641661,23.0882355407864" />
         <NodeLayout
-          Size="193.6,41.6"
+          Size="194,42"
           Id="Package\Branchy Match and Feed"
           TopLeft="642.642867993336,99.3058823207664" />
         <NodeLayout
-          Size="150.4,41.6"
+          Size="150,42"
           Id="Package\Data Flow Task"
           TopLeft="660.500011154583,178.826754420607" />
         <NodeLayout
-          Size="207.2,41.6"
+          Size="207,42"
           Id="Package\EXEC radiotherapy_exclude"
           TopLeft="369.016489707133,516.303785721439" />
         <NodeLayout
-          Size="212,41.6"
+          Size="212,42"
           Id="Package\EXEC radiotherapy_mapping"
           TopLeft="89.1734708127067,448.15546839295" />
         <NodeLayout
-          Size="206.4,41.6"
+          Size="206,42"
           Id="Package\EXEC radiotherapy_storage"
           TopLeft="98.6083192823175,518.852946296401" />
         <NodeLayout
-          Size="169.6,41.6"
+          Size="170,42"
           Id="Package\GK Match and Feed"
           TopLeft="648.357153804935,22.8352930130015" />
         <NodeLayout
-          Size="161.6,41.6"
+          Size="162,42"
           Id="Package\Load Grouper File"
           TopLeft="406.21429253841,230.32353256483" />
         <NodeLayout
-          Size="174.4,41.6"
+          Size="174,42"
           Id="Package\Load Unbundled File"
           TopLeft="403.357149632609,162.560607519166" />
         <NodeLayout
-          Size="126.4,41.6"
+          Size="126,42"
           Id="Package\Loads Files\import file"
           TopLeft="58.9285731558897,18.1470620302193" />
         <NodeLayout
-          Size="173.6,41.6"
+          Size="174,42"
           Id="Package\Loads Files\Move File to Archive"
           TopLeft="39.6428565833034,91.2318785663936" />
         <EdgeLayout
@@ -5056,36 +5058,36 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="233.6,199.2"
-          Size="233.6,242.4"
+          PanelSize="234,199"
+          Size="234,242"
           Id="Package\Loads Files"
           TopLeft="81.0714289728474,173.735296477084" />
         <NodeLayout
-          Size="198.4,41.6"
+          Size="198,42"
           Id="Package\populate adm_cur_period"
-          TopLeft="90.6750340506005,21.5588237546308" />
+          TopLeft="89.6750340506005,21.5588237546308" />
         <NodeLayout
-          Size="191.2,41.6"
+          Size="191,42"
           Id="Package\Populate hrg_feed table"
           TopLeft="381.928577839112,444.588238822547" />
         <NodeLayout
-          Size="176.8,41.6"
+          Size="177,42"
           Id="Package\Produce Grouper File"
           TopLeft="389.785720319165,375.794122419555" />
         <NodeLayout
-          Size="137.6,41.6"
+          Size="138,42"
           Id="Package\Run Grouper"
           TopLeft="411.928578350009,307.264709904119" />
         <NodeLayout
-          Size="148.8,41.6"
+          Size="149,42"
           Id="Package\Send Mail Task"
           TopLeft="660.500010643687,263.885578722198" />
         <NodeLayout
-          Size="177.6,41.6"
+          Size="178,42"
           Id="Package\truncate import table"
           TopLeft="106.928571112301,96.4411760630493" />
         <NodeLayout
-          Size="200,41.6"
+          Size="200,42"
           Id="Package\update radiotherapy table"
           TopLeft="386.928577413366,94.4429590983056" />
         <EdgeLayout
@@ -5200,18 +5202,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="192.801802581451,63.1588237546308">
+          TopLeft="192.301802581451,63.5588237546308">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.2823523084185"
+              EndConnector="0,32.8823523084185"
               Start="0,0"
-              End="0,25.7823523084185">
+              End="0,25.3823523084185">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.7823523084185" />
+                    End="0,25.3823523084185" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5447,7 +5449,7 @@
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Data Flow Task\OLE DB Source"
@@ -5475,7 +5477,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5493,7 +5497,7 @@
     design-time-name="Package\Load Grouper File">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Load Grouper File\OLE DB Destination"
@@ -5521,7 +5525,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5599,11 +5605,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170.4,41.6"
+          Size="170,42"
           Id="Package\Loads Files\import file\OLE DB Destination"
           TopLeft="7.64285666845281,95.9117655531346" />
         <NodeLayout
-          Size="138.4,41.6"
+          Size="138,42"
           Id="Package\Loads Files\import file\Excel Source"
           TopLeft="26.2142860670479,5.5" />
         <EdgeLayout

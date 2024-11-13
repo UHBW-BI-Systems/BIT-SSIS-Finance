@@ -64,7 +64,7 @@
     </SSIS:Properties>
   </SSIS:Parameter>
   <SSIS:Parameter
-    SSIS:Name="Dataload_Directory">
+    SSIS:Name="Dataload_Directory_Radiotherapy">
     <SSIS:Properties>
       <SSIS:Property
         SSIS:Name="ID">{1046f44f-4b8b-4ec4-9311-5432dad82422}</SSIS:Property>
@@ -79,7 +79,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">\\BRS006D\Dataload\</SSIS:Property>
+        SSIS:Name="Value">\\BRS006D\Dataload\Radiotherapy\</SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
