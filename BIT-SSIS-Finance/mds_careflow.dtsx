@@ -5,15 +5,15 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LA44047"
   DTS:CreatorName="UBHT_NT\ChiltonMic"
-  DTS:DTSID="{A1D7FD40-65FA-4D2A-83E5-1568F9FA9E1F}"
+  DTS:DTSID="{2C5434BB-1DBF-4BC6-BCE0-E2B491F026B8}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.128"
   DTS:LocaleID="2057"
-  DTS:ObjectName="Radiotherapy_Careflow"
+  DTS:ObjectName="mds_careflow"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{5632DCF7-D103-4C6A-B634-9759634A8930}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{730A4CDC-54CD-488E-B729-7813D17D2726}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
