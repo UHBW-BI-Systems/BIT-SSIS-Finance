@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_careflow"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{2E281D86-7BC4-43F9-BA0C-67138307D443}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{11F92D21-217F-4DD0-8322-EA248AEA767B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3626,7 +3626,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AB71E68D-0C48-40A4-B7BC-A957BB6CA9C7}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.mds_careflow_ed2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.mds_careflow_ed" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3643,7 +3643,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AB71E68D-0C48-40A4-B7BC-A957BB6CA9C7}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.mds_careflow_episodes2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.mds_careflow_episodes" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3660,7 +3660,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AB71E68D-0C48-40A4-B7BC-A957BB6CA9C7}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.mds_careflow_ops2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.mds_careflow_ops" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3677,7 +3677,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{AB71E68D-0C48-40A4-B7BC-A957BB6CA9C7}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.mds_careflow_spells2" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.mds_careflow_spells" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -4012,37 +4012,25 @@
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\episodes hdm to finance\OLE DB Source"
-          TopLeft="5.5,5.5" />
+          TopLeft="15.5,10.5" />
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\episodes hdm to finance\OLE DB Destination"
           TopLeft="5.49999897820605,87.6764708992519" />
         <EdgeLayout
           Id="Package\episodes hdm to finance.Paths[OLE DB Source Output]"
-          TopLeft="80.3,47.1">
+          TopLeft="90.499999489103,52.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.3999989782061,40.5764708992519"
+              EndConnector="0,35.5764708992519"
               Start="0,0"
-              End="10.3999989782061,33.0764708992519">
+              End="0,28.0764708992519">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.288235449626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.288235449626"
-                    Point2="0,20.288235449626"
-                    Point3="4,20.288235449626" />
-                  <mssgle:LineSegment
-                    End="6.39999897820606,20.288235449626" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.39999897820606,20.288235449626"
-                    Point2="10.3999989782061,20.288235449626"
-                    Point3="10.3999989782061,24.288235449626" />
-                  <mssgle:LineSegment
-                    End="10.3999989782061,33.0764708992519" />
+                    End="0,28.0764708992519" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
