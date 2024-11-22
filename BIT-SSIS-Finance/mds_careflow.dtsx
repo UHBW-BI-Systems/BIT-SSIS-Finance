@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_careflow"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{11F92D21-217F-4DD0-8322-EA248AEA767B}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{B79E9A80-690E-4CC4-A4A9-65D9F53955B8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -612,7 +612,7 @@
                     <inputColumn
                       refId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ARCHV_FLAG]"
                       cachedDataType="wstr"
-                      cachedLength="2"
+                      cachedLength="1"
                       cachedName="ARCHV_FLAG"
                       externalMetadataColumnId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ARCHV_FLAG]"
                       lineageId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]" />
@@ -1078,7 +1078,7 @@
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ARCHV_FLAG]"
-                      length="2"
+                      length="1"
                       lineageId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[ARCHV_FLAG]"
                       name="ARCHV_FLAG"
                       truncationRowDisposition="FailComponent" />
@@ -1308,7 +1308,7 @@
                     <externalMetadataColumn
                       refId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ARCHV_FLAG]"
                       dataType="wstr"
-                      length="2"
+                      length="1"
                       name="ARCHV_FLAG" />
                     <externalMetadataColumn
                       refId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EPI_START_DTTM]"
@@ -1466,7 +1466,7 @@
                     <outputColumn
                       refId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ARCHV_FLAG]"
                       dataType="wstr"
-                      length="2"
+                      length="1"
                       lineageId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ARCHV_FLAG]"
                       name="ARCHV_FLAG" />
                     <outputColumn
