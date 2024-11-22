@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_careflow"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{730A4CDC-54CD-488E-B729-7813D17D2726}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{2E281D86-7BC4-43F9-BA0C-67138307D443}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -84,7 +84,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[mds_careflow_ed2]</property>
+                  name="OpenRowset">[dbo].[mds_careflow_ed]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -521,7 +521,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[mds_careflow_episodes2]</property>
+                  name="OpenRowset">[dbo].[mds_careflow_episodes]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1626,7 +1626,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[mds_careflow_ops2]</property>
+                  name="OpenRowset">[dbo].[mds_careflow_ops]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2982,7 +2982,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[mds_careflow_spells2]</property>
+                  name="OpenRowset">[dbo].[mds_careflow_spells]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
