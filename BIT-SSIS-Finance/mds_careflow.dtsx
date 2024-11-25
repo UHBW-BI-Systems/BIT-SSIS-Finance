@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_careflow"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{B79E9A80-690E-4CC4-A4A9-65D9F53955B8}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{B0F13A2D-232C-4813-A3CF-79637D1CF6B9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,18 +27,6 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[HDM_Local]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{3C356FA1-53BA-41FA-82B8-272369D97320}"
-      DTS:ObjectName="HDM_Local">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::HDM_Local_ConnectionString]</DTS:PropertyExpression>
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
