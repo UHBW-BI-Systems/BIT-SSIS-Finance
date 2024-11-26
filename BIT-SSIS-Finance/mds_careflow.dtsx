@@ -12,8 +12,8 @@
   DTS:ObjectName="mds_careflow"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{B0F13A2D-232C-4813-A3CF-79637D1CF6B9}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{8E1D1B8E-F221-4209-A967-F66A832E66E3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -700,13 +700,6 @@
                       externalMetadataColumnId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COMMISSIONER_CODE]"
                       lineageId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[COMMISSIONER_CODE]" />
                     <inputColumn
-                      refId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IPEP_EXT_ID]"
-                      cachedDataType="wstr"
-                      cachedLength="36"
-                      cachedName="IPEP_EXT_ID"
-                      externalMetadataColumnId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unique_cds_identifier]"
-                      lineageId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[IPEP_EXT_ID]" />
-                    <inputColumn
                       refId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SPECIALTY_CODE]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -750,6 +743,13 @@
                       cachedName="HCP_SPEC_NHS_CODE"
                       externalMetadataColumnId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HCP_SPEC_NHS_CODE]"
                       lineageId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[HCP_SPEC_NHS_CODE]" />
+                    <inputColumn
+                      refId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IPEP_EXT_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="36"
+                      cachedName="IPEP_EXT_ID"
+                      externalMetadataColumnId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IPEP_EXT_ID]"
+                      lineageId="Package\episodes hdm to finance\OLE DB Source.Outputs[OLE DB Source Output].Columns[IPEP_EXT_ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -761,11 +761,6 @@
                       refId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HDM_MODIF_DTTM]"
                       dataType="dbTimeStamp"
                       name="HDM_MODIF_DTTM" />
-                    <externalMetadataColumn
-                      refId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unique_cds_identifier]"
-                      dataType="wstr"
-                      length="50"
-                      name="unique_cds_identifier" />
                     <externalMetadataColumn
                       refId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spec_pascode]"
                       codePage="1252"
@@ -884,6 +879,11 @@
                       dataType="wstr"
                       length="6"
                       name="HCP_SPEC_NHS_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\episodes hdm to finance\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IPEP_EXT_ID]"
+                      dataType="wstr"
+                      length="50"
+                      name="IPEP_EXT_ID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
