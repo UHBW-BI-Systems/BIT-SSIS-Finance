@@ -14,8 +14,8 @@
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="937"
-  DTS:VersionGUID="{A9478685-7930-4D9D-80BC-BA6696342E8A}">
+  DTS:VersionBuild="938"
+  DTS:VersionGUID="{CABC266D-0AB1-49E7-A193-4D96E5159559}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -117,7 +117,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">11/3/2024 10:42:24 AM</DTS:VariableValue>
+        DTS:DataType="7">11/3/2024 5:38:33 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -197,6 +197,62 @@
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\After getting demographics"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B3C7F10B-659C-4961-856F-341441EAC5CC}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="After getting demographics">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\After getting demographics\Update ArmedForces status"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{800A9828-E789-49C4-AF7E-855D532F9A52}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update ArmedForces status"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2F2B5BFF-3C77-4A3A-A684-8B1DD214E0B6}"
+              SQLTask:SqlStatementSource="exec [dbo].[pharm_update_transform.pharmacy_ArmedForces_status]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\After getting demographics\Update demographics and overseas visitor status"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1CE6BB6A-4182-403A-9E54-D99ED03E8BE5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update demographics and overseas visitor status"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2F2B5BFF-3C77-4A3A-A684-8B1DD214E0B6}"
+              SQLTask:SqlStatementSource="exec [dbo].[pharm_update_transform.pharmacy_demographics_overseas_visitor_status]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\After getting demographics.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B790504A-7336-4C13-993E-9393E0FD2444}"
+          DTS:From="Package\After getting demographics\Update demographics and overseas visitor status"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\After getting demographics\Update ArmedForces status" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\check run_date"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -7465,40 +7521,6 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
               SQLTask:SqlStatementSource="DECLARE @execution_id BIGINT&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'GetPatientDemographics_HDM.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'BIT-SSIS', @project_name=N'BIT-SSIS-Admin', @use32bitruntime=False, @reference_id=8, @runinscaleout=False&#xA;--SELECT @execution_id&#xA;DECLARE @var0 SMALLINT = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Demographics\Update ArmedForces status"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{800A9828-E789-49C4-AF7E-855D532F9A52}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Update ArmedForces status"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{2F2B5BFF-3C77-4A3A-A684-8B1DD214E0B6}"
-              SQLTask:SqlStatementSource="exec [dbo].[pharm_update_transform.pharmacy_ArmedForces_status]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\Demographics\Update demographics and overseas visitor status"
-          DTS:CreationName="Microsoft.ExecuteSQLTask"
-          DTS:Description="Execute SQL Task"
-          DTS:DTSID="{1CE6BB6A-4182-403A-9E54-D99ED03E8BE5}"
-          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="Update demographics and overseas visitor status"
-          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <SQLTask:SqlTaskData
-              SQLTask:Connection="{2F2B5BFF-3C77-4A3A-A684-8B1DD214E0B6}"
-              SQLTask:SqlStatementSource="exec [dbo].[pharm_update_transform.pharmacy_demographics_overseas_visitor_status]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-          </DTS:ObjectData>
-        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
@@ -7509,22 +7531,6 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Demographics\Execute Get deomgraphic package in Admin" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint 1]"
-          DTS:CreationName=""
-          DTS:DTSID="{9E44D25F-CCB8-4E07-9485-E4BABD5807E8}"
-          DTS:From="Package\Demographics\Execute Get deomgraphic package in Admin"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 1"
-          DTS:To="Package\Demographics\Update demographics and overseas visitor status" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint 14]"
-          DTS:CreationName=""
-          DTS:DTSID="{534E8E1D-30C9-40E8-93AA-59CC8EC9911D}"
-          DTS:From="Package\Demographics\Update demographics and overseas visitor status"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 14"
-          DTS:To="Package\Demographics\Update ArmedForces status" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -20212,6 +20218,14 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
       DTS:ObjectName="Constraint 14"
       DTS:To="Package\Data Flow from JAC database" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 15]"
+      DTS:CreationName=""
+      DTS:DTSID="{5EE1466E-BE89-43AE-9D1C-3D12FBEFAA74}"
+      DTS:From="Package\After getting demographics"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 15"
+      DTS:To="Package\Spell details" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 16]"
       DTS:CreationName=""
       DTS:DTSID="{6F13FB2D-24B9-4D04-9A27-EBAD37874E6B}"
@@ -20246,11 +20260,11 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{2367556B-9A7F-4633-B188-093FE6C69625}"
+      DTS:DTSID="{C6CAE6F7-F5AC-443C-B20C-48D96C5C3C10}"
       DTS:From="Package\Demographics"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
-      DTS:To="Package\Spell details" />
+      DTS:To="Package\After getting demographics" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
@@ -20367,14 +20381,6 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
           Size="288,43.3333333333334"
           Id="Package\Demographics\Execute Get deomgraphic package in Admin"
           TopLeft="37.6418403890332,87.3352956566434" />
-        <NodeLayout
-          Size="208,41.3333333333334"
-          Id="Package\Demographics\Update ArmedForces status"
-          TopLeft="76.8716689514165,237.169332114636" />
-        <NodeLayout
-          Size="310.666666666667,41.3333333333334"
-          Id="Package\Demographics\Update demographics and overseas visitor status"
-          TopLeft="24.2499999361384,161.41439945648" />
         <EdgeLayout
           Id="Package\Demographics.PrecedenceConstraints[Constraint]"
           TopLeft="178.573218818165,52.5277181576738">
@@ -20397,55 +20403,11 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Demographics.PrecedenceConstraints[Constraint 1]"
-          TopLeft="180.545920162586,130.535295656643">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30.8791037998369"
-              Start="0,0"
-              End="0,23.3791037998369">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.3791037998369" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Demographics.PrecedenceConstraints[Constraint 14]"
-          TopLeft="180.160834443777,203.01439945648">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.1549326581556"
-              Start="0,0"
-              End="0,26.6549326581556">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.6549326581556" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="372,294"
-          Size="372,336.666666666667"
+          PanelSize="372,238"
+          Size="372,280.666666666667"
           Id="Package\Demographics"
           TopLeft="450.351481592346,597.117508036392" />
         <NodeLayout
@@ -20835,7 +20797,7 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
           PanelSize="257.333333333334,205.333333333334"
           Size="257.333333333334,248"
           Id="Package\outpatient details"
-          TopLeft="1232.63437468204,651.760181114379" />
+          TopLeft="1731.38436725009,628.360181532804" />
         <NodeLayout
           Size="243.333333333334,41.3333333333334"
           Id="Package\PHD patient history\Data Flow tbl patient history UHB"
@@ -21014,10 +20976,10 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="273.333333333334,210"
+          PanelSize="273.333333333334,209.333333333334"
           Size="273.333333333334,252.666666666667"
           Id="Package\Spell details"
-          TopLeft="885.524618108543,642.842204586227" />
+          TopLeft="1396.77461049032,631.142204795439" />
         <NodeLayout
           Size="279.333333333334,41.3333333333334"
           Id="Package\truncate finance import &amp; transform tables"
@@ -21351,40 +21313,30 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="381.418028297702,761.763234279352">
+          TopLeft="381.151361631035,757.942293855646">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="68.9334532946443,0"
+              EndConnector="69.2001199613113,-20.4914524859211"
               Start="0,0"
-              End="61.4334532946443,0">
+              End="61.7001199613113,-20.4914524859211">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="61.4334532946443,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="822.351481592346,767.37985631131">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="63.1731365161972,0"
-              Start="0,0"
-              End="55.6731365161972,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
+                    End="30.6000599806557,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.6000599806557,0"
+                    Point2="34.6000599806557,0"
+                    Point3="34.6000599806557,-4" />
                   <mssgle:LineSegment
-                    End="55.6731365161972,0" />
+                    End="34.6000599806557,-16.4914524859211" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.6000599806557,-16.4914524859211"
+                    Point2="34.6000599806557,-20.4914524859211"
+                    Point3="38.6000599806557,-20.4914524859211" />
+                  <mssgle:LineSegment
+                    End="61.7001199613113,-20.4914524859211" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21395,18 +21347,18 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="1159.12461810854,772.501192850303">
+          TopLeft="1670.10794382366,754.917859830788">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="73.5097565734993,0"
+              EndConnector="61.2764234264289,0"
               Start="0,0"
-              End="66.0097565734993,0">
+              End="53.7764234264289,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="66.0097565734993,0" />
+                    End="53.7764234264289,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21417,30 +21369,30 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="1361.43437468204,899.760181114379">
+          TopLeft="1860.05103391675,876.360181532804">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-1139.79384348982,178.562142753744"
+              EndConnector="-1638.41050272454,201.962142335316"
               Start="0,0"
-              End="-1139.79384348982,171.062142753744">
+              End="-1638.41050272454,194.462142335316">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,85.2810713768718" />
+                    End="0,96.9810711676582" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,85.2810713768718"
-                    Point2="0,89.2810713768718"
-                    Point3="-4,89.2810713768718" />
+                    Point1="0,96.9810711676582"
+                    Point2="0,100.981071167658"
+                    Point3="-4,100.981071167658" />
                   <mssgle:LineSegment
-                    End="-1135.79384348982,89.2810713768718" />
+                    End="-1634.41050272454,100.981071167658" />
                   <mssgle:CubicBezierSegment
-                    Point1="-1135.79384348982,89.2810713768718"
-                    Point2="-1139.79384348982,89.2810713768718"
-                    Point3="-1139.79384348982,93.2810713768718" />
+                    Point1="-1634.41050272454,100.981071167658"
+                    Point2="-1638.41050272454,100.981071167658"
+                    Point3="-1638.41050272454,104.981071167658" />
                   <mssgle:LineSegment
-                    End="-1139.79384348982,171.062142753744" />
+                    End="-1638.41050272454,194.462142335316" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21500,6 +21452,111 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
           Size="612.666666666667,359.333333333334"
           Id="1a841f25-417a-437c-bd72-738b5cd2a551"
           TopLeft="1667.65012037996,30.7736180583122" />
+        <NodeLayout
+          Size="310.666666666667,41.3333333333334"
+          Id="Package\After getting demographics\Update demographics and overseas visitor status"
+          TopLeft="5.5,21.7810682385156" />
+        <NodeLayout
+          Size="208,41.3333333333334"
+          Id="Package\After getting demographics\Update ArmedForces status"
+          TopLeft="47.7883288194287,117.036000547984" />
+        <EdgeLayout
+          Id="Package\After getting demographics.PrecedenceConstraints[Constraint]"
+          TopLeft="160.833333333333,63.1144015718489">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.04500451390467,53.9215989761355"
+              Start="0,0"
+              End="-9.04500451390467,46.4215989761355">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.9607994880677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.9607994880677"
+                    Point2="0,26.9607994880677"
+                    Point3="-4,26.9607994880677" />
+                  <mssgle:LineSegment
+                    End="-5.04500451390467,26.9607994880677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.04500451390467,26.9607994880677"
+                    Point2="-9.04500451390467,26.9607994880677"
+                    Point3="-9.04500451390467,30.9607994880677" />
+                  <mssgle:LineSegment
+                    End="-9.04500451390467,46.4215989761355" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="321.333333333334,229.333333333334"
+          Size="321.333333333334,272"
+          Id="Package\After getting demographics"
+          TopLeft="935.791655593242,618.616666166881" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="822.351481592346,737.450841369725">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113.440174000896,17.1658247971561"
+              Start="0,0"
+              End="105.940174000896,17.1658247971561">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.7200870004478,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.7200870004478,0"
+                    Point2="56.7200870004478,0"
+                    Point3="56.7200870004478,4" />
+                  <mssgle:LineSegment
+                    End="56.7200870004478,13.1658247971561" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.7200870004478,13.1658247971561"
+                    Point2="56.7200870004478,17.1658247971561"
+                    Point3="60.7200870004478,17.1658247971561" />
+                  <mssgle:LineSegment
+                    End="105.940174000896,17.1658247971561" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 15]"
+          TopLeft="1257.12498892658,756.046102147827">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139.649621563749,0"
+              Start="0,0"
+              End="132.149621563749,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="132.149621563749,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -21694,13 +21751,13 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
     design-time-name="Package\Demographics\Data Flow pharm_adm_ext_demographics_request">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="340.8,44"
+          Size="340.666666666667,44"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request\Source for pharm_adm_ext_demographics_request"
           TopLeft="19.4056603773585,5.5" />
         <NodeLayout
-          Size="351.2,44"
+          Size="351.333333333334,44"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request\Destination for pharm_adm_ext_demographics_request"
           TopLeft="13.5,165.27358490566" />
         <NodeLayout
@@ -21726,9 +21783,7 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -21750,9 +21805,7 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
