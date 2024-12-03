@@ -14,8 +14,8 @@
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="936"
-  DTS:VersionGUID="{984E825F-0E7B-4F6B-8216-E8C931FCC7EC}">
+  DTS:VersionBuild="937"
+  DTS:VersionGUID="{A9478685-7930-4D9D-80BC-BA6696342E8A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -117,7 +117,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">11/3/2024 10:28:38 AM</DTS:VariableValue>
+        DTS:DataType="7">11/3/2024 10:42:24 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -7462,7 +7462,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{E95EABE6-1C6B-445B-943E-B36333056FE9}"
-              SQLTask:SqlStatementSource="DECLARE @execution_id BIGINT&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'GetPatientDemographics_HDM.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'BIT-SSIS', @project_name=N'BIT-SSIS-Admin', @use32bitruntime=False, @reference_id=1, @runinscaleout=False&#xA;--SELECT @execution_id&#xA;DECLARE @var0 SMALLINT = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="DECLARE @execution_id BIGINT&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'GetPatientDemographics_HDM.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'BIT-SSIS', @project_name=N'BIT-SSIS-Admin', @use32bitruntime=False, @reference_id=8, @runinscaleout=False&#xA;--SELECT @execution_id&#xA;DECLARE @var0 SMALLINT = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
