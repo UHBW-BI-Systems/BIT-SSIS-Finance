@@ -14,8 +14,8 @@
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="938"
-  DTS:VersionGUID="{CABC266D-0AB1-49E7-A193-4D96E5159559}">
+  DTS:VersionBuild="939"
+  DTS:VersionGUID="{9405FD7D-FCDA-4024-992C-6BFDB60CEA4C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -54,6 +54,18 @@
         <DTS:ConnectionManager
           DTS:Retain="True"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HDM_Local]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C513AFD7-4480-4A75-AA2D-2AD4895B8901}"
+      DTS:ObjectName="HDM_Local">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::HDM_Local_ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -117,7 +129,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">11/3/2024 5:38:33 PM</DTS:VariableValue>
+        DTS:DataType="7">11/3/2024 6:07:32 PM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -6990,6 +7002,1880 @@ WHERE Stored_Date_Of_Issue_dt BETWEEN DATEADD("Month", DATEDIFF("Month", -1, get
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
+          DTS:refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{13461C77-C6CB-4BAD-9C98-025AFBDAE4FC}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Copy request data from BIT Admin to HDM_Local"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Load to HDM_Local"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[adm_ext_demographics_request]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[HDM_Local]"
+                      connectionManagerRefId="Package.ConnectionManagers[HDM_Local]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].Columns[RequestID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="32"
+                          cachedName="RequestID"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[RequestID]"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[RequestID]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].Columns[RequestTime]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="RequestTime"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[RequestTime]"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[RequestTime]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].Columns[TrustNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="TrustNumber"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[TrustNumber]"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[TrustNumber]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].Columns[IsPrivate]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="IsPrivate"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[IsPrivate]"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[IsPrivate]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].Columns[ApplicableDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ApplicableDate"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[ApplicableDate]"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[ApplicableDate]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].Columns[PCOofResidence_override]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="PCOofResidence_override"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[PCOofResidence_override]"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[PCOofResidence_override]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[RequestID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="32"
+                          name="RequestID" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[RequestTime]"
+                          dataType="dbTimeStamp"
+                          name="RequestTime" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[TrustNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="TrustNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[IsPrivate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="IsPrivate" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[ApplicableDate]"
+                          dataType="dbTimeStamp"
+                          name="ApplicableDate" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[Sex]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Sex" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[add_1]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_1" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[add_2]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_2" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[add_3]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_3" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[add_4]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_4" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[overseas_visitor_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="overseas_visitor_status" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          dataType="dbTimeStamp"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[DateOfDeath]"
+                          dataType="dbTimeStamp"
+                          name="DateOfDeath" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[NHS_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="NHS_Number" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[NHS_Number_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="NHS_Number_status" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Postcode" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[RegisteredGP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="RegisteredGP" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[RegisteredGPPractice]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="RegisteredGPPractice" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[PCOofGP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofGP" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[PCOofResidence]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofResidence" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[PCOofActivity]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofActivity" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[isHMP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="isHMP" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[isArmedForces]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="isArmedForces" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[PCOofResidence_override]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofResidence_override" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[isEnglish]"
+                          dataType="bool"
+                          name="isEnglish" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_origin]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ethnic_origin" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_origin_nat]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ethnic_origin_nat" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input].ExternalColumns[valid_postcode_flag]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="valid_postcode_flag" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Source for BIT request data"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[purchasers].[adm_ext_demographics_request]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Admin]"
+                      connectionManagerRefId="Package.ConnectionManagers[Admin]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[RequestID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[RequestID]"
+                          length="32"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[RequestID]"
+                          name="RequestID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[RequestTime]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[RequestTime]"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[RequestTime]"
+                          name="RequestTime"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[TrustNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[TrustNumber]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[TrustNumber]"
+                          name="TrustNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[IsPrivate]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[IsPrivate]"
+                          length="1"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[IsPrivate]"
+                          name="IsPrivate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[ApplicableDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[ApplicableDate]"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[ApplicableDate]"
+                          name="ApplicableDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[PCOofResidence_override]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[PCOofResidence_override]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[PCOofResidence_override]"
+                          name="PCOofResidence_override"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[RequestID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="32"
+                          name="RequestID" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[RequestTime]"
+                          dataType="dbTimeStamp"
+                          name="RequestTime" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[TrustNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="TrustNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[IsPrivate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="IsPrivate" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[ApplicableDate]"
+                          dataType="dbTimeStamp"
+                          name="ApplicableDate" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[PCOofResidence_override]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofResidence_override" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[RequestID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="32"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[RequestID]"
+                          name="RequestID" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[RequestTime]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[RequestTime]"
+                          name="RequestTime" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[TrustNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[TrustNumber]"
+                          name="TrustNumber" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[IsPrivate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[IsPrivate]"
+                          name="IsPrivate" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[ApplicableDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[ApplicableDate]"
+                          name="ApplicableDate" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[PCOofResidence_override]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[PCOofResidence_override]"
+                          name="PCOofResidence_override" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Demographics\Copy request data from BIT Admin to HDM_Local.Paths[OLE DB Source Output]"
+                  endId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{352936A6-1F8A-48DD-96D3-05738E9EC2C7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Copy return data from HDM_Local to BIT Admin"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Get demographic return from HDM_Local"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[adm_ext_demographics_request]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[HDM_Local]"
+                      connectionManagerRefId="Package.ConnectionManagers[HDM_Local]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RequestID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[RequestID]"
+                          length="32"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RequestID]"
+                          name="RequestID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RequestTime]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[RequestTime]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RequestTime]"
+                          name="RequestTime"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[TrustNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[TrustNumber]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[TrustNumber]"
+                          name="TrustNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[IsPrivate]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[IsPrivate]"
+                          length="1"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[IsPrivate]"
+                          name="IsPrivate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ApplicableDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[ApplicableDate]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ApplicableDate]"
+                          name="ApplicableDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[FirstName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                          length="256"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[FirstName]"
+                          name="FirstName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[LastName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                          length="256"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[LastName]"
+                          name="LastName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[Sex]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[Sex]"
+                          length="1"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[Sex]"
+                          name="Sex"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[add_1]"
+                          length="60"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_1]"
+                          name="add_1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[add_2]"
+                          length="60"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_2]"
+                          name="add_2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_3]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[add_3]"
+                          length="60"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_3]"
+                          name="add_3"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_4]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[add_4]"
+                          length="60"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_4]"
+                          name="add_4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[overseas_visitor_status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[overseas_visitor_status]"
+                          length="2"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[overseas_visitor_status]"
+                          name="overseas_visitor_status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[DateOfBirth]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[DateOfBirth]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[DateOfBirth]"
+                          name="DateOfBirth"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[DateOfDeath]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[DateOfDeath]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[DateOfDeath]"
+                          name="DateOfDeath"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[NHS_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[NHS_Number]"
+                          length="12"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[NHS_Number]"
+                          name="NHS_Number"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[NHS_Number_status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[NHS_Number_status]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[NHS_Number_status]"
+                          name="NHS_Number_status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[Postcode]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[Postcode]"
+                          name="Postcode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RegisteredGP]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[RegisteredGP]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RegisteredGP]"
+                          name="RegisteredGP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RegisteredGPPractice]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[RegisteredGPPractice]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RegisteredGPPractice]"
+                          name="RegisteredGPPractice"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofGP]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[PCOofGP]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofGP]"
+                          name="PCOofGP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofResidence]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[PCOofResidence]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofResidence]"
+                          name="PCOofResidence"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofActivity]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[PCOofActivity]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofActivity]"
+                          name="PCOofActivity"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[isHMP]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[isHMP]"
+                          length="1"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[isHMP]"
+                          name="isHMP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[isArmedForces]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[isArmedForces]"
+                          length="1"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[isArmedForces]"
+                          name="isArmedForces"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofResidence_override]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[PCOofResidence_override]"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofResidence_override]"
+                          name="PCOofResidence_override"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[isEnglish]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[isEnglish]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[isEnglish]"
+                          name="isEnglish"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ethnic_origin]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[ethnic_origin]"
+                          length="20"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ethnic_origin]"
+                          name="ethnic_origin"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ethnic_origin_nat]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[ethnic_origin_nat]"
+                          length="50"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ethnic_origin_nat]"
+                          name="ethnic_origin_nat"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[valid_postcode_flag]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[valid_postcode_flag]"
+                          length="1"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[valid_postcode_flag]"
+                          name="valid_postcode_flag"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[RequestID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="32"
+                          name="RequestID" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[RequestTime]"
+                          dataType="dbTimeStamp"
+                          name="RequestTime" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[TrustNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="TrustNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[IsPrivate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="IsPrivate" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[ApplicableDate]"
+                          dataType="dbTimeStamp"
+                          name="ApplicableDate" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[Sex]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Sex" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[add_1]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_1" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[add_2]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_2" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[add_3]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_3" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[add_4]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_4" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[overseas_visitor_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="overseas_visitor_status" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[DateOfBirth]"
+                          dataType="dbTimeStamp"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[DateOfDeath]"
+                          dataType="dbTimeStamp"
+                          name="DateOfDeath" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[NHS_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="NHS_Number" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[NHS_Number_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="NHS_Number_status" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Postcode" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[RegisteredGP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="RegisteredGP" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[RegisteredGPPractice]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="RegisteredGPPractice" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[PCOofGP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofGP" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[PCOofResidence]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofResidence" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[PCOofActivity]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofActivity" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[isHMP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="isHMP" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[isArmedForces]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="isArmedForces" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[PCOofResidence_override]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofResidence_override" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[isEnglish]"
+                          dataType="bool"
+                          name="isEnglish" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[ethnic_origin]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ethnic_origin" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[ethnic_origin_nat]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ethnic_origin_nat" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].ExternalColumns[valid_postcode_flag]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="valid_postcode_flag" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          dataType="i4"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[RequestID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="32"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[RequestID]"
+                          name="RequestID" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[RequestTime]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[RequestTime]"
+                          name="RequestTime" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[TrustNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[TrustNumber]"
+                          name="TrustNumber" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[IsPrivate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[IsPrivate]"
+                          name="IsPrivate" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ApplicableDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ApplicableDate]"
+                          name="ApplicableDate" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                          name="FirstName" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                          name="LastName" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[Sex]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[Sex]"
+                          name="Sex" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[add_1]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[add_1]"
+                          name="add_1" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[add_2]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[add_2]"
+                          name="add_2" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[add_3]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[add_3]"
+                          name="add_3" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[add_4]"
+                          dataType="wstr"
+                          length="60"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[add_4]"
+                          name="add_4" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[overseas_visitor_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[overseas_visitor_status]"
+                          name="overseas_visitor_status" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[DateOfBirth]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[DateOfBirth]"
+                          name="DateOfBirth" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[DateOfDeath]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[DateOfDeath]"
+                          name="DateOfDeath" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[NHS_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[NHS_Number]"
+                          name="NHS_Number" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[NHS_Number_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[NHS_Number_status]"
+                          name="NHS_Number_status" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[Postcode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[Postcode]"
+                          name="Postcode" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[RegisteredGP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[RegisteredGP]"
+                          name="RegisteredGP" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[RegisteredGPPractice]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[RegisteredGPPractice]"
+                          name="RegisteredGPPractice" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[PCOofGP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[PCOofGP]"
+                          name="PCOofGP" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[PCOofResidence]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[PCOofResidence]"
+                          name="PCOofResidence" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[PCOofActivity]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[PCOofActivity]"
+                          name="PCOofActivity" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[isHMP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[isHMP]"
+                          name="isHMP" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[isArmedForces]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[isArmedForces]"
+                          name="isArmedForces" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[PCOofResidence_override]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[PCOofResidence_override]"
+                          name="PCOofResidence_override" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[isEnglish]"
+                          dataType="bool"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[isEnglish]"
+                          name="isEnglish" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ethnic_origin]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ethnic_origin]"
+                          name="ethnic_origin" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ethnic_origin_nat]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ethnic_origin_nat]"
+                          name="ethnic_origin_nat" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[valid_postcode_flag]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[valid_postcode_flag]"
+                          name="valid_postcode_flag" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Return to BIT Admin"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[purchasers].[adm_ext_demographics_request_return]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Admin]"
+                      connectionManagerRefId="Package.ConnectionManagers[Admin]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[RequestID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="32"
+                          cachedName="RequestID"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[RequestID]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RequestID]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[RequestTime]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="RequestTime"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[RequestTime]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RequestTime]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[TrustNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="TrustNumber"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[TrustNumber]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[TrustNumber]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[IsPrivate]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="IsPrivate"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[IsPrivate]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[IsPrivate]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[ApplicableDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ApplicableDate"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[ApplicableDate]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ApplicableDate]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="256"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[LastName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="256"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[Sex]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Sex"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[Sex]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[Sex]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[add_1]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="add_1"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[add_1]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_1]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[add_2]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="add_2"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[add_2]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_2]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[add_3]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="add_3"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[add_3]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_3]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[add_4]"
+                          cachedDataType="wstr"
+                          cachedLength="60"
+                          cachedName="add_4"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[add_4]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[add_4]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[overseas_visitor_status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="overseas_visitor_status"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[overseas_visitor_status]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[overseas_visitor_status]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[DateOfBirth]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DateOfBirth"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[DateOfBirth]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[DateOfDeath]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DateOfDeath"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[DateOfDeath]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[DateOfDeath]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[NHS_Number]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="12"
+                          cachedName="NHS_Number"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[NHS_Number]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[NHS_Number]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[NHS_Number_status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="NHS_Number_status"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[NHS_Number_status]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[NHS_Number_status]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[Postcode]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Postcode"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[Postcode]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[RegisteredGP]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="RegisteredGP"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[RegisteredGP]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RegisteredGP]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[RegisteredGPPractice]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="RegisteredGPPractice"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[RegisteredGPPractice]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[RegisteredGPPractice]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[PCOofGP]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="PCOofGP"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[PCOofGP]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofGP]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[PCOofResidence]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="PCOofResidence"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[PCOofResidence]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofResidence]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[PCOofActivity]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="PCOofActivity"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[PCOofActivity]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofActivity]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[isHMP]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="isHMP"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[isHMP]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[isHMP]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[isArmedForces]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="isArmedForces"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[isArmedForces]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[isArmedForces]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[PCOofResidence_override]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="PCOofResidence_override"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[PCOofResidence_override]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[PCOofResidence_override]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[isEnglish]"
+                          cachedDataType="bool"
+                          cachedName="isEnglish"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[isEnglish]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[isEnglish]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[ethnic_origin]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="ethnic_origin"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_origin]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ethnic_origin]" />
+                        <inputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].Columns[ethnic_origin_nat]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ethnic_origin_nat"
+                          externalMetadataColumnId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_origin_nat]"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output].Columns[ethnic_origin_nat]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[RequestID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="32"
+                          name="RequestID" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[RequestTime]"
+                          dataType="dbTimeStamp"
+                          name="RequestTime" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[TrustNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="TrustNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[IsPrivate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="IsPrivate" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[ApplicableDate]"
+                          dataType="dbTimeStamp"
+                          name="ApplicableDate" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[Sex]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Sex" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[add_1]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_1" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[add_2]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_2" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[add_3]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_3" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[add_4]"
+                          dataType="wstr"
+                          length="60"
+                          name="add_4" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[overseas_visitor_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="overseas_visitor_status" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          dataType="dbTimeStamp"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[DateOfDeath]"
+                          dataType="dbTimeStamp"
+                          name="DateOfDeath" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[NHS_Number]"
+                          codePage="1252"
+                          dataType="str"
+                          length="12"
+                          name="NHS_Number" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[NHS_Number_status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="NHS_Number_status" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Postcode" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[RegisteredGP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="RegisteredGP" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[RegisteredGPPractice]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="RegisteredGPPractice" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[PCOofGP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofGP" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[PCOofResidence]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofResidence" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[PCOofActivity]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofActivity" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[isHMP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="isHMP" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[isArmedForces]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="isArmedForces" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[PCOofResidence_override]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="PCOofResidence_override" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[isEnglish]"
+                          dataType="bool"
+                          name="isEnglish" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_origin]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="ethnic_origin" />
+                        <externalMetadataColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_origin_nat]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ethnic_origin_nat" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Demographics\Copy return data from HDM_Local to BIT Admin.Paths[OLE DB Source Output]"
+                  endId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Demographics\Data Flow pharm_adm_ext_demographics_request"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
@@ -7508,6 +9394,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:refId="Package\Demographics\Execute Get deomgraphic package in Admin"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
           DTS:DTSID="{956766a4-ace4-4394-a55d-f1ea4060534a}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
@@ -7521,6 +9408,57 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
               SQLTask:SqlStatementSource="DECLARE @execution_id BIGINT&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'GetPatientDemographics_HDM.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'BIT-SSIS', @project_name=N'BIT-SSIS-Admin', @use32bitruntime=False, @reference_id=8, @runinscaleout=False&#xA;--SELECT @execution_id&#xA;DECLARE @var0 SMALLINT = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Demographics\Run usp_ext_demog_request"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{06992FC7-697B-4417-A89F-FF17B3737F7D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Run usp_ext_demog_request"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C513AFD7-4480-4A75-AA2D-2AD4895B8901}"
+              SQLTask:SqlStatementSource="EXECUTE usp_ext_demog_request" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Demographics\TRUNCATE BIT adm_ext_demographics_request table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6C40D7FF-EE72-4437-A04B-90B375B4A9AF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE BIT adm_ext_demographics_request table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6CEDAA9A-3001-4CDF-A173-4E12FF278105}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE  purchasers.adm_ext_demographics_request" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Demographics\TRUNCATE HDM_Local adm_ext_demographics_request table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{89B46D0B-AB92-4BDF-802C-2C27F3DFDCEB}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE HDM_Local adm_ext_demographics_request table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C513AFD7-4480-4A75-AA2D-2AD4895B8901}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE  dbo.adm_ext_demographics_request&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
         <DTS:PrecedenceConstraint
@@ -7531,6 +9469,46 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
           DTS:To="Package\Demographics\Execute Get deomgraphic package in Admin" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{1055B745-5898-440D-B3EA-9EA4E205D290}"
+          DTS:From="Package\Demographics\Execute Get deomgraphic package in Admin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Demographics\TRUNCATE HDM_Local adm_ext_demographics_request table" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{9EE86B20-D917-4157-A1CF-87323BC1A311}"
+          DTS:From="Package\Demographics\TRUNCATE HDM_Local adm_ext_demographics_request table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Demographics\Copy request data from BIT Admin to HDM_Local" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{329D02D4-852A-4E74-BB4A-BF353DC96648}"
+          DTS:From="Package\Demographics\Copy request data from BIT Admin to HDM_Local"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Demographics\Run usp_ext_demog_request" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{60770A1E-BE57-4B24-A0AD-9F912157EEA6}"
+          DTS:From="Package\Demographics\Run usp_ext_demog_request"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\Demographics\Copy return data from HDM_Local to BIT Admin" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Demographics.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{7FA0753C-95AB-4340-BB75-601FE3A509A2}"
+          DTS:From="Package\Demographics\Copy return data from HDM_Local to BIT Admin"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\Demographics\TRUNCATE BIT adm_ext_demographics_request table" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
@@ -20354,6 +22332,55 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
       <GraphLayout
         Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="208,41.3333333333334"
+          Id="Package\After getting demographics\Update ArmedForces status"
+          TopLeft="47.7883288194287,117.036000547984" />
+        <NodeLayout
+          Size="310.666666666667,41.3333333333334"
+          Id="Package\After getting demographics\Update demographics and overseas visitor status"
+          TopLeft="5.5,21.7810682385156" />
+        <EdgeLayout
+          Id="Package\After getting demographics.PrecedenceConstraints[Constraint]"
+          TopLeft="160.833333333333,63.1144015718489">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.04500451390467,53.9215989761355"
+              Start="0,0"
+              End="-9.04500451390467,46.4215989761355">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.9607994880677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.9607994880677"
+                    Point2="0,26.9607994880677"
+                    Point3="-4,26.9607994880677" />
+                  <mssgle:LineSegment
+                    End="-5.04500451390467,26.9607994880677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.04500451390467,26.9607994880677"
+                    Point2="-9.04500451390467,26.9607994880677"
+                    Point3="-9.04500451390467,30.9607994880677" />
+                  <mssgle:LineSegment
+                    End="-9.04500451390467,46.4215989761355" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="321.333333333334,229.333333333334"
+          Size="321.333333333334,272"
+          Id="Package\After getting demographics"
+          TopLeft="935.791655593242,618.616666166881" />
+        <NodeLayout
           Size="151.333333333334,41.3333333333334"
           Id="Package\check run_date"
           TopLeft="136.82256468835,1370.32516183503" />
@@ -20403,13 +22430,191 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="370.666666666667,42.6666666666667"
+          Id="Package\Demographics\TRUNCATE HDM_Local adm_ext_demographics_request table"
+          TopLeft="10.6666660706201,163.94999764055" />
+        <EdgeLayout
+          Id="Package\Demographics.PrecedenceConstraints[Constraint 1]"
+          TopLeft="181.641840389033,130.668628989977">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.3581590149203,33.2813686505732"
+              Start="0,0"
+              End="14.3581590149203,25.7813686505732">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.6406843252866" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.6406843252866"
+                    Point2="0,16.6406843252866"
+                    Point3="4,16.6406843252866" />
+                  <mssgle:LineSegment
+                    End="10.3581590149203,16.6406843252866" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.3581590149203,16.6406843252866"
+                    Point2="14.3581590149203,16.6406843252866"
+                    Point3="14.3581590149203,20.6406843252866" />
+                  <mssgle:LineSegment
+                    End="14.3581590149203,25.7813686505732" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="312,42.6666666666667"
+          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local"
+          TopLeft="40.2083259293191,236.833330195149" />
+        <EdgeLayout
+          Id="Package\Demographics.PrecedenceConstraints[Constraint 2]"
+          TopLeft="196.104162666636,206.616664307217">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.2166658879323"
+              Start="0,0"
+              End="0,22.7166658879323">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.7166658879323" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="217.333333333334,42.6666666666667"
+          Id="Package\Demographics\Run usp_ext_demog_request"
+          TopLeft="108.333324914177,303.78332899799" />
+        <EdgeLayout
+          Id="Package\Demographics.PrecedenceConstraints[Constraint 3]"
+          TopLeft="196.208325929319,279.499996861815">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.791665651525,24.2833321361742"
+              Start="0,0"
+              End="20.791665651525,16.7833321361742">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.14166606808709" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.14166606808709"
+                    Point2="0,12.1416660680871"
+                    Point3="4,12.1416660680871" />
+                  <mssgle:LineSegment
+                    End="16.791665651525,12.1416660680871" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.791665651525,12.1416660680871"
+                    Point2="20.791665651525,12.1416660680871"
+                    Point3="20.791665651525,16.1416660680871" />
+                  <mssgle:LineSegment
+                    End="20.791665651525,16.7833321361742" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="305.333333333334,42.6666666666667"
+          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin"
+          TopLeft="88.9583252028872,374.433331310948" />
+        <EdgeLayout
+          Id="Package\Demographics.PrecedenceConstraints[Constraint 4]"
+          TopLeft="216.999991580844,346.449995664656">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.6250002887099,27.9833356462913"
+              Start="0,0"
+              End="24.6250002887099,20.4833356462913">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.99166782314566" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.99166782314566"
+                    Point2="0,13.9916678231457"
+                    Point3="4,13.9916678231457" />
+                  <mssgle:LineSegment
+                    End="20.6250002887099,13.9916678231457" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.6250002887099,13.9916678231457"
+                    Point2="24.6250002887099,13.9916678231457"
+                    Point3="24.6250002887099,17.9916678231457" />
+                  <mssgle:LineSegment
+                    End="24.6250002887099,20.4833356462913" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="334.666666666667,42.6666666666667"
+          Id="Package\Demographics\TRUNCATE BIT adm_ext_demographics_request table"
+          TopLeft="88.3333252122005,451.883328137895" />
+        <EdgeLayout
+          Id="Package\Demographics.PrecedenceConstraints[Constraint 5]"
+          TopLeft="241.624991869554,417.099997977614">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.0416666759799,34.7833301602802"
+              Start="0,0"
+              End="14.0416666759799,27.2833301602802">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.3916650801401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.3916650801401"
+                    Point2="0,17.3916650801401"
+                    Point3="4,17.3916650801401" />
+                  <mssgle:LineSegment
+                    End="10.0416666759799,17.3916650801401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.0416666759799,17.3916650801401"
+                    Point2="14.0416666759799,17.3916650801401"
+                    Point3="14.0416666759799,21.3916650801401" />
+                  <mssgle:LineSegment
+                    End="14.0416666759799,27.2833301602802" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="372,238"
-          Size="372,280.666666666667"
+          PanelSize="432.666666666667,549.333333333334"
+          Size="432.666666666667,592.666666666667"
           Id="Package\Demographics"
-          TopLeft="450.351481592346,597.117508036392" />
+          TopLeft="456.601481499214,443.067510791021" />
         <NodeLayout
           Size="212.666666666667,41.3333333333334"
           Id="Package\freeze table\email_fail_freeze_table"
@@ -20976,7 +23181,7 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="273.333333333334,209.333333333334"
+          PanelSize="273.333333333334,210"
           Size="273.333333333334,252.666666666667"
           Id="Package\Spell details"
           TopLeft="1396.77461049032,631.142204795439" />
@@ -21246,6 +23451,28 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 15]"
+          TopLeft="1257.12498892658,756.046102147827">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="139.649621563749,0"
+              Start="0,0"
+              End="132.149621563749,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="132.149621563749,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 16]"
           TopLeft="1194.97314247667,258.953964058422">
           <EdgeLayout.Curve>
@@ -21317,26 +23544,60 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="69.2001199613113,-20.4914524859211"
+              EndConnector="75.4501198681791,-18.5414497312926"
               Start="0,0"
-              End="61.7001199613113,-20.4914524859211">
+              End="67.9501198681791,-18.5414497312926">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="30.6000599806557,0" />
+                    End="33.7250599340895,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="30.6000599806557,0"
-                    Point2="34.6000599806557,0"
-                    Point3="34.6000599806557,-4" />
+                    Point1="33.7250599340895,0"
+                    Point2="37.7250599340895,0"
+                    Point3="37.7250599340895,-4" />
                   <mssgle:LineSegment
-                    End="34.6000599806557,-16.4914524859211" />
+                    End="37.7250599340895,-14.5414497312926" />
                   <mssgle:CubicBezierSegment
-                    Point1="34.6000599806557,-16.4914524859211"
-                    Point2="34.6000599806557,-20.4914524859211"
-                    Point3="38.6000599806557,-20.4914524859211" />
+                    Point1="37.7250599340895,-14.5414497312926"
+                    Point2="37.7250599340895,-18.5414497312926"
+                    Point3="41.7250599340895,-18.5414497312926" />
                   <mssgle:LineSegment
-                    End="61.7001199613113,-20.4914524859211" />
+                    End="67.9501198681791,-18.5414497312926" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="889.268148165881,739.400844124354">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.5235074273616,15.2158220425272"
+              Start="0,0"
+              End="39.0235074273616,15.2158220425272">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.2617537136808,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.2617537136808,0"
+                    Point2="23.2617537136808,0"
+                    Point3="23.2617537136808,4" />
+                  <mssgle:LineSegment
+                    End="23.2617537136808,11.2158220425272" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.2617537136808,11.2158220425272"
+                    Point2="23.2617537136808,15.2158220425272"
+                    Point3="27.2617537136808,15.2158220425272" />
+                  <mssgle:LineSegment
+                    End="39.0235074273616,15.2158220425272" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21452,111 +23713,6 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
           Size="612.666666666667,359.333333333334"
           Id="1a841f25-417a-437c-bd72-738b5cd2a551"
           TopLeft="1667.65012037996,30.7736180583122" />
-        <NodeLayout
-          Size="310.666666666667,41.3333333333334"
-          Id="Package\After getting demographics\Update demographics and overseas visitor status"
-          TopLeft="5.5,21.7810682385156" />
-        <NodeLayout
-          Size="208,41.3333333333334"
-          Id="Package\After getting demographics\Update ArmedForces status"
-          TopLeft="47.7883288194287,117.036000547984" />
-        <EdgeLayout
-          Id="Package\After getting demographics.PrecedenceConstraints[Constraint]"
-          TopLeft="160.833333333333,63.1144015718489">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.04500451390467,53.9215989761355"
-              Start="0,0"
-              End="-9.04500451390467,46.4215989761355">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.9607994880677" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.9607994880677"
-                    Point2="0,26.9607994880677"
-                    Point3="-4,26.9607994880677" />
-                  <mssgle:LineSegment
-                    End="-5.04500451390467,26.9607994880677" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.04500451390467,26.9607994880677"
-                    Point2="-9.04500451390467,26.9607994880677"
-                    Point3="-9.04500451390467,30.9607994880677" />
-                  <mssgle:LineSegment
-                    End="-9.04500451390467,46.4215989761355" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="321.333333333334,229.333333333334"
-          Size="321.333333333334,272"
-          Id="Package\After getting demographics"
-          TopLeft="935.791655593242,618.616666166881" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="822.351481592346,737.450841369725">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="113.440174000896,17.1658247971561"
-              Start="0,0"
-              End="105.940174000896,17.1658247971561">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="52.7200870004478,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="52.7200870004478,0"
-                    Point2="56.7200870004478,0"
-                    Point3="56.7200870004478,4" />
-                  <mssgle:LineSegment
-                    End="56.7200870004478,13.1658247971561" />
-                  <mssgle:CubicBezierSegment
-                    Point1="56.7200870004478,13.1658247971561"
-                    Point2="56.7200870004478,17.1658247971561"
-                    Point3="60.7200870004478,17.1658247971561" />
-                  <mssgle:LineSegment
-                    End="105.940174000896,17.1658247971561" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 15]"
-          TopLeft="1257.12498892658,756.046102147827">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="139.649621563749,0"
-              Start="0,0"
-              End="132.149621563749,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="132.149621563749,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -22706,6 +24862,146 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Demographics\Copy request data from BIT Admin to HDM_Local">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="210.666666666667,42.6666666666667"
+          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data"
+          TopLeft="89.3749986682087,18.1999996745587" />
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local"
+          TopLeft="116.874998258427,119.599997861385" />
+        <EdgeLayout
+          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local.Paths[OLE DB Source Output]"
+          TopLeft="198.458331796651,60.8666663412253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.7333315201601"
+              Start="0,0"
+              End="0,51.2333315201601">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.2333315201601" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Demographics\Copy return data from HDM_Local to BIT Admin">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="267.333333333334,60"
+          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local"
+          TopLeft="97,26.6666666666667" />
+        <NodeLayout
+          Size="177.333333333334,42.6666666666667"
+          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin"
+          TopLeft="121.666666666667,135" />
+        <EdgeLayout
+          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin.Paths[OLE DB Source Output]"
+          TopLeft="230.666666666667,86.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.3333333333333,48.3333333333333"
+              Start="0,0"
+              End="-20.3333333333333,40.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1666666666667"
+                    Point2="0,24.1666666666667"
+                    Point3="-4,24.1666666666667" />
+                  <mssgle:LineSegment
+                    End="-16.3333333333333,24.1666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.3333333333333,24.1666666666667"
+                    Point2="-20.3333333333333,24.1666666666667"
+                    Point3="-20.3333333333333,28.1666666666667" />
+                  <mssgle:LineSegment
+                    End="-20.3333333333333,40.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
