@@ -12,12 +12,1718 @@
   DTS:ObjectName="Radiotherapy_to_SLAM"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{4A49BDB4-83AD-4F38-B883-42265F0BE4B6}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{DCA1A99E-8303-40E9-AD0C-2293ED9F00B4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BIT.Finance]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{140CCBE9-C6A3-4A59-BD3F-3222415444BB}"
+      DTS:ObjectName="BIT.Finance">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BIT;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SLAM.DataSource]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8FF35751-EDFC-4079-9B23-CA8C9647195A}"
+      DTS:ObjectName="SLAM.DataSource">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SLAM;Initial Catalog=DataSource;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\BIT Finance to SLAM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{44EDEAC7-5B7F-4944-ACC4-A728EBD3644D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="BIT Finance to SLAM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\BIT Finance to SLAM\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[radiotherapy]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\BIT Finance to SLAM\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SLAM.DataSource]"
+                  connectionManagerRefId="Package.ConnectionManagers[SLAM.DataSource]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[age]"
+                      cachedDataType="i2"
+                      cachedName="age"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[age]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[attendance_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="attendance_date"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[attendance_date]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[attendance_date]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[attendance_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="attendance_identifier"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[attendance_identifier]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[attendance_identifier]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[attendance_indicator]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="attendance_indicator"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[attendance_indicator]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[attendance_indicator]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bhoc_charge_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="bhoc_charge_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bhoc_charge_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bhoc_charge_code]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cct_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="cct_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cct_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[cct_code]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cds_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cds_identifier"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cds_identifier]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[cds_identifier]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[clinic_code_full]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="clinic_code_full"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[clinic_code_full]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[clinic_code_full]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[consultant_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="consultant_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[consultant_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[consultant_code]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[consultant_specialty]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="consultant_specialty"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[consultant_specialty]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[consultant_specialty]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_app_received]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date_app_received"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_app_received]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_app_received]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[date_of_birth]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date_of_birth"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_of_birth]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_of_birth]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ethnic_category_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="ethnic_category_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_category_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ethnic_category_code]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ethnic_category_code_nat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="ethnic_category_code_nat"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_category_code_nat]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ethnic_category_code_nat]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fraction_no]"
+                      cachedDataType="i4"
+                      cachedName="fraction_no"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fraction_no]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[fraction_no]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gp_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="gp_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gp_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[gp_code]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gp_practice_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="gp_practice_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gp_practice_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[gp_practice_code]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hrg]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="hrg"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[hrg]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[icb_of_res]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="icb_of_res"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[icb_of_res]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[icb_of_res]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[local_specialty_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="local_specialty_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[local_specialty_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[local_specialty_code]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nat_proc_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="nat_proc_1"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_proc_1]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_proc_1]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nat_proc_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="nat_proc_2"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_proc_2]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_proc_2]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nat_site_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="nat_site_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_site_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_site_code]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nat_specialty_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="nat_specialty_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_specialty_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_specialty_code]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nhs_number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="nhs_number"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nhs_number]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[overseas_visitor_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="overseas_visitor_status"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[overseas_visitor_status]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[overseas_visitor_status]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[patient_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="patient_id"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_id]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_id]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[patient_sex]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="patient_sex"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_sex]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_sex]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[period_code]"
+                      cachedDataType="i4"
+                      cachedName="period_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[period_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[period_code]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pk_radio_fraction]"
+                      cachedDataType="i4"
+                      cachedName="pk_radio_fraction"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pk_radio_fraction]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[pk_radio_fraction]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[postcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="postcode"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[postcode]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[priority_natcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="priority_natcode"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[priority_natcode]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[priority_natcode]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[proc_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="proc_1"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_1]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[proc_1]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[purchaser_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="purchaser_id"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[purchaser_id]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[purchaser_id]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[radio_group]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="radio_group"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[radio_group]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[radio_group]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[service_line]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="service_line"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[service_line]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[service_line]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[source_of_referral]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="source_of_referral"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[source_of_referral]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[source_of_referral]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ubrn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ubrn"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ubrn]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ubrn]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[upload_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="upload_date"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[upload_date]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[upload_date]" />
+                    <inputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[wir_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="wir_code"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wir_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[wir_code]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[age]"
+                      dataType="i2"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[attendance_date]"
+                      dataType="dbTimeStamp"
+                      name="attendance_date" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="attendance_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[attendance_indicator]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="attendance_indicator" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bhoc_charge_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="bhoc_charge_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cct_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cct_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cds_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[clinic_code_full]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="clinic_code_full" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[consultant_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="consultant_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[consultant_specialty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="consultant_specialty" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_app_received]"
+                      dataType="dbTimeStamp"
+                      name="date_app_received" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date_of_birth]"
+                      dataType="dbTimeStamp"
+                      name="date_of_birth" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_category_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ethnic_category_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_category_code_nat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ethnic_category_code_nat" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fraction_no]"
+                      dataType="i4"
+                      name="fraction_no" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gp_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="gp_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gp_practice_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="gp_practice_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[icb_of_res]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="icb_of_res" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[local_specialty_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="local_specialty_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_proc_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nat_proc_1" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_proc_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nat_proc_2" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_site_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nat_site_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nat_specialty_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nat_specialty_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="nhs_number" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[overseas_visitor_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="overseas_visitor_status" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="patient_id" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_sex]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="patient_sex" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[period_code]"
+                      dataType="i4"
+                      name="period_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pk_radio_fraction]"
+                      dataType="i4"
+                      name="pk_radio_fraction" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="postcode" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[priority_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="priority_natcode" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_1" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[purchaser_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="purchaser_id" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[radio_group]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="radio_group" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[service_line]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="service_line" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[source_of_referral]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="source_of_referral" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ubrn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ubrn" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[upload_date]"
+                      dataType="dbTimeStamp"
+                      name="upload_date" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wir_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="wir_code" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\BIT Finance to SLAM\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\BIT Finance to SLAM\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[radiotherapy_feed]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\BIT Finance to SLAM\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BIT.Finance]"
+                  connectionManagerRefId="Package.ConnectionManagers[BIT.Finance]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[age]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[age]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[age]"
+                      name="age"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[attendance_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attendance_date]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[attendance_date]"
+                      name="attendance_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attendance_identifier]"
+                      length="40"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[attendance_identifier]"
+                      name="attendance_identifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[attendance_indicator]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attendance_indicator]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[attendance_indicator]"
+                      name="attendance_indicator"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bhoc_charge_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bhoc_charge_code]"
+                      length="7"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bhoc_charge_code]"
+                      name="bhoc_charge_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[cct_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cct_code]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[cct_code]"
+                      name="cct_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cds_identifier]"
+                      length="50"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[cds_identifier]"
+                      name="cds_identifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[clinic_code_full]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[clinic_code_full]"
+                      length="18"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[clinic_code_full]"
+                      name="clinic_code_full"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[consultant_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[consultant_code]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[consultant_code]"
+                      name="consultant_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[consultant_specialty]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[consultant_specialty]"
+                      length="3"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[consultant_specialty]"
+                      name="consultant_specialty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_app_received]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_app_received]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_app_received]"
+                      name="date_app_received"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_of_birth]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_of_birth]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[date_of_birth]"
+                      name="date_of_birth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ethnic_category_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ethnic_category_code]"
+                      length="5"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ethnic_category_code]"
+                      name="ethnic_category_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ethnic_category_code_nat]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ethnic_category_code_nat]"
+                      length="5"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ethnic_category_code_nat]"
+                      name="ethnic_category_code_nat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[fraction_no]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fraction_no]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[fraction_no]"
+                      name="fraction_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[gp_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gp_code]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[gp_code]"
+                      name="gp_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[gp_practice_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gp_practice_code]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[gp_practice_code]"
+                      name="gp_practice_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[hrg]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hrg]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[hrg]"
+                      name="hrg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[icb_of_res]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[icb_of_res]"
+                      length="5"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[icb_of_res]"
+                      name="icb_of_res"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[local_specialty_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[local_specialty_code]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[local_specialty_code]"
+                      name="local_specialty_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_proc_1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nat_proc_1]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_proc_1]"
+                      name="nat_proc_1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_proc_2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nat_proc_2]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_proc_2]"
+                      name="nat_proc_2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_site_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nat_site_code]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_site_code]"
+                      name="nat_site_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_specialty_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nat_specialty_code]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nat_specialty_code]"
+                      name="nat_specialty_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nhs_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nhs_number]"
+                      length="17"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[nhs_number]"
+                      name="nhs_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[overseas_visitor_status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[overseas_visitor_status]"
+                      length="50"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[overseas_visitor_status]"
+                      name="overseas_visitor_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[patient_id]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_id]"
+                      name="patient_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_sex]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[patient_sex]"
+                      length="1"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[patient_sex]"
+                      name="patient_sex"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[period_code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[period_code]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[period_code]"
+                      name="period_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[pk_radio_fraction]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pk_radio_fraction]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[pk_radio_fraction]"
+                      name="pk_radio_fraction"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[postcode]"
+                      name="postcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[priority_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[priority_natcode]"
+                      length="5"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[priority_natcode]"
+                      name="priority_natcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[proc_1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[proc_1]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[proc_1]"
+                      name="proc_1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[purchaser_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[purchaser_id]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[purchaser_id]"
+                      name="purchaser_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[radio_group]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[radio_group]"
+                      length="7"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[radio_group]"
+                      name="radio_group"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[service_line]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[service_line]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[service_line]"
+                      name="service_line"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[source_of_referral]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[source_of_referral]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[source_of_referral]"
+                      name="source_of_referral"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ubrn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ubrn]"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ubrn]"
+                      name="ubrn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[upload_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[upload_date]"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[upload_date]"
+                      name="upload_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[wir_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wir_code]"
+                      length="50"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].Columns[wir_code]"
+                      name="wir_code"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[age]"
+                      dataType="i2"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attendance_date]"
+                      dataType="dbTimeStamp"
+                      name="attendance_date" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="attendance_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[attendance_indicator]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="attendance_indicator" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bhoc_charge_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="bhoc_charge_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cct_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cct_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cds_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[clinic_code_full]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="clinic_code_full" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[consultant_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="consultant_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[consultant_specialty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="consultant_specialty" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_app_received]"
+                      dataType="dbTimeStamp"
+                      name="date_app_received" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date_of_birth]"
+                      dataType="dbTimeStamp"
+                      name="date_of_birth" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ethnic_category_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ethnic_category_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ethnic_category_code_nat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ethnic_category_code_nat" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fraction_no]"
+                      dataType="i4"
+                      name="fraction_no" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gp_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="gp_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gp_practice_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="gp_practice_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[hrg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="hrg" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[icb_of_res]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="icb_of_res" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[local_specialty_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="local_specialty_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nat_proc_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nat_proc_1" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nat_proc_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nat_proc_2" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nat_site_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nat_site_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nat_specialty_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="nat_specialty_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[nhs_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="nhs_number" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[overseas_visitor_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="overseas_visitor_status" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[patient_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="patient_id" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[patient_sex]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="patient_sex" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[period_code]"
+                      dataType="i4"
+                      name="period_code" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pk_radio_fraction]"
+                      dataType="i4"
+                      name="pk_radio_fraction" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="postcode" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[priority_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="priority_natcode" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[proc_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_1" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[purchaser_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="purchaser_id" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[radio_group]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="radio_group" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[service_line]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="service_line" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[source_of_referral]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="source_of_referral" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ubrn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ubrn" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[upload_date]"
+                      dataType="dbTimeStamp"
+                      name="upload_date" />
+                    <externalMetadataColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[wir_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="wir_code" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[age]"
+                      dataType="i2"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[age]"
+                      name="age" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attendance_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attendance_date]"
+                      name="attendance_date" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attendance_identifier]"
+                      name="attendance_identifier" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attendance_indicator]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[attendance_indicator]"
+                      name="attendance_indicator" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bhoc_charge_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bhoc_charge_code]"
+                      name="bhoc_charge_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cct_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cct_code]"
+                      name="cct_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[cds_identifier]"
+                      name="cds_identifier" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[clinic_code_full]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[clinic_code_full]"
+                      name="clinic_code_full" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[consultant_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[consultant_code]"
+                      name="consultant_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[consultant_specialty]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[consultant_specialty]"
+                      name="consultant_specialty" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_app_received]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_app_received]"
+                      name="date_app_received" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_of_birth]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date_of_birth]"
+                      name="date_of_birth" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ethnic_category_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ethnic_category_code]"
+                      name="ethnic_category_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ethnic_category_code_nat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ethnic_category_code_nat]"
+                      name="ethnic_category_code_nat" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fraction_no]"
+                      dataType="i4"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fraction_no]"
+                      name="fraction_no" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gp_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gp_code]"
+                      name="gp_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gp_practice_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gp_practice_code]"
+                      name="gp_practice_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hrg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[hrg]"
+                      name="hrg" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[icb_of_res]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[icb_of_res]"
+                      name="icb_of_res" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[local_specialty_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[local_specialty_code]"
+                      name="local_specialty_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nat_proc_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nat_proc_1]"
+                      name="nat_proc_1" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nat_proc_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nat_proc_2]"
+                      name="nat_proc_2" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nat_site_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nat_site_code]"
+                      name="nat_site_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nat_specialty_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nat_specialty_code]"
+                      name="nat_specialty_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nhs_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[nhs_number]"
+                      name="nhs_number" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overseas_visitor_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[overseas_visitor_status]"
+                      name="overseas_visitor_status" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[patient_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[patient_id]"
+                      name="patient_id" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[patient_sex]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[patient_sex]"
+                      name="patient_sex" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[period_code]"
+                      dataType="i4"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[period_code]"
+                      name="period_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pk_radio_fraction]"
+                      dataType="i4"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pk_radio_fraction]"
+                      name="pk_radio_fraction" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[postcode]"
+                      name="postcode" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[priority_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[priority_natcode]"
+                      name="priority_natcode" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[proc_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[proc_1]"
+                      name="proc_1" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[purchaser_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[purchaser_id]"
+                      name="purchaser_id" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[radio_group]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[radio_group]"
+                      name="radio_group" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[service_line]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[service_line]"
+                      name="service_line" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[source_of_referral]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[source_of_referral]"
+                      name="source_of_referral" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ubrn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ubrn]"
+                      name="ubrn" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[upload_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[upload_date]"
+                      name="upload_date" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wir_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[wir_code]"
+                      name="wir_code" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\BIT Finance to SLAM.Paths[OLE DB Source Output]"
+              endId="Package\BIT Finance to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\BIT Finance to SLAM\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate table on SLAM"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0AE0C7B4-B0E5-4C24-ACB5-79BD966476AC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table on SLAM"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8FF35751-EDFC-4079-9B23-CA8C9647195A}"
+          SQLTask:SqlStatementSource="truncate table dbo.radiotherapy" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{921D765F-D9AD-446A-923D-40343F87D051}"
+      DTS:From="Package\truncate table on SLAM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\BIT Finance to SLAM" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -25,5 +1731,119 @@
 <Objects
   Version="8">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\BIT Finance to SLAM"
+          TopLeft="26.9285717934978,111.029413244716" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\truncate table on SLAM"
+          TopLeft="13.3571424800522,17.911764459214" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="111.142857136775,59.511764459214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.5176487855021"
+              Start="0,0"
+              End="0,44.0176487855021">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.0176487855021" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\BIT Finance to SLAM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\BIT Finance to SLAM\OLE DB Source"
+          TopLeft="6.92857145289987,5.5" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\BIT Finance to SLAM\OLE DB Destination"
+          TopLeft="11.9285710271524,101.264706804678" />
+        <EdgeLayout
+          Id="Package\BIT Finance to SLAM.Paths[OLE DB Source Output]"
+          TopLeft="81.7285714528999,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.3999995742525,54.1647068046781"
+              Start="0,0"
+              End="15.3999995742525,46.6647068046781">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.0823534023391" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.0823534023391"
+                    Point2="0,27.0823534023391"
+                    Point3="4,27.0823534023391" />
+                  <mssgle:LineSegment
+                    End="11.3999995742525,27.0823534023391" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.3999995742525,27.0823534023391"
+                    Point2="15.3999995742525,27.0823534023391"
+                    Point3="15.3999995742525,31.0823534023391" />
+                  <mssgle:LineSegment
+                    End="15.3999995742525,46.6647068046781" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\BIT Finance to SLAM\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\BIT Finance to SLAM\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
