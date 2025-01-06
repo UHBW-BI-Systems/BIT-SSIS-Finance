@@ -12,8 +12,8 @@
   DTS:ObjectName="Radiology"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="66"
-  DTS:VersionGUID="{01B83D77-4956-409E-973B-D536BAC09ADD}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{ED703138-BAA1-4553-B74B-0CE5F52B8007}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -564,6 +564,7 @@
     <DTS:Executable
       DTS:refId="Package\Execute Get deomgraphic package"
       DTS:CreationName="STOCK:SEQUENCE"
+      DTS:DelayValidation="True"
       DTS:Description="Sequence Container"
       DTS:DTSID="{20113D1A-BF61-42BE-AC4B-10CC3B594733}"
       DTS:ExecutableType="STOCK:SEQUENCE"
@@ -7604,23 +7605,27 @@ WHERE event_date &gt;= ?</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="181.333333333334,42.6666666666667"
-          Id="Package\Load data from PHD3 to BIT\Truncate import table"
-          TopLeft="17.8749998975546,13.5999986749888" />
+          Size="286.666666666667,42.6666666666667"
+          Id="Package\Execute Get deomgraphic package\Execute Get deomgraphic package in Admin"
+          TopLeft="13.7083336034168,97.1499983611704" />
+        <NodeLayout
+          Size="212,42.6666666666667"
+          Id="Package\Execute Get deomgraphic package\Get reference_id of package"
+          TopLeft="43.3333273728691,25.1333308692772" />
         <EdgeLayout
-          Id="Package\Load data from PHD3 to BIT.PrecedenceConstraints[Constraint 1]"
-          TopLeft="105.187499818392,56.2666653416555">
+          Id="Package\Execute Get deomgraphic package.PrecedenceConstraints[Constraint]"
+          TopLeft="153.18749715481,67.7999975359438">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.0333319618303"
+              EndConnector="0,29.3500008252266"
               Start="0,0"
-              End="0,26.5333319618303">
+              End="0,21.8500008252266">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.5333319618303" />
+                    End="0,21.8500008252266" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7629,10 +7634,47 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="310,194.666666666667"
+          Size="310,238"
+          Id="Package\Execute Get deomgraphic package"
+          TopLeft="356.874994980171,975.033334053955" />
+        <NodeLayout
+          Size="224,42.6666666666667"
+          Id="Package\Generate list for demographic request\Generate list for demo request"
+          TopLeft="31.5773739874186,31.0476027257371" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="288,178.666666666667"
+          Size="288,222"
+          Id="Package\Generate list for demographic request"
+          TopLeft="398.749994356185,710.150002429188" />
+        <NodeLayout
+          Size="193.333333333334,42"
+          Id="Package\Get demographic request result\Get demo request result"
+          TopLeft="30.3868988080926,16.7023614674097" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="240,113.333333333334"
+          Size="240,156.666666666667"
+          Id="Package\Get demographic request result"
+          TopLeft="375.624994402751,1239.44999775678" />
         <NodeLayout
           Size="146.666666666667,42.6666666666667"
           Id="Package\Load data from PHD3 to BIT\Get start_date"
           TopLeft="28.4999997392299,90.2999973034857" />
+        <NodeLayout
+          Size="213.333333333334,42.6666666666667"
+          Id="Package\Load data from PHD3 to BIT\Load data from PHD3 to BIT"
+          TopLeft="5.5,175.799995676281" />
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\Load data from PHD3 to BIT\Truncate import table"
+          TopLeft="17.8749998975546,13.5999986749888" />
         <EdgeLayout
           Id="Package\Load data from PHD3 to BIT.PrecedenceConstraints[Constraint]"
           TopLeft="101.833333072563,132.966663970152">
@@ -7667,47 +7709,20 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="213.333333333334,42.6666666666667"
-          Id="Package\Load data from PHD3 to BIT\Load data from PHD3 to BIT"
-          TopLeft="5.5,175.799995676281" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="235.333333333334,273.333333333334"
-          Size="235.333333333334,316"
-          Id="Package\Load data from PHD3 to BIT"
-          TopLeft="61.2499990873039,79.9499985703827" />
-        <NodeLayout
-          Size="190.666666666667,42.6666666666667"
-          Id="Package\Transform data in BIT\run transform radiology"
-          TopLeft="43.6785709416226,9.09406217294627" />
         <EdgeLayout
-          Id="Package\Transform data in BIT.PrecedenceConstraints[Constraint 7]"
-          TopLeft="139.011904274956,51.7607288396134">
+          Id="Package\Load data from PHD3 to BIT.PrecedenceConstraints[Constraint 1]"
+          TopLeft="105.187499818392,56.2666653416555">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="34.8214287976067,35.3446821980094"
+              EndConnector="0,34.0333319618303"
               Start="0,0"
-              End="34.8214287976067,27.8446821980094">
+              End="0,26.5333319618303">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.6723410990047" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.6723410990047"
-                    Point2="0,17.6723410990047"
-                    Point3="4,17.6723410990047" />
-                  <mssgle:LineSegment
-                    End="30.8214287976067,17.6723410990047" />
-                  <mssgle:CubicBezierSegment
-                    Point1="30.8214287976067,17.6723410990047"
-                    Point2="34.8214287976067,17.6723410990047"
-                    Point3="34.8214287976067,21.6723410990047" />
-                  <mssgle:LineSegment
-                    End="34.8214287976067,27.8446821980094" />
+                    End="0,26.5333319618303" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7716,10 +7731,235 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="235.333333333334,273.333333333334"
+          Size="235.333333333334,316"
+          Id="Package\Load data from PHD3 to BIT"
+          TopLeft="61.2499990873039,79.9499985703827" />
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\Populate to final table\Populate to radiology table"
+          TopLeft="5.5,10.3333269407353" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="216,108"
+          Size="216,150.666666666667"
+          Id="Package\Populate to final table"
+          TopLeft="365.624994551763,1808.40000074386" />
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\Run HRG process\Load Grouper file"
+          TopLeft="54.8749992642555,109.399999930262" />
+        <NodeLayout
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\Run HRG process\Load Unbundled file"
+          TopLeft="52.9999992921946,190.099996699095" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Run HRG process\Prepare HRG data"
+          TopLeft="289.124995855615,19.1666723618905" />
+        <NodeLayout
+          Size="176,42.6666666666667"
+          Id="Package\Run HRG process\Produce Grouper file"
+          TopLeft="495.999992772936,22.9209678375478" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Run HRG process\Run HRG Grouper"
+          TopLeft="512.87499252148,105.020962793207" />
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\Run HRG process\Specialised Commissioning"
+          TopLeft="31.1607200426187,18.2309530401362" />
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\Run HRG process\Truncate Group upload file"
+          TopLeft="247.374996395781,109.849999779165" />
+        <EdgeLayout
+          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 14]"
+          TopLeft="236.494053375952,40.0321460343467">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.6309424796633,0"
+              Start="0,0"
+              End="45.1309424796633,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.1309424796633,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 15]"
+          TopLeft="453.124995855615,42.3771534330525">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.874996917321,0"
+              Start="0,0"
+              End="35.374996917321,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.374996917321,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 16]"
+          TopLeft="583.999992772936,65.5876345042144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.8749997485431,39.4333282889921"
+              Start="0,0"
+              End="10.8749997485431,31.9333282889921">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7166641444961" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.7166641444961"
+                    Point2="0,19.7166641444961"
+                    Point3="4,19.7166641444961" />
+                  <mssgle:LineSegment
+                    End="6.87499974854313,19.7166641444961" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.87499974854313,19.7166641444961"
+                    Point2="10.8749997485431,19.7166641444961"
+                    Point3="10.8749997485431,23.7166641444961" />
+                  <mssgle:LineSegment
+                    End="10.8749997485431,31.9333282889921" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 17]"
+          TopLeft="512.87499252148,128.768814619519">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-60.1666627923647,0"
+              Start="0,0"
+              End="-52.6666627923647,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-52.6666627923647,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 18]"
+          TopLeft="137.604165944892,152.066666596929">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.0333301021658"
+              Start="0,0"
+              End="0,30.5333301021658">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5333301021658" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 19]"
+          TopLeft="247.374996395781,130.958333188047">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.1666637981926,0"
+              Start="0,0"
+              End="-23.6666637981926,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-23.6666637981926,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="698.666666666667,302"
+          Size="698.666666666667,344.666666666667"
+          Id="Package\Run HRG process"
+          TopLeft="129.999998062849,1428.95001135558" />
+        <NodeLayout
+          Size="188,42.6666666666667"
+          Id="Package\Transform data in BIT\Fill pasid into BIT table"
+          TopLeft="80.5535703921422,519.573805457454" />
+        <NodeLayout
+          Size="341.333333333334,42.6666666666667"
+          Id="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup"
+          TopLeft="16.7499998323619,229.061900189121" />
+        <NodeLayout
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\Transform data in BIT\Return result to BIT"
+          TopLeft="73.5892847816327,439.811900595924" />
+        <NodeLayout
+          Size="192,42.6666666666667"
+          Id="Package\Transform data in BIT\run missing pasid check"
+          TopLeft="59.1249992828815,154.211814668379" />
+        <NodeLayout
+          Size="190.666666666667,42.6666666666667"
+          Id="Package\Transform data in BIT\run transform radiology"
+          TopLeft="43.6785709416226,9.09406217294627" />
         <NodeLayout
           Size="290.666666666667,42.6666666666667"
           Id="Package\Transform data in BIT\Trunate HDM_Local radiology_missing_pasid"
           TopLeft="28.4999997392292,87.1054110376225" />
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\Transform data in BIT\Truncate return table"
+          TopLeft="69.1249991338701,379.21190110733" />
+        <NodeLayout
+          Size="296,42.6666666666667"
+          Id="Package\Transform data in BIT\Update patient_id in HDM_Local where match"
+          TopLeft="35.4642853497393,298.159519553879" />
         <EdgeLayout
           Id="Package\Transform data in BIT.PrecedenceConstraints[Constraint 2]"
           TopLeft="173.833333072563,129.772077704289">
@@ -7754,48 +7994,6 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="192,42.6666666666667"
-          Id="Package\Transform data in BIT\run missing pasid check"
-          TopLeft="59.1249992828815,154.211814668379" />
-        <EdgeLayout
-          Id="Package\Transform data in BIT.PrecedenceConstraints[Constraint 8]"
-          TopLeft="155.124999282882,196.878481335045">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="32.2916672161471,32.1834188540765"
-              Start="0,0"
-              End="32.2916672161471,24.6834188540765">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.0917094270382" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.0917094270382"
-                    Point2="0,16.0917094270382"
-                    Point3="4,16.0917094270382" />
-                  <mssgle:LineSegment
-                    End="28.2916672161471,16.0917094270382" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28.2916672161471,16.0917094270382"
-                    Point2="32.2916672161471,16.0917094270382"
-                    Point3="32.2916672161471,20.0917094270382" />
-                  <mssgle:LineSegment
-                    End="32.2916672161471,24.6834188540765" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="341.333333333334,42.6666666666667"
-          Id="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup"
-          TopLeft="16.7499998323619,229.061900189121" />
         <EdgeLayout
           Id="Package\Transform data in BIT.PrecedenceConstraints[Constraint 3]"
           TopLeft="185.440475924384,271.728566855788">
@@ -7818,10 +8016,6 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="296,42.6666666666667"
-          Id="Package\Transform data in BIT\Update patient_id in HDM_Local where match"
-          TopLeft="35.4642853497393,298.159519553879" />
         <EdgeLayout
           Id="Package\Transform data in BIT.PrecedenceConstraints[Constraint 4]"
           TopLeft="183.464285349739,340.826186220546">
@@ -7856,10 +8050,6 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="180,42.6666666666667"
-          Id="Package\Transform data in BIT\Truncate return table"
-          TopLeft="69.1249991338701,379.21190110733" />
         <EdgeLayout
           Id="Package\Transform data in BIT.PrecedenceConstraints[Constraint 5]"
           TopLeft="69.1249991338701,400.545234440663">
@@ -7894,10 +8084,74 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="173.333333333334,42.6666666666667"
-          Id="Package\Transform data in BIT\Return result to BIT"
-          TopLeft="73.5892847816327,439.811900595924" />
+        <EdgeLayout
+          Id="Package\Transform data in BIT.PrecedenceConstraints[Constraint 7]"
+          TopLeft="139.011904274956,51.7607288396134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.8214287976067,35.3446821980094"
+              Start="0,0"
+              End="34.8214287976067,27.8446821980094">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.6723410990047" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.6723410990047"
+                    Point2="0,17.6723410990047"
+                    Point3="4,17.6723410990047" />
+                  <mssgle:LineSegment
+                    End="30.8214287976067,17.6723410990047" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.8214287976067,17.6723410990047"
+                    Point2="34.8214287976067,17.6723410990047"
+                    Point3="34.8214287976067,21.6723410990047" />
+                  <mssgle:LineSegment
+                    End="34.8214287976067,27.8446821980094" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Transform data in BIT.PrecedenceConstraints[Constraint 8]"
+          TopLeft="155.124999282882,196.878481335045">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.2916672161471,32.1834188540765"
+              Start="0,0"
+              End="32.2916672161471,24.6834188540765">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.0917094270382" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.0917094270382"
+                    Point2="0,16.0917094270382"
+                    Point3="4,16.0917094270382" />
+                  <mssgle:LineSegment
+                    End="28.2916672161471,16.0917094270382" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.2916672161471,16.0917094270382"
+                    Point2="32.2916672161471,16.0917094270382"
+                    Point3="32.2916672161471,20.0917094270382" />
+                  <mssgle:LineSegment
+                    End="32.2916672161471,24.6834188540765" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Transform data in BIT.PrecedenceConstraints[Constraint 9]"
           TopLeft="160.2559514483,482.478567262591">
@@ -7932,14 +8186,10 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="188,42.6666666666667"
-          Id="Package\Transform data in BIT\Fill pasid into BIT table"
-          TopLeft="80.5535703921422,519.573805457454" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="363.333333333334,605.333333333334"
+          PanelSize="363.333333333334,606"
           Size="363.333333333334,648.666666666667"
           Id="Package\Transform data in BIT"
           TopLeft="389.99999448657,24.0499995699525" />
@@ -7977,17 +8227,6 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="224,42.6666666666667"
-          Id="Package\Generate list for demographic request\Generate list for demo request"
-          TopLeft="31.5773739874186,31.0476027257371" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="288,178.666666666667"
-          Size="288,222"
-          Id="Package\Generate list for demographic request"
-          TopLeft="398.749994356185,710.150002429188" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="571.666661153237,672.716666236619">
@@ -8022,43 +8261,6 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="286.666666666667,42.6666666666667"
-          Id="Package\Execute Get deomgraphic package\Execute Get deomgraphic package in Admin"
-          TopLeft="13.7083336034168,97.1499983611704" />
-        <NodeLayout
-          Size="212,42.6666666666667"
-          Id="Package\Execute Get deomgraphic package\Get reference_id of package"
-          TopLeft="43.3333273728691,25.1333308692772" />
-        <EdgeLayout
-          Id="Package\Execute Get deomgraphic package.PrecedenceConstraints[Constraint]"
-          TopLeft="153.18749715481,67.7999975359438">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.3500008252266"
-              Start="0,0"
-              End="0,21.8500008252266">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.8500008252266" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="310,194.666666666667"
-          Size="310,238"
-          Id="Package\Execute Get deomgraphic package"
-          TopLeft="356.874994980171,975.033334053955" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="542.749994356185,932.150002429188">
@@ -8093,43 +8295,32 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="193.333333333334,42"
-          Id="Package\Get demographic request result\Get demo request result"
-          TopLeft="30.3868988080926,16.7023614674097" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="240,113.333333333334"
-          Size="240,156.666666666667"
-          Id="Package\Get demographic request result"
-          TopLeft="367.499994523823,1247.2499976173" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="511.874994980171,1213.03333405396">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-24.3750004563481,34.2166635633487"
+              EndConnector="-16.2500005774198,26.41666370282"
               Start="0,0"
-              End="-24.3750004563481,26.7166635633487">
+              End="-16.2500005774198,18.91666370282">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.1083317816743" />
+                    End="0,9.20833185140998" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.1083317816743"
-                    Point2="0,17.1083317816743"
-                    Point3="-4,17.1083317816743" />
+                    Point1="0,9.20833185140998"
+                    Point2="0,13.20833185141"
+                    Point3="-4,13.20833185141" />
                   <mssgle:LineSegment
-                    End="-20.3750004563481,17.1083317816743" />
+                    End="-12.2500005774198,13.20833185141" />
                   <mssgle:CubicBezierSegment
-                    Point1="-20.3750004563481,17.1083317816743"
-                    Point2="-24.3750004563481,17.1083317816743"
-                    Point3="-24.3750004563481,21.1083317816743" />
+                    Point1="-12.2500005774198,13.20833185141"
+                    Point2="-16.2500005774198,13.20833185141"
+                    Point3="-16.2500005774198,17.20833185141" />
                   <mssgle:LineSegment
-                    End="-24.3750004563481,26.7166635633487" />
+                    End="-16.2500005774198,18.91666370282" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8138,211 +8329,32 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="173.333333333334,42.6666666666667"
-          Id="Package\Run HRG process\Load Unbundled file"
-          TopLeft="52.9999992921946,190.099996699095" />
-        <EdgeLayout
-          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 18]"
-          TopLeft="137.604165944892,152.066666596929">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.0333301021658"
-              Start="0,0"
-              End="0,30.5333301021658">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5333301021658" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="161.333333333334,42.6666666666667"
-          Id="Package\Run HRG process\Load Grouper file"
-          TopLeft="54.8749992642555,109.399999930262" />
-        <EdgeLayout
-          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 19]"
-          TopLeft="247.374996395781,130.958333188047">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-31.1666637981926,0"
-              Start="0,0"
-              End="-23.6666637981926,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-23.6666637981926,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="205.333333333334,42.6666666666667"
-          Id="Package\Run HRG process\Truncate Group upload file"
-          TopLeft="247.374996395781,109.849999779165" />
-        <EdgeLayout
-          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 17]"
-          TopLeft="512.87499252148,128.768814619519">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-60.1666627923647,0"
-              Start="0,0"
-              End="-52.6666627923647,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-52.6666627923647,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Run HRG process\Run HRG Grouper"
-          TopLeft="512.87499252148,105.020962793207" />
-        <EdgeLayout
-          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 16]"
-          TopLeft="583.999992772936,65.5876345042144">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.8749997485431,39.4333282889921"
-              Start="0,0"
-              End="10.8749997485431,31.9333282889921">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.7166641444961" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.7166641444961"
-                    Point2="0,19.7166641444961"
-                    Point3="4,19.7166641444961" />
-                  <mssgle:LineSegment
-                    End="6.87499974854313,19.7166641444961" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.87499974854313,19.7166641444961"
-                    Point2="10.8749997485431,19.7166641444961"
-                    Point3="10.8749997485431,23.7166641444961" />
-                  <mssgle:LineSegment
-                    End="10.8749997485431,31.9333282889921" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="176,42.6666666666667"
-          Id="Package\Run HRG process\Produce Grouper file"
-          TopLeft="495.999992772936,22.9209678375478" />
-        <EdgeLayout
-          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 15]"
-          TopLeft="453.124995855615,42.3771534330525">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="42.874996917321,0"
-              Start="0,0"
-              End="35.374996917321,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="35.374996917321,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164,42.6666666666667"
-          Id="Package\Run HRG process\Prepare HRG data"
-          TopLeft="289.124995855615,19.1666723618905" />
-        <EdgeLayout
-          Id="Package\Run HRG process.PrecedenceConstraints[Constraint 14]"
-          TopLeft="236.494053375952,40.0321460343467">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52.6309424796633,0"
-              Start="0,0"
-              End="45.1309424796633,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="45.1309424796633,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="205.333333333334,42.6666666666667"
-          Id="Package\Run HRG process\Specialised Commissioning"
-          TopLeft="31.1607200426187,18.2309530401362" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="698.666666666667,301.333333333334"
-          Size="698.666666666667,344.666666666667"
-          Id="Package\Run HRG process"
-          TopLeft="129.999998062849,1428.95001135558" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="487.499994523823,1403.91666428397">
+          TopLeft="495.624994402751,1396.11666442344">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.1666631276409,25.033347071608"
+              EndConnector="-16.2916630065689,32.8333469321383"
               Start="0,0"
-              End="-8.1666631276409,17.533347071608">
+              End="-16.2916630065689,25.3333469321383">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.51667353580399" />
+                    End="0,12.4166734660691" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.51667353580399"
-                    Point2="0,12.516673535804"
-                    Point3="-4,12.516673535804" />
+                    Point1="0,12.4166734660691"
+                    Point2="0,16.4166734660691"
+                    Point3="-4,16.4166734660691" />
                   <mssgle:LineSegment
-                    End="-4.1666631276409,12.516673535804" />
+                    End="-12.2916630065689,16.4166734660691" />
                   <mssgle:CubicBezierSegment
-                    Point1="-4.1666631276409,12.516673535804"
-                    Point2="-8.1666631276409,12.516673535804"
-                    Point3="-8.1666631276409,16.516673535804" />
+                    Point1="-12.2916630065689,16.4166734660691"
+                    Point2="-16.2916630065689,16.4166734660691"
+                    Point3="-16.2916630065689,20.4166734660691" />
                   <mssgle:LineSegment
-                    End="-8.1666631276409,17.533347071608" />
+                    End="-16.2916630065689,25.3333469321383" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8351,31 +8363,20 @@ WHERE event_date &gt;= ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="205.333333333334,42.6666666666667"
-          Id="Package\Populate to final table\Populate to radiology table"
-          TopLeft="5.5,10.3333269407353" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="216,108"
-          Size="216,150.666666666667"
-          Id="Package\Populate to final table"
-          TopLeft="365.624994551763,1808.40000074386" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="476.479162973973,1773.61667802225">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.783322721619"
+              EndConnector="0,34.7833227216131"
               Start="0,0"
-              End="0,27.283322721619">
+              End="0,27.2833227216131">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.283322721619" />
+                    End="0,27.2833227216131" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8505,72 +8506,6 @@ WHERE event_date &gt;= ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup\OLE DB Source"
-          TopLeft="114.874998370185,60.749999012053" />
-        <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup\OLE DB Destination"
-          TopLeft="98.6249990593642,151.199997931123" />
-        <EdgeLayout
-          Id="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup.Paths[OLE DB Source Output]"
-          TopLeft="187.416665381441,103.41666567872">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.7833322524031"
-              Start="0,0"
-              End="0,40.2833322524031">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.2833322524031" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Run HRG process\Load Unbundled file">
     <LayoutInfo>
       <GraphLayout
@@ -8677,6 +8612,72 @@ WHERE event_date &gt;= ?</property>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Run HRG process\Produce Grouper file\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup\OLE DB Source"
+          TopLeft="114.874998370185,60.749999012053" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup\OLE DB Destination"
+          TopLeft="98.6249990593642,151.199997931123" />
+        <EdgeLayout
+          Id="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup.Paths[OLE DB Source Output]"
+          TopLeft="187.416665381441,103.41666567872">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.7833322524031"
+              Start="0,0"
+              End="0,40.2833322524031">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.2833322524031" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transform data in BIT\Load missing pas_id from BIT to HDM_lcocal for lookup\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
