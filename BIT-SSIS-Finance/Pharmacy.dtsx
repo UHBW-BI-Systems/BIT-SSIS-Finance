@@ -8,14 +8,14 @@
   DTS:DTSID="{8DE1B04B-7B19-4620-B47E-7DA92E25EC23}"
   DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
   DTS:LocaleID="2057"
   DTS:MaxErrorCount="10"
   DTS:ObjectName="Pharmacy"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="939"
-  DTS:VersionGUID="{9405FD7D-FCDA-4024-992C-6BFDB60CEA4C}">
+  DTS:VersionBuild="941"
+  DTS:VersionGUID="{D7F52D86-DDAC-495B-97BE-1CD5B0A7E03E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -28,6 +28,8 @@
         DTS:Name="ConnectionString">@[$Project::Admin_ConnectionString_Database]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Admin;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -40,6 +42,8 @@
         DTS:Name="ConnectionString">@[$Project::SSISDB_ConnectionString_Database]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=SSISDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -53,6 +57,8 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Retain="True"
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -65,6 +71,8 @@
         DTS:Name="ConnectionString">@[$Project::HDM_Local_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=MED001S\HDMSQL;Initial Catalog=HDM_Local;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -77,6 +85,8 @@
         DTS:Name="ConnectionString">@[$Project::JAC_ConnectionString_Database]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=PHD3;Initial Catalog=JAC;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -129,7 +139,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="vstart_date">
       <DTS:VariableValue
-        DTS:DataType="7">11/3/2024 6:07:32 PM</DTS:VariableValue>
+        DTS:DataType="7">11/30/2024 11:23:38 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -9561,7 +9571,7 @@ AND (Patient_Identifier LIKE 'T%' OR Patient_Identifier LIKE 'Z%')</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="email_success_freeze_table"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:PropertyExpression
             DTS:Name="CCLine">@[User::v_email_address_cc]</DTS:PropertyExpression>
@@ -12222,7 +12232,7 @@ order by stored_date_of_issue_dt</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="get_email_address_success"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -18776,7 +18786,7 @@ FROM Finance.import.pharmacy_WGH AS puhb
           DTS:LocaleID="-1"
           DTS:ObjectName="email_main_drug_flag_missing_email"
           DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:PropertyExpression
             DTS:Name="CCLine">@[User::v_email_address_cc]</DTS:PropertyExpression>
@@ -18827,7 +18837,7 @@ FROM Finance.import.pharmacy_WGH AS puhb
               DTS:LocaleID="-1"
               DTS:ObjectName="add row to string var"
               DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:ObjectData>
                 <ExpressionTask
@@ -18853,7 +18863,7 @@ FROM Finance.import.pharmacy_WGH AS puhb
           DTS:LocaleID="-1"
           DTS:ObjectName="get_email_address"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -22065,7 +22075,7 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="truncate finance main drug flag &amp; main drug flag missing tables"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -22082,7 +22092,7 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
           DTS:LocaleID="-1"
           DTS:ObjectName="update finance transform main drug flag"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="2">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -22313,7 +22323,7 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{2F2B5BFF-3C77-4A3A-A684-8B1DD214E0B6}"
-              SQLTask:SqlStatementSource="Insert into [error_logs] values ('LA33286','Pharmacy','',0,'',getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="Insert into [error_logs] values ('LA31821','Pharmacy','',0,'',getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -22332,11 +22342,11 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
       <GraphLayout
         Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="208,41.3333333333334"
+          Size="208,41.6"
           Id="Package\After getting demographics\Update ArmedForces status"
           TopLeft="47.7883288194287,117.036000547984" />
         <NodeLayout
-          Size="310.666666666667,41.3333333333334"
+          Size="310.4,41.6"
           Id="Package\After getting demographics\Update demographics and overseas visitor status"
           TopLeft="5.5,21.7810682385156" />
         <EdgeLayout
@@ -22376,38 +22386,58 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="321.333333333334,229.333333333334"
-          Size="321.333333333334,272"
+          PanelSize="321.6,229.6"
+          Size="321.6,272"
           Id="Package\After getting demographics"
           TopLeft="935.791655593242,618.616666166881" />
         <NodeLayout
-          Size="151.333333333334,41.3333333333334"
+          Size="151.2,41.6"
           Id="Package\check run_date"
           TopLeft="136.82256468835,1370.32516183503" />
         <NodeLayout
-          Size="217.333333333334,41.3333333333334"
+          Size="217.6,41.6"
           Id="Package\Data Flow from JAC database"
           TopLeft="115.766093292074,186.447060527239" />
         <NodeLayout
-          Size="249.333333333334,41.3333333333334"
+          Size="249.6,41.6"
           Id="Package\Data Flow from transform pharmacy"
           TopLeft="92.6955798098877,1225.08595049583" />
         <NodeLayout
-          Size="184.666666666667,41.3333333333334"
+          Size="184.8,41.6"
           Id="Package\Delete from error_logs"
           TopLeft="123.409866047236,1297.8245120928" />
         <NodeLayout
-          Size="186.666666666667,41.3333333333334"
+          Size="186.4,41.6"
           Id="Package\Delete from pharmacy"
           TopLeft="123.727326370103,1150.80621557061" />
         <NodeLayout
-          Size="320.666666666667,41.3333333333334"
+          Size="312,42.4"
+          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local"
+          TopLeft="40.2083259293191,236.833330195149" />
+        <NodeLayout
+          Size="305.6,42.4"
+          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin"
+          TopLeft="88.9583252028872,374.433331310948" />
+        <NodeLayout
+          Size="320.8,41.6"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request"
           TopLeft="15.1045972472963,10.9277181576738" />
         <NodeLayout
-          Size="288,43.3333333333334"
+          Size="288,43.2"
           Id="Package\Demographics\Execute Get deomgraphic package in Admin"
           TopLeft="37.6418403890332,87.3352956566434" />
+        <NodeLayout
+          Size="216,41.6"
+          Id="Package\Demographics\Run usp_ext_demog_request"
+          TopLeft="108.333324914177,303.78332899799" />
+        <NodeLayout
+          Size="334.4,42.4"
+          Id="Package\Demographics\TRUNCATE BIT adm_ext_demographics_request table"
+          TopLeft="88.3333252122005,451.883328137895" />
+        <NodeLayout
+          Size="370.4,42.4"
+          Id="Package\Demographics\TRUNCATE HDM_Local adm_ext_demographics_request table"
+          TopLeft="10.6666660706201,163.94999764055" />
         <EdgeLayout
           Id="Package\Demographics.PrecedenceConstraints[Constraint]"
           TopLeft="178.573218818165,52.5277181576738">
@@ -22430,10 +22460,6 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="370.666666666667,42.6666666666667"
-          Id="Package\Demographics\TRUNCATE HDM_Local adm_ext_demographics_request table"
-          TopLeft="10.6666660706201,163.94999764055" />
         <EdgeLayout
           Id="Package\Demographics.PrecedenceConstraints[Constraint 1]"
           TopLeft="181.641840389033,130.668628989977">
@@ -22468,10 +22494,6 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="312,42.6666666666667"
-          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local"
-          TopLeft="40.2083259293191,236.833330195149" />
         <EdgeLayout
           Id="Package\Demographics.PrecedenceConstraints[Constraint 2]"
           TopLeft="196.104162666636,206.616664307217">
@@ -22494,36 +22516,32 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="217.333333333334,42.6666666666667"
-          Id="Package\Demographics\Run usp_ext_demog_request"
-          TopLeft="108.333324914177,303.78332899799" />
         <EdgeLayout
           Id="Package\Demographics.PrecedenceConstraints[Constraint 3]"
-          TopLeft="196.208325929319,279.499996861815">
+          TopLeft="196.208325929319,279.233330195149">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="20.791665651525,24.2833321361742"
+              EndConnector="20.1249989848579,24.549998802841"
               Start="0,0"
-              End="20.791665651525,16.7833321361742">
+              End="20.1249989848579,17.049998802841">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,8.14166606808709" />
+                    End="0,8.2749994014205" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,8.14166606808709"
-                    Point2="0,12.1416660680871"
-                    Point3="4,12.1416660680871" />
+                    Point1="0,8.2749994014205"
+                    Point2="0,12.2749994014205"
+                    Point3="4,12.2749994014205" />
                   <mssgle:LineSegment
-                    End="16.791665651525,12.1416660680871" />
+                    End="16.1249989848579,12.2749994014205" />
                   <mssgle:CubicBezierSegment
-                    Point1="16.791665651525,12.1416660680871"
-                    Point2="20.791665651525,12.1416660680871"
-                    Point3="20.791665651525,16.1416660680871" />
+                    Point1="16.1249989848579,12.2749994014205"
+                    Point2="20.1249989848579,12.2749994014205"
+                    Point3="20.1249989848579,16.2749994014205" />
                   <mssgle:LineSegment
-                    End="20.791665651525,16.7833321361742" />
+                    End="20.1249989848579,17.049998802841" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -22532,36 +22550,32 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="305.333333333334,42.6666666666667"
-          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin"
-          TopLeft="88.9583252028872,374.433331310948" />
         <EdgeLayout
           Id="Package\Demographics.PrecedenceConstraints[Constraint 4]"
-          TopLeft="216.999991580844,346.449995664656">
+          TopLeft="216.333324914177,345.38332899799">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24.6250002887099,27.9833356462913"
+              EndConnector="25.4250002887102,29.050002312958"
               Start="0,0"
-              End="24.6250002887099,20.4833356462913">
+              End="25.4250002887102,21.550002312958">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,9.99166782314566" />
+                    End="0,10.525001156479" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,9.99166782314566"
-                    Point2="0,13.9916678231457"
-                    Point3="4,13.9916678231457" />
+                    Point1="0,10.525001156479"
+                    Point2="0,14.525001156479"
+                    Point3="4,14.525001156479" />
                   <mssgle:LineSegment
-                    End="20.6250002887099,13.9916678231457" />
+                    End="21.4250002887102,14.525001156479" />
                   <mssgle:CubicBezierSegment
-                    Point1="20.6250002887099,13.9916678231457"
-                    Point2="24.6250002887099,13.9916678231457"
-                    Point3="24.6250002887099,17.9916678231457" />
+                    Point1="21.4250002887102,14.525001156479"
+                    Point2="25.4250002887102,14.525001156479"
+                    Point3="25.4250002887102,18.525001156479" />
                   <mssgle:LineSegment
-                    End="24.6250002887099,20.4833356462913" />
+                    End="25.4250002887102,21.550002312958" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -22570,10 +22584,6 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="334.666666666667,42.6666666666667"
-          Id="Package\Demographics\TRUNCATE BIT adm_ext_demographics_request table"
-          TopLeft="88.3333252122005,451.883328137895" />
         <EdgeLayout
           Id="Package\Demographics.PrecedenceConstraints[Constraint 5]"
           TopLeft="241.624991869554,417.099997977614">
@@ -22611,32 +22621,32 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="432.666666666667,549.333333333334"
-          Size="432.666666666667,592.666666666667"
+          PanelSize="432.8,549.6"
+          Size="432.8,592.8"
           Id="Package\Demographics"
           TopLeft="456.601481499214,443.067510791021" />
         <NodeLayout
-          Size="212.666666666667,41.3333333333334"
+          Size="212.8,41.6"
           Id="Package\freeze table\email_fail_freeze_table"
           TopLeft="261.93626405534,239.058832211479" />
         <NodeLayout
-          Size="209.333333333334,41.3333333333334"
+          Size="209.6,41.6"
           Id="Package\freeze table\email_success_freeze_table"
           TopLeft="30.5714234381292,240.352946174186" />
         <NodeLayout
-          Size="169.333333333334,41.3333333333334"
+          Size="169.6,41.6"
           Id="Package\freeze table\freeze table update"
           TopLeft="143.82856293795,13.1647128212408" />
         <NodeLayout
-          Size="185.333333333334,41.3333333333334"
+          Size="185.6,41.6"
           Id="Package\freeze table\get_email_address_fail"
           TopLeft="260.571422927233,172.235300123485" />
         <NodeLayout
-          Size="208.666666666667,41.3333333333334"
+          Size="208.8,41.6"
           Id="Package\freeze table\get_email_address_success"
           TopLeft="30.1428571793497,172.035301399725" />
         <NodeLayout
-          Size="195.333333333334,41.3333333333334"
+          Size="195.2,41.6"
           Id="Package\freeze table\update freeze table flags"
           TopLeft="135.257134220551,77.4000078397639" />
         <EdgeLayout
@@ -22790,16 +22800,16 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="488.666666666667,337.333333333334"
-          Size="488.666666666667,380"
+          PanelSize="488.8,337.6"
+          Size="488.8,380"
           Id="Package\freeze table"
           TopLeft="409.72687757604,1205.84206425532" />
         <NodeLayout
-          Size="246.666666666667,41.3333333333334"
+          Size="246.4,41.6"
           Id="Package\import to transform table\Data Flow from finance import UHB"
           TopLeft="19.4285712826009,11.0316319495209" />
         <NodeLayout
-          Size="248.666666666667,41.3333333333334"
+          Size="248.8,41.6"
           Id="Package\import to transform table\Data Flow from finance import WGH"
           TopLeft="16.6443671249726,76.5529434393852" />
         <EdgeLayout
@@ -22827,42 +22837,42 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="294.666666666667,140"
-          Size="294.666666666667,182.666666666667"
+          PanelSize="294.4,140"
+          Size="294.4,182.4"
           Id="Package\import to transform table"
           TopLeft="402.704088490661,117.64663606129" />
         <NodeLayout
-          Size="190.666666666667,41.3333333333334"
+          Size="190.4,41.6"
           Id="Package\Legacy numbers\Update legacy numbers"
           TopLeft="9.63790358400946,6.67471877663718" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="209.333333333334,60"
-          Size="209.333333333334,102.666666666667"
+          PanelSize="209.6,60"
+          Size="209.6,102.4"
           Id="Package\Legacy numbers"
           TopLeft="115.569729859297,425.998506486738" />
         <NodeLayout
-          Size="311.333333333334,41.3333333333334"
+          Size="311.2,41.6"
           Id="Package\main drug flag missing email\Data Flow for pharmacy_main_drug_flag_missing"
           TopLeft="11.8285850768189,9.67059113096605" />
         <NodeLayout
-          Size="254.666666666667,41.3333333333334"
+          Size="254.4,41.6"
           Id="Package\main drug flag missing email\email_main_drug_flag_missing_email"
           TopLeft="39.0649492860052,279.922999184085" />
         <NodeLayout
-          Size="177.333333333334,41.3333333333334"
+          Size="177.6,41.6"
           Id="Package\main drug flag missing email\Foreach row in recordset object\add row to string var"
           TopLeft="27.0285854174174,13.7764763688549" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="252,69.3333333333334"
+          PanelSize="252,69.6"
           Size="252,112"
           Id="Package\main drug flag missing email\Foreach row in recordset object"
           TopLeft="41.1085276510366,76.633992434648" />
         <NodeLayout
-          Size="170.666666666667,41.3333333333334"
+          Size="170.4,41.6"
           Id="Package\main drug flag missing email\get_email_address"
           TopLeft="79.0649462206243,214.988241921989" />
         <EdgeLayout
@@ -22936,20 +22946,20 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="334.666666666667,342.666666666667"
-          Size="334.666666666667,385.333333333334"
+          PanelSize="334.4,342.4"
+          Size="334.4,385.6"
           Id="Package\main drug flag missing email"
           TopLeft="1292.62790686192,68.6196023878335" />
         <NodeLayout
-          Size="176,41.3333333333334"
+          Size="176,41.6"
           Id="Package\outpatient details\Data Flow OP details"
           TopLeft="44.7500001490118,82.4558824575072" />
         <NodeLayout
-          Size="223.333333333334,41.3333333333334"
+          Size="223.2,41.6"
           Id="Package\outpatient details\truncate pharmacy_op_details"
           TopLeft="13.4960314990303,10.7717051088716" />
         <NodeLayout
-          Size="162.666666666667,41.3333333333334"
+          Size="162.4,41.6"
           Id="Package\outpatient details\Update OP details"
           TopLeft="47.678571644486,150.397058885197" />
         <EdgeLayout
@@ -22999,28 +23009,28 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="257.333333333334,205.333333333334"
-          Size="257.333333333334,248"
+          PanelSize="257.6,205.6"
+          Size="257.6,248"
           Id="Package\outpatient details"
           TopLeft="1731.38436725009,628.360181532804" />
         <NodeLayout
-          Size="243.333333333334,41.3333333333334"
+          Size="243.2,41.6"
           Id="Package\PHD patient history\Data Flow tbl patient history UHB"
           TopLeft="30.5714305906889,76.6676487399218" />
         <NodeLayout
-          Size="239.333333333334,41.3333333333334"
+          Size="239.2,41.6"
           Id="Package\PHD patient history\Data Flow tbl patient history WGH"
           TopLeft="32.9785727940046,147.144119912654" />
         <NodeLayout
-          Size="269.333333333334,41.3333333333334"
+          Size="269.6,41.6"
           Id="Package\PHD patient history\truncate pharmacy_patient_history table"
           TopLeft="24.4663072168063,9.7554203184992" />
         <NodeLayout
-          Size="233.333333333334,41.3333333333334"
+          Size="233.6,41.6"
           Id="Package\PHD patient history\Update demographic details UHB"
           TopLeft="37.642857307074,222.648872714468" />
         <NodeLayout
-          Size="236.666666666667,41.3333333333334"
+          Size="236.8,41.6"
           Id="Package\PHD patient history\Update demographic details WGH"
           TopLeft="31.0673475495929,295.239500387731" />
         <EdgeLayout
@@ -23114,24 +23124,24 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="317.333333333334,358"
-          Size="317.333333333334,400.666666666667"
+          PanelSize="317.6,358.4"
+          Size="317.6,400.8"
           Id="Package\PHD patient history"
           TopLeft="63.8180282977015,557.608960522313" />
         <NodeLayout
-          Size="241.333333333334,41.3333333333334"
+          Size="241.6,41.6"
           Id="Package\populate JAC dbo pharmacy tables"
           TopLeft="101.468255696247,119.746542720059" />
         <NodeLayout
-          Size="183.333333333334,41.3333333333334"
+          Size="183.2,41.6"
           Id="Package\Spell details\Data Flow spell details"
           TopLeft="39.6818102695026,83.705884143968" />
         <NodeLayout
-          Size="238.666666666667,44.6666666666667"
+          Size="238.4,44.8"
           Id="Package\Spell details\truncate pharmacy_spell_details"
           TopLeft="16.3928569451889,12.8259661262192" />
         <NodeLayout
-          Size="170.666666666667,41.3333333333334"
+          Size="170.4,41.6"
           Id="Package\Spell details\Update spell details"
           TopLeft="43.7714345075644,153.167650654284" />
         <EdgeLayout
@@ -23181,28 +23191,28 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="273.333333333334,210"
-          Size="273.333333333334,252.666666666667"
+          PanelSize="273.6,209.6"
+          Size="273.6,252.8"
           Id="Package\Spell details"
           TopLeft="1396.77461049032,631.142204795439" />
         <NodeLayout
-          Size="279.333333333334,41.3333333333334"
+          Size="279.2,41.6"
           Id="Package\truncate finance import &amp; transform tables"
           TopLeft="89.1650153682422,49.4556919839181" />
         <NodeLayout
-          Size="243.333333333334,41.3333333333334"
+          Size="243.2,41.6"
           Id="Package\UHB main drug flag SD886476\Data Flow from JAC main drug flag"
           TopLeft="88.2095369874219,83.296084682092" />
         <NodeLayout
-          Size="281.333333333334,41.3333333333334"
+          Size="281.6,41.6"
           Id="Package\UHB main drug flag SD886476\Data Flow from JAC main drug flag missing"
           TopLeft="64.0428699091988,225.019612233119" />
         <NodeLayout
-          Size="382.666666666667,41.3333333333334"
+          Size="382.4,41.6"
           Id="Package\UHB main drug flag SD886476\truncate finance main drug flag &amp; main drug flag missing tables"
           TopLeft="14.4000119209294,12.2588283126331" />
         <NodeLayout
-          Size="271.333333333334,41.3333333333334"
+          Size="271.2,41.6"
           Id="Package\UHB main drug flag SD886476\update finance transform main drug flag"
           TopLeft="75.0809653216483,154.566674354498" />
         <EdgeLayout
@@ -23274,12 +23284,12 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="418.666666666667,284"
-          Size="418.666666666667,326.666666666667"
+          PanelSize="418.4,284"
+          Size="418.4,326.4"
           Id="Package\UHB main drug flag SD886476"
           TopLeft="776.573142476674,93.2883257290108" />
         <NodeLayout
-          Size="236,41.3333333333334"
+          Size="236,41.6"
           Id="Package\Update Northern Irish purchasers"
           TopLeft="103.640531192217,1078.32232386812" />
         <EdgeLayout
@@ -23710,7 +23720,7 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
           Text="Developed by: Marianne Jeffries&#xA;Service desk no.: SD530566&#xA;Purpose: automate load from source JAC database&#xA;Details: see SharePoint Finance Pharmacy Load&#xA;&#xA;Additional requirements:&#xA;03 fields added, extracts updated: Nov-2021&#xA;Extract from JAC amended: Jan-2022&#xA;permissions are not being kept on BIT, filters/Jenkins: Jan-2022&#xA;Extract from JAC amended for duplicate entries to do with the unit of measure: Jan-2022&#xA;Missing demographics: Feb-2022&#xA;Weston patients missing demographic data, script to update: March-2022&#xA;Historical missing values for Bevacizumab, Nivolumab &amp; Venetoclax, script to update: March-2022&#xA;Issue with Finance downstream process to import data, corrected their script: June-2022&#xA;Lloyds outpatients pharmacy data: July-2022&#xA;SD886476 Pharmacy Extract: Dec-2022&#xA;Split PSU drugs for FY: March-2023&#xA;Amend email recipients: March-2023&#xA;SD1110167 Pharmacy Extract: Nov-2023&#xA;SD1036030 Pharmacy JAC_CMM patient data change: Jan-2024&#xA;SD1230828 MDS Rewrite Pharmacy MDSO Data: Boots supply disabled, WGH supply from sp on JAC: Oct-2024"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="612.666666666667,359.333333333334"
+          Size="612.8,359.2"
           Id="1a841f25-417a-437c-bd72-738b5cd2a551"
           TopLeft="1667.65012037996,30.7736180583122" />
       </GraphLayout>
@@ -23904,10 +23914,154 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
+    design-time-name="Package\Demographics\Copy request data from BIT Admin to HDM_Local">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local"
+          TopLeft="116.874998258427,119.599997861385" />
+        <NodeLayout
+          Size="210.666666666667,42.6666666666667"
+          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data"
+          TopLeft="89.3749986682087,18.1999996745587" />
+        <EdgeLayout
+          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local.Paths[OLE DB Source Output]"
+          TopLeft="198.458331796651,60.8666663412253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.7333315201601"
+              Start="0,0"
+              End="0,51.2333315201601">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.2333315201601" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Demographics\Copy return data from HDM_Local to BIT Admin">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177.333333333334,42.6666666666667"
+          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin"
+          TopLeft="121.666666666667,135" />
+        <NodeLayout
+          Size="267.333333333334,60"
+          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local"
+          TopLeft="97,26.6666666666667" />
+        <EdgeLayout
+          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin.Paths[OLE DB Source Output]"
+          TopLeft="230.666666666667,86.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.3333333333333,48.3333333333333"
+              Start="0,0"
+              End="-20.3333333333333,40.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1666666666667"
+                    Point2="0,24.1666666666667"
+                    Point3="-4,24.1666666666667" />
+                  <mssgle:LineSegment
+                    End="-16.3333333333333,24.1666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.3333333333333,24.1666666666667"
+                    Point2="-20.3333333333333,24.1666666666667"
+                    Point3="-20.3333333333333,28.1666666666667" />
+                  <mssgle:LineSegment
+                    End="-20.3333333333333,40.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\Demographics\Data Flow pharm_adm_ext_demographics_request">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="340.666666666667,44"
           Id="Package\Demographics\Data Flow pharm_adm_ext_demographics_request\Source for pharm_adm_ext_demographics_request"
@@ -23939,7 +24093,9 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -23961,7 +24117,9 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -24862,146 +25020,6 @@ ORDER BY	xdi.Patient_Identifier, xdi.stored_date_of_issue_dt</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Demographics\Copy request data from BIT Admin to HDM_Local">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="210.666666666667,42.6666666666667"
-          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data"
-          TopLeft="89.3749986682087,18.1999996745587" />
-        <NodeLayout
-          Size="170.666666666667,42.6666666666667"
-          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local"
-          TopLeft="116.874998258427,119.599997861385" />
-        <EdgeLayout
-          Id="Package\Demographics\Copy request data from BIT Admin to HDM_Local.Paths[OLE DB Source Output]"
-          TopLeft="198.458331796651,60.8666663412253">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58.7333315201601"
-              Start="0,0"
-              End="0,51.2333315201601">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.2333315201601" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Source for BIT request data">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Demographics\Copy request data from BIT Admin to HDM_Local\Load to HDM_Local">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Demographics\Copy return data from HDM_Local to BIT Admin">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="267.333333333334,60"
-          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local"
-          TopLeft="97,26.6666666666667" />
-        <NodeLayout
-          Size="177.333333333334,42.6666666666667"
-          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin"
-          TopLeft="121.666666666667,135" />
-        <EdgeLayout
-          Id="Package\Demographics\Copy return data from HDM_Local to BIT Admin.Paths[OLE DB Source Output]"
-          TopLeft="230.666666666667,86.6666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-20.3333333333333,48.3333333333333"
-              Start="0,0"
-              End="-20.3333333333333,40.8333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.1666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.1666666666667"
-                    Point2="0,24.1666666666667"
-                    Point3="-4,24.1666666666667" />
-                  <mssgle:LineSegment
-                    End="-16.3333333333333,24.1666666666667" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-16.3333333333333,24.1666666666667"
-                    Point2="-20.3333333333333,24.1666666666667"
-                    Point3="-20.3333333333333,28.1666666666667" />
-                  <mssgle:LineSegment
-                    End="-20.3333333333333,40.8333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Get demographic return from HDM_Local">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Demographics\Copy return data from HDM_Local to BIT Admin\Return to BIT Admin">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
