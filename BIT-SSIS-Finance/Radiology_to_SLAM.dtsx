@@ -12,8 +12,8 @@
   DTS:ObjectName="Radiology_to_SLAM"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{8B6C7079-C342-4D5D-A0D1-1D28B2E67515}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{3C96BB39-CA04-401E-A1C1-5CB0E0B701E2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -34,8 +34,6 @@
       DTS:CreationName="OLEDB"
       DTS:DTSID="{F24E96AF-D0CF-448D-8CC4-FB6603EE8FF4}"
       DTS:ObjectName="SLAM.DataSource">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::SLAM_ConnectionString_Database]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=SLAM;Initial Catalog=DataSource;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
@@ -75,7 +73,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="email failure"
       DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SendMailTask:SendMailTaskData
@@ -95,7 +93,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="email successful"
       DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SendMailTask:SendMailTaskData
@@ -2754,6 +2752,18 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="137.333333333334,42.6666666666667"
+          Id="Package\email failure"
+          TopLeft="245.624996339902,272.283332136174" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\email successful"
+          TopLeft="32.4999995157123,269.71666367958" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Get datasource"
+          TopLeft="109.999998360872,25.3166680497923" />
+        <NodeLayout
           Size="185.333333333334,42.6666666666667"
           Id="Package\Transfer data to SLAM"
           TopLeft="102.499998472631,190.449996594489" />
@@ -2783,10 +2793,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Get datasource"
-          TopLeft="109.999998360872,25.3166680497923" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="188.791665129984,67.9833347164589">
@@ -2809,10 +2815,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42.6666666666667"
-          Id="Package\email successful"
-          TopLeft="32.4999995157123,269.71666367958" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="195.166665139298,233.116663261155">
@@ -2849,10 +2851,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="137.333333333334,42.6666666666667"
-          Id="Package\email failure"
-          TopLeft="245.624996339902,272.283332136174" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="224.722220694853,233.116663261155">
