@@ -12,8 +12,8 @@
   DTS:ObjectName="Radiology"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="97"
-  DTS:VersionGUID="{22CA3AA4-C41E-4947-977E-603CEC7408D7}">
+  DTS:VersionBuild="98"
+  DTS:VersionGUID="{518F943E-7771-4711-A97E-3EA6169EC2E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2450,7 +2450,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute Get deomgraphic package in Admin"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2475,7 +2475,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Get reference_id of package"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="0">
+          DTS:ThreadHint="1">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2497,7 +2497,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Run usp_ext_demog_request"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2514,7 +2514,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="TRUNCATE BIT adm_ext_demographics_request table"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -2531,7 +2531,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="TRUNCATE HDM_Local adm_ext_demographics_request table"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="1">
+          DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
@@ -6314,7 +6314,7 @@ WHERE event_date &gt;= ?</property>
             <SendMailTask:SendMailTaskData
               SendMailTask:SMTPServer="{7CC8FF6B-E8D4-420A-A852-45126D77E3FE}"
               SendMailTask:From="bisystemsservicedesk@uhbw.nhs.uk"
-              SendMailTask:To="bisystemsservicedesk@uhbw.nhs.uk"
+              SendMailTask:To="brian.yiu@uhbw.nhs.uk"
               SendMailTask:Subject="CRIS MDS"
               SendMailTask:MessageSource="Dear all, The CRIS data has failed to load into dbo.radiology table. Please check." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
           </DTS:ObjectData>
@@ -6334,7 +6334,7 @@ WHERE event_date &gt;= ?</property>
             <SendMailTask:SendMailTaskData
               SendMailTask:SMTPServer="{7CC8FF6B-E8D4-420A-A852-45126D77E3FE}"
               SendMailTask:From="bisystemsservicedesk@uhbw.nhs.uk"
-              SendMailTask:To="bisystemsservicedesk@uhbw.nhs.uk"
+              SendMailTask:To="brian.yiu@uhbw.nhs.uk"
               SendMailTask:Subject="CRIS MDS"
               SendMailTask:MessageSource="Dear all, The CRIS data has been loaded into dbo.radiology table successfully." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
           </DTS:ObjectData>
@@ -9958,6 +9958,10 @@ WHERE event_date &gt;= ?</property>
           Id="Package\Populate feed for Finance\email successful"
           TopLeft="45.9999968707562,168.516661447982" />
         <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Populate feed for Finance\Get datasource"
+          TopLeft="182.87499483116,14.3499988493331" />
+        <NodeLayout
           Size="218.666666666667,42.6666666666667"
           Id="Package\Populate feed for Finance\load to feed table for Finance"
           TopLeft="164.874997625127,85.1666591117769" />
@@ -10033,10 +10037,6 @@ WHERE event_date &gt;= ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Populate feed for Finance\Get datasource"
-          TopLeft="182.87499483116,14.3499988493331" />
         <EdgeLayout
           Id="Package\Populate feed for Finance.PrecedenceConstraints[Constraint 2]"
           TopLeft="258.208328164493,57.0166655159998">
@@ -10074,7 +10074,7 @@ WHERE event_date &gt;= ?</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="573.333333333334,266"
+          PanelSize="573.333333333334,266.666666666667"
           Size="573.333333333334,309.333333333334"
           Id="Package\Populate feed for Finance"
           TopLeft="163.749997559935,2216.23332838197" />

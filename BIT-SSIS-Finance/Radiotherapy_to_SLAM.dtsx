@@ -7,13 +7,13 @@
   DTS:CreatorName="UBHT_NT\ChiltonMic"
   DTS:DTSID="{5F43D5D0-0CE4-45ED-8AA7-054F0695E932}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.128"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
   DTS:LocaleID="2057"
   DTS:ObjectName="Radiotherapy_to_SLAM"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{DCA1A99E-8303-40E9-AD0C-2293ED9F00B4}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{943BB841-F0C4-4B03-B240-8E3BAD400024}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1735,29 +1735,29 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="176,41.6"
+          Size="176,41.3333333333334"
           Id="Package\BIT Finance to SLAM"
           TopLeft="26.9285717934978,111.029413244716" />
         <NodeLayout
-          Size="188,41.6"
+          Size="189.333333333334,42.6666666666667"
           Id="Package\truncate table on SLAM"
           TopLeft="13.3571424800522,17.911764459214" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="111.142857136775,59.511764459214">
+          TopLeft="111.476190470108,60.5784311258807">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.5176487855021"
+              StartConnector="{x:Null}"
+              EndConnector="0,50.4509821188353"
               Start="0,0"
-              End="0,44.0176487855021">
+              End="0,42.9509821188353">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.0176487855021" />
+                    End="0,42.9509821188353" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1773,21 +1773,21 @@
     design-time-name="Package\BIT Finance to SLAM">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\BIT Finance to SLAM\OLE DB Source"
-          TopLeft="6.92857145289987,5.5" />
-        <NodeLayout
-          Size="170.4,41.6"
+          Size="170.666666666667,41.3333333333334"
           Id="Package\BIT Finance to SLAM\OLE DB Destination"
           TopLeft="11.9285710271524,101.264706804678" />
+        <NodeLayout
+          Size="149.333333333334,41.3333333333334"
+          Id="Package\BIT Finance to SLAM\OLE DB Source"
+          TopLeft="6.92857145289987,5.5" />
         <EdgeLayout
           Id="Package\BIT Finance to SLAM.Paths[OLE DB Source Output]"
           TopLeft="81.7285714528999,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="15.3999995742525,54.1647068046781"
               Start="0,0"
               End="15.3999995742525,46.6647068046781">
@@ -1820,7 +1820,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\BIT Finance to SLAM\OLE DB Source">
+    design-time-name="Package\BIT Finance to SLAM\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1833,7 +1833,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\BIT Finance to SLAM\OLE DB Destination">
+    design-time-name="Package\BIT Finance to SLAM\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

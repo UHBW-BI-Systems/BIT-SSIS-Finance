@@ -12,8 +12,8 @@
   DTS:ObjectName="Radiology_to_SLAM"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{E6F550F2-1E05-4D1A-8059-D0B51A8BC80B}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{AF3817A7-B549-4C4D-860F-B79A20F8EF32}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -77,7 +77,7 @@
         <SendMailTask:SendMailTaskData
           SendMailTask:SMTPServer="{57931958-1F28-4B13-8C44-16E257A553EC}"
           SendMailTask:From="bisystemsservicedesk@uhbw.nhs.uk"
-          SendMailTask:To="bisystemsservicedesk@uhbw.nhs.uk"
+          SendMailTask:To="brian.yiu@uhbw.nhs.uk"
           SendMailTask:Subject="CRIS MDS"
           SendMailTask:MessageSource="Dear all, The latest CRIS data has failed to load into SLAM. Please check." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
       </DTS:ObjectData>
@@ -97,37 +97,9 @@
         <SendMailTask:SendMailTaskData
           SendMailTask:SMTPServer="{57931958-1F28-4B13-8C44-16E257A553EC}"
           SendMailTask:From="bisystemsservicedesk@uhbw.nhs.uk"
-          SendMailTask:To="bisystemsservicedesk@uhbw.nhs.uk"
+          SendMailTask:To="brian.yiu@uhbw.nhs.uk"
           SendMailTask:Subject="CRIS MDS"
           SendMailTask:MessageSource="Dear all, The latest CRIS data has been loaded into SLAM successfully." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Get datasource"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{83b009c7-81d6-431a-aa20-c6e88f3815f4}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Get datasource"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{84F90AD7-7753-4F87-88BE-C585604ADF0E}"
-          SQLTask:SqlStatementSource="SELECT SUBSTRING(?,13,4) AS data_source"
-          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="data_source"
-            SQLTask:DtsVariableName="User::data_source" />
-          <SQLTask:ParameterBinding
-            SQLTask:ParameterName="0"
-            SQLTask:DtsVariableName="$Project::Finance_ConnectionString_Database"
-            SQLTask:ParameterDirection="Input"
-            SQLTask:DataType="129"
-            SQLTask:ParameterSize="-1" />
-        </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1724,7 +1696,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[radiology]</property>
+                  name="OpenRowset">[dbo].[mds_radiology]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2276,10 +2248,6 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
-                      dataType="i4"
-                      name="id" />
-                    <externalMetadataColumn
                       refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pk_cris]"
                       codePage="1252"
                       dataType="str"
@@ -2696,7 +2664,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{F24E96AF-D0CF-448D-8CC4-FB6603EE8FF4}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.radiology" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.mds_radiology" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2709,14 +2677,6 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Transfer data to SLAM" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{EA61365E-3519-4647-90D6-C3F19676CC4F}"
-      DTS:From="Package\Get datasource"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Truncate table on SLAM" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -2746,7 +2706,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="137.333333333334,42.6666666666667"
           Id="Package\email failure"
@@ -2754,11 +2714,7 @@
         <NodeLayout
           Size="156,42.6666666666667"
           Id="Package\email successful"
-          TopLeft="32.4999995157123,269.71666367958" />
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Get datasource"
-          TopLeft="109.999998360872,25.3166680497923" />
+          TopLeft="43.7499993480742,270.366663667957" />
         <NodeLayout
           Size="185.333333333334,42.6666666666667"
           Id="Package\Transfer data to SLAM"
@@ -2790,53 +2746,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="188.791665129984,67.9833347164589">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,43.8166632844013"
-              Start="0,0"
-              End="0,36.3166632844013">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.3166632844013" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="195.166665139298,233.116663261155">
+          TopLeft="165.611109583742,233.116663261156">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="-84.6666656235854,36.6000004184246"
+              EndConnector="-43.8611102356679,37.2500004068014"
               Start="0,0"
-              End="-84.6666656235854,29.1000004184246">
+              End="-43.8611102356679,29.7500004068014">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.3000002092123" />
+                    End="0,11.0912983103161" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.3000002092123"
-                    Point2="0,18.3000002092123"
-                    Point3="-4,18.3000002092123" />
+                    Point1="0,11.0912983103161"
+                    Point2="0,15.0912983103161"
+                    Point3="-4,15.0912983103161" />
                   <mssgle:LineSegment
-                    End="-80.6666656235854,18.3000002092123" />
+                    End="-39.8611102356679,15.0912983103161" />
                   <mssgle:CubicBezierSegment
-                    Point1="-80.6666656235854,18.3000002092123"
-                    Point2="-84.6666656235854,18.3000002092123"
-                    Point3="-84.6666656235854,22.3000002092123" />
+                    Point1="-39.8611102356679,15.0912983103161"
+                    Point2="-43.8611102356679,15.0912983103161"
+                    Point3="-43.8611102356679,19.0912983103161" />
                   <mssgle:LineSegment
-                    End="-84.6666656235854,29.1000004184246" />
+                    End="-43.8611102356679,29.7500004068014" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
