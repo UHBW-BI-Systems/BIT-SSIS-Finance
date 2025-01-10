@@ -12,21 +12,19 @@
   DTS:ObjectName="Radiology_to_SLAM"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{3C96BB39-CA04-401E-A1C1-5CB0E0B701E2}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{E6F550F2-1E05-4D1A-8059-D0B51A8BC80B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[BIT_DEV.Finance]"
+      DTS:refId="Package.ConnectionManagers[BIT.Finance]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{84F90AD7-7753-4F87-88BE-C585604ADF0E}"
-      DTS:ObjectName="BIT_DEV.Finance">
-      <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Project::Finance_ConnectionString_Database]</DTS:PropertyExpression>
+      DTS:ObjectName="BIT.Finance">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=BIT;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -197,8 +195,8 @@
               <connections>
                 <connection
                   refId="Package\Transfer data to SLAM\BIT feed table.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[BIT_DEV.Finance]"
-                  connectionManagerRefId="Package.ConnectionManagers[BIT_DEV.Finance]"
+                  connectionManagerID="Package.ConnectionManagers[BIT.Finance]"
+                  connectionManagerRefId="Package.ConnectionManagers[BIT.Finance]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2723,8 +2721,6 @@
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{E73D67D7-CDF0-42E6-9978-4E046750B735}"
-      DTS:EvalOp="1"
-      DTS:Expression="@[User::data_source] == &quot;BIT;&quot;"
       DTS:From="Package\Transfer data to SLAM"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -2846,9 +2842,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-50.3333328117927,23.3000002092123,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
