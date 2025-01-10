@@ -1,0 +1,2960 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/9/2025 3:17:59 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LA33286"
+  DTS:CreatorName="UBHT_NT\YiuBri"
+  DTS:DTSID="{880F5E23-CB22-4403-8E49-92DF19C1561C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Radiology_to_SLAM"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{8B6C7079-C342-4D5D-A0D1-1D28B2E67515}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BIT_DEV.Finance]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{84F90AD7-7753-4F87-88BE-C585604ADF0E}"
+      DTS:ObjectName="BIT_DEV.Finance">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::Finance_ConnectionString_Database]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BIT_DEV;Initial Catalog=Finance;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SLAM.DataSource]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F24E96AF-D0CF-448D-8CC4-FB6603EE8FF4}"
+      DTS:ObjectName="SLAM.DataSource">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::SLAM_ConnectionString_Database]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SLAM;Initial Catalog=DataSource;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SMTP]"
+      DTS:CreationName="SMTP"
+      DTS:DTSID="{57931958-1F28-4B13-8C44-16E257A553EC}"
+      DTS:ObjectName="SMTP">
+      <DTS:ObjectData>
+        <SmtpConnectionManager
+          ConnectionString="SmtpServer=SMTP;UseWindowsAuthentication=False;EnableSsl=False;"
+          ConnectByProxy="False" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9D33467F-99C6-4F67-9B2A-2C153E72E3A3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="data_source">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\email failure"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{e7bb6470-57c1-4e7a-bb23-3b3228f69e6c}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="email failure"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{57931958-1F28-4B13-8C44-16E257A553EC}"
+          SendMailTask:From="bisystemsservicedesk@uhbw.nhs.uk"
+          SendMailTask:To="bisystemsservicedesk@uhbw.nhs.uk"
+          SendMailTask:Subject="CRIS MDS"
+          SendMailTask:MessageSource="Dear all, The latest CRIS data has failed to load into SLAM. Please check." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\email successful"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{9d316279-5031-4319-ba6b-7e201940ad52}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="email successful"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{57931958-1F28-4B13-8C44-16E257A553EC}"
+          SendMailTask:From="bisystemsservicedesk@uhbw.nhs.uk"
+          SendMailTask:To="bisystemsservicedesk@uhbw.nhs.uk"
+          SendMailTask:Subject="CRIS MDS"
+          SendMailTask:MessageSource="Dear all, The latest CRIS data has been loaded into SLAM successfully." xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get datasource"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{83b009c7-81d6-431a-aa20-c6e88f3815f4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get datasource"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{84F90AD7-7753-4F87-88BE-C585604ADF0E}"
+          SQLTask:SqlStatementSource="SELECT SUBSTRING(?,13,4) AS data_source"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="data_source"
+            SQLTask:DtsVariableName="User::data_source" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::Finance_ConnectionString_Database"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Transfer data to SLAM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2FADA64E-35D9-4EFD-B47E-ABA259B3C26B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Transfer data to SLAM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Transfer data to SLAM\BIT feed table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="BIT feed table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[radiology_feed]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer data to SLAM\BIT feed table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BIT_DEV.Finance]"
+                  connectionManagerRefId="Package.ConnectionManagers[BIT_DEV.Finance]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[pk_cris]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[pk_cris]"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[pk_cris]"
+                      name="pk_cris"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[age_at_event]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[age_at_event]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[age_at_event]"
+                      name="age_at_event"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[attendance_identifier]"
+                      length="30"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[attendance_identifier]"
+                      name="attendance_identifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[billing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[billing_id]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[billing_id]"
+                      name="billing_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[birth_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[birth_date]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[birth_date]"
+                      name="birth_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ccg_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[ccg_code]"
+                      length="5"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ccg_code]"
+                      name="ccg_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ccg_of_res]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[ccg_of_res]"
+                      length="5"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ccg_of_res]"
+                      name="ccg_of_res"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cds_identifier]"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cds_identifier]"
+                      name="cds_identifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cons_pspec_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cons_pspec_natcode]"
+                      length="5"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cons_pspec_natcode]"
+                      name="cons_pspec_natcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_category]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_category]"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_category]"
+                      name="cris_category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_event_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_event_date]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_event_date]"
+                      name="cris_event_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_event_key]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_event_key]"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_event_key]"
+                      name="cris_event_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_no]"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_no]"
+                      name="cris_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_code_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_exam_code_fin]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_code_fin]"
+                      name="cris_exam_code_fin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_name_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_exam_name_fin]"
+                      length="100"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_name_fin]"
+                      name="cris_exam_name_fin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_code_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_exam_code_prev]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_code_prev]"
+                      name="cris_exam_code_prev"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_name_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_exam_name_prev]"
+                      length="100"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_name_prev]"
+                      name="cris_exam_name_prev"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_key]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_exam_key]"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_key]"
+                      name="cris_exam_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_ref_cat]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_ref_cat]"
+                      length="30"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_ref_cat]"
+                      name="cris_ref_cat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_ref_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_ref_code]"
+                      length="30"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_ref_code]"
+                      name="cris_ref_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_ref_org]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_ref_org]"
+                      length="30"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_ref_org]"
+                      name="cris_ref_org"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_req_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_req_date]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_req_date]"
+                      name="cris_req_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_room_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_room_code]"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_room_code]"
+                      name="cris_room_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[hrg_code_fin]"
+                      length="7"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_fin]"
+                      name="hrg_code_fin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[hrg_code_prev]"
+                      length="7"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_prev]"
+                      name="hrg_code_prev"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_spell]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[hrg_code_spell]"
+                      length="7"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_spell]"
+                      name="hrg_code_spell"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_ub]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[hrg_code_ub]"
+                      length="7"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_ub]"
+                      name="hrg_code_ub"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_dominant_proc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[hrg_dominant_proc]"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_dominant_proc]"
+                      name="hrg_dominant_proc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[latest_cut_fin]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[latest_cut_fin]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[latest_cut_fin]"
+                      name="latest_cut_fin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[latest_cut_flag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[latest_cut_flag]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[latest_cut_flag]"
+                      name="latest_cut_flag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[latest_rec_in_cut]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[latest_rec_in_cut]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[latest_rec_in_cut]"
+                      name="latest_rec_in_cut"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[mds_include_flag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[mds_include_flag]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[mds_include_flag]"
+                      name="mds_include_flag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[medway_link]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[medway_link]"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[medway_link]"
+                      name="medway_link"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[nhs_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[nhs_number]"
+                      length="17"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[nhs_number]"
+                      name="nhs_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_cct]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[op_cct]"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_cct]"
+                      name="op_cct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_hrg]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[op_hrg]"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_hrg]"
+                      name="op_hrg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_proc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[op_proc]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_proc]"
+                      name="op_proc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_spec]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[op_spec]"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_spec]"
+                      name="op_spec"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[overseas_visitor_status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[overseas_visitor_status]"
+                      length="1"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[overseas_visitor_status]"
+                      name="overseas_visitor_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[patient_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[patient_id]"
+                      length="20"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[patient_id]"
+                      name="patient_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[patient_postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[patient_postcode]"
+                      length="8"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[patient_postcode]"
+                      name="patient_postcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[patient_type_des]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[patient_type_des]"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[patient_type_des]"
+                      name="patient_type_des"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[period_code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[period_code]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[period_code]"
+                      name="period_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_p]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_p]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_p]"
+                      name="proc_natcode_p"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s1]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s1]"
+                      name="proc_natcode_s1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s2]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s2]"
+                      name="proc_natcode_s2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s3]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s3]"
+                      name="proc_natcode_s3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s4]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s4]"
+                      name="proc_natcode_s4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s5]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s5]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s5]"
+                      name="proc_natcode_s5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s6]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s6]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s6]"
+                      name="proc_natcode_s6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s7]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s7]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s7]"
+                      name="proc_natcode_s7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[purchaser_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[purchaser_id]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[purchaser_id]"
+                      name="purchaser_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[regd_gp_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[regd_gp_code]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[regd_gp_code]"
+                      name="regd_gp_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[regd_practice_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[regd_practice_code]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[regd_practice_code]"
+                      name="regd_practice_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[sex]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[sex]"
+                      length="2"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[sex]"
+                      name="sex"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[site_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[site_natcode]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[site_natcode]"
+                      name="site_natcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[spec_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[spec_natcode]"
+                      length="5"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[spec_natcode]"
+                      name="spec_natcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[treatment_no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[treatment_no]"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[treatment_no]"
+                      name="treatment_no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[upload_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[upload_date]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[upload_date]"
+                      name="upload_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ward_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[ward_code]"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ward_code]"
+                      name="ward_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[wir_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[wir_code]"
+                      length="2"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[wir_code]"
+                      name="wir_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[audit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[audit]"
+                      length="250"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[audit]"
+                      name="audit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ethnic_origin]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[ethnic_origin]"
+                      length="20"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ethnic_origin]"
+                      name="ethnic_origin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ethnic_origin_nat]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[ethnic_origin_nat]"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ethnic_origin_nat]"
+                      name="ethnic_origin_nat"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[pk_cris]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pk_cris" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[age_at_event]"
+                      dataType="i4"
+                      name="age_at_event" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="attendance_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[billing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="billing_id" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[birth_date]"
+                      dataType="dbTimeStamp"
+                      name="birth_date" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[ccg_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ccg_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[ccg_of_res]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ccg_of_res" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cds_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cons_pspec_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="cons_pspec_natcode" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cris_category" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_event_date]"
+                      dataType="dbTimeStamp"
+                      name="cris_event_date" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_event_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="cris_event_key" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="cris_no" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_exam_code_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cris_exam_code_fin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_exam_name_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="cris_exam_name_fin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_exam_code_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cris_exam_code_prev" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_exam_name_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="cris_exam_name_prev" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_exam_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="cris_exam_key" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_ref_cat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="cris_ref_cat" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_ref_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="cris_ref_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_ref_org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="cris_ref_org" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_req_date]"
+                      dataType="dbTimeStamp"
+                      name="cris_req_date" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[cris_room_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="cris_room_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[hrg_code_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="hrg_code_fin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[hrg_code_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="hrg_code_prev" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[hrg_code_spell]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="hrg_code_spell" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[hrg_code_ub]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="hrg_code_ub" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[hrg_dominant_proc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hrg_dominant_proc" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[latest_cut_fin]"
+                      dataType="bool"
+                      name="latest_cut_fin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[latest_cut_flag]"
+                      dataType="bool"
+                      name="latest_cut_flag" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[latest_rec_in_cut]"
+                      dataType="bool"
+                      name="latest_rec_in_cut" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[mds_include_flag]"
+                      dataType="bool"
+                      name="mds_include_flag" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[medway_link]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="medway_link" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[nhs_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="nhs_number" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[op_cct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="op_cct" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[op_hrg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="op_hrg" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[op_proc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="op_proc" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[op_spec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="op_spec" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[overseas_visitor_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="overseas_visitor_status" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[patient_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="patient_id" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[patient_postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="patient_postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[patient_type_des]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="patient_type_des" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[period_code]"
+                      dataType="i4"
+                      name="period_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_p]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_p" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s1" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s2" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s3" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s4" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s5" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s6" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[proc_natcode_s7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s7" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[purchaser_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="purchaser_id" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[regd_gp_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="regd_gp_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[regd_practice_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="regd_practice_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[sex]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="sex" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[site_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="site_natcode" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[spec_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="spec_natcode" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[treatment_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="treatment_no" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[upload_date]"
+                      dataType="dbTimeStamp"
+                      name="upload_date" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[ward_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="ward_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[wir_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="wir_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[audit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="audit" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[ethnic_origin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ethnic_origin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].ExternalColumns[ethnic_origin_nat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ethnic_origin_nat" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[pk_cris]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[pk_cris]"
+                      name="pk_cris" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[age_at_event]"
+                      dataType="i4"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[age_at_event]"
+                      name="age_at_event" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[attendance_identifier]"
+                      name="attendance_identifier" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[billing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[billing_id]"
+                      name="billing_id" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[birth_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[birth_date]"
+                      name="birth_date" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ccg_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ccg_code]"
+                      name="ccg_code" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ccg_of_res]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ccg_of_res]"
+                      name="ccg_of_res" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cds_identifier]"
+                      name="cds_identifier" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cons_pspec_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cons_pspec_natcode]"
+                      name="cons_pspec_natcode" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_category]"
+                      name="cris_category" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_event_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_event_date]"
+                      name="cris_event_date" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_event_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_event_key]"
+                      name="cris_event_key" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_no]"
+                      name="cris_no" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_exam_code_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_exam_code_fin]"
+                      name="cris_exam_code_fin" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_exam_name_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_exam_name_fin]"
+                      name="cris_exam_name_fin" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_exam_code_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_exam_code_prev]"
+                      name="cris_exam_code_prev" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_exam_name_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_exam_name_prev]"
+                      name="cris_exam_name_prev" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_exam_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_exam_key]"
+                      name="cris_exam_key" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_ref_cat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_ref_cat]"
+                      name="cris_ref_cat" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_ref_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_ref_code]"
+                      name="cris_ref_code" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_ref_org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_ref_org]"
+                      name="cris_ref_org" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_req_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_req_date]"
+                      name="cris_req_date" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_room_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[cris_room_code]"
+                      name="cris_room_code" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[hrg_code_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[hrg_code_fin]"
+                      name="hrg_code_fin" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[hrg_code_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[hrg_code_prev]"
+                      name="hrg_code_prev" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[hrg_code_spell]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[hrg_code_spell]"
+                      name="hrg_code_spell" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[hrg_code_ub]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[hrg_code_ub]"
+                      name="hrg_code_ub" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[hrg_dominant_proc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[hrg_dominant_proc]"
+                      name="hrg_dominant_proc" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[latest_cut_fin]"
+                      dataType="bool"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[latest_cut_fin]"
+                      name="latest_cut_fin" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[latest_cut_flag]"
+                      dataType="bool"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[latest_cut_flag]"
+                      name="latest_cut_flag" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[latest_rec_in_cut]"
+                      dataType="bool"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[latest_rec_in_cut]"
+                      name="latest_rec_in_cut" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[mds_include_flag]"
+                      dataType="bool"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[mds_include_flag]"
+                      name="mds_include_flag" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[medway_link]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[medway_link]"
+                      name="medway_link" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[nhs_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[nhs_number]"
+                      name="nhs_number" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[op_cct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[op_cct]"
+                      name="op_cct" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[op_hrg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[op_hrg]"
+                      name="op_hrg" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[op_proc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[op_proc]"
+                      name="op_proc" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[op_spec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[op_spec]"
+                      name="op_spec" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[overseas_visitor_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[overseas_visitor_status]"
+                      name="overseas_visitor_status" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[patient_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[patient_id]"
+                      name="patient_id" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[patient_postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[patient_postcode]"
+                      name="patient_postcode" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[patient_type_des]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[patient_type_des]"
+                      name="patient_type_des" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[period_code]"
+                      dataType="i4"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[period_code]"
+                      name="period_code" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_p]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_p]"
+                      name="proc_natcode_p" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s1]"
+                      name="proc_natcode_s1" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s2]"
+                      name="proc_natcode_s2" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s3]"
+                      name="proc_natcode_s3" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s4]"
+                      name="proc_natcode_s4" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s5]"
+                      name="proc_natcode_s5" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s6]"
+                      name="proc_natcode_s6" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[proc_natcode_s7]"
+                      name="proc_natcode_s7" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[purchaser_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[purchaser_id]"
+                      name="purchaser_id" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[regd_gp_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[regd_gp_code]"
+                      name="regd_gp_code" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[regd_practice_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[regd_practice_code]"
+                      name="regd_practice_code" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[sex]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[sex]"
+                      name="sex" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[site_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[site_natcode]"
+                      name="site_natcode" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[spec_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[spec_natcode]"
+                      name="spec_natcode" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[treatment_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[treatment_no]"
+                      name="treatment_no" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[upload_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[upload_date]"
+                      name="upload_date" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ward_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ward_code]"
+                      name="ward_code" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[wir_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[wir_code]"
+                      name="wir_code" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[audit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[audit]"
+                      name="audit" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ethnic_origin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ethnic_origin]"
+                      name="ethnic_origin" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ethnic_origin_nat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ethnic_origin_nat]"
+                      name="ethnic_origin_nat" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Transfer data to SLAM\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[radiology]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Transfer data to SLAM\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SLAM.DataSource]"
+                  connectionManagerRefId="Package.ConnectionManagers[SLAM.DataSource]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pk_cris]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="pk_cris"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pk_cris]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[pk_cris]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[age_at_event]"
+                      cachedDataType="i4"
+                      cachedName="age_at_event"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[age_at_event]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[age_at_event]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[attendance_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="attendance_identifier"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[attendance_identifier]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[attendance_identifier]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[billing_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="billing_id"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_id]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[billing_id]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[birth_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="birth_date"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[birth_date]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[birth_date]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ccg_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="ccg_code"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ccg_code]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ccg_code]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ccg_of_res]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="ccg_of_res"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ccg_of_res]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ccg_of_res]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cds_identifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cds_identifier"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cds_identifier]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cds_identifier]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cons_pspec_natcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="cons_pspec_natcode"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_pspec_natcode]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cons_pspec_natcode]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_category]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cris_category"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_category]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_category]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_event_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="cris_event_date"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_event_date]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_event_date]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_event_key]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="cris_event_key"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_event_key]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_event_key]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="cris_no"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_no]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_no]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_exam_code_fin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="cris_exam_code_fin"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_exam_code_fin]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_code_fin]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_exam_name_fin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cris_exam_name_fin"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_exam_name_fin]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_name_fin]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_exam_code_prev]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="cris_exam_code_prev"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_exam_code_prev]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_code_prev]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_exam_name_prev]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="cris_exam_name_prev"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_exam_name_prev]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_name_prev]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_exam_key]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="cris_exam_key"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_exam_key]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_exam_key]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_ref_cat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="cris_ref_cat"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_ref_cat]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_ref_cat]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_ref_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="cris_ref_code"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_ref_code]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_ref_code]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_ref_org]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="cris_ref_org"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_ref_org]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_ref_org]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_req_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="cris_req_date"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_req_date]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_req_date]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cris_room_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="cris_room_code"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_room_code]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[cris_room_code]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hrg_code_fin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="hrg_code_fin"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_code_fin]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_fin]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hrg_code_prev]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="hrg_code_prev"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_code_prev]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_prev]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hrg_code_spell]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="hrg_code_spell"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_code_spell]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_spell]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hrg_code_ub]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="hrg_code_ub"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_code_ub]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_code_ub]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[hrg_dominant_proc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="hrg_dominant_proc"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_dominant_proc]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[hrg_dominant_proc]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latest_cut_fin]"
+                      cachedDataType="bool"
+                      cachedName="latest_cut_fin"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latest_cut_fin]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[latest_cut_fin]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latest_cut_flag]"
+                      cachedDataType="bool"
+                      cachedName="latest_cut_flag"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latest_cut_flag]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[latest_cut_flag]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[latest_rec_in_cut]"
+                      cachedDataType="bool"
+                      cachedName="latest_rec_in_cut"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latest_rec_in_cut]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[latest_rec_in_cut]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mds_include_flag]"
+                      cachedDataType="bool"
+                      cachedName="mds_include_flag"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mds_include_flag]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[mds_include_flag]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[medway_link]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="medway_link"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[medway_link]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[medway_link]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[nhs_number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="nhs_number"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[nhs_number]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[op_cct]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="op_cct"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[op_cct]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_cct]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[op_hrg]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="op_hrg"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[op_hrg]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_hrg]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[op_proc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="op_proc"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[op_proc]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_proc]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[op_spec]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="op_spec"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[op_spec]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[op_spec]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[overseas_visitor_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="overseas_visitor_status"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[overseas_visitor_status]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[overseas_visitor_status]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[patient_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="patient_id"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_id]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[patient_id]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[patient_postcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="patient_postcode"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_postcode]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[patient_postcode]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[patient_type_des]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="patient_type_des"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_type_des]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[patient_type_des]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[period_code]"
+                      cachedDataType="i4"
+                      cachedName="period_code"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[period_code]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[period_code]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[proc_natcode_p]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="proc_natcode_p"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_p]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_p]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[proc_natcode_s1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="proc_natcode_s1"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s1]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s1]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[proc_natcode_s2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="proc_natcode_s2"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s2]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s2]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[proc_natcode_s3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="proc_natcode_s3"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s3]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s3]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[proc_natcode_s4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="proc_natcode_s4"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s4]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s4]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[proc_natcode_s5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="proc_natcode_s5"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s5]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s5]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[proc_natcode_s6]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="proc_natcode_s6"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s6]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s6]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[proc_natcode_s7]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="proc_natcode_s7"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s7]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[proc_natcode_s7]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[purchaser_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="purchaser_id"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[purchaser_id]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[purchaser_id]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[regd_gp_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="regd_gp_code"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[regd_gp_code]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[regd_gp_code]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[regd_practice_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="regd_practice_code"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[regd_practice_code]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[regd_practice_code]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sex]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="sex"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sex]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[sex]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[site_natcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="site_natcode"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[site_natcode]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[site_natcode]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[spec_natcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="spec_natcode"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spec_natcode]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[spec_natcode]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[treatment_no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="treatment_no"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[treatment_no]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[treatment_no]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[upload_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="upload_date"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[upload_date]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[upload_date]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ward_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="ward_code"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ward_code]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ward_code]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[wir_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="wir_code"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wir_code]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[wir_code]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[audit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="audit"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[audit]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ethnic_origin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ethnic_origin"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_origin]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ethnic_origin]" />
+                    <inputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ethnic_origin_nat]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ethnic_origin_nat"
+                      externalMetadataColumnId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_origin_nat]"
+                      lineageId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output].Columns[ethnic_origin_nat]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pk_cris]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="pk_cris" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[age_at_event]"
+                      dataType="i4"
+                      name="age_at_event" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[attendance_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="attendance_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[billing_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="billing_id" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[birth_date]"
+                      dataType="dbTimeStamp"
+                      name="birth_date" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ccg_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ccg_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ccg_of_res]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ccg_of_res" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cds_identifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cds_identifier" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cons_pspec_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="cons_pspec_natcode" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_category]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cris_category" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_event_date]"
+                      dataType="dbTimeStamp"
+                      name="cris_event_date" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_event_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="cris_event_key" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="cris_no" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_exam_code_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cris_exam_code_fin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_exam_name_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="cris_exam_name_fin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_exam_code_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cris_exam_code_prev" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_exam_name_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="cris_exam_name_prev" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_exam_key]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="cris_exam_key" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_ref_cat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="cris_ref_cat" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_ref_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="cris_ref_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_ref_org]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="cris_ref_org" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_req_date]"
+                      dataType="dbTimeStamp"
+                      name="cris_req_date" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cris_room_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="cris_room_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_code_fin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="hrg_code_fin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_code_prev]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="hrg_code_prev" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_code_spell]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="hrg_code_spell" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_code_ub]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="hrg_code_ub" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[hrg_dominant_proc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="hrg_dominant_proc" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latest_cut_fin]"
+                      dataType="bool"
+                      name="latest_cut_fin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latest_cut_flag]"
+                      dataType="bool"
+                      name="latest_cut_flag" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[latest_rec_in_cut]"
+                      dataType="bool"
+                      name="latest_rec_in_cut" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mds_include_flag]"
+                      dataType="bool"
+                      name="mds_include_flag" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[medway_link]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="medway_link" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nhs_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="nhs_number" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[op_cct]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="op_cct" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[op_hrg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="op_hrg" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[op_proc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="op_proc" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[op_spec]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="op_spec" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[overseas_visitor_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="overseas_visitor_status" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="patient_id" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="patient_postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[patient_type_des]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="patient_type_des" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[period_code]"
+                      dataType="i4"
+                      name="period_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_p]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_p" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s1" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s2" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s3" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s4" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s5" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s6" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[proc_natcode_s7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="proc_natcode_s7" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[purchaser_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="purchaser_id" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[regd_gp_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="regd_gp_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[regd_practice_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="regd_practice_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sex]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="sex" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[site_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="site_natcode" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[spec_natcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="spec_natcode" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[treatment_no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="treatment_no" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[upload_date]"
+                      dataType="dbTimeStamp"
+                      name="upload_date" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ward_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="ward_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[wir_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="wir_code" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="audit" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_origin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ethnic_origin" />
+                    <externalMetadataColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ethnic_origin_nat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ethnic_origin_nat" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Transfer data to SLAM\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Transfer data to SLAM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Transfer data to SLAM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Transfer data to SLAM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Transfer data to SLAM.Paths[OLE DB Source Output]"
+              endId="Package\Transfer data to SLAM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Transfer data to SLAM\BIT feed table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table on SLAM"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C5260639-D50B-44D0-81B0-CC7CAE3ABE83}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table on SLAM"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F24E96AF-D0CF-448D-8CC4-FB6603EE8FF4}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.radiology" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{63C29278-2E8A-44CF-8333-1C4926C40DED}"
+      DTS:From="Package\Truncate table on SLAM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Transfer data to SLAM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{EA61365E-3519-4647-90D6-C3F19676CC4F}"
+      DTS:From="Package\Get datasource"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Truncate table on SLAM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{E73D67D7-CDF0-42E6-9978-4E046750B735}"
+      DTS:EvalOp="1"
+      DTS:Expression="@[User::data_source] == &quot;BIT;&quot;"
+      DTS:From="Package\Transfer data to SLAM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\email successful" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{36F1C590-6ACA-4098-B292-5468DB752FC2}"
+      DTS:From="Package\Transfer data to SLAM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\email failure"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\Transfer data to SLAM"
+          TopLeft="102.499998472631,190.449996594489" />
+        <NodeLayout
+          Size="192,42.6666666666667"
+          Id="Package\Truncate table on SLAM"
+          TopLeft="96.2499985657633,111.79999800086" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="193.70833185253,154.466664667527">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,35.9833319269617"
+              Start="0,0"
+              End="0,28.4833319269617">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.4833319269617" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\Get datasource"
+          TopLeft="109.999998360872,25.3166680497923" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="188.791665129984,67.9833347164589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43.8166632844013"
+              Start="0,0"
+              End="0,36.3166632844013">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.3166632844013" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\email successful"
+          TopLeft="32.4999995157123,269.71666367958" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="195.166665139298,233.116663261155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-84.6666656235854,36.6000004184246"
+              Start="0,0"
+              End="-84.6666656235854,29.1000004184246">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.3000002092123" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.3000002092123"
+                    Point2="0,18.3000002092123"
+                    Point3="-4,18.3000002092123" />
+                  <mssgle:LineSegment
+                    End="-80.6666656235854,18.3000002092123" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-80.6666656235854,18.3000002092123"
+                    Point2="-84.6666656235854,18.3000002092123"
+                    Point3="-84.6666656235854,22.3000002092123" />
+                  <mssgle:LineSegment
+                    End="-84.6666656235854,29.1000004184246" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-50.3333328117927,23.3000002092123,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="137.333333333334,42.6666666666667"
+          Id="Package\email failure"
+          TopLeft="245.624996339902,272.283332136174" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="224.722220694853,233.116663261155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="89.5694423117158,39.1666688750188"
+              Start="0,0"
+              End="89.5694423117158,31.6666688750188">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.8678087881674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.8678087881674"
+                    Point2="0,15.8678087881674"
+                    Point3="4,15.8678087881674" />
+                  <mssgle:LineSegment
+                    End="85.5694423117158,15.8678087881674" />
+                  <mssgle:CubicBezierSegment
+                    Point1="85.5694423117158,15.8678087881674"
+                    Point2="89.5694423117158,15.8678087881674"
+                    Point3="89.5694423117158,19.8678087881674" />
+                  <mssgle:LineSegment
+                    End="89.5694423117158,31.6666688750188" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.5433734996079,20.8678087881674,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Transfer data to SLAM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Transfer data to SLAM\OLE DB Destination"
+          TopLeft="80.4999988824129,126.39999783814" />
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Transfer data to SLAM\BIT feed table"
+          TopLeft="98.7499985285103,42.2499992445112" />
+        <EdgeLayout
+          Id="Package\Transfer data to SLAM.Paths[OLE DB Source Output]"
+          TopLeft="169.291665372128,84.9166659111778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,41.4833319269618"
+              Start="0,0"
+              End="0,33.9833319269618">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.9833319269618" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer data to SLAM\BIT feed table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Transfer data to SLAM\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
